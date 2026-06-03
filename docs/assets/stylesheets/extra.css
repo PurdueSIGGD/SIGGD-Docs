@@ -1,75 +1,129 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   THEME COLOR CUSTOMIZATION
-   primary: black and accent: red are set in mkdocs.yml.
-   Fine-tune the exact shades here with hex codes.
+   COLOR VARIABLES
+   To retheme: change the hex values in these two blocks only.
+   Light mode accent must have ≥4.5:1 contrast on white (#fff).
+   Dark mode accent must have ≥4.5:1 contrast on ~#1e1e1e.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-:root,
 [data-md-color-scheme="default"] {
-  /* Primary — controls header background and primary elements */
-  --md-primary-fg-color:        #000000;
-  --md-primary-fg-color--light: #1a1a1a;
-  --md-primary-fg-color--dark:  #000000;
-  --md-primary-bg-color:        #ffffff;
-  --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
+  /* Header (black) */
+  --md-primary-fg-color:              #000000;
+  --md-primary-fg-color--light:       #2a2a2a;
+  --md-primary-fg-color--dark:        #000000;
+  --md-primary-bg-color:              #ffffff;
+  --md-primary-bg-color--light:       rgba(255, 255, 255, 0.65);
 
-  /* Accent — links, active nav items, hover states, highlights */
-  --md-accent-fg-color:         #a30000;
-  --md-accent-fg-color--transparent: rgba(163, 0, 0, 0.1);
+  /* Red accent — links, active items, highlights (WCAG AA on white: 5.5:1) */
+  --md-accent-fg-color:               #c62828;
+  --md-accent-fg-color--transparent:  rgba(198, 40, 40, 0.08);
+
+  /* Body link color (matches accent) */
+  --md-typeset-a-color:               #c62828;
 }
 
 [data-md-color-scheme="slate"] {
-  /* Dark mode — tweak separately if needed */
-  --md-primary-fg-color:        #000000;
-  --md-primary-fg-color--light: #1a1a1a;
-  --md-primary-fg-color--dark:  #000000;
-  --md-accent-fg-color:         #ff2121;
-  --md-accent-fg-color--transparent: rgba(255, 33, 33, 0.1);
+  /* Header stays pure black — distinct from slate page background */
+  --md-primary-fg-color:              #000000;
+  --md-primary-fg-color--light:       #1a1a1a;
+  --md-primary-fg-color--dark:        #000000;
+  --md-primary-bg-color:              #ffffff;
+  --md-primary-bg-color--light:       rgba(255, 255, 255, 0.65);
+
+  /* Lighter red for dark backgrounds (WCAG AA on #1e1e1e: 7.2:1) */
+  --md-accent-fg-color:               #ef5350;
+  --md-accent-fg-color--transparent:  rgba(239, 83, 80, 0.08);
+
+  /* Body link color (matches accent) */
+  --md-typeset-a-color:               #ef5350;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   HEADER & NAVIGATION TABS
-   Force black background; red on active/hover states.
+   HEADER
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .md-header {
   background-color: #000000;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
-.md-tabs {
-  background-color: #000000;
+/* Subtle separator between black header and dark slate background */
+[data-md-color-scheme="slate"] .md-header {
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.08);
 }
 
-/* Active tab — red underline indicator */
-.md-tabs__link--active,
-.md-tabs__link:focus,
-.md-tabs__link:hover {
-  color: var(--md-primary-bg-color);
-  opacity: 1;
+.md-header__title {
+  color: #ffffff;
 }
 
-.md-tabs__link--active::after {
-  background-color: var(--md-accent-fg-color);
+/* Icons in header — white normally, red on hover */
+.md-header__button {
+  color: rgba(255, 255, 255, 0.8);
 }
 
-/* Header buttons (search, GitHub icon, theme toggle) — red on hover */
-.md-header__button:hover {
+.md-header__button:hover,
+.md-header__button:focus {
   color: var(--md-accent-fg-color);
   opacity: 1;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   SIDEBAR NAVIGATION
-   Active and hovered links use the red accent.
+   NAVIGATION TABS (top bar)
    ═══════════════════════════════════════════════════════════════════════════ */
 
+.md-tabs {
+  background-color: #000000;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.md-tabs__link {
+  color: rgba(255, 255, 255, 0.7);
+  opacity: 1;
+}
+
+.md-tabs__link:is(:focus, :hover) {
+  color: #ffffff;
+  opacity: 1;
+}
+
+.md-tabs__link--active {
+  color: #ffffff;
+  opacity: 1;
+}
+
+/* Red underline on active tab */
+.md-tabs__link--active::after {
+  background-color: var(--md-accent-fg-color);
+  height: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SIDEBAR NAVIGATION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Active page link — red, bold */
 .md-nav__link--active {
-  color: var(--md-accent-fg-color);
+  color: var(--md-accent-fg-color) !important;
   font-weight: 700;
 }
 
+/* Hover/focus — red */
 .md-nav__link:is(:focus, :hover) {
   color: var(--md-accent-fg-color);
+}
+
+/* Section headers in sidebar — slightly muted */
+.md-nav__title {
+  color: var(--md-default-fg-color--light);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SEARCH
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Search highlight matches */
+.md-search-result mark {
+  color: var(--md-accent-fg-color);
+  background-color: var(--md-accent-fg-color--transparent);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -81,7 +135,7 @@
   border-radius: 8px;
 }
 
-/* Wider content area on large screens */
+/* Wider content on large screens */
 @media screen and (min-width: 76.25em) {
   .md-content {
     max-width: 900px;
@@ -132,6 +186,6 @@
   font-size: 0.7rem;
 }
 
-.difficulty-beginner    { color: #4caf50; font-weight: 600; }
-.difficulty-intermediate{ color: #ff9800; font-weight: 600; }
-.difficulty-advanced    { color: #f44336; font-weight: 600; }
+.difficulty-beginner    { color: #388e3c; font-weight: 600; }
+.difficulty-intermediate{ color: #f57c00; font-weight: 600; }
+.difficulty-advanced    { color: var(--md-accent-fg-color); font-weight: 600; }
