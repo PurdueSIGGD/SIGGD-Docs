@@ -6,18 +6,45 @@ title: Contributing to SIGGD Docs
 
 All club members can contribute. You only need Python and Git.
 
-```bash
-# Clone (or fork) the repo
-git clone https://github.com/PurdueSIGGD/SIGGD-Docs.git
-cd SIGGD-Docs
+=== "Unix"
+    ```bash
+    # Clone (or fork) the repo
+    git clone https://github.com/PurdueSIGGD/SIGGD-Docs.git
+    cd SIGGD-Docs
 
-# Install dependencies
-pip install -r requirements.txt
+    # Create virtual environment
+    python3 -m venv .venv/
 
-# Start the live-reload preview server
-mkdocs serve
-# → open http://127.0.0.1:8000
-```
+    # Enter virtual environment
+    source .venv/bin/activate
+
+    # Install dependencies
+    pip install -r requirements.txt
+
+    # Start the live-reload preview server
+    mkdocs serve
+    # → open http://127.0.0.1:8000
+    ```
+
+=== "Windows"
+    ```bash
+    # Clone (or fork) the repo
+    git clone https://github.com/PurdueSIGGD/SIGGD-Docs.git
+    cd SIGGD-Docs
+
+    # Create virtual environment
+    python3 -m venv .venv/
+
+    # Enter virtual environment
+    .\.venv\Scripts\activate.bat
+
+    # Install dependencies
+    pip install -r requirements.txt
+
+    # Start the live-reload preview server
+    mkdocs serve
+    # → open http://127.0.0.1:8000
+    ```
 
 Before submitting a PR, run `mkdocs build --strict` to catch broken links and nav errors. Every new page also needs an entry in the `nav:` section of `mkdocs.yml`.
 

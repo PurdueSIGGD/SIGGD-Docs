@@ -7,9 +7,7 @@ hide:
 
 # SIGGD Docs
 
-**Purdue's Special Interest Group in Game Development**
-
-> We make games. We learn together. We ship things.
+**Purdue Special Interest Group in Game Development**
 
 <div class="grid cards" markdown>
 
@@ -17,7 +15,7 @@ hide:
 
     ---
 
-    Step-by-step tutorials on programming, art, design, audio, and workflow.
+    Step-by-step tutorials on programming, art, audio, and workflow.
 
     [:octicons-arrow-right-24: Browse tutorials](tutorials/index.md)
 

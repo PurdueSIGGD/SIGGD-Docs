@@ -1,5 +1,5 @@
 ---
-title: "System Name"
+title: "System Template"
 description: "One sentence describing what this system does."
 tags:
   - project

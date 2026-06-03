@@ -1,5 +1,5 @@
 ---
-title: "Tutorial Title Here"
+title: "Tutorial Template"
 description: "One sentence describing what the reader will learn or be able to do."
 tags:
   - programming   # replace with: art, game-design, audio, general, unity, godot, etc.

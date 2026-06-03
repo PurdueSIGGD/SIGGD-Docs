@@ -1,5 +1,5 @@
 ---
-title: "Your Project — Codebase"
+title: "Codebase Template"
 description: "Architecture overview and entry points for Your Project."
 tags:
   - project
