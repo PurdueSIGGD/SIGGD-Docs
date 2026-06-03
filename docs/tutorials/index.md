@@ -1,12 +1,8 @@
 ---
 title: Tutorials & Guides
-description: Step-by-step tutorials for game development, organized by discipline.
 ---
 
 # Tutorials & Guides
-
-Browse tutorials by category. Each tutorial includes a difficulty rating and
-estimated time to complete. All experience levels are welcome.
 
 <div class="grid cards" markdown>
 
@@ -14,7 +10,7 @@ estimated time to complete. All experience levels are welcome.
 
     ---
 
-    Unity, Godot, C#, GDScript, game systems architecture, and tooling.
+    Unity, Godot, C#, GDScript, game systems.
 
     [:octicons-arrow-right-24: Browse](programming/index.md)
 
@@ -22,7 +18,7 @@ estimated time to complete. All experience levels are welcome.
 
     ---
 
-    Pixel art, 3D modeling, animation, UI design, and asset pipelines.
+    Pixel art, 3D modeling, animation, asset pipelines.
 
     [:octicons-arrow-right-24: Browse](art-and-assets/index.md)
 
@@ -30,7 +26,7 @@ estimated time to complete. All experience levels are welcome.
 
     ---
 
-    Mechanics design, level design, player psychology, and writing GDDs.
+    Mechanics, level design, GDDs, playtesting.
 
     [:octicons-arrow-right-24: Browse](game-design/index.md)
 
@@ -38,7 +34,7 @@ estimated time to complete. All experience levels are welcome.
 
     ---
 
-    Sound effects, music composition, FMOD integration, and audio implementation.
+    SFX, music, FMOD, audio implementation.
 
     [:octicons-arrow-right-24: Browse](audio/index.md)
 
@@ -46,15 +42,8 @@ estimated time to complete. All experience levels are welcome.
 
     ---
 
-    Git workflow, project management, tooling setup, and collaborative skills.
+    Git, project management, workflow, tooling.
 
     [:octicons-arrow-right-24: Browse](general/index.md)
 
 </div>
-
----
-
-!!! tip "Want to write a tutorial?"
-    Use the [Tutorial Template](../contributing/templates/tutorial-template.md)
-    and follow the [Contributing Guide](../contributing/index.md).
-    Your knowledge is valuable — share it!
