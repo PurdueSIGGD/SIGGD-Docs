@@ -36,7 +36,7 @@ All club members can contribute. You only need Python and Git.
     python3 -m venv .venv/
 
     # Enter virtual environment
-    .\.venv\Scripts\activate.bat
+    .\\.venv\\Scripts\\activate.bat
 
     # Install dependencies
     pip install -r requirements.txt
