@@ -4,6 +4,7 @@ description: "Architecture overview and entry points for Your Project."
 tags:
   - project
   - reference
+# author: "@github-username"  # only if committing someone else's work
 ---
 
 # Codebase Overview

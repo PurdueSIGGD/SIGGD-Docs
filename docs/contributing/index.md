@@ -19,7 +19,7 @@ mkdocs serve
 # → open http://127.0.0.1:8000
 ```
 
-Before submitting a PR, run `mkdocs build --strict` to catch broken links and nav errors.
+Before submitting a PR, run `mkdocs build --strict` to catch broken links and nav errors. Every new page also needs an entry in the `nav:` section of `mkdocs.yml`.
 
 ---
 
@@ -32,13 +32,13 @@ Before submitting a PR, run `mkdocs build --strict` to catch broken links and na
 | Script reference | [Script Template](templates/script-template.md) | `docs/projects/<project-name>/codebase/scripts/` |
 | Resource page | [Resource Template](templates/resource-template.md) | `docs/resources/` |
 
-Every new page also needs an entry in the `nav:` section of `mkdocs.yml`.
-
 ---
 
-Author attribution is automatic — the git-authors plugin credits you from your commit history. Make sure your git name is set:
+**Author attribution** is automatic via git history. Make sure your name is set:
 
 ```bash
 git config --global user.name "Your Name"
 git config --global user.email "your@email.com"
 ```
+
+If you're committing content someone else wrote, add `author: "@their-username"` to the page frontmatter. They get credited as the original author; you show as the editor.

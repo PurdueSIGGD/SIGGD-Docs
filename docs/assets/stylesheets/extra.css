@@ -8,7 +8,7 @@
 :root,
 [data-md-color-scheme="default"] {
   /* Primary color — header background, active nav items, links */
-  --md-primary-fg-color:        #800006;   /* deep purple */
+  --md-primary-fg-color:        #800006;
   --md-primary-fg-color--light: #ff2121;
   --md-primary-fg-color--dark:  #700000;
   --md-primary-bg-color:        #ffffff;

@@ -4,6 +4,7 @@ description: "One sentence describing what resources are covered on this page."
 tags:
   - tools   # or: assets, references, reading, audio, art, free, paid
 last_verified: 2024-11-01   # date you last checked all links (YYYY-MM-DD)
+# author: "@github-username"  # only if committing someone else's work
 ---
 
 # Resource Page Title
