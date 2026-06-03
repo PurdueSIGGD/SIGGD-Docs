@@ -1,5 +1,5 @@
 ---
-title: "Your Project Name"
+title: "Project Template"
 description: "One sentence description of the game shown in search results."
 tags:
   - project
