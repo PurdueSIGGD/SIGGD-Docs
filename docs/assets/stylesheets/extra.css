@@ -1,59 +1,50 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   COLOR VARIABLES
-   To retheme: change the four hex values below.
-   --siggd-red:       primary accent (links, active items)
-   --siggd-red-light: hover states, lighter highlights
-   Both must meet WCAG AA contrast on their respective backgrounds.
+   COLOR PALETTE
+   Change these four values to retheme the entire site.
+   --siggd-red       : primary accent (links, active items, header text)
+   --siggd-red-light : hover / lighter variant
    ═══════════════════════════════════════════════════════════════════════════ */
 
-[data-md-color-scheme="default"] {
-  /* Red on white — contrast 5.5:1 ✓ */
+:root {
   --siggd-red:       #c62828;
   --siggd-red-light: #ef5350;
-
-  /* Material variable wiring */
-  --md-primary-fg-color:              #000000;
-  --md-primary-fg-color--light:       #2a2a2a;
-  --md-primary-fg-color--dark:        #000000;
-  --md-primary-bg-color:              #ffffff;
-  --md-primary-bg-color--light:       rgba(255, 255, 255, 0.65);
-  --md-accent-fg-color:               var(--siggd-red);
-  --md-accent-fg-color--transparent:  rgba(198, 40, 40, 0.08);
-  --md-typeset-a-color:               var(--siggd-red);
 }
 
 [data-md-color-scheme="slate"] {
-  /* Lighter red on dark (~#1e1e1e) — contrast 7.2:1 ✓ */
   --siggd-red:       #ef5350;
   --siggd-red-light: #ef9a9a;
+}
 
-  /* Material variable wiring */
-  --md-primary-fg-color:              #000000;
-  --md-primary-fg-color--light:       #1a1a1a;
-  --md-primary-fg-color--dark:        #000000;
-  --md-primary-bg-color:              #ffffff;
-  --md-primary-bg-color--light:       rgba(255, 255, 255, 0.65);
-  --md-accent-fg-color:               var(--siggd-red);
-  --md-accent-fg-color--transparent:  rgba(239, 83, 80, 0.08);
-  --md-typeset-a-color:               var(--siggd-red);
+/* Wire into Material's own variables so plugins/components pick up the right colours */
+[data-md-color-scheme="default"],
+[data-md-color-scheme="slate"] {
+  --md-accent-fg-color:              var(--siggd-red);
+  --md-accent-fg-color--transparent: rgba(198, 40, 40, 0.08);
+  --md-typeset-a-color:              var(--siggd-red);
+  --md-primary-fg-color:             #000000;
+  --md-primary-fg-color--light:      #2a2a2a;
+  --md-primary-fg-color--dark:       #000000;
+  --md-primary-bg-color:             #ffffff;
+  --md-primary-bg-color--light:      rgba(255, 255, 255, 0.65);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
    BODY LINKS
-   Explicit override — Material's default link CSS has high specificity.
+   !important required — Material injects --md-typeset-a-color via JS on
+   some builds, which beats plain CSS variable declarations.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .md-typeset a {
-  color: var(--siggd-red);
+  color: var(--siggd-red) !important;
 }
 
 .md-typeset a:is(:focus, :hover) {
-  color: var(--siggd-red-light);
+  color: var(--siggd-red-light) !important;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
    HIGHLIGHT / MARK
-   ==highlighted text== and search result matches — light red, not yellow.
+   ==highlighted text== and search matches — light red wash, no yellow.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .md-typeset mark {
@@ -67,17 +58,16 @@
 }
 
 .md-search-result mark {
-  color: var(--siggd-red);
-  background-color: var(--md-accent-fg-color--transparent);
+  color: var(--siggd-red) !important;
+  background-color: rgba(198, 40, 40, 0.12);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   FOCUS RINGS
-   Replace browser-default blue outline with red.
+   FOCUS RINGS — no browser-default blue
    ═══════════════════════════════════════════════════════════════════════════ */
 
 :focus-visible {
-  outline-color: var(--siggd-red);
+  outline-color: var(--siggd-red) !important;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -85,56 +75,52 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .md-header {
-  background-color: #000000;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
-}
-
-[data-md-color-scheme="slate"] .md-header {
-  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  background-color: #000000 !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
 .md-header__title {
   color: #ffffff;
 }
 
-/* Icons — white normally, lighter red on hover */
+/* Icons — white, turn lighter red on hover */
 .md-header__button {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.75) !important;
 }
 
 .md-header__button:is(:focus, :hover) {
-  color: var(--siggd-red-light);
-  opacity: 1;
+  color: var(--siggd-red-light) !important;
+  opacity: 1 !important;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
    NAVIGATION TABS
-   Red text on black by default; lighter red on hover; red underline active.
+   Red text by default on the black bar; lighter red on hover/active.
+   !important required — Material hardcodes rgba(255,255,255,.7) on these.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .md-tabs {
-  background-color: #000000;
+  background-color: #000000 !important;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Both modes share a black tab bar — use the same red values */
 .md-tabs__link {
-  color: var(--siggd-red);
-  opacity: 1;
+  color: var(--siggd-red) !important;
+  opacity: 1 !important;
 }
 
 .md-tabs__link:is(:focus, :hover) {
-  color: var(--siggd-red-light);
-  opacity: 1;
+  color: var(--siggd-red-light) !important;
+  opacity: 1 !important;
 }
 
 .md-tabs__link--active {
-  color: var(--siggd-red-light);
-  opacity: 1;
+  color: var(--siggd-red-light) !important;
+  opacity: 1 !important;
 }
 
 .md-tabs__link--active::after {
-  background-color: var(--siggd-red);
+  background-color: var(--siggd-red) !important;
   height: 2px;
 }
 
@@ -148,28 +134,13 @@
 }
 
 .md-nav__link:is(:focus, :hover) {
-  color: var(--siggd-red);
+  color: var(--siggd-red) !important;
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   TABLE OF CONTENTS (right-side TOC)
-   ═══════════════════════════════════════════════════════════════════════════ */
-
+/* Right-side table of contents */
 .md-nav--secondary .md-nav__link--active,
 .md-nav--secondary .md-nav__link:is(:focus, :hover) {
-  color: var(--siggd-red);
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   FOOTER
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-.md-footer {
-  background-color: #000000;
-}
-
-.md-footer__link:is(:focus, :hover) {
-  color: var(--siggd-red-light);
+  color: var(--siggd-red) !important;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -177,7 +148,19 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .md-search-result__link:is(:focus, :hover) {
-  background-color: var(--md-accent-fg-color--transparent);
+  background-color: rgba(198, 40, 40, 0.08) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.md-footer {
+  background-color: #000000 !important;
+}
+
+.md-footer__link:is(:focus, :hover) .md-footer__title {
+  color: var(--siggd-red-light);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -229,8 +212,8 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .md-tag {
-  background-color: var(--siggd-red);
-  color: #ffffff;
+  background-color: var(--siggd-red) !important;
+  color: #ffffff !important;
   border-radius: 4px;
   padding: 0.1em 0.5em;
   font-size: 0.7rem;
