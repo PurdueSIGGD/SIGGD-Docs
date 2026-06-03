@@ -1,31 +1,75 @@
 /* ═══════════════════════════════════════════════════════════════════════════
    THEME COLOR CUSTOMIZATION
-   Change these hex values to retheme the entire site.
-   Set mkdocs.yml primary/accent to any valid name (e.g. "indigo") as a base,
-   then these variables override the actual rendered colors.
+   primary: black and accent: red are set in mkdocs.yml.
+   Fine-tune the exact shades here with hex codes.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 :root,
 [data-md-color-scheme="default"] {
-  /* Primary color — header background, active nav items, links */
-  --md-primary-fg-color:        #800006;
-  --md-primary-fg-color--light: #ff2121;
-  --md-primary-fg-color--dark:  #700000;
+  /* Primary — controls header background and primary elements */
+  --md-primary-fg-color:        #000000;
+  --md-primary-fg-color--light: #1a1a1a;
+  --md-primary-fg-color--dark:  #000000;
   --md-primary-bg-color:        #ffffff;
   --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
 
-  /* Accent color — hover states, checkboxes, interactive highlights */
+  /* Accent — links, active nav items, hover states, highlights */
   --md-accent-fg-color:         #a30000;
-  --md-accent-fg-color--transparent: rgba(255, 82, 82, 0.1);
+  --md-accent-fg-color--transparent: rgba(163, 0, 0, 0.1);
 }
 
 [data-md-color-scheme="slate"] {
-  /* Dark mode overrides — tweak separately if needed */
-  --md-primary-fg-color:        #800006;
-  --md-primary-fg-color--light: #ff2121;
-  --md-primary-fg-color--dark:  #700000;
-  --md-accent-fg-color:         #a30000;
-  --md-accent-fg-color--transparent: rgba(255, 82, 82, 0.1);
+  /* Dark mode — tweak separately if needed */
+  --md-primary-fg-color:        #000000;
+  --md-primary-fg-color--light: #1a1a1a;
+  --md-primary-fg-color--dark:  #000000;
+  --md-accent-fg-color:         #ff2121;
+  --md-accent-fg-color--transparent: rgba(255, 33, 33, 0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HEADER & NAVIGATION TABS
+   Force black background; red on active/hover states.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.md-header {
+  background-color: #000000;
+}
+
+.md-tabs {
+  background-color: #000000;
+}
+
+/* Active tab — red underline indicator */
+.md-tabs__link--active,
+.md-tabs__link:focus,
+.md-tabs__link:hover {
+  color: var(--md-primary-bg-color);
+  opacity: 1;
+}
+
+.md-tabs__link--active::after {
+  background-color: var(--md-accent-fg-color);
+}
+
+/* Header buttons (search, GitHub icon, theme toggle) — red on hover */
+.md-header__button:hover {
+  color: var(--md-accent-fg-color);
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SIDEBAR NAVIGATION
+   Active and hovered links use the red accent.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.md-nav__link--active {
+  color: var(--md-accent-fg-color);
+  font-weight: 700;
+}
+
+.md-nav__link:is(:focus, :hover) {
+  color: var(--md-accent-fg-color);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -60,7 +104,7 @@
   gap: 0.5rem;
   margin-top: 2rem;
   padding: 0.4rem 0.75rem;
-  border-left: 3px solid var(--md-primary-fg-color);
+  border-left: 3px solid var(--md-accent-fg-color);
   font-size: 0.75rem;
   color: var(--md-default-fg-color--light);
 }
@@ -81,8 +125,8 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .md-tag {
-  background-color: var(--md-primary-fg-color);
-  color: var(--md-primary-bg-color);
+  background-color: var(--md-accent-fg-color);
+  color: #ffffff;
   border-radius: 4px;
   padding: 0.1em 0.5em;
   font-size: 0.7rem;

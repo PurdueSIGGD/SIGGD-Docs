@@ -1,5 +1,5 @@
 ---
-title: "ScriptName.cs"
+title: "ScriptTemplate.cs"
 description: "One sentence describing what this script does."
 tags:
   - project
