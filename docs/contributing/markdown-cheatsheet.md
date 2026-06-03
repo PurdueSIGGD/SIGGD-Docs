@@ -1,92 +1,53 @@
 ---
 title: Markdown Cheatsheet
-description: Quick reference for Markdown and MkDocs Material features available in SIGGD Docs.
 ---
 
 # Markdown Cheatsheet
 
-A quick reference for everything you can use in SIGGD Docs pages. All
-examples below render correctly on this site.
-
----
-
-## Basic Formatting
+**Formatting**
 
 ```markdown
-**bold text**
-*italic text*
-~~strikethrough~~
-`inline code`
+**bold**  *italic*  ~~strikethrough~~  `inline code`
 [Link text](https://example.com)
 [Internal link](../about/index.md)
 ```
 
-**bold text** · *italic text* · ~~strikethrough~~ · `inline code`
-
 ---
 
-## Headings
-
-```markdown
-# H1 — Page title (use once per page)
-## H2 — Major section
-### H3 — Sub-section
-#### H4 — Rarely needed
-```
-
----
-
-## Lists
+**Lists**
 
 ```markdown
 - Unordered item
-- Another item
     - Nested item
 
 1. Ordered item
-2. Second item
-    1. Nested ordered
 
 - [x] Checked task
 - [ ] Unchecked task
 ```
 
-- [x] Checked task
-- [ ] Unchecked task
-
 ---
 
-## Code Blocks
+**Code blocks** — always include a language identifier
 
 ````markdown
 ```csharp
-public class PlayerController : MonoBehaviour
-{
-    public float speed = 5f;
-}
+public class Example : MonoBehaviour { }
 ```
 ````
 
-```csharp
-public class PlayerController : MonoBehaviour
-{
-    public float speed = 5f;
-}
-```
-
-Common language identifiers: `csharp`, `gdscript`, `python`, `bash`, `yaml`,
-`json`, `markdown`, `html`, `css`, `javascript`.
+Common identifiers: `csharp` `gdscript` `python` `bash` `yaml` `json` `markdown`
 
 ---
 
-## Admonitions
+**Admonitions**
 
 ```markdown
 !!! tip
-    A helpful tip.
+    Helpful tip.
 
-!!! info "Custom Title"
-    Neutral information.
+!!! info "Custom title"
+    Neutral info.
 
 !!! warning
     Be careful.
@@ -95,18 +56,18 @@ Common language identifiers: `csharp`, `gdscript`, `python`, `bash`, `yaml`,
     Serious warning.
 
 !!! example
-    A worked example.
+    Worked example.
 
-??? note "Collapsible note"
+??? note "Collapsible"
     Click to expand.
 ```
 
-??? note "Collapsible note"
+??? note "Collapsible"
     This is the collapsed content.
 
 ---
 
-## Tabbed Content
+**Tabbed content**
 
 ```markdown
 === "Tab One"
@@ -124,65 +85,52 @@ Common language identifiers: `csharp`, `gdscript`, `python`, `bash`, `yaml`,
 
 ---
 
-## Tables
+**Tables**
 
 ```markdown
 | Header A | Header B |
 |----------|----------|
 | Cell     | Cell     |
-| Cell     | Cell     |
 ```
-
-| Header A | Header B |
-|----------|----------|
-| Cell A1  | Cell B1  |
-| Cell A2  | Cell B2  |
 
 ---
 
-## Images
+**Images**
 
 ```markdown
 ![Alt text](../assets/images/example.png)
-*Caption below the image.*
+*Caption.*
 ```
 
 ---
 
-## Mermaid Diagrams
+**Mermaid diagrams**
 
 ````markdown
 ```mermaid
 graph LR
     A[Player] --> B[PlayerController]
-    B --> C[Health System]
-    B --> D[Movement]
+    B --> C[Health]
 ```
 ````
 
 ```mermaid
 graph LR
     A[Player] --> B[PlayerController]
-    B --> C[Health System]
-    B --> D[Movement]
+    B --> C[Health]
 ```
 
 ---
 
-## Emoji
+**Emoji** — browse all at [squidfunk.github.io/mkdocs-material/reference/icons-emojis](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/)
 
 ```markdown
-:material-gamepad-variant:
-:material-code-braces:
-:material-school:
-:fontawesome/brands/github:
+:material-gamepad-variant:  :material-code-braces:  :fontawesome/brands/github:
 ```
-
-Browse all icons at [squidfunk.github.io/mkdocs-material/reference/icons-emojis](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/).
 
 ---
 
-## Grid Cards
+**Grid cards**
 
 ```markdown
 <div class="grid cards" markdown>
@@ -191,42 +139,30 @@ Browse all icons at [squidfunk.github.io/mkdocs-material/reference/icons-emojis]
 
     ---
 
-    Card description text.
+    Description.
 
-    [:octicons-arrow-right-24: Link text](target.md)
+    [:octicons-arrow-right-24: Link](target.md)
 
 </div>
 ```
 
 ---
 
-## Keyboard Keys
+**Keyboard keys**
 
 ```markdown
-++ctrl+s++ · ++alt+f4++ · ++enter++
+++ctrl+s++  ++enter++  ++alt+f4++
 ```
 
 ++ctrl+s++ · ++enter++
 
 ---
 
-## Footnotes
+**Math (LaTeX)**
 
-```markdown
-This sentence has a footnote.[^1]
-
-[^1]: Footnote content goes here.
-```
-
----
-
-## Math (LaTeX)
-
-Inline: `\(E = mc^2\)` renders as \(E = mc^2\)
+Inline: `\(E = mc^2\)` → \(E = mc^2\)
 
 Block:
 ```markdown
-\[
-\sum_{i=1}^{n} i = \frac{n(n+1)}{2}
-\]
+\[ \sum_{i=1}^{n} i = \frac{n(n+1)}{2} \]
 ```

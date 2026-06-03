@@ -9,6 +9,7 @@ prerequisites:
   - "List any prerequisites here (e.g. Unity installed)"
   - "Basic knowledge of X"
 status: draft   # draft | review | published
+# author: "@github-username"  # only if committing someone else's work
 ---
 
 # Tutorial Title Here
