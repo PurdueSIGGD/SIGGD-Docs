@@ -1,0 +1,32 @@
+/* SIGGD Docs — custom styles */
+
+/* Rounded cards */
+.md-typeset .grid.cards > * {
+  border-radius: 8px;
+}
+
+/* Slightly wider content area on large screens */
+@media screen and (min-width: 76.25em) {
+  .md-content {
+    max-width: 900px;
+  }
+}
+
+/* Git authors plugin spacing */
+.md-source-file {
+  margin-top: 1.5rem;
+}
+
+/* Tag pill styling */
+.md-tag {
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  border-radius: 4px;
+  padding: 0.1em 0.5em;
+  font-size: 0.7rem;
+}
+
+/* Difficulty badge colors */
+.difficulty-beginner { color: #4caf50; font-weight: 600; }
+.difficulty-intermediate { color: #ff9800; font-weight: 600; }
+.difficulty-advanced { color: #f44336; font-weight: 600; }
