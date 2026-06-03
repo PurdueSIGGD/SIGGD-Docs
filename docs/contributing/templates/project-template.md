@@ -12,6 +12,7 @@ genre: platformer   # free text
 team_size: 0        # fill in actual number
 itch_url: https://siggd.itch.io/your-project   # remove if not applicable
 repo_url: https://github.com/PurdueSIGGD/your-project   # remove if private
+# author: "@github-username"  # only if committing someone else's work
 ---
 
 # Your Project Name

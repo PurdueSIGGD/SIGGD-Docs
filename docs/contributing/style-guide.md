@@ -1,164 +1,90 @@
 ---
 title: Style Guide
-description: Writing and formatting conventions for SIGGD Docs.
 ---
 
 # Style Guide
 
-Follow these conventions when contributing to keep the site consistent and
-easy to read. When in doubt, match the style of existing pages.
+**Voice:** Write in second person ("you"), active voice, and keep it concise. This is a club wiki, not a corporate manual — be direct and approachable.
 
 ---
 
-## Voice and Tone
-
-- **Second person:** Address the reader as "you." ("You will need to..." not "The user will need to...")
-- **Active voice:** "Click the button" not "The button should be clicked."
-- **Direct and concise:** Get to the point. Avoid padding and filler phrases.
-- **Friendly, not formal:** This is club documentation, not a corporate manual. Be approachable.
-- **Assume good faith:** Assume the reader wants to learn — don't write condescendingly.
-
----
-
-## Headings
-
-- Use sentence case for headings: "Getting started with Unity" not "Getting Started With Unity."
-- Never skip heading levels (don't go from `##` to `####`).
-- `#` (H1) is the page title — use it only once, at the top.
-- `##` (H2) for major sections, `###` (H3) for sub-sections.
-- Don't end headings with a period.
-
----
-
-## Frontmatter
-
-Every page must include a `title` and `description`:
+**Frontmatter:** Every page needs at minimum a `title`. Add `author: "@username"` only when committing someone else's work.
 
 ```yaml
 ---
 title: "Page Title"
-description: "One concise sentence describing the page's content."
 tags:
   - relevant-tag
 ---
 ```
 
-For tutorials, also include `difficulty`, `time_estimate`, and `prerequisites`.
+```yaml
+---
+title: "Page Title"
+author: "@github-username"   # committing someone else's work
+---
+```
+
+For tutorials, also add `difficulty`, `time_estimate`, and `prerequisites`.
 
 ---
 
-## Code Blocks
-
-Always specify the language for syntax highlighting:
+**Code blocks:** Always specify the language identifier.
 
 ````markdown
 ```csharp
 // C# code
 ```
-
 ```gdscript
-# GDScript code
+# GDScript
 ```
-
 ```bash
-# Shell commands
+# shell
 ```
 ````
 
-Use inline code for: file paths (`Assets/Scripts/`), variable names (`playerHealth`),
-menu items (`File > Save`), and short commands (`mkdocs serve`).
+Use inline code for file paths (`Assets/Scripts/`), variable names (`playerHealth`), and menu items (`File > Save`).
 
 ---
 
-## Links
-
-- Use descriptive link text: [Contributing Guide](index.md) not [click here](index.md).
-- For internal links, use relative paths from the current file.
-- For external links, always open in context — don't add `{target="_blank"}` unless
-  the destination is a file download.
+**Links:** Use descriptive text — `[Contributing Guide](index.md)` not `[click here](index.md)`. Use relative paths for internal links.
 
 ---
 
-## Admonitions
-
-Use admonitions to call out important information. Choose the right type:
+**Admonitions:**
 
 ```markdown
-!!! tip "Optional heading"
-    A helpful tip that improves the experience but isn't required.
-
-!!! info "Optional heading"
-    Neutral supplemental information.
-
-!!! warning "Optional heading"
-    Something the reader must be aware of to avoid problems.
-
-!!! danger "Optional heading"
-    A serious warning — data loss, destructive actions, etc.
-
-!!! example "Optional heading"
-    A worked example or code sample.
+!!! tip       — helpful but optional
+!!! info      — neutral info
+!!! warning   — must-know before proceeding
+!!! danger    — serious, destructive
+!!! example   — worked example
+??? note      — collapsible
 ```
 
-Don't overuse admonitions — if every paragraph has one, none stand out.
+Don't overuse them — if every paragraph has one, none stand out.
 
 ---
 
-## Images
-
-- Store images in `docs/assets/images/` or a project-specific subfolder.
-- Always include alt text: `![Alt text describing the image](path/to/image.png)`
-- Add a caption below with italic text: `*Caption explaining the image.*`
-- Prefer PNG for screenshots and pixel art; JPEG for photographs.
-- Keep file sizes reasonable — compress large images before committing.
-
----
-
-## Tables
-
-Use tables for structured comparisons, not for layout. Keep them simple:
+**Images:** Store in `docs/assets/images/`. Always include alt text. Add an italic caption below.
 
 ```markdown
-| Column A | Column B | Column C |
-|----------|----------|----------|
-| Value    | Value    | Value    |
+![Description of image](../../assets/images/example.png)
+*Caption here.*
 ```
 
 ---
 
-## Diagrams
+**Tags:** Lowercase, hyphen-separated. Reuse existing tags before adding new ones.
 
-Use [Mermaid](https://mermaid.js.org/syntax/flowchart.html) diagrams for
-system architecture and flow charts — they render natively in the site:
-
-````markdown
-```mermaid
-graph TD
-    A[Start] --> B{Decision}
-    B -->|Yes| C[Do thing]
-    B -->|No| D[Do other thing]
-```
-````
+`programming` · `art` · `game-design` · `audio` · `general` · `unity` · `godot` · `unreal` · `pixel-art` · `3d` · `animation` · `ui` · `tools` · `assets` · `project` · `game-jam` · `tutorial` · `reference` · `setup` · `beginner` · `intermediate` · `advanced`
 
 ---
 
-## Difficulty Ratings (Tutorials)
+**Difficulty ratings (tutorials):**
 
-| Rating | Meaning |
-|--------|---------|
-| `beginner` | No prior knowledge of the topic required |
-| `intermediate` | Comfortable with the basics, ready to go deeper |
-| `advanced` | Significant experience with the topic expected |
-
----
-
-## Tags
-
-Use lowercase, hyphen-separated tags from this list:
-
-`programming` · `art` · `game-design` · `audio` · `general` · `unity` · `godot`
-· `unreal` · `pixel-art` · `3d` · `animation` · `ui` · `tools` · `assets`
-· `free` · `project` · `game-jam` · `tutorial` · `reference` · `setup`
-· `beginner` · `intermediate` · `advanced`
-
-Add new tags sparingly — check existing pages first to reuse established tags.
+| Value | Meaning |
+|-------|---------|
+| `beginner` | No prior knowledge needed |
+| `intermediate` | Comfortable with basics |
+| `advanced` | Significant experience expected |
