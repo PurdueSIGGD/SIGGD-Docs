@@ -13,5 +13,5 @@ title: About SIGGD
 | Platform | Link |
 |----------|------|
 | GitHub | [github.com/PurdueSIGGD](https://github.com/PurdueSIGGD) |
-| Discord | [TODO: Add invite link] |
+| Discord | [SIGGD](https://discord.gg/nKdj4bTjNs) |
 | Instagram | [TODO: Add link] |

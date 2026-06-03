@@ -9,6 +9,8 @@ hide:
 
 **Purdue Special Interest Group in Game Development**
 
+Welcome to our documentation website!
+
 <div class="grid cards" markdown>
 
 -   :material-school:{ .lg .middle } **Tutorials & Guides**
@@ -23,7 +25,7 @@ hide:
 
     ---
 
-    Codebase docs, team credits, and screenshots for every SIGGD project.
+    Codebase documentation for our projects.
 
     [:octicons-arrow-right-24: See our projects](projects/index.md)
 
@@ -31,7 +33,7 @@ hide:
 
     ---
 
-    Tools, free assets, and external references for all disciplines.
+    Tools and external references for all disciplines.
 
     [:octicons-arrow-right-24: Explore resources](resources/index.md)
 
@@ -44,20 +46,3 @@ hide:
     [:octicons-arrow-right-24: How to contribute](contributing/index.md)
 
 </div>
-
----
-
-=== "I'm new to game development"
-    1. Find your discipline in [Tutorials](tutorials/index.md)
-    2. Browse [Tools](resources/tools.md) to set up your workspace
-    3. Join the Discord (link in the footer) and introduce yourself
-
-=== "I want to contribute to docs"
-    1. Read the [Contributing Guide](contributing/index.md)
-    2. Pick a [template](contributing/templates/tutorial-template.md) and write your page
-    3. Run `mkdocs serve` to preview, then open a pull request
-
-=== "I want to document a project"
-    1. Copy the [Project Template](contributing/templates/project-template.md)
-    2. Create `docs/projects/<your-project-name>/`
-    3. Add your project to `nav:` in `mkdocs.yml`
