@@ -1,0 +1,30 @@
+name: Broken Link
+description: Report a broken, outdated, or incorrect link on the documentation site.
+labels:
+  - broken-link
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page where the broken link appears
+      description: URL or path of the docs page (e.g. /tutorials/programming/ or the full URL).
+      placeholder: https://PurdueSIGGD.github.io/SIGGD-Docs/tutorials/programming/
+    validations:
+      required: true
+
+  - type: input
+    id: link_text
+    attributes:
+      label: Link text or URL that is broken
+      description: The text of the link, or paste the URL it was pointing to.
+      placeholder: "e.g. 'Getting Started with Unity' or https://old-url.com"
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Anything else that might help — what did the link used to go to, or what should it link to?
+    validations:
+      required: false

@@ -1,0 +1,21 @@
+# SIGGD Docs — Code Owners
+# People listed here are automatically requested as reviewers for pull requests
+# that touch their area of the repository.
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default: docs maintainers review everything not otherwise covered below.
+# Create a "docs-maintainers" team at github.com/orgs/PurdueSIGGD/teams
+# and add club officers responsible for this repo.
+*                           @PurdueSIGGD/docs-maintainers
+
+# Site configuration — maintainer sign-off required
+mkdocs.yml                  @PurdueSIGGD/docs-maintainers
+requirements.txt            @PurdueSIGGD/docs-maintainers
+.github/                    @PurdueSIGGD/docs-maintainers
+
+# Contributing guidelines — maintainer sign-off required
+docs/contributing/          @PurdueSIGGD/docs-maintainers
+
+# Project docs — add the project lead's GitHub handle for each project.
+# Example (uncomment and fill in when you have real projects):
+# docs/projects/your-project-name/   @project-lead-github-handle

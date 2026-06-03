@@ -1,0 +1,65 @@
+name: Content Request
+description: Request a new tutorial, project documentation page, or resource listing.
+labels:
+  - content-request
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to request new content! Fill in as much detail
+        as you can — the more context you provide, the easier it is for someone
+        to write it.
+
+  - type: input
+    id: topic
+    attributes:
+      label: What topic should be covered?
+      description: Be as specific as possible.
+      placeholder: e.g. "How to set up FMOD with Unity 2022"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Which section of the docs would this belong to?
+      options:
+        - Tutorial — Programming
+        - Tutorial — Art & Assets
+        - Tutorial — Game Design
+        - Tutorial — Audio
+        - Tutorial — General
+        - Project Documentation
+        - Resource Page
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Target difficulty (for tutorials)
+      options:
+        - Beginner
+        - Intermediate
+        - Advanced
+        - Not applicable
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Why would this be useful?
+      description: Who would benefit from this content and what problem does it solve?
+      placeholder: "New members often struggle with X. A tutorial would help them..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: volunteer
+    attributes:
+      label: Can you write this?
+      options:
+        - label: I'm willing to write this content myself (with help from the templates)
