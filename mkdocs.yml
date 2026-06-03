@@ -9,7 +9,7 @@ repo_name: PurdueSIGGD/SIGGD-Docs
 repo_url: https://github.com/PurdueSIGGD/SIGGD-Docs
 edit_uri: edit/main/docs/
 
-copyright: Purdue SIGGD
+copyright: Copyright &copy; 2026 Purdue SIGGD
 
 hooks:
   - hooks/author_attribution.py
