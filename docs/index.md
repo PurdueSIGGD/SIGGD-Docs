@@ -1,21 +1,15 @@
 ---
 title: Home
-description: >-
-  SIGGD is Purdue University's student-run game development club. This site
-  is our central hub for tutorials, project documentation, and resources.
+description: SIGGD is Purdue University's student-run game development club.
 hide:
   - toc
 ---
 
-# Welcome to SIGGD Docs
+# SIGGD Docs
 
 **Purdue's Special Interest Group in Game Development**
 
 > We make games. We learn together. We ship things.
-
----
-
-## Quick Links
 
 <div class="grid cards" markdown>
 
@@ -23,8 +17,7 @@ hide:
 
     ---
 
-    Step-by-step tutorials covering programming, art, design, audio, and
-    general game-dev workflow — for all skill levels.
+    Step-by-step tutorials on programming, art, design, audio, and workflow.
 
     [:octicons-arrow-right-24: Browse tutorials](tutorials/index.md)
 
@@ -32,8 +25,7 @@ hide:
 
     ---
 
-    Documentation for every game SIGGD has shipped, including codebase
-    references, team credits, and screenshots.
+    Codebase docs, team credits, and screenshots for every SIGGD project.
 
     [:octicons-arrow-right-24: See our projects](projects/index.md)
 
@@ -41,8 +33,7 @@ hide:
 
     ---
 
-    Curated lists of tools, free asset sources, external references, and
-    recommended reading for game developers of all disciplines.
+    Tools, free assets, and external references for all disciplines.
 
     [:octicons-arrow-right-24: Explore resources](resources/index.md)
 
@@ -50,8 +41,7 @@ hide:
 
     ---
 
-    Help grow this wiki. Learn how to write docs, use our templates, and
-    follow the style guide — all you need is a GitHub account.
+    All you need is a GitHub account. Templates and a style guide included.
 
     [:octicons-arrow-right-24: How to contribute](contributing/index.md)
 
@@ -59,45 +49,17 @@ hide:
 
 ---
 
-## About SIGGD
-
-SIGGD (Special Interest Group in Game Development) is a student organization
-at Purdue University open to everyone — whether you're a programmer, artist,
-designer, musician, or just someone curious about how games are made.
-
-We meet weekly to work on game jam projects, semester-long games, and
-skill-building workshops. This documentation site is where we collect
-everything we learn along the way, so knowledge doesn't disappear when
-members graduate.
-
-!!! info "New to SIGGD?"
-    Check out our [About](about/index.md) page to learn more, or jump straight
-    into [Tutorials](tutorials/index.md) to start learning.
-
----
-
-## Getting Started
-
 === "I'm new to game development"
-    1. Read the [Tutorials overview](tutorials/index.md) to find your discipline
-    2. Pick an engine: start with [Programming tutorials](tutorials/programming/index.md)
-    3. Browse [Free Tools](resources/tools.md) to set up your workspace
-    4. Join the Discord (link in the footer) to ask questions and meet the team
+    1. Find your discipline in [Tutorials](tutorials/index.md)
+    2. Browse [Tools](resources/tools.md) to set up your workspace
+    3. Join the Discord (link in the footer) and introduce yourself
 
 === "I want to contribute to docs"
-    1. Read the [Contributing Guide](contributing/index.md) — it's a 5-minute read
-    2. Review the [Style Guide](contributing/style-guide.md)
-    3. Pick a [template](contributing/templates/tutorial-template.md) and draft your page
-    4. Run `mkdocs serve` locally to preview, then open a pull request
+    1. Read the [Contributing Guide](contributing/index.md)
+    2. Pick a [template](contributing/templates/tutorial-template.md) and write your page
+    3. Run `mkdocs serve` to preview, then open a pull request
 
 === "I want to document a project"
     1. Copy the [Project Template](contributing/templates/project-template.md)
-    2. Create a `docs/projects/<your-project-name>/` folder
-    3. Fill in the template — overview, codebase, team, screenshots
-    4. Add your project to the `nav:` section of `mkdocs.yml`
-
----
-
-*This site is maintained by SIGGD members and deployed automatically via
-GitHub Actions from the
-[SIGGD-Docs repository](https://github.com/PurdueSIGGD/SIGGD-Docs).*
+    2. Create `docs/projects/<your-project-name>/`
+    3. Add your project to `nav:` in `mkdocs.yml`

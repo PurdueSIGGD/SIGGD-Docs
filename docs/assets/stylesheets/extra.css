@@ -1,11 +1,43 @@
-/* SIGGD Docs — custom styles */
+/* ═══════════════════════════════════════════════════════════════════════════
+   THEME COLOR CUSTOMIZATION
+   Change these hex values to retheme the entire site.
+   Set mkdocs.yml primary/accent to any valid name (e.g. "indigo") as a base,
+   then these variables override the actual rendered colors.
+   ═══════════════════════════════════════════════════════════════════════════ */
 
-/* Rounded cards */
+:root,
+[data-md-color-scheme="default"] {
+  /* Primary color — header background, active nav items, links */
+  --md-primary-fg-color:        #800006;   /* deep purple */
+  --md-primary-fg-color--light: #ff2121;
+  --md-primary-fg-color--dark:  #700000;
+  --md-primary-bg-color:        #ffffff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
+
+  /* Accent color — hover states, checkboxes, interactive highlights */
+  --md-accent-fg-color:         #a30000;
+  --md-accent-fg-color--transparent: rgba(255, 82, 82, 0.1);
+}
+
+[data-md-color-scheme="slate"] {
+  /* Dark mode overrides — tweak separately if needed */
+  --md-primary-fg-color:        #800006;
+  --md-primary-fg-color--light: #ff2121;
+  --md-primary-fg-color--dark:  #700000;
+  --md-accent-fg-color:         #a30000;
+  --md-accent-fg-color--transparent: rgba(255, 82, 82, 0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LAYOUT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Rounded grid cards */
 .md-typeset .grid.cards > * {
   border-radius: 8px;
 }
 
-/* Slightly wider content area on large screens */
+/* Wider content area on large screens */
 @media screen and (min-width: 76.25em) {
   .md-content {
     max-width: 900px;
@@ -17,7 +49,37 @@
   margin-top: 1.5rem;
 }
 
-/* Tag pill styling */
+/* ═══════════════════════════════════════════════════════════════════════════
+   ORIGINAL AUTHOR ATTRIBUTION
+   Rendered when a page's frontmatter includes `author: "@username"`
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.siggd-original-author {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding: 0.4rem 0.75rem;
+  border-left: 3px solid var(--md-primary-fg-color);
+  font-size: 0.75rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.siggd-author-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.siggd-author-label::after {
+  content: ":";
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TAGS & BADGES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
 .md-tag {
   background-color: var(--md-primary-fg-color);
   color: var(--md-primary-bg-color);
@@ -26,7 +88,6 @@
   font-size: 0.7rem;
 }
 
-/* Difficulty badge colors */
-.difficulty-beginner { color: #4caf50; font-weight: 600; }
-.difficulty-intermediate { color: #ff9800; font-weight: 600; }
-.difficulty-advanced { color: #f44336; font-weight: 600; }
+.difficulty-beginner    { color: #4caf50; font-weight: 600; }
+.difficulty-intermediate{ color: #ff9800; font-weight: 600; }
+.difficulty-advanced    { color: #f44336; font-weight: 600; }

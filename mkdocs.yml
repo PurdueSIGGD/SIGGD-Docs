@@ -11,6 +11,9 @@ edit_uri: edit/main/docs/
 
 copyright: Copyright &copy; 2024 – present Purdue SIGGD
 
+hooks:
+  - hooks/author_attribution.py
+
 # ── Theme ──────────────────────────────────────────────────────────────────────
 theme:
   name: material
@@ -39,6 +42,8 @@ theme:
 
   features:
     # Navigation
+    - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
     - navigation.expand
     - navigation.indexes
@@ -56,8 +61,6 @@ theme:
     - content.tooltips
     - content.action.edit
     - content.action.view
-    # Header
-    - header.autohide
 
 # ── Plugins ───────────────────────────────────────────────────────────────────
 plugins:
@@ -92,22 +95,16 @@ nav:
           - tutorials/general/index.md
   - Projects:
       - projects/index.md
-      - Example Project:
-          - Overview: projects/example-project/index.md
+      - 26-27 Game:
+          - Overview: projects/2627-game/index.md
           - Codebase:
-              - projects/example-project/codebase/index.md
-              - Setup Guide: projects/example-project/codebase/setup.md
-              - Systems:
-                  - projects/example-project/codebase/systems/index.md
-                  - Player Controller: projects/example-project/codebase/systems/player-controller.md
-              - Scripts:
-                  - projects/example-project/codebase/scripts/index.md
-          - Team: projects/example-project/team.md
-          - Screenshots: projects/example-project/screenshots.md
+              - projects/2627-game/codebase/index.md
+              - Systems: projects/2627-game/codebase/systems/index.md
+              - Scripts: projects/2627-game/codebase/scripts/index.md
+          - Team: projects/2627-game/team.md
   - Resources:
       - resources/index.md
       - Tools: resources/tools.md
-      - Free Assets: resources/free-assets.md
       - External References: resources/external-references.md
   - Contributing:
       - contributing/index.md
