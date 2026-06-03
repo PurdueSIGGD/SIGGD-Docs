@@ -2,7 +2,7 @@
 mkdocs>=1.6.0
 
 # Theme
-mkdocs-material>=9.5.0
+mkdocs-material>=9.7.6
 
 # Plugins
 mkdocs-git-authors-plugin>=0.9.0
