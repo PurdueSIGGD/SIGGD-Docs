@@ -15,6 +15,7 @@ hooks:
   - hooks/author_attribution.py
 
 # ── Theme ──────────────────────────────────────────────────────────────────────
+# Overriden by assets/stylesheets/extra.css for custom colors; make changes there
 theme:
   name: material
   favicon: assets/images/favicon.png
@@ -87,8 +88,6 @@ nav:
           - tutorials/programming/index.md
       - Art & Assets:
           - tutorials/art-and-assets/index.md
-      - Game Design:
-          - tutorials/game-design/index.md
       - Audio:
           - tutorials/audio/index.md
       - General:
