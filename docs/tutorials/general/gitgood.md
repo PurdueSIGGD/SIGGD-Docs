@@ -15,16 +15,16 @@ status: draft   # draft | review | published
 # Git Good: First Commits
 
 !!! abstract "What You Will Learn"
-    By the end of this tutorial you will be able to:
+    By the end of this tutorial you will:
 
-    - Explain what Git is and why game dev teams use it
+    - Understand what Git is
     - Set up Git and GitHub Desktop on your machine
     - Clone a shared game project repository to your computer
     - Make and commit changes, then push them to GitHub
     - Create and merge branches to work without disrupting your teammates
     - Set up Git LFS to handle large art and audio assets
 
-**Difficulty:** Beginner · **Time:** ~45 minutes
+**Difficulty:** Beginner · **Time:** 45 minutes
 
 ---
 
@@ -33,23 +33,25 @@ status: draft   # draft | review | published
 Before starting, make sure you have:
 
 - [ ] A valid GitHub account ([sign up at github.com](https://github.com) if you don't have one)
-- [ ] [GitHub Desktop](https://desktop.github.com/download/) downloaded (for the Desktop tab steps)
+- [ ] [GitHub Desktop](https://desktop.github.com/download/) downloaded (if you'd rather work with a visual interface)
 
 ---
 
 ## Introduction
 
-Imagine you've spent three hours getting the player movement just right. Then a teammate opens the same script, makes a change, and saves over your file. Or you try something experimental, break everything, and have no way to undo it.
+Imagine you've spent three hours working on a piece of code for a feature, then a teammate opens the same script, makes a change, and saves over your file. Or you try something experimental, break everything, and have no way to undo it.
 
-**Git** is the tool that prevents all of that. It's a version control system: software that keeps a complete, permanent history of every change ever made to your project. You can undo mistakes, see who changed what, and collaborate with a whole team on the same files without anyone overwriting anyone else.
+**Git** is the industry standard tool that prevents all of that. With Git, you can undo mistakes, see who changed what, and collaborate with a whole team on the same files without anyone overwriting anyone else.
 
-Almost every professional software and game studio uses Git. Learning it is one of the highest-value skills you can pick up as a new game dev team member.
+On the surface, especially as someone who's never used it before, Git can seem daunting, but once you learn more about it, it can become your best friend when developing. This guide will teach you about both Git and GitHub (they are indeed different), walking you through the steps of successfully using it in a game development environment here at SIGGD!
+
+These first few sections teach you about what Git and GitHub really are, but if you just want to collaborate with our team, feel free to skip to ___!
 
 ---
 
 ## What is Git?
 
-Git is a **version control system**. Think of it like a magic filing cabinet that:
+Git is a **version control system**. Think of it like a filing cabinet that:
 
 - Remembers **every version** of every file in your project, going all the way back to the beginning
 - Can **instantly restore** any previous version of any file
@@ -58,14 +60,12 @@ Git is a **version control system**. Think of it like a magic filing cabinet tha
 
 ### Git vs GitHub
 
-This is the most common source of confusion, so let's address it upfront:
+Many people get this wrong, but Git and GitHub are separate entities that are both necessary for our game development workflow:
 
-- **Git** is the tool: software that runs on your computer and tracks changes. It works completely offline.
-- **GitHub** is the cloud service: a website that hosts your Git repositories so your team can share them and access them from anywhere.
+- **Git** is merely a tool, software that runs on your computer and tracks changes that works completely offline.
+- **GitHub** is the cloud service, a website that stores the files you track with Git so your team can share them and access them from anywhere.
 
-Git is the engine. GitHub is the parking lot where everyone can find the car.
-
-You can use Git without GitHub, but GitHub needs Git.
+You can use Git without GitHub completely locally on your computer, but GitHub needs Git. We recommend syncing all your Git repositories to a cloud service like GitHub, but its perfectly feasible to host your own servers or just keep everything locally!
 
 ### Key Terms
 
@@ -92,15 +92,15 @@ Git thinks about your work in three zones:
 
 ```mermaid
 flowchart LR
-    A["Working Directory\n(your desk)"]
-    B["Staging Area\n(outbox tray)"]
-    C["Repository\n(filing cabinet)"]
+    A["Working Directory"]
+    B["Staging Area"]
+    C["Repository"]
     A -- "git add" --> B
     B -- "git commit" --> C
 ```
 
 - **Working Directory**: the files on your computer. You edit them freely here. Git watches for changes but doesn't record them yet.
-- **Staging Area**: a holding area where you decide *which* changes to include in your next commit. Think of it as an outbox tray: you're organizing what you want to save before you actually save it.
+- **Staging Area**: a holding area where you decide *which* changes to include in your next commit. You don't need to sync all your files with the repository, just whatever you choose.
 - **Repository**: the permanent record. Once you commit, the snapshot is locked in with a label, a timestamp, and your name attached.
 
 Every time you commit, you're taking a snapshot of your project. Over time, these snapshots form a timeline:
@@ -198,7 +198,7 @@ gitGraph
 === "GitHub Desktop"
 
     1. Go to the repository on **GitHub.com** and copy the URL from your browser's address bar.
-    2. In GitHub Desktop, click **File → Clone Repository**.
+    2. In GitHub Desktop, click **File &rarr; Clone Repository**.
     3. Click the **URL** tab and paste the repository URL.
     4. Under **Local Path**, choose where on your computer to store the project.
 
@@ -206,7 +206,7 @@ gitGraph
         Avoid cloning into:
 
         - **A cloud-synced folder** (OneDrive, Dropbox, Google Drive): these fight with Git and cause corruption and sync conflicts.
-        - **Another Git repository**: nested repos cause confusing behavior.
+        - **Another Git repository**: nested repos cause confusing behavior (with the exception of submodules, which we aren't addressing in this tutorial).
 
         Use a plain folder like `C:\Projects\` or `C:\Users\YourName\GameDev\`.
 
@@ -260,13 +260,13 @@ gitGraph
 
 ## Making Your First Commit
 
-You've cloned the repo. Now let's walk through the full save cycle: **make a change → stage it → write a message → commit**.
+You've cloned the repo. Now let's walk through the full save cycle: **make a change &rarr; stage it &rarr; write a message &rarr; commit**.
 
 ### Step 1: Open Your Repository
 
 === "GitHub Desktop"
 
-    Your cloned repo should already be open. If not, click it in the left sidebar or go to **File → Open Repository**.
+    Your cloned repo should already be open. If not, click it in the left sidebar or go to **File &rarr; Open Repository**.
 
 === "Windows (Git Bash) / Mac/Linux (Terminal)"
 
@@ -281,6 +281,9 @@ You've cloned the repo. Now let's walk through the full save cycle: **make a cha
 Open any file in your project and edit it, or create a new file. Git doesn't care *what* you changed, and any modification to any tracked file will appear in the next step.
 
 For example: open `PlayerController.cs` and change the jump force value, or drop a new sprite into `Assets/Sprites/`.
+
+!!! tip
+    Unity is notoriously bad at writing file changes to your hard disk, especially for things like .meta files and .asset files, which means that sometimes Git doesn't notice your changes. To fix this and force-sync everything, navigate to **File &rarr; Save Project**.
 
 ### Step 3: Stage Your Changes
 
@@ -298,7 +301,7 @@ Staging is how you tell Git: "these are the changes I want to include in my next
         *`docs/assets/images/gitgood-desktop-staged.png` (coming soon)*
         *(Changes tab with some files checked, some unchecked.)*
 
-    - **Checked** files (checkmark visible) will be included in the commit.
+    - **Checked** files will be included in the commit.
     - **Unchecked** files are skipped for this commit.
 
     Check or uncheck individual files to control exactly what gets saved.
@@ -324,7 +327,7 @@ Staging is how you tell Git: "these are the changes I want to include in my next
     ```
 
     !!! tip
-        `git add .` stages all changes at once. It's fast, but check `git status` first so you know exactly what you're staging.
+        `git add .` stages all changes at once. It's fast, but check `git status` first so you know exactly what you're staging. You can also use regular expressions to stage multiple similar files at once.
 
 ### Step 4: Write a Good Commit Message
 
@@ -341,10 +344,14 @@ A commit message is a short description of *what* you changed. It's the label on
 
 **Less useful messages:** `stuff`, `wip`, `fix`, `changes`, `asdfgh`
 
-Guidelines:
+Typical Guidelines:
+
 - Use **present tense**: `"Add player movement"` not `"Added player movement"`
 - Be **specific**: `"Fix audio loop on death screen"` not `"Fix audio"`
 - Describe **what**, not *how*: the code itself shows how
+
+!!! Note An aside for SIGGD
+    We'd really appreciate if you made your commit messages as descriptive as possible following these rules! A large part of software development is communication, and it makes everything much nicer and saves a ton of time!
 
 ### Step 5: Commit
 
@@ -431,7 +438,7 @@ Pushing uploads your local commits to GitHub so your teammates can see your work
 
 ### What Is a Branch?
 
-Imagine four teammates all committing directly to the same shared version of the game. One person commits a half-finished enemy system. Now the game is broken for everyone while they finish it.
+Imagine four teammates all committing directly to the same shared version of the game. One person commits a half-finished system. Now the game is broken for everyone while they finish it.
 
 **Branches** solve this. A branch is an isolated copy of the project where you can make changes freely. Your work stays separate until you're ready to bring it back in.
 
@@ -452,13 +459,14 @@ gitGraph
    checkout main
    merge fix/audio-loop id: "Merge: audio fix"
 ```
-
+To read the diagram above, look from left to right. The blue branch is our `main` branch, where everything will ultimately be merged into. The yellow branch, where someone presumable creates a feature for player jumping (descriptive branch name!), has 2 commits, then is merged into main. The fix for audio looping is similarly made and merged into main with just one commit. As a result, both developers can work on separate features in parallel!
 ### Creating a Branch
 
 === "GitHub Desktop"
 
     1. Click the **Current Branch** dropdown at the top of the window.
     2. Select **New Branch**.
+    3. You will be asked what branch to base your new one off of; this just means which branch's history your new branch will inherit (you can view this in the history tab). Select whatever fits your needs, but most of the time this will be `main`.
 
     !!! info "Screenshot: New branch dialog"
         *`docs/assets/images/gitgood-desktop-new-branch.png` (coming soon)*
@@ -509,27 +517,30 @@ gitGraph
 
 ### Merging a Branch
 
-Once your feature is complete, merge it back into `main` to share it with your teammates.
+Once your feature is complete, you can merge it back into `main` to share it with your teammates.
+
+!!! danger Think twice before merging into `main`!
+    Not all people have the permissions to merge into `main`. In SIGGD, you may only merge in your changes through pull requests (covered in [Git Good: The PR Workflow](gitgood2.md#stashing-changes)). Thus, in this tutorial, we will be covering how to merge `main` into your branch instead. This is useful when you want to verify your branch is up to date with anyone else's changes in main that may have been added after you first created your branch.
 
 === "GitHub Desktop"
 
-    1. First, switch to the branch you want to merge *into* (usually `main`).
-    2. Go to **Branch → Merge into Current Branch**.
-    3. Select the branch containing your finished work.
+    1. First, switch to the branch you want to merge *into* (here, it will be your feature branch).
+    2. Go to **Branch &rarr; Merge into Current Branch**.
+    3. Select the branch you want to merge changes from (in this case `main`).
     4. Click **Create a merge commit**.
 
 === "Windows (Git Bash) / Mac/Linux (Terminal)"
 
-    Switch to the target branch first:
+    Switch to the feature branch first:
 
     ```bash
-    git checkout main
+    git checkout feature/player-jump
     ```
 
-    Then merge your feature branch:
+    Then merge in `main`:
 
     ```bash
-    git merge feature/player-jump
+    git merge main
     ```
 
 ### Merge Conflicts
@@ -538,7 +549,7 @@ Sometimes two people edit the same line in the same file on different branches. 
 
 Conflicts are normal. Don't panic. Git is very explicit about exactly what needs your decision.
 
-Inside a conflicted file, you'll see markers like this:
+Inside a conflicted (text) file, you'll see markers like this:
 
 ```
 <<<<<<< HEAD
@@ -581,6 +592,8 @@ float jumpForce = 12.0f;
     git commit
     ```
 
+!!! warning Merge conflicts with non-text files
+    The vast majority of files we will use in SIGGD won't be as nice as code files, which are human readable, instead being **binary files** (see the next section). Binary files aren't human readable, which mean you can't edit it line by line. Thus, it is extra important that you use version control to ensure that no one's work gets lost.
 ---
 
 ## Git LFS
@@ -594,7 +607,7 @@ In a game project, almost everything is a binary file:
 - **Textures and sprites** (`.png`, `.psd`, `.tga`, `.jpg`)
 - **3D models** (`.fbx`, `.blend`, `.obj`)
 - **Audio files** (`.wav`, `.mp3`, `.ogg`)
-- **Unity/Godot scene files and compiled assets**
+- **Unity scene files and compiled assets**
 
 Without LFS, a project with even a modest amount of art assets will balloon in size and eventually hit GitHub's 1 GB repository limit, meaning the whole team can no longer push or clone.
 
@@ -623,7 +636,7 @@ If these are present, you just need to make sure LFS is installed locally (see b
 
     GitHub Desktop ships with Git LFS built in. When you clone a repo that uses LFS, Desktop downloads LFS files automatically.
 
-    To **add LFS tracking for new file types**, use the CLI tab below (GitHub Desktop doesn't have a UI for `git lfs track`). You can open the built-in terminal in Desktop via **Repository → Open in Terminal**, or open Git Bash/Terminal manually and `cd` to the repo.
+    To **add LFS tracking for new file types**, use the CLI tab below (GitHub Desktop doesn't have a UI for `git lfs track`). You can open the built-in terminal in Desktop via **Repository &rarr; Open in Terminal**, or open Git Bash/Terminal manually and `cd` to the repo.
 
 === "Windows (Git Bash)"
 
@@ -728,12 +741,12 @@ If these are present, you just need to make sure LFS is installed locally (see b
         Your work is now on the correct feature branch and `main` is clean.
 
     === "GitHub Desktop"
-        1. Before doing anything else, create a new branch (**Current Branch → New Branch**), which will start from your current position including the accidental commit.
+        1. Before doing anything else, create a new branch (**Current Branch &rarr; New Branch**), which will start from your current position including the accidental commit.
         2. Switch back to `main`.
         3. In the **History** tab, right-click the accidental commit and choose **Undo Commit**.
 
     !!! warning "If you already pushed to main"
-        If `main` is branch-protected (requires PRs), the push would have been blocked. If it went through, coordinate with your team lead before reverting, as force-pushing a shared branch affects everyone.
+        At least in SIGGD, this won't happen because we have branch protections. If something really drastic happened though, coordinate with the person in charge of the GitHub repository to fix this!
 
 ??? warning "'Already up to date' but I can't see my teammate's changes"
     **What it means:** You're on the wrong branch. `git pull` only updates the branch you're currently on.

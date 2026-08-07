@@ -94,6 +94,9 @@ nav:
           - tutorials/audio/index.md
       - General:
           - tutorials/general/index.md
+          - Git Guides:
+            - Git Good: tutorials/general/gitgood.md
+            - Git Good 2: tutorials/general/gitgood2.md
   - Projects:
       - projects/index.md
       - 26-27 Game:

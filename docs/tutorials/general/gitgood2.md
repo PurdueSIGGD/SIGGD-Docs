@@ -33,8 +33,8 @@ status: draft   # draft | review | published
 
 Before starting, make sure you have:
 
-- [ ] Completed [Git Good: First Commits](gitgood.md) or are already comfortable with basic Git
-- [ ] Access to a shared GitHub repository (your SIGGD game project)
+- [ ] Completed [Git Good: First Commits](gitgood.md) or are already comfortable with basic Git.
+- [ ] Access to a shared GitHub repository.
 
 ---
 
@@ -42,9 +42,9 @@ Before starting, make sure you have:
 
 You know how to make commits and push branches. Now it's time to learn how those changes actually get into the shared codebase.
 
-The **pull request (PR) workflow** is the standard way professional teams collaborate: instead of pushing directly to `main`, you open a PR that lets teammates review your work, leave feedback, and approve it before it's merged. This catches bugs earlier, shares knowledge across the team, and keeps the shared build stable.
+The **pull request (PR) workflow** is the standard way professional teams collaborate. Instead of pushing directly to `main`, you open a PR that lets teammates review your work, leave feedback, and approve it before it's merged. This catches bugs earlier, shares knowledge across the team, and keeps the shared build stable.
 
-This tutorial covers the entire PR lifecycle: opening it, filling it out, getting reviewed, responding to feedback, and merging cleanly. It also covers several advanced Git techniques you'll reach for regularly once you're working on an active project.
+This tutorial covers the entire PR lifecycle: opening it, filling it out, getting reviewed, responding to feedback, and merging cleanly. It also covers some advanced Git techniques that will probably come up when working with Git.
 
 ---
 
@@ -130,10 +130,10 @@ The template looks something like this:
 <!-- Link related issues: "Closes #123" or "Related to #456" -->
 ```
 
-Fill out every section: don't leave the template fields blank. Here's what belongs in each:
+Fill out every section; don't leave the template fields blank. Here's what belongs in each:
 
 **What does this PR add or change?**
-Be specific about *what* and *why*. Compare:
+Be specific about what you changed and why you changed it.
 
 | Vague | Specific |
 |---|---|
@@ -142,7 +142,7 @@ Be specific about *what* and *why*. Compare:
 | `"new sprites"` | `"Replaces placeholder character sprites with final pixel art for idle, run, and jump states"` |
 
 **Checklist**
-Each checkbox is a genuine check: don't just tick everything automatically. If you can't tick "built and ran the game," that's a sign the PR isn't ready yet.
+Don't just tick everything automatically. WIP
 
 **Type of change**
 Check the one that best describes your work.
