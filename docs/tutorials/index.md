@@ -8,8 +8,8 @@ title: Tutorials & Guides
 
 -   :material-code-braces:{ .lg .middle } **Programming**
 
-
     [:octicons-arrow-right-24: Browse](programming/index.md)
+
 
 -   :material-palette:{ .lg .middle } **Art & Assets**
 
@@ -18,8 +18,12 @@ title: Tutorials & Guides
 
 -   :material-music:{ .lg .middle } **Audio**
 
-
     [:octicons-arrow-right-24: Browse](audio/index.md)
+
+
+-   :material-book:{ .lg .middle } **Story**
+
+    [:octicons-arrow-right-24: Browse](story/index.md)
 
 -   :material-cog:{ .lg .middle } **General**
 
