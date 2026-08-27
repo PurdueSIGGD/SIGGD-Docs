@@ -66,17 +66,6 @@ List the controls clearly:
 
 ---
 
-## Development Highlights
-
-Note 1–3 interesting technical or design challenges the team solved. This is
-the most valuable content for future SIGGD members — what would you wish you
-had known going in?
-
-!!! example "Interesting challenge"
-    Describe a specific problem and how you solved it. Be concrete.
-
----
-
 ## See Also
 
 - [Codebase Documentation](codebase/index.md)

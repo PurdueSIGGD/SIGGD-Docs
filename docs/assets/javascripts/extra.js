@@ -1,4 +1,4 @@
-/* MathJax configuration — required by pymdownx.arithmatex */
+/* MathJax configuration required by pymdownx.arithmatex */
 window.MathJax = {
   tex: {
     inlineMath: [["\\(", "\\)"]],

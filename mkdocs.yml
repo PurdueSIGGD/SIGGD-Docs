@@ -62,8 +62,9 @@ theme:
 plugins:
   - search:
       separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
-  - tags:
-      tags_file: tags.md
+  # `tags_file` was deprecated in Material 9.x. The listing is now placed with a
+  # `<!-- material/tags -->` directive inside docs/tags.md instead.
+  - tags
   - git-authors:
       show_contribution: true
       show_line_count: true

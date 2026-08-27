@@ -118,5 +118,5 @@ After completing this tutorial, try:
 
 ## Further Reading
 
-- [External resource title](https://example.com) — one sentence on why it's useful.
-- [Another resource](https://example.com) — one sentence on why it's useful.
+- [External resource title](https://example.com): one sentence on why it's useful.
+- [Another resource](https://example.com): one sentence on why it's useful.
