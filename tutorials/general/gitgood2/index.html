@@ -1,0 +1,3634 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="How work actually gets into the SIGGD game: pull requests, code review, and the rules main is protected by.">
+      
+      
+        <meta name="author" content="Purdue SIGGD">
+      
+      
+        <link rel="canonical" href="https://PurdueSIGGD.github.io/SIGGD-Docs/tutorials/general/gitgood2/">
+      
+      
+        <link rel="prev" href="../gitgood/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Git Good: The PR Workflow - SIGGD Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#git-good-the-pr-workflow" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="SIGGD Docs" class="md-header__button md-logo" aria-label="SIGGD Docs" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SIGGD Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Git Good: The PR Workflow
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="red"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PurdueSIGGD/SIGGD-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PurdueSIGGD/SIGGD-Docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../projects/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../resources/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../contributing/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Contributing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../about/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="SIGGD Docs" class="md-nav__button md-logo" aria-label="SIGGD Docs" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.png" alt="logo">
+
+    </a>
+    SIGGD Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PurdueSIGGD/SIGGD-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PurdueSIGGD/SIGGD-Docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../programming/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../art-and-assets/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Art & Assets
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Art & Assets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../audio/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audio
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Audio
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../story/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Story
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Story
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    General
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-set-up/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Set Up
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--published"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_3" id="__nav_2_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Git Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitgood/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First Commits
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--published"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The PR Workflow
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--published"></span>
+  
+
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The PR Workflow
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--published"></span>
+  
+
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pr-workflow-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The PR Workflow at a Glance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-open-a-pr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before You Open a PR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opening-a-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening a Pull Request
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-a-good-pr-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing a Good PR Description
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing a Good PR Description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-does-this-pr-add-or-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What does this PR add or change?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#related-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related issue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-of-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type of change
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#screenshots-or-clips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Screenshots or clips
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happens-automatically" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Happens Automatically
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#siggds-merge-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SIGGD's Merge Rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reviewing-a-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reviewing a Pull Request
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reviewing a Pull Request">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reviewing-unity-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reviewing Unity Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-makes-a-good-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Makes a Good Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-not-to-block-a-pr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When Not to Block a PR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responding-to-review-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responding to Review Feedback
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keeping-your-branch-up-to-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keeping Your Branch Up to Date
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-siggd-merges-squash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How SIGGD Merges: Squash
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-a-check-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When a Check Fails
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#undoing-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Undoing Mistakes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Undoing Mistakes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#undo-the-last-commit-not-yet-pushed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Undo the Last Commit (Not Yet Pushed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-a-file-you-committed-by-accident" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remove a File You Committed by Accident
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-tracking-a-file-that-keeps-coming-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stop Tracking a File That Keeps Coming Back
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revert-a-commit-already-pushed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revert a Commit (Already Pushed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-the-last-commit-message-not-yet-pushed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fix the Last Commit Message (Not Yet Pushed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stashing-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stashing Changes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../projects/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../projects/2627-game/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26-27 Game
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--in-development"></span>
+  
+
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    26-27 Game
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../projects/2627-game/codebase/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codebase
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Codebase
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/2627-game/codebase/systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/2627-game/codebase/scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/2627-game/team/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Team
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../resources/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/external-references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../contributing/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Contributing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/style-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Style Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/markdown-cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Markdown Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Templates
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/templates/tutorial-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial Template
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/templates/project-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Template
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--active"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/templates/codebase-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codebase Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/templates/system-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/templates/script-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Script Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/templates/resource-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../about/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/contributors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pr-workflow-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The PR Workflow at a Glance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-open-a-pr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before You Open a PR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opening-a-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening a Pull Request
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-a-good-pr-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing a Good PR Description
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing a Good PR Description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-does-this-pr-add-or-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What does this PR add or change?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#related-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related issue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-of-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type of change
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#screenshots-or-clips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Screenshots or clips
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happens-automatically" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Happens Automatically
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#siggds-merge-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SIGGD's Merge Rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reviewing-a-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reviewing a Pull Request
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reviewing a Pull Request">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reviewing-unity-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reviewing Unity Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-makes-a-good-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Makes a Good Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-not-to-block-a-pr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When Not to Block a PR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responding-to-review-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responding to Review Feedback
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keeping-your-branch-up-to-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keeping Your Branch Up to Date
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-siggd-merges-squash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How SIGGD Merges: Squash
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-a-check-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When a Check Fails
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#undoing-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Undoing Mistakes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Undoing Mistakes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#undo-the-last-commit-not-yet-pushed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Undo the Last Commit (Not Yet Pushed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-a-file-you-committed-by-accident" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remove a File You Committed by Accident
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-tracking-a-file-that-keeps-coming-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stop Tracking a File That Keeps Coming Back
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revert-a-commit-already-pushed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revert a Commit (Already Pushed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-the-last-commit-message-not-yet-pushed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fix the Last Commit Message (Not Yet Pushed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stashing-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stashing Changes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    General
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../gitgood/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Git Guides
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:general" class="md-tag">general</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:git" class="md-tag">git</a>
+      
+    
+  </nav>
+
+
+  
+    <a href="https://github.com/PurdueSIGGD/SIGGD-Docs/edit/main/docs/tutorials/general/gitgood2.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/PurdueSIGGD/SIGGD-Docs/raw/main/docs/tutorials/general/gitgood2.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="git-good-the-pr-workflow">Git Good: The PR Workflow<a class="headerlink" href="#git-good-the-pr-workflow" title="Anchor link to this section">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">What You Will Learn</p>
+<p>By the end of this tutorial you will be able to:</p>
+<ul>
+<li>Open a pull request and write a description reviewers can actually use</li>
+<li>Understand what happens automatically when you open one</li>
+<li>Give and receive code review without wasting anyone's time</li>
+<li>Review changes to Unity assets, which don't show up in a diff</li>
+<li>Keep your branch up to date while your PR is open</li>
+<li>Understand SIGGD's merge rules and why each one exists</li>
+</ul>
+</div>
+<p><strong>Difficulty:</strong> Intermediate · <strong>Time:</strong> ~35 minutes</p>
+<hr />
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Anchor link to this section">&para;</a></h2>
+<p>Before starting, make sure you have:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Completed <a href="../gitgood/">Git Good: First Commits</a>, or are already comfortable with branches and commits.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Access to the game repository. If you don't have it yet, see <a href="../getting-set-up/">Getting Set Up</a>.</li>
+</ul>
+<hr />
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Anchor link to this section">&para;</a></h2>
+<p>The previous guide was about Git: saving your work and keeping it on its own branch. This one is about GitHub, and specifically about the one process every change to the game goes through.</p>
+<p>Nobody pushes to <code>main</code>. Not new members, not officers (we can but we won't). <code>main</code> is protected, and the only way your work becomes part of the game is a <strong>pull request</strong>: you propose your branch, somebody reviews it, and then it merges.</p>
+<p>That sounds really annoying and time consuming, and on a solo project it would be. On a team this big working on one Unity project, it is the thing that stops the game being broken for everyone every other day. Additionally, your work won't get merged in if you don't follow this, so make sure to understand this guide!</p>
+<hr />
+<h2 id="the-pr-workflow-at-a-glance">The PR Workflow at a Glance<a class="headerlink" href="#the-pr-workflow-at-a-glance" title="Anchor link to this section">&para;</a></h2>
+<p>Every feature or fix you work on follows this loop:</p>
+<pre class="mermaid"><code>flowchart LR
+    A["Create branch"] --&gt; B["Make commits"]
+    B --&gt; C["Push branch"]
+    C --&gt; D["Open PR"]
+    D --&gt; E["Code review"]
+    E --&gt; F["Address feedback"]
+    F --&gt; G["Merge"]
+    G --&gt; H["Delete branch"]
+    H --&gt; A</code></pre>
+<p>An hour of work and a week of work follow the same path. The PR is where your isolated branch becomes part of the shared game.</p>
+<div class="admonition tip">
+<p class="admonition-title">Small and often beats big and rare</p>
+<p>A PR that touches one system gets reviewed the same day. A PR that touches nine sits for a week because nobody has a free hour to read it. If your branch is growing in every direction, split it.</p>
+</div>
+<hr />
+<h2 id="before-you-open-a-pr">Before You Open a PR<a class="headerlink" href="#before-you-open-a-pr" title="Anchor link to this section">&para;</a></h2>
+<p>Two minutes here saves a review round trip.</p>
+<p><strong>Read your own diff first.</strong> In GitHub Desktop's <strong>Changes</strong> tab, or on GitHub under <strong>Files changed</strong>, look at everything you're about to propose. You will regularly catch debug logs you meant to remove, a file you didn't mean to touch, or an entire feature you forgot to save.</p>
+<p><strong>Check for files that shouldn't be there.</strong> Anything under <code>Library/</code>, <code>Temp/</code>, or <code>Logs/</code> is machine-specific junk and should never be committed. It's already gitignored, so if you see it in your changes, something is wrong with your setup.</p>
+<p><strong>Make sure Unity actually saved.</strong> Unity doesn't always write scene and asset changes to disk right away. Use <strong>File &rarr; Save Project</strong> before you commit, or Git won't see your work at all.</p>
+<hr />
+<h2 id="opening-a-pull-request">Opening a Pull Request<a class="headerlink" href="#opening-a-pull-request" title="Anchor link to this section">&para;</a></h2>
+<p>Once you've pushed your branch:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">GitHub (web)</label><label for="__tabbed_1_2">GitHub Desktop</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Go to the repository on <strong>GitHub.com</strong>.</li>
+<li>GitHub usually shows a banner: <strong>"Your branch had recent pushes. Compare &amp; pull request."</strong> Click it.<ul>
+<li>If the banner isn't there, go to the <strong>Pull requests</strong> tab and click <strong>New pull request</strong>.</li>
+</ul>
+</li>
+<li>Check that <strong>base</strong> is <code>main</code> and <strong>compare</strong> is your branch.</li>
+<li>Fill in the description, then click <strong>Create pull request</strong>.</li>
+</ol>
+<p><img alt="The Compare and pull request banner on GitHub" src="../../../assets/images/g2-web-pr-open.png" />
+<em>GitHub offers this shortcut for a short while after you push a branch.</em></p>
+</div>
+<div class="tabbed-block">
+<p>After pushing, GitHub Desktop shows a <strong>Create Pull Request</strong> button. Clicking it opens your browser on the GitHub PR form, where you fill in the description.</p>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Not finished? Open it as a draft</p>
+<p>Use the dropdown next to the create button and choose <strong>Create draft pull request</strong>. A draft says "this is real work in progress, but don't review it yet." Reviewers aren't notified, the builds still run, and your teammates can see what you're working on so nobody duplicates it.</p>
+<p>When you're ready, click <strong>Ready for review</strong>.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">PRs update themselves</p>
+<p>The PR stays open and updates every time you push to the same branch. You never need to close and reopen one.</p>
+</div>
+<hr />
+<h2 id="writing-a-good-pr-description">Writing a Good PR Description<a class="headerlink" href="#writing-a-good-pr-description" title="Anchor link to this section">&para;</a></h2>
+<p>When you open a PR, GitHub fills the description box with the repository's <strong>pull request template</strong>. Work through it rather than deleting it.</p>
+<h3 id="what-does-this-pr-add-or-change">What does this PR add or change?<a class="headerlink" href="#what-does-this-pr-add-or-change" title="Anchor link to this section">&para;</a></h3>
+<p>Be specific about what you changed and why. This is the part reviewers (the author of this post probably) read first and rely on most.</p>
+<table>
+<thead>
+<tr>
+<th>Vague</th>
+<th>Specific</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"player stuff"</code></td>
+<td><code>"Adds coyote-time to the player jump so the game feels less punishing at ledge edges"</code></td>
+</tr>
+<tr>
+<td><code>"fixed bug"</code></td>
+<td><code>"Fixes enemy getting stuck in wall colliders by adjusting the capsule collider offset"</code></td>
+</tr>
+<tr>
+<td><code>"new sprites"</code></td>
+<td><code>"Replaces placeholder character sprites with final pixel art for idle, run, and jump states"</code></td>
+</tr>
+</tbody>
+</table>
+<p>If you made a non-obvious decision, explain it here. A good description answers review comments before they're written.</p>
+<h3 id="related-issue">Related issue<a class="headerlink" href="#related-issue" title="Anchor link to this section">&para;</a></h3>
+<p><strong>Link the issue your work addresses.</strong> Write <code>Closes #123</code> and GitHub closes that issue automatically the moment your PR merges.</p>
+<p>This matters a lot for this project. Issues are how the project board we use in SIGGD tracks what is being worked on and what is done, so this helps a lot for organization.</p>
+<p>Use <code>Related to #123</code> if your PR only partly addresses an issue and shouldn't close it. If there isn't an issue for what you did, delete the section if you need to.</p>
+<div class="admonition tip">
+<p class="admonition-title">No issue yet?</p>
+<p>For anything bigger than a small fix, open one first. It takes a minute, it gives your work a place to be discussed, and it means somebody scanning the board can see you've got it.</p>
+</div>
+<h3 id="checklist">Checklist<a class="headerlink" href="#checklist" title="Anchor link to this section">&para;</a></h3>
+<p>These are here for your own use; I strongly recommend you check this before opening your PR (but I can't force you to).</p>
+<ul>
+<li><strong>I opened the project in Unity and my change works as expected.</strong> You've probably already done this, but just in case.</li>
+<li><strong>No new errors in the Unity console.</strong> Yellow warnings are not real and are probably fine. Red errors are not, unless they were there when you opened the project, in which case just ignore them (the lead team is probably already aware of those, but feel free to notify us!).</li>
+<li><strong>Every new asset has its matching <code>.meta</code> file committed.</strong> Unity generates a <code>.meta</code> file next to every asset, holding the ID everything else uses to reference it. These absolutely need to be included in the pull request, so make sure they exist.</li>
+<li><strong>No unnecessary files are committed.</strong> Debug scripts, test scenes, your personal editor settings, etc. If need be, you can ask a lead to add it to the .gitignore.</li>
+<li><strong>My changes are complete, modular, and abide by standard C# style guides.</strong> Make sure your code is understandable by anyone else reading your code (yes, this means comments where necessary).</li>
+<li><strong>My branch is up to date with <code>main</code>.</strong> Covered in <a href="#keeping-your-branch-up-to-date">Keeping Your Branch Up to Date</a> below.</li>
+</ul>
+<h3 id="type-of-change">Type of change<a class="headerlink" href="#type-of-change" title="Anchor link to this section">&para;</a></h3>
+<p>Pick whichever fits. It tells a reviewer what kind of attention your PR needs before they open the diff, since an art import and a refactor of the save system want very different eyes. You can also add your own types of changes nothing covers it.</p>
+<h3 id="screenshots-or-clips">Screenshots or clips<a class="headerlink" href="#screenshots-or-clips" title="Anchor link to this section">&para;</a></h3>
+<p>For anything visual, add a screenshot or a short clip.</p>
+<p>While we try to, reviewers would rather not boot up the game to verify your changes, and the diff of a <code>.prefab</code> or a <code>.png</code> is very unreadable. A picture is worth a thousand words, so if you can make sure to add them. Pictures sent here may also be used in our weekly highlight reels of progress made, so thats cool!</p>
+<hr />
+<h2 id="what-happens-automatically">What Happens Automatically<a class="headerlink" href="#what-happens-automatically" title="Anchor link to this section">&para;</a></h2>
+<p>The moment you open a PR, a few things fire on their own.</p>
+<p><strong>Reviewers get requested.</strong> The <code>2027CodeReviewers</code> group is automatically added to every pull request, so you never have to figure out who to ask or chase somebody down (but still tell someone!). If you're interested, this is configured in a file called <code>CODEOWNERS</code> in the repository.</p>
+<p><strong>The builds start.</strong> GitHub automatically builds the game for Windows and macOS from your branch. This takes a while, and you'll see it running at the bottom of the PR.</p>
+<p><strong>A <code>PR Ready</code> check runs.</strong> This one is instant. It exists so that GitHub can enforce the rule that your branch has to be up to date with <code>main</code> before merging.</p>
+<p>You'll see all of these at the bottom of the PR page:</p>
+<ul>
+<li><strong>Green check</strong>: passed</li>
+<li><strong>Red X</strong>: failed</li>
+<li><strong>Yellow dot</strong>: still running</li>
+</ul>
+<hr />
+<h2 id="siggds-merge-rules">SIGGD's Merge Rules<a class="headerlink" href="#siggds-merge-rules" title="Anchor link to this section">&para;</a></h2>
+<p><code>main</code> is protected. Three rules decide when your PR can merge.</p>
+<p><strong>One approval is required.</strong>
+Somebody from the review group has to approve your PR. This catches bugs before they reach everyone, and it spreads knowledge of the codebase past whoever wrote it.</p>
+<p><strong>Your branch must be up to date with <code>main</code>.</strong>
+If someone else merges while your PR is open, you have to pull their changes into your branch before yours can go in. This guarantees that what gets reviewed and merged is your work combined with the current state of the game, not your work as it was a week ago.</p>
+<p><strong>The builds are not required to pass.</strong>
+This one is deliberate. A red build does not block your merge.</p>
+<p>That said, a failed build almost always means the project doesn't compile, and once that lands on <code>main</code> nobody else can work until it's fixed. Treat a red build as something to understand before merging, not something to click past. If you're not sure what it's telling you, ask.</p>
+<div class="admonition info">
+<p class="admonition-title">Why not just require the builds?</p>
+<p>Unity builds are slow and bad and stupid and occasionally fail for reasons that have nothing to do with your change. Making them optional just speeds up our workflow while still giving us a place to sanity check builds.</p>
+</div>
+<hr />
+<h2 id="reviewing-a-pull-request">Reviewing a Pull Request<a class="headerlink" href="#reviewing-a-pull-request" title="Anchor link to this section">&para;</a></h2>
+<p>SIGGD has a group of volunteer programmers who are able to review pull requests. If you think that interests you at all, reach out to a lead and we can get you set up! However, just because you aren't a reviewer doesn't mean it's not important to know how the review process works.</p>
+<p>To review a PR properly and thoroughly: </p>
+<ol>
+<li>Go to the PR and click the <strong>Files changed</strong> tab.</li>
+<li>Read through the diff. Click the <strong>+</strong> on any line to comment on it.</li>
+<li>To propose exact replacement code, use the suggestion button in the comment box. The author can accept it in one click.</li>
+<li>Click <strong>Review changes</strong> at the top right to submit:<ul>
+<li><strong>Comment</strong>: general feedback, doesn't block</li>
+<li><strong>Approve</strong>: good to merge</li>
+<li><strong>Request changes</strong>: needs work first, and blocks the merge</li>
+</ul>
+</li>
+</ol>
+<p><img alt="The Files changed tab with a comment box open on a line of code" src="../../../assets/images/g2-web-pr-review.png" />
+<em>Click the + on any line to comment on exactly that line.</em></p>
+<h3 id="reviewing-unity-changes">Reviewing Unity Changes<a class="headerlink" href="#reviewing-unity-changes" title="Anchor link to this section">&para;</a></h3>
+<p>Most of what SIGGD produces cannot be reviewed by reading a diff. A sprite shows up as an unreadable blob. A <code>.prefab</code> or <code>.unity</code> scene shows up as hundreds of lines of YAML full of numeric IDs.</p>
+<p>For anything visual or scene-based:</p>
+<ul>
+<li><strong>Look at the screenshots or clip.</strong> If the author didn't include one, ask for one. That's a reasonable review comment, not a nitpick.</li>
+<li><strong>Pull the branch and open it.</strong> In GitHub Desktop, switch to the PR's branch from the <strong>Current Branch</strong> dropdown, open the project in Unity, and look at the actual thing. This is the only real way to review a scene change.</li>
+<li><strong>Check what else moved.</strong> Scene and prefab files record far more than you changed. If a PR about a UI button also rewrote half of <code>Main.unity</code>, that's usually an accident worth asking about.</li>
+<li><strong>For imported assets, check the import settings</strong>, not just the file. A 4096×4096 texture imported at full size for a 32-pixel icon is probably way too heavy.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Two people editing one scene will lose work</p>
+<p>Scene and prefab files can't be meaningfully merged line by line. If two branches both change the same scene, resolving that conflict usually means one person's work is discarded.</p>
+<p>There's no formal system for claiming scenes in SIGGD, so make sure to do your work in separate test scenes.</p>
+</div>
+<h3 id="what-makes-a-good-review">What Makes a Good Review<a class="headerlink" href="#what-makes-a-good-review" title="Anchor link to this section">&para;</a></h3>
+<ul>
+<li><strong>Be specific.</strong> "This function could be cleaner" is not actionable. "This could use early returns to reduce the nesting" is.</li>
+<li><strong>Explain the why.</strong> "Change this to a coroutine, because the current approach blocks the main thread and will cause frame stutters" teaches something. "Change this to a coroutine" is less informative.</li>
+<li><strong>Mark optional comments as optional.</strong> Start them with <code>nit:</code> so the author knows they can move on: <code>"nit: this variable name could be more descriptive"</code>.</li>
+<li><strong>Say when something is good.</strong> THIS IS REALLY IMPORTANT make sure to give positive reinforcement please it helps a lot with morale.</li>
+</ul>
+<h3 id="when-not-to-block-a-pr">When Not to Block a PR<a class="headerlink" href="#when-not-to-block-a-pr" title="Anchor link to this section">&para;</a></h3>
+<p>Don't request changes for:</p>
+<ul>
+<li>Style preferences that aren't in the team's conventions</li>
+<li>Things unrelated to what this PR is doing</li>
+<li>Hypothetical future problems that may never happen</li>
+</ul>
+<p>Do request changes for:</p>
+<ul>
+<li>Bugs you can point to in the diff or reproduce</li>
+<li>Checklist items that clearly weren't done</li>
+<li>Approaches that will definitely cause problems later</li>
+</ul>
+<p>For smaller comments like this, feel free to add comments as needed, just make it clear that these are just suggestions and not requirements.</p>
+<hr />
+<h2 id="responding-to-review-feedback">Responding to Review Feedback<a class="headerlink" href="#responding-to-review-feedback" title="Anchor link to this section">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>What It Means</th>
+<th>What to Do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Approved</strong></td>
+<td>Good to merge</td>
+<td>Merge when you're ready</td>
+</tr>
+<tr>
+<td><strong>Changes requested</strong></td>
+<td>Needs fixes first</td>
+<td>Address it, push, re-request review</td>
+</tr>
+<tr>
+<td><strong>Comment</strong></td>
+<td>Feedback, nothing blocking</td>
+<td>Read it, respond, merge if nothing is outstanding</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Read every comment before changing anything. Some of them are related and make more sense together.</li>
+<li>Make fixes as new commits on the same branch. The PR updates when you push.</li>
+<li>Reply to each comment, or mark it <strong>Resolved</strong> once you've handled it. Silence reads as "ignored".</li>
+<li>Re-request review with the refresh icon next to the reviewer's name.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Don't force-push while a PR is in review</p>
+<p>Force-pushing rewrites history and destroys a reviewer's ability to see what changed since they last looked. Push normal commits instead. Your messy commit history doesn't matter here, because the whole PR gets squashed into one commit when it merges.</p>
+</div>
+<hr />
+<h2 id="keeping-your-branch-up-to-date">Keeping Your Branch Up to Date<a class="headerlink" href="#keeping-your-branch-up-to-date" title="Anchor link to this section">&para;</a></h2>
+<p>Your branch has to be up to date with <code>main</code> before it can merge, and other people's PRs keep merging while yours is open. So this will come up regularly.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">GitHub Desktop</label><label for="__tabbed_2_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Make sure you're on your feature branch.</li>
+<li>Go to <strong>Branch &rarr; Update from main</strong>.</li>
+<li>Resolve any conflicts if prompted, then push.</li>
+</ol>
+<p><img alt="The Branch menu in GitHub Desktop with Update from main highlighted" src="../../../assets/images/g2-desktop-update-branch.png" /></p>
+<p><em>This only appears when you are on another branch and main has moved ahead.</em></p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>fetch<span class="w"> </span>origin
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>merge<span class="w"> </span>origin/main
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>git<span class="w"> </span>push
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>If this produces conflicts, resolve them the same way as in <a href="../gitgood/#merge-conflicts">Git Good: First Commits</a>. Doing this regularly is much less painful than doing it once at the end, when a month of other people's changes land on you at the same time.</p>
+<hr />
+<h2 id="how-siggd-merges-squash">How SIGGD Merges: Squash<a class="headerlink" href="#how-siggd-merges-squash" title="Anchor link to this section">&para;</a></h2>
+<p>When your PR is approved, it gets <strong>squash merged</strong>. Every commit on your branch is combined into a single commit on <code>main</code>.</p>
+<pre class="mermaid"><code>gitGraph
+   commit id: "A"
+   commit id: "B"
+   branch feature/player-dash
+   checkout feature/player-dash
+   commit id: "wip"
+   commit id: "fix typo"
+   commit id: "actually works"
+   checkout main
+   commit id: "Add player dash" type: HIGHLIGHT</code></pre>
+<p>Two things follow from this, and they're the only parts you need to remember:</p>
+<p><strong>Your branch history doesn't matter.</strong> Commit as messily as you like while you work. Commit messages like <code>wip</code>, <code>oops</code>, <code>actually works</code> won't actually reach <code>main</code>. This is why you arent strictly required to clean up your commits before opening a PR (though it's recommended to do so for your own sake!).</p>
+<p><strong>Your PR title becomes the commit message on <code>main</code>,</strong> so give the PR a real title. I recommend prefixing your pull requests with identifiers like <code>fix:</code> or <code>feat:</code> to make it extra clear what your PR is working on.</p>
+<div class="admonition tip">
+<p class="admonition-title">Delete your branch after merging</p>
+<p>GitHub offers a <strong>Delete branch</strong> button once the PR is merged. Click it. The work is safely on <code>main</code>, and it keeps the branch list readable. Not required, but it does help!</p>
+</div>
+<details class="note">
+<summary>For reference: the other two merge strategies</summary>
+<p>SIGGD uses squash merging, so you don't need these. They're here because you'll meet them on other projects.</p>
+<p><strong>Merge commit</strong> keeps every commit from the branch and adds a merge commit tying the histories together. The history graph branches and rejoins, which preserves exactly how the work happened at the cost of a noisier log.</p>
+<pre class="mermaid"><code>gitGraph
+   commit id: "A"
+   commit id: "B"
+   branch feature
+   checkout feature
+   commit id: "C"
+   commit id: "D"
+   checkout main
+   merge feature id: "Merge feature"</code></pre>
+<p><strong>Rebase and merge</strong> replays each of your commits one at a time on top of the latest <code>main</code>, with no merge commit. The history stays perfectly linear and every commit is preserved, but the commits are rewritten, so they get new hashes and are technically not the same commits any more.</p>
+<pre class="mermaid"><code>gitGraph
+   commit id: "A"
+   commit id: "B"
+   commit id: "C-prime"
+   commit id: "D-prime"</code></pre>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>History</th>
+<th>Individual commits kept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Squash</strong></td>
+<td>Linear, one commit per PR</td>
+<td>No, collapsed into one</td>
+</tr>
+<tr>
+<td><strong>Merge</strong></td>
+<td>Branching</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Rebase</strong></td>
+<td>Linear</td>
+<td>Yes, but rewritten</td>
+</tr>
+</tbody>
+</table>
+</details>
+<hr />
+<h2 id="when-a-check-fails">When a Check Fails<a class="headerlink" href="#when-a-check-fails" title="Anchor link to this section">&para;</a></h2>
+<ol>
+<li>Click <strong>Details</strong> next to the failed check to open the log.</li>
+<li>Scroll to the first red error. Later errors are usually caused by the first one.</li>
+<li>Fix it on your branch and push. The checks re-run automatically on every push.</li>
+</ol>
+<p>The most common cause of a failed build is a compile error, and the log will name the file and line. If the error doesn't mention any of your files, or it looks like the build machine had a problem rather than your code, say so in the PR and ask.</p>
+<hr />
+<h2 id="undoing-mistakes">Undoing Mistakes<a class="headerlink" href="#undoing-mistakes" title="Anchor link to this section">&para;</a></h2>
+<h3 id="undo-the-last-commit-not-yet-pushed">Undo the Last Commit (Not Yet Pushed)<a class="headerlink" href="#undo-the-last-commit-not-yet-pushed" title="Anchor link to this section">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">GitHub Desktop</label><label for="__tabbed_3_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>In the <strong>History</strong> tab, right-click the last commit and choose <strong>Undo Commit</strong>. Your changes come back as staged, nothing is lost.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>reset<span class="w"> </span>HEAD~1
+</span></code></pre></div>
+<p>This un-commits and returns the changes to your working directory. Nothing is deleted.</p>
+</div>
+</div>
+</div>
+<h3 id="remove-a-file-you-committed-by-accident">Remove a File You Committed by Accident<a class="headerlink" href="#remove-a-file-you-committed-by-accident" title="Anchor link to this section">&para;</a></h3>
+<p>This happens constantly. <code>git add .</code>, or ticking everything in GitHub Desktop, sweeps up files you never meant to include: a debug script, a test scene, a texture you were experimenting with, your personal editor settings.</p>
+<p><strong>If you haven't pushed yet</strong>, undo the commit, deselect the extra files, and commit again.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">GitHub Desktop</label><label for="__tabbed_4_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>In the <strong>History</strong> tab, right-click the commit and choose <strong>Undo Commit</strong>. Everything comes back to the <strong>Changes</strong> tab, still selected.</li>
+<li><strong>Uncheck</strong> the files you didn't mean to include.</li>
+<li>Write your message again and commit.</li>
+</ol>
+<p>The unchecked files stay on your machine as uncommitted changes. Nothing is lost.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>reset<span class="w"> </span>HEAD~1<span class="w">                </span><span class="c1"># un-commit, keep every change</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>add<span class="w"> </span>PlayerController.cs<span class="w">     </span><span class="c1"># stage only what you meant to</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add player dash ability"</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p><strong>If you already pushed</strong>, don't try to rewrite history. Your branch is probably in review, and force-pushing wrecks that. Just remove the file in a new commit on top:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">GitHub Desktop</label><label for="__tabbed_5_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Delete the file in your file explorer, then commit that deletion and push. The removal becomes part of the PR like any other change.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>rm<span class="w"> </span>--cached<span class="w"> </span>Assets/Scripts/DebugSpawner.cs
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Remove accidentally committed debug script"</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>git<span class="w"> </span>push
+</span></code></pre></div>
+<p><code>--cached</code> untracks the file but leaves it on your disk, which is usually what you want for something you still use locally.</p>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Squash merging cleans this up for you</p>
+<p>Because SIGGD squash merges, a file that was added and then removed within the same PR never reaches <code>main</code> at all. The final commit is the difference between your finished branch and <code>main</code>, so your "oops" and your "remove oops" cancel out.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">This is not enough for passwords or keys</p>
+<p>If you committed something genuinely sensitive, removing it in a later commit does <strong>not</strong> make it private. It stays visible in your branch's commit history on GitHub, and the repository is public. Tell a lead immediately rather than trying to clean it up yourself, and treat the secret as compromised.</p>
+</div>
+<h3 id="stop-tracking-a-file-that-keeps-coming-back">Stop Tracking a File That Keeps Coming Back<a class="headerlink" href="#stop-tracking-a-file-that-keeps-coming-back" title="Anchor link to this section">&para;</a></h3>
+<p>If a file shouldn't be in the repo at all but you need it locally, untrack it and add it to <code>.gitignore</code> so it stops reappearing in your changes:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>rm<span class="w"> </span>--cached<span class="w"> </span>path/to/file
+</span></code></pre></div>
+<p>Then add the file or folder to <code>.gitignore</code> and commit both. If you find yourself doing this for something everyone will hit, mention it, since the fix probably belongs in the shared <code>.gitignore</code> rather than in each person's working copy.</p>
+<h3 id="revert-a-commit-already-pushed">Revert a Commit (Already Pushed)<a class="headerlink" href="#revert-a-commit-already-pushed" title="Anchor link to this section">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">CLI</label><label for="__tabbed_6_2">GitHub (web)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>revert<span class="w"> </span>abc1234<span class="w">   </span><span class="c1"># the commit hash from git log</span>
+</span></code></pre></div>
+<p><code>git revert</code> creates a <strong>new</strong> commit that undoes an old one. The original stays in history. This is the safe option on shared branches.</p>
+</div>
+<div class="tabbed-block">
+<p>On a merged PR, click <strong>Revert</strong> to open a revert PR automatically.</p>
+</div>
+</div>
+</div>
+<h3 id="fix-the-last-commit-message-not-yet-pushed">Fix the Last Commit Message (Not Yet Pushed)<a class="headerlink" href="#fix-the-last-commit-message-not-yet-pushed" title="Anchor link to this section">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Better message"</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title"><code>git reset --hard</code> deletes your work</p>
+<p><code>git reset --hard HEAD~1</code> removes the last commit <strong>and</strong> discards the changes permanently. There is no undo. Use <code>git reset HEAD~1</code> without <code>--hard</code> to un-commit but keep your work.</p>
+</div>
+<hr />
+<h2 id="stashing-changes">Stashing Changes<a class="headerlink" href="#stashing-changes" title="Anchor link to this section">&para;</a></h2>
+<p>Sometimes you're mid-task and need to switch branches right now, to review someone's PR or check something, but you're not ready to commit.</p>
+<p><strong>Stash</strong> is a temporary clipboard for uncommitted changes.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">GitHub Desktop</label><label for="__tabbed_7_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Right-click in the <strong>Changes</strong> tab and choose <strong>Stash All Changes</strong>.</p>
+<p>To restore: click <strong>Stashed Changes</strong> at the bottom of the Changes tab, then <strong>Restore</strong>.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>stash<span class="w">              </span><span class="c1"># put changes aside</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>stash<span class="w"> </span>pop<span class="w">          </span><span class="c1"># bring them back</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>git<span class="w"> </span>stash<span class="w"> </span>list<span class="w">         </span><span class="c1"># see everything stashed</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Name your stashes</p>
+<p>Unnamed stashes become a mystery pile fast:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </span>-m<span class="w"> </span><span class="s2">"wip: player movement refactor"</span>
+</span></code></pre></div>
+</div>
+<hr />
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Anchor link to this section">&para;</a></h2>
+<ul>
+<li>Review somebody else's open PR. It's the fastest way to learn parts of the project you haven't touched.</li>
+<li><a href="https://docs.github.com/en/actions">GitHub Actions documentation</a>: how the automated builds on each PR actually work.</li>
+</ul>
+<hr />
+<h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Anchor link to this section">&para;</a></h2>
+<ul>
+<li><a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">GitHub Docs: About pull requests</a>: the official reference for everything PR-related.</li>
+<li><a href="https://ohshitgit.com/">Oh Shit, Git!?!</a>: plain-English fixes for common Git mistakes.</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 27, 2026 20:05:58 UTC"><span class="timeago" datetime="2026-08-27T20:05:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 27, 2026 20:05:58 UTC">2026-08-27</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 27, 2026 20:05:58 UTC"><span class="timeago" datetime="2026-08-27T20:05:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 27, 2026 20:05:58 UTC">2026-08-27</span>
+  </span>
+
+    
+    
+      
+  
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Contributors">
+      
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+      
+    </span>
+    <nav>
+      
+        <a href="mailto:psukesh@purdue.edu">Pranav Sukesh</a>
+    </nav>
+  </span>
+
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../gitgood/" class="md-footer__link md-footer__link--prev" aria-label="Previous: First Commits">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                First Commits
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Purdue SIGGD
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/PurdueSIGGD" target="_blank" rel="noopener" title="PurdueSIGGD on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://discord.gg/nKdj4bTjNs" target="_blank" rel="noopener" title="Join our Discord" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognise your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+    
+      
+    
+    
+      
+        
+  
+  
+    
+    
+  
+  <li class="task-list-item">
+    <label class="task-list-control">
+      <input type="checkbox" name="github" checked>
+      <span class="task-list-indicator"></span>
+      GitHub
+    </label>
+  </li>
+
+      
+    
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.path", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../js/timeago.min.js"></script>
+      
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../assets/javascripts/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

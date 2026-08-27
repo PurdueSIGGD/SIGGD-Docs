@@ -1,0 +1,3913 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn the basics of Git version control and GitHub Desktop!">
+      
+      
+        <meta name="author" content="Purdue SIGGD">
+      
+      
+        <link rel="canonical" href="https://PurdueSIGGD.github.io/SIGGD-Docs/tutorials/general/gitgood/">
+      
+      
+        <link rel="prev" href="../getting-set-up/">
+      
+      
+        <link rel="next" href="../gitgood2/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Git Good: First Commits - SIGGD Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#git-good-first-commits" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="SIGGD Docs" class="md-header__button md-logo" aria-label="SIGGD Docs" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SIGGD Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Git Good: First Commits
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="red"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PurdueSIGGD/SIGGD-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PurdueSIGGD/SIGGD-Docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../projects/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../resources/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../contributing/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Contributing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../about/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="SIGGD Docs" class="md-nav__button md-logo" aria-label="SIGGD Docs" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.png" alt="logo">
+
+    </a>
+    SIGGD Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PurdueSIGGD/SIGGD-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PurdueSIGGD/SIGGD-Docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../programming/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../art-and-assets/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Art & Assets
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Art & Assets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../audio/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audio
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Audio
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../story/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Story
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Story
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    General
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-set-up/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Set Up
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--published"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_3" id="__nav_2_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Git Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First Commits
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--published"></span>
+  
+
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First Commits
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--published"></span>
+  
+
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Git?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What is Git?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-vs-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git vs GitHub
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Terms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-git-track-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Does Git Track Changes?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting Up
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloning-a-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloning a Repository
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-your-first-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making Your First Commit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Making Your First Commit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-your-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Open Your Repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-make-a-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Make a Change
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-stage-your-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Stage Your Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-write-a-good-commit-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Write a Good Commit Message
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-confirm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Confirm
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pushing-and-pulling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pushing and Pulling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pushing and Pulling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pulling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pulling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pushing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pushing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working with Branches
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with Branches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is a Branch?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a Branch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switching-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Switching Branches
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-your-branch-from-main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updating Your Branch from main
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merge Conflicts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-lfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git LFS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git LFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-git-lfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Git LFS?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lfs-in-the-siggd-game-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LFS in the SIGGD Game Repo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitgood2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The PR Workflow
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--published"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../projects/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../projects/2627-game/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26-27 Game
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--in-development"></span>
+  
+
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    26-27 Game
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../projects/2627-game/codebase/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codebase
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Codebase
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/2627-game/codebase/systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/2627-game/codebase/scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/2627-game/team/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Team
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../resources/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/external-references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../contributing/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Contributing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/style-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Style Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/markdown-cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Markdown Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Templates
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/templates/tutorial-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial Template
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/templates/project-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Template
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--active"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/templates/codebase-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codebase Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/templates/system-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/templates/script-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Script Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/templates/resource-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../about/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/contributors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Git?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What is Git?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-vs-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git vs GitHub
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Terms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-git-track-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Does Git Track Changes?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting Up
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloning-a-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloning a Repository
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-your-first-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making Your First Commit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Making Your First Commit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-your-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Open Your Repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-make-a-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Make a Change
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-stage-your-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Stage Your Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-write-a-good-commit-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Write a Good Commit Message
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-confirm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Confirm
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pushing-and-pulling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pushing and Pulling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pushing and Pulling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pulling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pulling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pushing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pushing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working with Branches
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with Branches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is a Branch?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a Branch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switching-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Switching Branches
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-your-branch-from-main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updating Your Branch from main
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merge Conflicts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-lfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git LFS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git LFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-git-lfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Git LFS?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lfs-in-the-siggd-game-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LFS in the SIGGD Game Repo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    General
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Git Guides
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:general" class="md-tag">general</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:git" class="md-tag">git</a>
+      
+    
+  </nav>
+
+
+  
+    <a href="https://github.com/PurdueSIGGD/SIGGD-Docs/edit/main/docs/tutorials/general/gitgood.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/PurdueSIGGD/SIGGD-Docs/raw/main/docs/tutorials/general/gitgood.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="git-good-first-commits">Git Good: First Commits<a class="headerlink" href="#git-good-first-commits" title="Anchor link to this section">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">What You Will Learn</p>
+<p>By the end of this tutorial you will:</p>
+<ul>
+<li>Understand what Git is</li>
+<li>Set up Git and GitHub Desktop on your machine</li>
+<li>Clone a shared game project repository to your computer</li>
+<li>Make and commit changes, then push them to GitHub</li>
+<li>Create and merge branches to work without disrupting your teammates</li>
+<li>Set up Git LFS to handle large art and audio assets</li>
+</ul>
+</div>
+<p><strong>Difficulty:</strong> Beginner · <strong>Time:</strong> 45 minutes</p>
+<hr />
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Anchor link to this section">&para;</a></h2>
+<p>Before starting, make sure you have:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A valid GitHub account (<a href="https://github.com">sign up at github.com</a> if you don't have one)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://desktop.github.com/download/">GitHub Desktop</a> downloaded (if you'd rather work with a visual interface)</li>
+</ul>
+<hr />
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Anchor link to this section">&para;</a></h2>
+<p>Imagine you've spent three hours working on a piece of code for a feature, then a teammate opens the same script, makes a change, and saves over your file. Or you try something experimental, break everything, and have no way to undo it.</p>
+<p><strong>Git</strong> is the industry standard tool that prevents all of that. With Git, you can undo mistakes, see who changed what, and collaborate with a whole team on the same files without anyone overwriting anyone else.</p>
+<p>On the surface, especially as someone who's never used it before, Git can seem daunting, but once you learn more about it, it can become your best friend when developing. This guide will teach you about both Git and GitHub (they are indeed different), walking you through the steps of successfully using it in a game development environment here at SIGGD!</p>
+<p>These first few sections teach you about what Git and GitHub really are, but if you just want to collaborate with our team, feel free to skip ahead to <a href="#setting-up">Setting Up</a>!</p>
+<hr />
+<h2 id="what-is-git">What is Git?<a class="headerlink" href="#what-is-git" title="Anchor link to this section">&para;</a></h2>
+<p>Git is a <strong>version control system</strong>. Think of it like a filing cabinet that:</p>
+<ul>
+<li>Remembers <strong>every version</strong> of every file in your project, going all the way back to the beginning</li>
+<li>Can <strong>instantly restore</strong> any previous version of any file</li>
+<li>Records <strong>who changed what and when</strong></li>
+<li>Lets <strong>multiple people</strong> edit the same project simultaneously without overwriting each other</li>
+</ul>
+<h3 id="git-vs-github">Git vs GitHub<a class="headerlink" href="#git-vs-github" title="Anchor link to this section">&para;</a></h3>
+<p>Many people get this wrong, but Git and GitHub are separate entities that are both necessary for our game development workflow:</p>
+<ul>
+<li><strong>Git</strong> is merely a tool, software that runs on your computer and tracks changes that works completely offline.</li>
+<li><strong>GitHub</strong> is the cloud service, a website that stores the files you track with Git so your team can share them and access them from anywhere.</li>
+</ul>
+<p>You can use Git without GitHub completely locally on your computer, but GitHub needs Git. We recommend syncing all your Git repositories to a cloud service like GitHub, but its perfectly feasible to host your own servers or just keep everything locally!</p>
+<h3 id="key-terms">Key Terms<a class="headerlink" href="#key-terms" title="Anchor link to this section">&para;</a></h3>
+<p>You'll encounter these words constantly. Here's a plain-English reference you can come back to:</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What It Means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Repository (repo)</strong></td>
+<td>A project folder that Git is tracking, containing all your files and their entire history</td>
+</tr>
+<tr>
+<td><strong>Commit</strong></td>
+<td>A saved snapshot of your project at a point in time, with a short message describing what changed</td>
+</tr>
+<tr>
+<td><strong>Branch</strong></td>
+<td>An independent line of work, like a parallel copy of the project where you can make changes without affecting the main version</td>
+</tr>
+<tr>
+<td><strong>Remote / Origin</strong></td>
+<td>The copy of your repo stored on GitHub (what your team syncs to and from)</td>
+</tr>
+<tr>
+<td><strong>Clone</strong></td>
+<td>Downloading a complete copy of a remote repo (including all its history) to your computer</td>
+</tr>
+<tr>
+<td><strong>Stage</strong></td>
+<td>Selecting which changes to include in your next commit</td>
+</tr>
+<tr>
+<td><strong>Push</strong></td>
+<td>Uploading your local commits to GitHub</td>
+</tr>
+<tr>
+<td><strong>Pull</strong></td>
+<td>Downloading new commits from GitHub to your local copy</td>
+</tr>
+</tbody>
+</table>
+<p>Don't worry if these don't fully click yet. Each one will make much more sense once you use it.</p>
+<hr />
+<h2 id="how-does-git-track-changes">How Does Git Track Changes?<a class="headerlink" href="#how-does-git-track-changes" title="Anchor link to this section">&para;</a></h2>
+<p>Git thinks about your work in three zones:</p>
+<pre class="mermaid"><code>flowchart LR
+    A["Working Directory"]
+    B["Staging Area"]
+    C["Repository"]
+    A -- "git add" --&gt; B
+    B -- "git commit" --&gt; C</code></pre>
+<ul>
+<li><strong>Working Directory</strong>: the files on your computer. You edit them freely here. Git watches for changes but doesn't record them yet.</li>
+<li><strong>Staging Area</strong>: a holding area where you decide <em>which</em> changes to include in your next commit. You don't need to sync all your files with the repository, just whatever you choose.</li>
+<li><strong>Repository</strong>: the permanent record. Once you commit, the snapshot is locked in with a label, a timestamp, and your name attached.</li>
+</ul>
+<p>Every time you commit, you're taking a snapshot of your project. Over time, these snapshots form a timeline:</p>
+<pre class="mermaid"><code>gitGraph
+   commit id: "Initial project setup"
+   commit id: "Add player sprite"
+   commit id: "Add player movement"
+   commit id: "Fix jump bug"
+   commit id: "Import lobby music"</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Why a staging area at all?</p>
+<p>You might change ten files in a session but only want to commit three of them in one focused save. Staging lets you be precise. For example: you fixed a bug in <code>PlayerController.cs</code> and also started sketching out a new enemy, so you can commit just the bug fix now and commit the enemy work separately later.</p>
+</div>
+<hr />
+<h2 id="setting-up">Setting Up<a class="headerlink" href="#setting-up" title="Anchor link to this section">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">GitHub Desktop</label><label for="__tabbed_1_2">Windows (Git Bash)</label><label for="__tabbed_1_3">Mac/Linux (Terminal)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>GitHub Desktop handles Git configuration automatically when you sign in. No separate Git installation needed.</p>
+<ol>
+<li>Download and install <a href="https://desktop.github.com/download/">GitHub Desktop</a>.</li>
+<li>Open GitHub Desktop and click <strong>Sign in to GitHub.com</strong>.</li>
+<li>Your browser will open and ask you to authorize GitHub Desktop. Click <strong>Authorize</strong>.</li>
+<li>Return to the app. GitHub Desktop reads your GitHub account name and email automatically.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">You're set up</p>
+<p>If you can see your username in the top-left corner of GitHub Desktop, you're ready to go.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p><strong>Step 1: Install Git</strong></p>
+<p>Download and run the <a href="https://git-scm.com/download/win">Git for Windows</a> installer. The default options during installation are fine for most users.</p>
+<p>Once installed, open <strong>Git Bash</strong> from the Start menu.</p>
+<p><strong>Step 2: Configure your identity</strong></p>
+<p>Git attaches your name and email to every commit you make. Run these two commands (replace with your real name and the email you used for GitHub):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">"Your Name"</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">"your@email.com"</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Verify it worked</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>config<span class="w"> </span>--list
+</span></code></pre></div>
+You should see <code>user.name</code> and <code>user.email</code> in the output.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p><strong>Step 1: Check if Git is installed</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>--version
+</span></code></pre></div>
+<p>If you see a version number (e.g. <code>git version 2.39.0</code>), Git is already installed.</p>
+<p>If not:</p>
+<ul>
+<li><strong>Mac</strong>: Run <code>xcode-select --install</code> in Terminal, or install via <a href="https://brew.sh">Homebrew</a>: <code>brew install git</code></li>
+<li><strong>Linux (Ubuntu/Debian)</strong>: <code>sudo apt install git</code></li>
+</ul>
+<p><strong>Step 2: Configure your identity</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">"Your Name"</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">"your@email.com"</span>
+</span></code></pre></div>
+<p>Use the same email address as your GitHub account.</p>
+<div class="admonition tip">
+<p class="admonition-title">Verify it worked</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>config<span class="w"> </span>--list
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="cloning-a-repository">Cloning a Repository<a class="headerlink" href="#cloning-a-repository" title="Anchor link to this section">&para;</a></h2>
+<p><strong>Cloning</strong> means downloading a complete copy of a remote repository (all the files <em>and</em> the entire commit history) to your computer. This is usually the first thing you do when joining a project.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">GitHub Desktop</label><label for="__tabbed_2_2">Windows (Git Bash)</label><label for="__tabbed_2_3">Mac/Linux (Terminal)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Go to the repository on <strong>GitHub.com</strong> and copy the URL from your browser's address bar.</li>
+<li>In GitHub Desktop, click <strong>File &rarr; Clone Repository</strong>.</li>
+<li>Click the <strong>URL</strong> tab and paste the repository URL.</li>
+<li>Under <strong>Local Path</strong>, choose where on your computer to store the project.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Where to clone</p>
+<p>Avoid cloning into:</p>
+<ul>
+<li><strong>A cloud-synced folder</strong> (OneDrive, Dropbox, Google Drive): these fight with Git and cause corruption and sync conflicts.</li>
+<li><strong>Another Git repository</strong>: nested repos cause confusing behavior (with the exception of submodules, which we aren't addressing in this tutorial).</li>
+</ul>
+<p>Use a plain folder like <code>C:\Projects\</code> or <code>C:\Users\YourName\GameDev\</code>.</p>
+</div>
+<ol>
+<li>Click <strong>Clone</strong>.</li>
+</ol>
+<p><img alt="GitHub Desktop clone dialog with a repository URL pasted into the URL tab" src="../../../assets/images/g1-desktop-clone.png" /></p>
+<p><em>Paste the repository URL, then choose a Local Path outside any cloud-synced folder.</em></p>
+<p>GitHub Desktop downloads the project and opens it automatically.</p>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Go to the repository on <strong>GitHub.com</strong>.</li>
+<li>Click the green <strong>Code</strong> button and copy the <strong>HTTPS</strong> URL.</li>
+<li>
+<p>In Git Bash, navigate to where you want to store the project:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>C:/Projects
+</span></code></pre></div>
+</li>
+<li>
+<p>Clone the repository:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/your-org/your-repo.git
+</span></code></pre></div>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Where to clone</p>
+<p>Don't clone inside OneDrive, Dropbox, or another Git repository.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Go to the repository on <strong>GitHub.com</strong>.</li>
+<li>Click the green <strong>Code</strong> button and copy the <strong>HTTPS</strong> URL.</li>
+<li>
+<p>Navigate to where you want to store the project:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>~/Documents/GameDev
+</span></code></pre></div>
+</li>
+<li>
+<p>Clone the repository:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/your-org/your-repo.git
+</span></code></pre></div>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Where to clone</p>
+<p>Don't clone inside iCloud Drive, Dropbox, or another Git repository.</p>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="making-your-first-commit">Making Your First Commit<a class="headerlink" href="#making-your-first-commit" title="Anchor link to this section">&para;</a></h2>
+<p>You've cloned the repo. Now let's walk through the full save cycle: <strong>make a change &rarr; stage it &rarr; write a message &rarr; commit</strong>.</p>
+<h3 id="step-1-open-your-repository">Step 1: Open Your Repository<a class="headerlink" href="#step-1-open-your-repository" title="Anchor link to this section">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">GitHub Desktop</label><label for="__tabbed_3_2">Windows (Git Bash) / Mac/Linux (Terminal)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Your cloned repo should already be open. If not, click it in the left sidebar or go to <strong>File &rarr; Open Repository</strong>.</p>
+</div>
+<div class="tabbed-block">
+<p>Navigate into the project folder:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">cd</span><span class="w"> </span>your-repo-name
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="step-2-make-a-change">Step 2: Make a Change<a class="headerlink" href="#step-2-make-a-change" title="Anchor link to this section">&para;</a></h3>
+<p>Open any file in your project and edit it, or create a new file. Git doesn't care <em>what</em> you changed, and any modification to any tracked file will appear in the next step.</p>
+<p>For example: open <code>PlayerController.cs</code> and change the jump force value, or drop a new sprite into <code>Assets/Sprites/</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Unity is notoriously bad at writing file changes to your hard disk, especially for things like .meta files and .asset files, which means that sometimes Git doesn't notice your changes. To fix this and force-sync everything, navigate to <strong>File &rarr; Save Project</strong>.</p>
+</div>
+<h3 id="step-3-stage-your-changes">Step 3: Stage Your Changes<a class="headerlink" href="#step-3-stage-your-changes" title="Anchor link to this section">&para;</a></h3>
+<p>Staging is how you tell Git: "these are the changes I want to include in my next commit."</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">GitHub Desktop</label><label for="__tabbed_4_2">Windows (Git Bash) / Mac/Linux (Terminal)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>After saving your edits, switch to GitHub Desktop. Your modified files appear in the <strong>Changes</strong> tab on the left.</p>
+<p><img alt="The GitHub Desktop interface with the Changes tab, file list, diff panel and commit box labelled" src="../../../assets/images/g1-desktop-main.png" />
+<em>The changes area can be seen on the left.</em></p>
+<p><img alt="The Changes tab with some files checked and others unchecked" src="../../../assets/images/g1-desktop-staged.png" /></p>
+<p><em>Only the checked files go into your next commit.</em></p>
+<ul>
+<li><strong>Checked</strong> files will be included in the commit.</li>
+<li><strong>Unchecked</strong> files are skipped for this commit.</li>
+</ul>
+<p>Check or uncheck individual files to control exactly what gets saved.</p>
+</div>
+<div class="tabbed-block">
+<p>First, see what's changed:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<p>Stage a specific file:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git<span class="w"> </span>add<span class="w"> </span>PlayerController.cs
+</span></code></pre></div>
+<p>Or stage everything that changed:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code>git add .</code> stages all changes at once. It's fast, but check <code>git status</code> first so you know exactly what you're staging. You can also use regular expressions to stage multiple similar files at once.</p>
+</div>
+</div>
+</div>
+</div>
+<h3 id="step-4-write-a-good-commit-message">Step 4: Write a Good Commit Message<a class="headerlink" href="#step-4-write-a-good-commit-message" title="Anchor link to this section">&para;</a></h3>
+<p>A commit message is a short description of <em>what</em> you changed. It's the label on the snapshot. Future you (and your teammates) will read these when scanning history for a bug or understanding what changed.</p>
+<p><strong>Good messages:</strong></p>
+<table>
+<thead>
+<tr>
+<th>What you did</th>
+<th>Good message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Added jump animation for the player</td>
+<td><code>Add player jump animation</code></td>
+</tr>
+<tr>
+<td>Fixed an enemy getting stuck in walls</td>
+<td><code>Fix enemy wall collision bug</code></td>
+</tr>
+<tr>
+<td>Imported sound effects for the main menu</td>
+<td><code>Import main menu sound effects</code></td>
+</tr>
+<tr>
+<td>Tweaked how fast the camera follows the player</td>
+<td><code>Smooth camera follow speed</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Less useful messages:</strong> <code>stuff</code>, <code>wip</code>, <code>fix</code>, <code>changes</code>, <code>asdfgh</code></p>
+<p>Typical Guidelines:</p>
+<ul>
+<li>Use <strong>present tense</strong>: <code>"Add player movement"</code> not <code>"Added player movement"</code></li>
+<li>Be <strong>specific</strong>: <code>"Fix audio loop on death screen"</code> not <code>"Fix audio"</code></li>
+<li>Describe <strong>what</strong>, not <em>how</em>: the code itself shows how</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">An aside for SIGGD</p>
+<p>We'd really appreciate if you made your commit messages as descriptive as possible following these rules! A large part of software development is communication, and it makes everything much nicer and saves a ton of time!</p>
+</div>
+<h3 id="step-5-commit">Step 5: Commit<a class="headerlink" href="#step-5-commit" title="Anchor link to this section">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">GitHub Desktop</label><label for="__tabbed_5_2">Windows (Git Bash) / Mac/Linux (Terminal)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>At the bottom of the Changes panel, fill in the <strong>Summary</strong> field with your commit message. The <strong>Description</strong> field is optional (use it for longer explanations).</p>
+<p><img alt="The commit box with a summary filled in" src="../../../assets/images/g1-desktop-commit.png" /></p>
+<p><em>The button names the branch you are committing to. Check that it says what you expect.</em></p>
+<p>Click <strong>Commit to [branch name]</strong>.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add player jump animation"</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="step-6-confirm">Step 6: Confirm<a class="headerlink" href="#step-6-confirm" title="Anchor link to this section">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">GitHub Desktop</label><label for="__tabbed_6_2">Windows (Git Bash) / Mac/Linux (Terminal)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Click the <strong>History</strong> tab to see your new commit at the top.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</span></code></pre></div>
+<p>Your latest commit appears at the top of the list.</p>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Commit often, commit small</p>
+<p>It's tempting to work for hours and make one massive commit. Don't do that. Small, focused commits are easier to review, easier to understand later, and far easier to undo if something breaks. If you can only undo one commit's worth of work at a time, you want each commit to be a small, self-contained step. This will save you a LOT of trouble in the future I promise.</p>
+</div>
+<hr />
+<h2 id="pushing-and-pulling">Pushing and Pulling<a class="headerlink" href="#pushing-and-pulling" title="Anchor link to this section">&para;</a></h2>
+<p>Your local commits only exist on your machine until you <strong>push</strong> them to GitHub. And when teammates push their work, you need to <strong>pull</strong> to get it.</p>
+<h3 id="pulling">Pulling<a class="headerlink" href="#pulling" title="Anchor link to this section">&para;</a></h3>
+<p>Pulling downloads any new commits from GitHub to your local copy. <strong>Always pull before you start working</strong> each session to make sure you have the latest version of the project.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">GitHub Desktop</label><label for="__tabbed_7_2">Windows (Git Bash) / Mac/Linux (Terminal)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Click <strong>Fetch origin</strong> in the top toolbar. If there are new commits available, it changes to <strong>Pull origin</strong>: click again to download them.</p>
+<p><img alt="The GitHub Desktop toolbar button in its fetch, pull and push states" src="../../../assets/images/g1-desktop-push-pull.png" /></p>
+<p><em>The same button changes label depending on what is waiting.</em></p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>git<span class="w"> </span>pull
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="pushing">Pushing<a class="headerlink" href="#pushing" title="Anchor link to this section">&para;</a></h3>
+<p>Pushing uploads your local commits to GitHub so your teammates can see your work.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">GitHub Desktop</label><label for="__tabbed_8_2">Windows (Git Bash) / Mac/Linux (Terminal)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Click <strong>Push origin</strong> in the top toolbar.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>git<span class="w"> </span>push
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Always pull before you push</p>
+<p>If someone else pushed commits to the same branch since you last pulled, Git will reject your push. Pull their changes first, then push your own. GitHub Desktop will prompt you automatically if this happens.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">What is 'origin'?</p>
+<p><code>origin</code> is the default nickname Git gives to your remote repository on GitHub. When you run <code>git push</code> or <code>git pull</code>, you're communicating with <code>origin</code>, your team's GitHub copy. You'll rarely need to change this.</p>
+</div>
+<hr />
+<h2 id="working-with-branches">Working with Branches<a class="headerlink" href="#working-with-branches" title="Anchor link to this section">&para;</a></h2>
+<h3 id="what-is-a-branch">What Is a Branch?<a class="headerlink" href="#what-is-a-branch" title="Anchor link to this section">&para;</a></h3>
+<p>Imagine four teammates all committing directly to the same shared version of the game. One person commits a half-finished system. Now the game is broken for everyone while they finish it.</p>
+<p><strong>Branches</strong> solve this. A branch is an isolated copy of the project where you can make changes freely. Your work stays separate until you're ready to bring it back in.</p>
+<p>The <strong>main branch</strong> (usually called <code>main</code>) is the stable, always-working version everyone builds from. Each person creates their own branch for each feature or fix, then merges it back when it's done.</p>
+<p><pre class="mermaid"><code>gitGraph
+   commit id: "Initial setup"
+   branch feature/player-jump
+   checkout feature/player-jump
+   commit id: "Add jump input"
+   commit id: "Add jump animation"
+   checkout main
+   merge feature/player-jump id: "Merge: player jump"
+   branch fix/audio-loop
+   checkout fix/audio-loop
+   commit id: "Fix looping on death screen"
+   checkout main
+   merge fix/audio-loop id: "Merge: audio fix"</code></pre>
+To read the diagram above, look from left to right. The blue branch is our <code>main</code> branch, where everything will ultimately be merged into. The yellow branch, where someone presumably creates a feature for player jumping (descriptive branch name!), has 2 commits, then is merged into main. The fix for audio looping is similarly made and merged into main with just one commit. As a result, both developers can work on separate features in parallel!</p>
+<h3 id="creating-a-branch">Creating a Branch<a class="headerlink" href="#creating-a-branch" title="Anchor link to this section">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">GitHub Desktop</label><label for="__tabbed_9_2">Windows (Git Bash) / Mac/Linux (Terminal)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Click the <strong>Current Branch</strong> dropdown at the top of the window.</li>
+<li>Select <strong>New Branch</strong>.</li>
+<li>You will be asked what branch to base your new one off of; this just means which branch's history your new branch will inherit (you can view this in the history tab). Select whatever fits your needs, but most of the time this will be <code>main</code>.</li>
+</ol>
+<p><img alt="The new branch dialog with a name entered and main selected as the base" src="../../../assets/images/g1-desktop-new-branch.png" /></p>
+<p><em>Name the branch descriptively, and base it on main unless you have a reason not to.</em></p>
+<ol>
+<li>
+<p>Name the branch something descriptive. SIGGD uses these prefixes:</p>
+<ul>
+<li><code>feature/player-jump</code>: new mechanics, systems, screens</li>
+<li><code>fix/enemy-collision</code>: bug fixes</li>
+<li><code>art/main-menu-sprites</code>: sprites, models, animations, VFX</li>
+<li><code>audio/footstep-sounds</code>: music and sound effects</li>
+</ul>
+</li>
+<li>
+<p>Click <strong>Create Branch</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p>Create a new branch and switch to it in one step:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/player-jump
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="switching-branches">Switching Branches<a class="headerlink" href="#switching-branches" title="Anchor link to this section">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">GitHub Desktop</label><label for="__tabbed_10_2">Windows (Git Bash) / Mac/Linux (Terminal)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Click the <strong>Current Branch</strong> dropdown and select the branch you want.</p>
+<p><img alt="The Current Branch dropdown open, listing several branches" src="../../../assets/images/g1-desktop-branches.png" />
+<em>Switching branches swaps the files on your disk to match that branch.</em></p>
+</div>
+<div class="tabbed-block">
+<p>See all branches:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>git<span class="w"> </span>branch
+</span></code></pre></div>
+<p>Switch to a branch:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>feature/player-jump
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Commit or stash before switching</p>
+<p>Switching branches with uncommitted changes can cause unexpected behavior. Either commit your work first, or stash it (covered in <a href="../gitgood2/#stashing-changes">Git Good: The PR Workflow</a>).</p>
+</div>
+<h3 id="updating-your-branch-from-main">Updating Your Branch from <code>main</code><a class="headerlink" href="#updating-your-branch-from-main" title="Anchor link to this section">&para;</a></h3>
+<p>While you work on your branch, teammates keep merging their own work into <code>main</code>. Bringing those changes into your branch keeps you current and surfaces conflicts early, while they are still small.</p>
+<div class="admonition danger">
+<p class="admonition-title">You cannot merge your own branch into main</p>
+<p>In SIGGD, nobody pushes or merges directly into <code>main</code>. It is protected, and the only way your work gets in is through a pull request that someone reviews and approves. That is covered in <a href="../gitgood2/#opening-a-pull-request">Git Good: The PR Workflow</a>.</p>
+<p>So this section covers the direction you <em>will</em> use constantly: merging <code>main</code> <strong>into your branch</strong>.</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">GitHub Desktop</label><label for="__tabbed_11_2">Windows (Git Bash) / Mac/Linux (Terminal)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>First, switch to the branch you want to merge <em>into</em> (here, it will be your feature branch).</li>
+<li>Go to <strong>Branch &rarr; Merge into Current Branch</strong>.</li>
+<li>Select the branch you want to merge changes from (in this case <code>main</code>).</li>
+<li>Click <strong>Create a merge commit</strong>.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p>Switch to the feature branch first:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>feature/player-jump
+</span></code></pre></div>
+<p>Then merge in <code>main</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>git<span class="w"> </span>merge<span class="w"> </span>main
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="merge-conflicts">Merge Conflicts<a class="headerlink" href="#merge-conflicts" title="Anchor link to this section">&para;</a></h3>
+<p>Sometimes two people edit the same line in the same file on different branches. When you merge, Git can't automatically choose which version to keep. This is called a <strong>merge conflict</strong>.</p>
+<p>Conflicts are normal. Don't panic. Git is very explicit about exactly what needs your decision.</p>
+<p>Inside a conflicted (text) file, you'll see markers like this:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>float jumpForce = 8.0f;
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>=======
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>float jumpForce = 12.0f;
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/player-jump
+</span></code></pre></div>
+<ul>
+<li>Everything between <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and <code>=======</code> is from your current branch.</li>
+<li>Everything between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> is from the branch being merged in.</li>
+</ul>
+<p><strong>To resolve:</strong></p>
+<ol>
+<li>Decide which value to keep (or manually write a combined version).</li>
+<li>Delete all the conflict markers (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>).</li>
+<li>Save the file.</li>
+<li>Stage the resolved file and commit.</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">GitHub Desktop</label><label for="__tabbed_12_2">Windows (Git Bash) / Mac/Linux (Terminal)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Conflicted files appear with a warning icon in the Changes tab.</p>
+<p>Click <strong>Open in editor</strong> on a conflicted file to resolve it, then return to GitHub Desktop to finish the merge.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<p>Open conflicted files in your editor, resolve them, then:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>git<span class="w"> </span>add<span class="w"> </span>PlayerController.cs
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>git<span class="w"> </span>commit
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Merge conflicts with non-text files</p>
+<p>The vast majority of files we will use in SIGGD won't be as nice as code files, which are human readable, instead being <strong>binary files</strong> (see the next section). Binary files aren't human readable, which mean you can't edit it line by line. Thus, it is extra important that you use version control to ensure that no one's work gets lost.</p>
+</div>
+<hr />
+<h2 id="git-lfs">Git LFS<a class="headerlink" href="#git-lfs" title="Anchor link to this section">&para;</a></h2>
+<h3 id="what-is-git-lfs">What Is Git LFS?<a class="headerlink" href="#what-is-git-lfs" title="Anchor link to this section">&para;</a></h3>
+<p>Git is exceptional at tracking changes in text files (code, scripts, config files). But it struggles with <strong>binary files</strong>: files that aren't human-readable text. Every time you update a binary file, Git stores the entire new file rather than just the difference.</p>
+<p>In a game project, almost everything is a binary file:</p>
+<ul>
+<li><strong>Textures and sprites</strong> (<code>.png</code>, <code>.psd</code>, <code>.tga</code>, <code>.jpg</code>)</li>
+<li><strong>3D models</strong> (<code>.fbx</code>, <code>.blend</code>, <code>.obj</code>)</li>
+<li><strong>Audio files</strong> (<code>.wav</code>, <code>.mp3</code>, <code>.ogg</code>)</li>
+<li><strong>Unity scene files and compiled assets</strong></li>
+</ul>
+<p>Without LFS, a repo full of art assets balloons in size. GitHub rejects any single file over 100 MB outright, and a repo that keeps every version of every texture gets slower to clone for everyone, forever.</p>
+<p><strong>Git LFS</strong> (Large File Storage) solves this. Instead of storing large files in the repo itself, LFS puts them on GitHub's separate LFS servers and keeps only a tiny pointer (a few lines of text) in the repo. The workflow is identical from your end: you just commit and push as normal.</p>
+<h3 id="lfs-in-the-siggd-game-repo">LFS in the SIGGD Game Repo<a class="headerlink" href="#lfs-in-the-siggd-game-repo" title="Anchor link to this section">&para;</a></h3>
+<p><strong>LFS is already set up.</strong> You do not need to configure anything. <code>.gitattributes</code> in the repo root already routes every art, audio, model, and video format through LFS.</p>
+<p>The only thing you need to do is install LFS support on your own machine:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>git<span class="w"> </span>lfs<span class="w"> </span>install
+</span></code></pre></div>
+<p>GitHub Desktop ships with Git LFS built in, so if that's all you use, this is already done for you.</p>
+<div class="admonition danger">
+<p class="admonition-title">If you skip this, you will commit broken assets</p>
+<p>Without LFS installed, art files download as a few lines of text instead of actual images, and anything you commit gets stored the wrong way. If you open a sprite and see this, LFS is not installed:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>version https://git-lfs.github.com/spec/v1
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>oid sha256:4d7a2...
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>size 4194304
+</span></code></pre></div>
+<p>Run <code>git lfs install</code>, then <code>git lfs pull</code> to fetch the real files.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Storage is shared across the whole club</p>
+<p>SIGGD's GitHub account gets 10 GB of LFS storage and 10 GB of downloads per month, shared across <strong>every</strong> PurdueSIGGD repository. Every fresh clone spends from that same monthly pool.</p>
+<p>In practice this means: don't commit raw 4K footage, 40-layer PSDs, or uncompressed WAVs when a smaller version would do. Once the pool runs out, LFS stops working for everybody until the next month.</p>
+</div>
+<details class="note">
+<summary>Setting up LFS in your own project</summary>
+<p>You won't need this for SIGGD's repo, but it's useful for game jams and personal projects.</p>
+<p>Install LFS, then tell it which file types to track from inside the repo root:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>git<span class="w"> </span>lfs<span class="w"> </span>install
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>git<span class="w"> </span>lfs<span class="w"> </span>track<span class="w"> </span><span class="s2">"*.png"</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>git<span class="w"> </span>lfs<span class="w"> </span>track<span class="w"> </span><span class="s2">"*.psd"</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>git<span class="w"> </span>lfs<span class="w"> </span>track<span class="w"> </span><span class="s2">"*.fbx"</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>git<span class="w"> </span>lfs<span class="w"> </span>track<span class="w"> </span><span class="s2">"*.wav"</span>
+</span></code></pre></div>
+<p>On Mac you may need to install LFS itself first with <code>brew install git-lfs</code>; on Ubuntu/Debian, <code>sudo apt install git-lfs</code>.</p>
+<p>Tracking writes to <code>.gitattributes</code>, which has to be committed like any other file:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>git<span class="w"> </span>add<span class="w"> </span>.gitattributes
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Configure Git LFS for art and audio assets"</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>git<span class="w"> </span>push
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Set up LFS before assets are committed</p>
+<p>LFS tracking only applies to future commits. Files already in the repo history can't be moved to LFS retroactively without a complex migration. Configure LFS before the first art asset goes in.</p>
+</div>
+</details>
+<hr />
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Anchor link to this section">&para;</a></h2>
+<details class="warning">
+<summary>Push rejected: 'non-fast-forward' or 'failed to push some refs'</summary>
+<p><strong>What it means:</strong> Someone else pushed commits to this branch since you last pulled. Your local copy is behind theirs.</p>
+<p><strong>Fix:</strong> Pull first, then push again.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:2"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">GitHub Desktop</label><label for="__tabbed_13_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Click <strong>Pull origin</strong> (or <strong>Fetch origin</strong> then <strong>Pull</strong>). Resolve any conflicts if prompted. Then click <strong>Push origin</strong>.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>git<span class="w"> </span>pull
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>git<span class="w"> </span>push
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<details class="warning">
+<summary>'Please tell me who you are' / 'Author identity unknown'</summary>
+<p><strong>What it means:</strong> Git can't attribute your commit because your name and email haven't been configured.</p>
+<p><strong>Fix:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">"Your Name"</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">"your@email.com"</span>
+</span></code></pre></div>
+<p>Then retry your commit.</p>
+</details>
+<details class="warning">
+<summary>I committed to main by mistake</summary>
+<p><strong>What it means:</strong> You made a commit directly to <code>main</code> instead of your feature branch.</p>
+<p><strong>Fix (if not yet pushed):</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:2"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">CLI</label><label for="__tabbed_14_2">GitHub Desktop</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Create a new branch from your current state (this carries your commit with it):
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/my-actual-branch
+</span></code></pre></div></li>
+<li>Switch back to <code>main</code> and undo the commit there (keeps your changes, just un-commits them from <code>main</code>):
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>main
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>git<span class="w"> </span>reset<span class="w"> </span>HEAD~1
+</span></code></pre></div></li>
+</ol>
+<p>Your work is now on the correct feature branch and <code>main</code> is clean.</p>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Before doing anything else, create a new branch (<strong>Current Branch &rarr; New Branch</strong>), which will start from your current position including the accidental commit.</li>
+<li>Switch back to <code>main</code>.</li>
+<li>In the <strong>History</strong> tab, right-click the accidental commit and choose <strong>Undo Commit</strong>.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">If you already pushed to main</p>
+<p>At least in SIGGD, this won't happen because we have branch protections. If something really drastic happened though, coordinate with the person in charge of the GitHub repository to fix this!</p>
+</div>
+</details>
+<details class="warning">
+<summary>'Already up to date' but I can't see my teammate's changes</summary>
+<p><strong>What it means:</strong> You're on the wrong branch. <code>git pull</code> only updates the branch you're currently on.</p>
+<p><strong>Fix:</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="15:2"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="__tabbed_15_1">GitHub Desktop</label><label for="__tabbed_15_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Check the <strong>Current Branch</strong> dropdown. Switch to the branch where your teammate pushed their changes, then <strong>Fetch origin</strong> / <strong>Pull origin</strong>.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>git<span class="w"> </span>branch<span class="w">          </span><span class="c1"># see which branch you're on (starred)</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>main<span class="w">   </span><span class="c1"># switch to the correct branch</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>git<span class="w"> </span>pull
+</span></code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<details class="warning">
+<summary>Merge conflict markers won't go away</summary>
+<p><strong>What it means:</strong> The conflict markers (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>) are still literally in the file: they weren't removed before you staged and tried to commit.</p>
+<p><strong>Fix:</strong> Open the conflicted file in your editor. Search for <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>. Remove all three conflict markers and leave only the final, correct code. Then:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>git<span class="w"> </span>add<span class="w"> </span>filename.cs
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>git<span class="w"> </span>commit
+</span></code></pre></div>
+</details>
+<hr />
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Anchor link to this section">&para;</a></h2>
+<p>After completing this tutorial, try:</p>
+<ul>
+<li><a href="../gitgood2/">Git Good: The PR Workflow</a>: learn how to open pull requests, get code reviewed, and use advanced Git techniques</li>
+</ul>
+<hr />
+<h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Anchor link to this section">&para;</a></h2>
+<ul>
+<li><a href="https://git-scm.com/book/en/v2">Pro Git (free book)</a>: the definitive reference for everything Git; the first few chapters are very readable for beginners.</li>
+<li><a href="https://docs.github.com/en/get-started">GitHub Docs: Getting started</a>: GitHub's official beginner guide with interactive walkthroughs.</li>
+<li><a href="https://ohshitgit.com/">Oh Shit, Git!?!</a>: plain-English solutions to common Git mistakes.</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 27, 2026 20:05:58 UTC"><span class="timeago" datetime="2026-08-27T20:05:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 27, 2026 20:05:58 UTC">2026-08-27</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 27, 2026 20:05:58 UTC"><span class="timeago" datetime="2026-08-27T20:05:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 27, 2026 20:05:58 UTC">2026-08-27</span>
+  </span>
+
+    
+    
+      
+  
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Contributors">
+      
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+      
+    </span>
+    <nav>
+      
+        <a href="mailto:psukesh@purdue.edu">Pranav Sukesh</a>
+    </nav>
+  </span>
+
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../getting-set-up/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Getting Set Up">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Getting Set Up
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../gitgood2/" class="md-footer__link md-footer__link--next" aria-label="Next: The PR Workflow">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                The PR Workflow
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Purdue SIGGD
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/PurdueSIGGD" target="_blank" rel="noopener" title="PurdueSIGGD on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://discord.gg/nKdj4bTjNs" target="_blank" rel="noopener" title="Join our Discord" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognise your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+    
+      
+    
+    
+      
+        
+  
+  
+    
+    
+  
+  <li class="task-list-item">
+    <label class="task-list-control">
+      <input type="checkbox" name="github" checked>
+      <span class="task-list-indicator"></span>
+      GitHub
+    </label>
+  </li>
+
+      
+    
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.path", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../js/timeago.min.js"></script>
+      
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../assets/javascripts/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
