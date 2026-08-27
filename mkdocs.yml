@@ -23,21 +23,22 @@ theme:
   favicon: assets/images/favicon.png
   language: en
 
+  # No `media` keys, so the first entry is the default for every visitor
+  # regardless of their OS theme. Readers can still toggle, and their choice
+  # is remembered.
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: black
-      accent: red
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+    - scheme: slate
       primary: black
       accent: red
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+    - scheme: default
+      primary: black
+      accent: red
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
 
   font:
     text: Inter
@@ -96,9 +97,10 @@ nav:
           - tutorials/story/index.md
       - General:
           - tutorials/general/index.md
+          - Getting Set Up: tutorials/general/getting-set-up.md
           - Git Guides:
-            - Git Good: tutorials/general/gitgood.md
-            - Git Good 2: tutorials/general/gitgood2.md
+            - First Commits: tutorials/general/gitgood.md
+            - The PR Workflow: tutorials/general/gitgood2.md
   - Projects:
       - projects/index.md
       - 26-27 Game:
