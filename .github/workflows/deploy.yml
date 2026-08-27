@@ -40,6 +40,6 @@ jobs:
         if: github.event_name != 'pull_request'
         run: mkdocs gh-deploy --force
 
-      - name: Build only — validate PR (no deploy)
+      - name: Build only validate PR (no deploy)
         if: github.event_name == 'pull_request'
         run: mkdocs build --strict

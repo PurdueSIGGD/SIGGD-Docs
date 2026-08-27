@@ -15,7 +15,7 @@ tags:
 **Dependencies:** List components or scripts this requires
 
 One paragraph describing what this system is responsible for and the problem
-it solves. Be specific — "manages player movement and animation state" is
+it solves. Be specific; "manages player movement and animation state" is
 better than "controls the player."
 
 ---
@@ -23,7 +23,7 @@ better than "controls the player."
 ## How It Works
 
 Describe the approach or algorithm at a conceptual level. Avoid copy-pasting
-code — explain the *what* and *why*, not the *how*.
+code; explain the *what* and *why*, not the *how*.
 
 A state diagram or flowchart is especially valuable here:
 
@@ -44,7 +44,7 @@ stateDiagram-v2
 |-------|------|---------|-------------|
 | `fieldName` | `float` | `1.0` | What this value controls and its effect |
 | `anotherField` | `bool` | `true` | What this toggle enables |
-| `someReference` | `Transform` | — | What this reference is used for |
+| `someReference` | `Transform` | `null` | What this reference is used for |
 
 ---
 
@@ -56,7 +56,7 @@ What this method does in one sentence.
 
 **Parameters:**
 
-- `paramName` — What this parameter controls.
+- `paramName`: What this parameter controls.
 
 **Returns:** What the return value represents.
 
@@ -94,7 +94,7 @@ system.OnEventName.AddListener(YourHandler);
 
 Practical tips for tuning this system's behavior:
 
-- **Problem A?** Adjust `fieldName` — increasing it causes X, decreasing causes Y.
+- **Problem A?** Adjust `fieldName`: increasing it causes X, decreasing causes Y.
 - **Problem B?** Check that the `someReference` transform is positioned correctly.
 
 ---
