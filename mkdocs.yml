@@ -23,22 +23,14 @@ theme:
   favicon: assets/images/favicon.png
   language: en
 
-  # No `media` keys, so the first entry is the default for every visitor
-  # regardless of their OS theme. Readers can still toggle, and their choice
-  # is remembered.
+  # Dark only. A single entry with no `toggle` removes the light/dark switch
+  # from the header entirely, and no `media` key means the OS theme is ignored.
+  # This also overrides any stale palette choice a returning visitor has saved
+  # in local storage, since there is only one palette left to select.
   palette:
     - scheme: slate
       primary: black
       accent: red
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-    - scheme: default
-      primary: black
-      accent: red
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
 
   font:
     text: Inter

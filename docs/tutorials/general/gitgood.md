@@ -130,10 +130,6 @@ gitGraph
     3. Your browser will open and ask you to authorize GitHub Desktop. Click **Authorize**.
     4. Return to the app. GitHub Desktop reads your GitHub account name and email automatically.
 
-    !!! info "Screenshot: GitHub Desktop welcome screen"
-        *`docs/assets/images/g1-desktop-setup.png` (coming soon)*
-        *(Shows the GitHub Desktop sign-in prompt.)*
-
     !!! success "You're set up"
         If you can see your username in the top-left corner of GitHub Desktop, you're ready to go.
 
@@ -212,9 +208,9 @@ gitGraph
 
     5. Click **Clone**.
 
-    !!! info "Screenshot: Clone repository dialog"
-        *`docs/assets/images/g1-desktop-clone.png` (coming soon)*
-        *(Shows the URL tab with a repo URL pasted in and the Local Path field.)*
+    ![GitHub Desktop clone dialog with a repository URL pasted into the URL tab](../../assets/images/g1-desktop-clone.png)
+
+    *Paste the repository URL, then choose a Local Path outside any cloud-synced folder.*
 
     GitHub Desktop downloads the project and opens it automatically.
 
@@ -293,13 +289,12 @@ Staging is how you tell Git: "these are the changes I want to include in my next
 
     After saving your edits, switch to GitHub Desktop. Your modified files appear in the **Changes** tab on the left.
 
-    !!! info "Screenshot: GitHub Desktop main interface"
-        *`docs/assets/images/g1-desktop-main.png` (coming soon)*
-        *(Annotated view of the full interface: Changes tab, file list on the left, diff panel on the right, commit box at the bottom.)*
+    ![The GitHub Desktop interface with the Changes tab, file list, diff panel and commit box labelled](../../assets/images/g1-desktop-main.png)
+    *The four areas you will use constantly.*
 
-    !!! info "Screenshot: Staging files"
-        *`docs/assets/images/g1-desktop-staged.png` (coming soon)*
-        *(Changes tab with some files checked, some unchecked.)*
+    ![The Changes tab with some files checked and others unchecked](../../assets/images/g1-desktop-staged.png)
+
+    *Only the checked files go into your next commit.*
 
     - **Checked** files will be included in the commit.
     - **Unchecked** files are skipped for this commit.
@@ -359,9 +354,9 @@ Typical Guidelines:
 
     At the bottom of the Changes panel, fill in the **Summary** field with your commit message. The **Description** field is optional (use it for longer explanations).
 
-    !!! info "Screenshot: Commit summary and button"
-        *`docs/assets/images/g1-desktop-commit.png` (coming soon)*
-        *(Summary field filled in, blue Commit button visible.)*
+    ![The commit box with a summary filled in](../../assets/images/g1-desktop-commit.png)
+
+    *The button names the branch you are committing to. Check that it says what you expect.*
 
     Click **Commit to [branch name]**.
 
@@ -402,9 +397,9 @@ Pulling downloads any new commits from GitHub to your local copy. **Always pull 
 
     Click **Fetch origin** in the top toolbar. If there are new commits available, it changes to **Pull origin**: click again to download them.
 
-    !!! info "Screenshot: Push/Pull toolbar"
-        *`docs/assets/images/g1-desktop-push-pull.png` (coming soon)*
-        *(Top toolbar showing the Fetch origin / Pull origin / Push origin button in its different states.)*
+    ![The GitHub Desktop toolbar button in its fetch, pull and push states](../../assets/images/g1-desktop-push-pull.png)
+
+    *The same button changes label depending on what is waiting.*
 
 === "Windows (Git Bash) / Mac/Linux (Terminal)"
 
@@ -469,15 +464,14 @@ To read the diagram above, look from left to right. The blue branch is our `main
     2. Select **New Branch**.
     3. You will be asked what branch to base your new one off of; this just means which branch's history your new branch will inherit (you can view this in the history tab). Select whatever fits your needs, but most of the time this will be `main`.
 
-    !!! info "Screenshot: New branch dialog"
-        *`docs/assets/images/g1-desktop-new-branch.png` (coming soon)*
-        *(Shows the new branch name input field.)*
+    ![The new branch dialog with a name entered and main selected as the base](../../assets/images/g1-desktop-new-branch.png)
+    *Name the branch descriptively, and base it on main unless you have a reason not to.*
 
     4. Name the branch something descriptive. SIGGD uses these prefixes:
-        - `feature/player-jump` — new mechanics, systems, screens
-        - `fix/enemy-collision` — bug fixes
-        - `art/main-menu-sprites` — sprites, models, animations, VFX
-        - `audio/footstep-sounds` — music and sound effects
+        - `feature/player-jump`: new mechanics, systems, screens
+        - `fix/enemy-collision`: bug fixes
+        - `art/main-menu-sprites`: sprites, models, animations, VFX
+        - `audio/footstep-sounds`: music and sound effects
 
     5. Click **Create Branch**.
 
@@ -495,9 +489,8 @@ To read the diagram above, look from left to right. The blue branch is our `main
 
     Click the **Current Branch** dropdown and select the branch you want.
 
-    !!! info "Screenshot: Branch dropdown"
-        *`docs/assets/images/g1-desktop-branches.png` (coming soon)*
-        *(Branch dropdown open showing a list of branches.)*
+    ![The Current Branch dropdown open, listing several branches](../../assets/images/g1-desktop-branches.png)
+    *Switching branches swaps the files on your disk to match that branch.*
 
 === "Windows (Git Bash) / Mac/Linux (Terminal)"
 
@@ -575,10 +568,6 @@ float jumpForce = 12.0f;
 === "GitHub Desktop"
 
     Conflicted files appear with a warning icon in the Changes tab.
-
-    !!! info "Screenshot: Merge conflict view"
-        *`docs/assets/images/g1-desktop-conflict.png` (coming soon)*
-        *(Files listed with conflict warning icons in the Changes tab.)*
 
     Click **Open in editor** on a conflicted file to resolve it, then return to GitHub Desktop to finish the merge.
 

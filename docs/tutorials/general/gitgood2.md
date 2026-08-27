@@ -96,9 +96,8 @@ Once you've pushed your branch:
     3. Check that **base** is `main` and **compare** is your branch.
     4. Fill in the description, then click **Create pull request**.
 
-    !!! info "Screenshot: PR creation"
-        *`docs/assets/images/g2-web-pr-open.png` (coming soon)*
-        *(Shows the "Compare & pull request" banner and the PR creation form.)*
+    ![The Compare and pull request banner on GitHub](../../assets/images/g2-web-pr-open.png)
+    *GitHub offers this shortcut for a short while after you push a branch.*
 
 === "GitHub Desktop"
 
@@ -176,9 +175,9 @@ The moment you open a PR, a few things fire on their own.
 
 You'll see all of these at the bottom of the PR page:
 
-- **Green check** — passed
-- **Red X** — failed
-- **Yellow dot** — still running
+- **Green check**: passed
+- **Red X**: failed
+- **Yellow dot**: still running
 
 ---
 
@@ -213,13 +212,12 @@ To review a PR properly and thoroughly:
 2. Read through the diff. Click the **+** on any line to comment on it.
 3. To propose exact replacement code, use the suggestion button in the comment box. The author can accept it in one click.
 4. Click **Review changes** at the top right to submit:
-    - **Comment** — general feedback, doesn't block
-    - **Approve** — good to merge
-    - **Request changes** — needs work first, and blocks the merge
+    - **Comment**: general feedback, doesn't block
+    - **Approve**: good to merge
+    - **Request changes**: needs work first, and blocks the merge
 
-!!! info "Screenshot: Files changed tab with a line comment"
-    *`docs/assets/images/g2-web-pr-review.png` (coming soon)*
-    *(Shows the Files changed tab with a comment popup open on a line.)*
+![The Files changed tab with a comment box open on a line of code](../../assets/images/g2-web-pr-review.png)
+*Click the + on any line to comment on exactly that line.*
 
 ### Reviewing Unity Changes
 
@@ -290,9 +288,9 @@ Your branch has to be up to date with `main` before it can merge, and other peop
     2. Go to **Branch &rarr; Update from main**.
     3. Resolve any conflicts if prompted, then push.
 
-    !!! info "Screenshot: Update from main"
-        *`docs/assets/images/g2-desktop-update-branch.png` (coming soon)*
-        *(Shows the "Update from main" option in the Branch menu.)*
+    ![The Branch menu in GitHub Desktop with Update from main highlighted](../../assets/images/g2-desktop-update-branch.png)
+    
+    *This only appears when you are on another branch and main has moved ahead.*
 
 === "CLI"
 
@@ -325,7 +323,7 @@ gitGraph
 
 Two things follow from this, and they're the only parts you need to remember:
 
-**Your branch history doesn't matter.** Commit as messily as you like while you work. `wip`, `oops`, `actually works` — none of it reaches `main`. This is why you arent strictly required to clean up your commits before opening a PR (though it's recommended to do so for your own sake!).
+**Your branch history doesn't matter.** Commit as messily as you like while you work. Commit messages like `wip`, `oops`, `actually works` won't actually reach `main`. This is why you arent strictly required to clean up your commits before opening a PR (though it's recommended to do so for your own sake!).
 
 **Your PR title becomes the commit message on `main`,** so give the PR a real title. I recommend prefixing your pull requests with identifiers like `fix:` or `feat:` to make it extra clear what your PR is working on.
 
@@ -415,7 +413,7 @@ This happens constantly. `git add .`, or ticking everything in GitHub Desktop, s
     git commit -m "Add player dash ability"
     ```
 
-**If you already pushed**, don't try to rewrite history — your branch is probably in review, and force-pushing wrecks that. Just remove the file in a new commit on top:
+**If you already pushed**, don't try to rewrite history. Your branch is probably in review, and force-pushing wrecks that. Just remove the file in a new commit on top:
 
 === "GitHub Desktop"
 

@@ -120,9 +120,8 @@ SIGGD Game 2026-2027 uses **Unity 6000.3.21f1**. We use this one because its LTS
     - On Mac: **Mac Build Support (Mono)**
 5. Click **Install** and wait. This is the long download.
 
-!!! info "Screenshot: Unity Hub module selection"
-    *`docs/assets/images/g0-unity-hub-install.png` (coming soon)*
-    *(Shows the Install Editor module list with the build support option ticked.)*
+![Unity Hub module selection with build support ticked](../../assets/images/g0-unity-hub-install.png)
+*Tick the build support for your own operating system before installing.*
 
 !!! tip "You can add modules later"
     If you skip a module now, you don't have to reinstall Unity. In the **Installs** tab, click the gear icon next to your version and choose **Add modules**.
@@ -139,9 +138,8 @@ Downloading a copy of the project is called **cloning**.
 3. Under **Local Path**, pick where to put it.
 4. Click **Clone** and wait for the download.
 
-!!! info "Screenshot: Clone repository dialog"
-    *`docs/assets/images/g0-desktop-clone.png` (coming soon)*
-    *(Shows the GitHub.com tab with SIGGD-Game-2026 selected and the Local Path field.)*
+![GitHub Desktop clone dialog on the GitHub.com tab](../../assets/images/g0-desktop-clone.png)
+*The GitHub.com tab lists every repository you have access to. Check the Local Path before you click Clone.*
 
 !!! danger "Do not clone into a cloud-synced folder"
     OneDrive, Dropbox, iCloud, and Google Drive all fight with Git and will corrupt the project. Windows often sets OneDrive as the default location for Documents and Desktop, so check the path carefully rather than accepting the default.
@@ -165,9 +163,9 @@ Downloading a copy of the project is called **cloning**.
 3. Select the folder you just cloned into, and click **Add Project**.
 4. Click the project name to open it.
 
-!!! info "Screenshot: Adding the project to Unity Hub"
-    *`docs/assets/images/g0-unity-hub-add-project.png` (coming soon)*
-    *(Shows the Projects tab with the Add dropdown open.)*
+![Unity Hub Projects tab with the Add dropdown open](../../assets/images/g0-unity-hub-add-project.png)
+
+*Add → Add project from disk, then pick the folder you cloned into.*
 
 The first time you open the project, Unity imports every asset and compiles all the code. **This takes a long time**, sometimes 10 to 20 minutes, and Unity may look frozen while it happens. That's normal. Let it finish.
 
@@ -183,9 +181,8 @@ Once the editor has loaded:
 2. Open a scene from the **Project** panel under `Assets/Scenes/`.
 3. Press the **Play** button at the top of the editor.
 
-!!! info "Screenshot: A healthy editor after opening"
-    *`docs/assets/images/g0-unity-editor.png` (coming soon)*
-    *(Shows the editor with a scene loaded and a clean Console, so people know what "working" looks like.)*
+![The Unity editor with a scene loaded and a clean Console](../../assets/images/g0-unity-editor.png)
+*A correctly set up project: a scene open and no red errors in the Console.*
 
 !!! success "You're set up"
     If the game runs when you press Play, everything is working. You're ready to start contributing.
