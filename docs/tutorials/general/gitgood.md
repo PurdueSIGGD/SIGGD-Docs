@@ -8,7 +8,7 @@ difficulty: beginner   # beginner | intermediate | advanced
 time_estimate: "45 minutes"
 prerequisites:
   - "None"
-status: draft   # draft | review | published
+status: published   # draft | review | published
 # author: "@github-username"  # only if committing someone else's work
 ---
 
@@ -290,7 +290,7 @@ Staging is how you tell Git: "these are the changes I want to include in my next
     After saving your edits, switch to GitHub Desktop. Your modified files appear in the **Changes** tab on the left.
 
     ![The GitHub Desktop interface with the Changes tab, file list, diff panel and commit box labelled](../../assets/images/g1-desktop-main.png)
-    *The four areas you will use constantly.*
+    *The changes area can be seen on the left.*
 
     ![The Changes tab with some files checked and others unchecked](../../assets/images/g1-desktop-staged.png)
 
@@ -465,6 +465,7 @@ To read the diagram above, look from left to right. The blue branch is our `main
     3. You will be asked what branch to base your new one off of; this just means which branch's history your new branch will inherit (you can view this in the history tab). Select whatever fits your needs, but most of the time this will be `main`.
 
     ![The new branch dialog with a name entered and main selected as the base](../../assets/images/g1-desktop-new-branch.png)
+    
     *Name the branch descriptively, and base it on main unless you have a reason not to.*
 
     4. Name the branch something descriptive. SIGGD uses these prefixes:

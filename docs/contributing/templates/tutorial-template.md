@@ -64,9 +64,10 @@ public class ExampleClass : MonoBehaviour
 ## Step 2: Second Step Title
 
 Continue the pattern. Use screenshots or diagrams where they clarify more
-than words can.
+than words can. Store images in `docs/assets/images/` and reference them like
+this, replacing the path with your own:
 
-![Alt text describing what the image shows](../../assets/images/placeholder.png)
+`![Alt text describing what the image shows](../../assets/images/your-image.png)`
 *Caption: brief explanation of what the screenshot is showing.*
 
 ---
@@ -111,7 +112,7 @@ reader a goal to compare against.
 
 After completing this tutorial, try:
 
-- [Natural follow-on tutorial](../programming/index.md)
+- [Natural follow-on tutorial](../../tutorials/programming/index.md)
 - [Related resource](../../resources/tools.md)
 
 ---

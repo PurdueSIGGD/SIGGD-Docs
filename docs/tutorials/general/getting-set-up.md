@@ -9,7 +9,7 @@ difficulty: beginner   # beginner | intermediate | advanced
 time_estimate: "30 minutes"
 prerequisites:
   - "None"
-status: draft   # draft | review | published
+status: published   # draft | review | published
 # author: "@github-username"  # only if committing someone else's work
 ---
 

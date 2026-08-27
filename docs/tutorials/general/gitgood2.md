@@ -10,7 +10,7 @@ prerequisites:
   - "[Git Good: First Commits](gitgood.md)"
   - "Comfortable with basic Git: commit, push, pull, branches"
   - "Access to the game repository (see [Getting Set Up](getting-set-up.md))"
-status: draft   # draft | review | published
+status: published   # draft | review | published
 # author: "@github-username"  # only if committing someone else's work
 ---
 
@@ -240,7 +240,7 @@ For anything visual or scene-based:
 - **Be specific.** "This function could be cleaner" is not actionable. "This could use early returns to reduce the nesting" is.
 - **Explain the why.** "Change this to a coroutine, because the current approach blocks the main thread and will cause frame stutters" teaches something. "Change this to a coroutine" is less informative.
 - **Mark optional comments as optional.** Start them with `nit:` so the author knows they can move on: `"nit: this variable name could be more descriptive"`.
-- **Say when something is good.** Reviewers who only ever point out problems train people to dread reviews.
+- **Say when something is good.** THIS IS REALLY IMPORTANT make sure to give positive reinforcement please it helps a lot with morale.
 
 ### When Not to Block a PR
 
@@ -289,7 +289,7 @@ Your branch has to be up to date with `main` before it can merge, and other peop
     3. Resolve any conflicts if prompted, then push.
 
     ![The Branch menu in GitHub Desktop with Update from main highlighted](../../assets/images/g2-desktop-update-branch.png)
-    
+
     *This only appears when you are on another branch and main has moved ahead.*
 
 === "CLI"
