@@ -92,6 +92,8 @@ nav:
           - tutorials/art-and-assets/index.md
       - Audio:
           - tutorials/audio/index.md
+      - Story:
+          - tutorials/story/index.md
       - General:
           - tutorials/general/index.md
           - Git Guides:
