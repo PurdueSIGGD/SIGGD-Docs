@@ -1,12 +1,18 @@
+# Upper bounds are deliberate. MkDocs 2.0 removes the plugin system and the
+# theming system with no migration path, which would break this site's four
+# plugins and the theme overrides in docs/assets/stylesheets/extra.css. Caps
+# keep CI reproducible; raise them only alongside a build that has been tested.
+# See https://squidfunk.github.io/mkdocs-material/blog/2026/02/18/mkdocs-2.0/
+
 # Core
-mkdocs>=1.6.0
+mkdocs>=1.6.0,<2.0
 
 # Theme
-mkdocs-material>=9.5.0
+mkdocs-material>=9.5.0,<10.0
 
 # Plugins
-mkdocs-git-authors-plugin>=0.9.0
-mkdocs-git-revision-date-localized-plugin>=1.2.6
+mkdocs-git-authors-plugin>=0.9.0,<1.0
+mkdocs-git-revision-date-localized-plugin>=1.2.6,<2.0
 
 # Markdown extensions (bundled with material, listed for clarity)
-pymdown-extensions>=10.7.1
+pymdown-extensions>=10.7.1,<11.0

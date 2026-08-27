@@ -63,8 +63,8 @@ graph TD
 
 | System | Script | Description |
 |--------|--------|-------------|
-| [System Name](systems/index.md) | `SystemScript.cs` | Brief description |
-| [Another System](systems/index.md) | `AnotherScript.cs` | Brief description |
+| [System Name](../../projects/2627-game/codebase/systems/index.md) | `SystemScript.cs` | Brief description |
+| [Another System](../../projects/2627-game/codebase/systems/index.md) | `AnotherScript.cs` | Brief description |
 
 ---
 
@@ -81,7 +81,7 @@ List any external packages or plugins the project depends on:
 
 ## Local Setup
 
-See the [Setup Guide](setup.md) for step-by-step instructions to get the
+See the [Setup Guide](../../tutorials/general/getting-set-up.md) for step-by-step instructions to get the
 project running locally.
 
 Quick start:
@@ -98,6 +98,6 @@ git clone https://github.com/PurdueSIGGD/your-project.git
 
 ## See Also
 
-- [Setup Guide](setup.md)
-- [Systems Documentation](systems/index.md)
-- [Script Reference](scripts/index.md)
+- [Setup Guide](../../tutorials/general/getting-set-up.md)
+- [Systems Documentation](../../projects/2627-game/codebase/systems/index.md)
+- [Script Reference](../../projects/2627-game/codebase/scripts/index.md)

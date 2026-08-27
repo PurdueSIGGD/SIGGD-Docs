@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         Thanks for taking the time to request new content! Fill in as much detail
-        as you can — the more context you provide, the easier it is for someone
+        as you can; the more context you provide, the easier it is for someone
         to write it.
 
   - type: input
@@ -25,11 +25,11 @@ body:
       label: Category
       description: Which section of the docs would this belong to?
       options:
-        - Tutorial — Programming
-        - Tutorial — Art & Assets
-        - Tutorial — Game Design
-        - Tutorial — Audio
-        - Tutorial — General
+        - Tutorial: Programming
+        - Tutorial: Art & Assets
+        - Tutorial: Game Design
+        - Tutorial: Audio
+        - Tutorial: General
         - Project Documentation
         - Resource Page
         - Other

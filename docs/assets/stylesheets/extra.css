@@ -8,6 +8,12 @@
 :root {
   --siggd-red:       #c62828;
   --siggd-red-light: #ef5350;
+
+  /* Filled tag chips need their own red. On slate, --siggd-red is lightened
+     to #ef5350 for link legibility, which only gives white text 3.5:1 too
+     low for 0.7rem labels. #c62828 holds 5.6:1 against white on both themes. */
+  --siggd-tag-bg:    #c62828;
+  --siggd-tag-fg:    #ffffff;
 }
 
 [data-md-color-scheme="slate"] {
@@ -26,11 +32,18 @@
   --md-primary-fg-color--dark:       #000000;
   --md-primary-bg-color:             #ffffff;
   --md-primary-bg-color--light:      rgba(255, 255, 255, 0.65);
+
+  /* The footer is two stacked bars: .md-footer (prev/next nav) and
+     .md-footer-meta (copyright). They read from different variables, and
+     --md-footer-bg-color--dark defaults to a lighter overlay, which is why the
+     copyright bar did not match the header black. Pin both to the header. */
+  --md-footer-bg-color:              #000000;
+  --md-footer-bg-color--dark:        #000000;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
    BODY LINKS
-   !important required — Material injects --md-typeset-a-color via JS on
+   !important required: Material injects --md-typeset-a-color via JS on
    some builds, which beats plain CSS variable declarations.
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -44,7 +57,7 @@
 
 /* ═══════════════════════════════════════════════════════════════════════════
    HIGHLIGHT / MARK
-   ==highlighted text== and search matches — light red wash, no yellow.
+   ==highlighted text== and search matches: light red wash, no yellow.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .md-typeset mark {
@@ -63,9 +76,8 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   FOCUS RINGS — no browser-default blue
-   ═══════════════════════════════════════════════════════════════════════════ */
-
+   FOCUS RINGS: no browser-default blue
+   ══════════════════════╗══════════════════════════════════════════════════════════ */
 :focus-visible {
   outline-color: var(--siggd-red) !important;
 }
@@ -83,7 +95,7 @@
   color: #ffffff;
 }
 
-/* Icons — white, turn lighter red on hover */
+/* Icons: white, turn lighter red on hover */
 .md-header__button {
   color: rgba(255, 255, 255, 0.75) !important;
 }
@@ -96,7 +108,7 @@
 /* ═══════════════════════════════════════════════════════════════════════════
    NAVIGATION TABS
    Red text by default on the black bar; lighter red on hover/active.
-   !important required — Material hardcodes rgba(255,255,255,.7) on these.
+   !important required: Material hardcodes rgba(255,255,255,.7) on these.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .md-tabs {
@@ -155,7 +167,8 @@
    FOOTER
    ═══════════════════════════════════════════════════════════════════════════ */
 
-.md-footer {
+.md-footer,
+.md-footer-meta {
   background-color: #000000 !important;
 }
 
@@ -211,12 +224,24 @@
    TAGS & BADGES
    ═══════════════════════════════════════════════════════════════════════════ */
 
-.md-tag {
-  background-color: var(--siggd-red) !important;
-  color: #ffffff !important;
+/* Tags render as <a class="md-tag">, so the BODY LINKS rule above
+   (`.md-typeset a`, specificity 0-1-1) outweighed a bare `.md-tag` (0-1-0)
+   even with !important on both. That painted each label the same red as its
+   own background, so tags were invisible until the hover rule recoloured them.
+   Qualifying by element and ancestor puts these back in front. */
+a.md-tag,
+.md-typeset a.md-tag {
+  background-color: var(--siggd-tag-bg) !important;
+  color: var(--siggd-tag-fg) !important;
   border-radius: 4px;
   padding: 0.1em 0.5em;
   font-size: 0.7rem;
+}
+
+a.md-tag:is(:focus, :hover),
+.md-typeset a.md-tag:is(:focus, :hover) {
+  background-color: var(--siggd-red-light) !important;
+  color: #000000 !important;
 }
 
 .difficulty-beginner    { color: #388e3c; font-weight: 600; }

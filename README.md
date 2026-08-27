@@ -25,7 +25,7 @@ pip install -r requirements.txt
 mkdocs serve
 ```
 
-Open http://127.0.0.1:8000 — the site refreshes automatically as you edit files.
+Open http://127.0.0.1:8000 and the site refreshes automatically as you edit files.
 
 ### Validate Before Submitting
 
@@ -56,7 +56,7 @@ contributing guide, style guide, and templates.
 | [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) | Theme |
 | [mkdocs-git-authors-plugin](https://github.com/timvink/mkdocs-git-authors-plugin) | Author attribution from git history |
 | [mkdocs-git-revision-date-localized-plugin](https://github.com/timvink/mkdocs-git-revision-date-localized-plugin) | "Last updated" dates |
-| GitHub Actions | CI/CD — auto-deploys to GitHub Pages on merge to `main` |
+| GitHub Actions | CI/CD for auto-deploying to GitHub Pages on merge to `main` |
 | GitHub Pages | Hosting |
 
 ## Deployment

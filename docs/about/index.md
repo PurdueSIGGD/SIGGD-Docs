@@ -4,11 +4,11 @@ title: About SIGGD
 
 # About SIGGD
 
-[TODO: Write a short description of SIGGD — what it is, who it's for, when it was founded.]
+[TODO: Write a short description of SIGGD.]
 
-[TODO: Add meeting information — day, time, location.]
+[TODO: Add meeting information.]
 
-[TODO: Add what the club does — game jams, semester projects, workshops, etc.]
+[TODO: Add what the club does.]
 
 | Platform | Link |
 |----------|------|

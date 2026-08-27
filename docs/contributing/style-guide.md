@@ -4,7 +4,7 @@ title: Style Guide
 
 # Style Guide
 
-**Voice:** Write in second person ("you"), active voice, and keep it concise. This is a club wiki, not a corporate manual — be direct and approachable.
+**Voice:** Write in second person ("you") or imperative, active voice, and keep it concise. This is a club wiki, so feel free to be casual!
 
 ---
 
@@ -47,22 +47,22 @@ Use inline code for file paths (`Assets/Scripts/`), variable names (`playerHealt
 
 ---
 
-**Links:** Use descriptive text — `[Contributing Guide](index.md)` not `[click here](index.md)`. Use relative paths for internal links.
+**Links:** Use descriptive text: `[Contributing Guide](index.md)` not `[click here](index.md)`. Use relative paths for internal links.
 
 ---
 
 **Admonitions:**
 
 ```markdown
-!!! tip       — helpful but optional
-!!! info      — neutral info
-!!! warning   — must-know before proceeding
-!!! danger    — serious, destructive
-!!! example   — worked example
-??? note      — collapsible
+!!! tip         helpful but optional
+!!! info        neutral info
+!!! warning     must-know before proceeding
+!!! danger      serious, destructive
+!!! example     worked example
+??? note        collapsible
 ```
 
-Don't overuse them — if every paragraph has one, none stand out.
+Don't overuse them, as if every paragraph has one, none stand out.
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 26-27 Game — Systems
+title: 26-27 Game - Systems
 tags:
   - project
   - reference

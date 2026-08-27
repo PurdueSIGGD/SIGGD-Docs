@@ -45,12 +45,13 @@ repo_url: https://github.com/PurdueSIGGD/your-project   # remove if private
 
 ## Screenshots
 
-*Store screenshots in `docs/assets/images/your-project-name/`.*
+*Store screenshots in `docs/assets/images/your-project-name/`, then swap these
+example paths for your own. Each image gets an italic caption underneath.*
 
-![Main menu](../../assets/images/placeholder.png)
+`![Main menu](../../assets/images/your-project-name/main-menu.png)`
 *Caption: Main menu screen.*
 
-![Gameplay](../../assets/images/placeholder.png)
+`![Gameplay](../../assets/images/your-project-name/gameplay.png)`
 *Caption: Gameplay in action.*
 
 ---
@@ -66,20 +67,9 @@ List the controls clearly:
 
 ---
 
-## Development Highlights
-
-Note 1–3 interesting technical or design challenges the team solved. This is
-the most valuable content for future SIGGD members — what would you wish you
-had known going in?
-
-!!! example "Interesting challenge"
-    Describe a specific problem and how you solved it. Be concrete.
-
----
-
 ## See Also
 
-- [Codebase Documentation](codebase/index.md)
-- [Setup Guide](codebase/setup.md)
-- [Team Credits](team.md)
-- [Screenshots](screenshots.md)
+- [Codebase Documentation](../../projects/2627-game/codebase/index.md)
+- [Setup Guide](../../tutorials/general/getting-set-up.md)
+- [Team Credits](../../projects/2627-game/team.md)
+- [Screenshots](../../projects/2627-game/index.md)

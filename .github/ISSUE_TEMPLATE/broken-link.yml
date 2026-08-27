@@ -25,6 +25,6 @@ body:
     id: context
     attributes:
       label: Additional context
-      description: Anything else that might help — what did the link used to go to, or what should it link to?
+      description: Anything else that might help; what did the link used to go to, or what should it link to?
     validations:
       required: false

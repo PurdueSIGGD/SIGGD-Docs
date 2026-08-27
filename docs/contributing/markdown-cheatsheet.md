@@ -28,7 +28,7 @@ title: Markdown Cheatsheet
 
 ---
 
-**Code blocks** — always include a language identifier
+**Code blocks**: always include a language identifier
 
 ````markdown
 ```csharp
@@ -122,7 +122,7 @@ graph LR
 
 ---
 
-**Emoji** — browse all at [squidfunk.github.io/mkdocs-material/reference/icons-emojis](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/)
+**Emoji**: browse all at [squidfunk.github.io/mkdocs-material/reference/icons-emojis](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/)
 
 ```markdown
 :material-gamepad-variant:  :material-code-braces:  :fontawesome/brands/github:

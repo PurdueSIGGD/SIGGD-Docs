@@ -1,5 +1,5 @@
 ---
-title: 26-27 Game — Script Reference
+title: 26-27 Game - Script Reference
 tags:
   - project
   - reference

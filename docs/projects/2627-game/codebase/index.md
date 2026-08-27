@@ -1,5 +1,5 @@
 ---
-title: 26-27 Game — Codebase
+title: 26-27 Game - Codebase
 tags:
   - project
   - reference
