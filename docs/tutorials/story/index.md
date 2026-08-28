@@ -4,10 +4,8 @@ title: Story
 
 # Story Tutorials
 
-WIP
+!!! info "Story Team Standards Guide"
+    Click [Here](./story-team-standards/index.md)
+    to access the Story Team Standards
 
 ---
-
-!!! example "No tutorials yet — be the first!"
-    Use the [Tutorial Template](../../contributing/templates/tutorial-template.md)
-    and follow the [Contributing Guide](../../contributing/index.md).

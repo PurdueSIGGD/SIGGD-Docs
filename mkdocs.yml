@@ -94,6 +94,10 @@ nav:
           - tutorials/audio/index.md
       - Story:
           - tutorials/story/index.md
+          - Story Team Onboarding:
+                - tutorials/story/story-team-onboarding/index.md
+          - Story Team Standards:
+                - tutorials/story/story-team-standards/index.md
       - General:
           - tutorials/general/index.md
   - Projects:
