@@ -4,7 +4,7 @@ title: Story Team Standards
 
 # Story Team Standards
 
-&emsp;&emsp;First, I would like to direct whoever is reading this to the [Story Team Onboarding](../story-team-onboarding/index.md)
+&emsp;&emsp;First, I would like to direct whoever is reading this to the [Story Team Onboarding](../story-team-onboarding.md)
 article if you have joined at any point after the first few weeks or so (probably any day after Sep.
 25).If you’re joining before then, I should be doing onboarding during the early meetings once it’s
 necessary so look forward to that.

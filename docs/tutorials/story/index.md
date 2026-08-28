@@ -14,11 +14,11 @@ title: Story Tutorials
 
 !!! info "Story Design Doc"
     Click [Here](./story-design-doc.md)
-    to access the Story Design Document.
+    to access the Story Design Doc article.
 
 !!! info "Story Team Tasks"
     Click [Here](./story-tasks.md)
-    to access the Story Team Task List.
+    to access the Story Team Task List article.
 
 ---
 
