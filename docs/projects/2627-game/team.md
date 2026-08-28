@@ -1,5 +1,5 @@
 ---
-title: 26-27 Game — Team
+title: 26-27 Game - Team
 tags:
   - project
 ---

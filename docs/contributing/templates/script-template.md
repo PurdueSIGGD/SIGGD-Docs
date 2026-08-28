@@ -32,7 +32,7 @@ it responds to, and what other scripts depend on it.
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|
 | `publicField` | `float` | `1.0` | What this controls |
-| `aReference` | `GameObject` | — | What this reference is for |
+| `aReference` | `GameObject` | `null` | What this reference is for |
 
 ### Public Properties
 
@@ -58,7 +58,7 @@ it responds to, and what other scripts depend on it.
 What this method does.
 
 **Parameters:**
-- `param` — What this parameter means.
+- `param`: What this parameter means.
 
 ```csharp
 scriptInstance.MethodName(someValue);

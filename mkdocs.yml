@@ -23,21 +23,14 @@ theme:
   favicon: assets/images/favicon.png
   language: en
 
+  # Dark only. A single entry with no `toggle` removes the light/dark switch
+  # from the header entirely, and no `media` key means the OS theme is ignored.
+  # This also overrides any stale palette choice a returning visitor has saved
+  # in local storage, since there is only one palette left to select.
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
+    - scheme: slate
       primary: black
       accent: red
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: black
-      accent: red
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
 
   font:
     text: Inter
@@ -69,8 +62,9 @@ theme:
 plugins:
   - search:
       separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
-  - tags:
-      tags_file: tags.md
+  # `tags_file` was deprecated in Material 9.x. The listing is now placed with a
+  # `<!-- material/tags -->` directive inside docs/tags.md instead.
+  - tags
   - git-authors:
       show_contribution: true
       show_line_count: true
@@ -100,6 +94,10 @@ nav:
           - Story Team Standards: tutorials/story/story-team-standards.md
       - General:
           - tutorials/general/index.md
+          - Getting Set Up: tutorials/general/getting-set-up.md
+          - Git Guides:
+            - First Commits: tutorials/general/gitgood.md
+            - The PR Workflow: tutorials/general/gitgood2.md
   - Projects:
       - projects/index.md
       - 26-27 Game:

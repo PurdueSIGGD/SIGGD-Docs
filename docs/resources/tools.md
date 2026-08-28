@@ -56,8 +56,7 @@ Apply for a free student license with your Purdue email.
 **Link:** [blender.org](https://www.blender.org)
 
 The gold standard in open-source 3D. Modeling, rigging, animation, rendering,
-and a game-ready export pipeline. Has a steep learning curve — start with
-beginner tutorials.
+and a game-ready export pipeline.
 
 ---
 
