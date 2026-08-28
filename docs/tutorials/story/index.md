@@ -1,13 +1,47 @@
 ---
-title: Story
+title: Story Tutorials
 ---
 
 # Story Tutorials
 
-WIP
+!!! info "Story Team Onboarding"
+    Click [Here](./story-team-onboarding.md)
+    to access the Story Team Onboarding article.
+
+!!! info "Story Team Standards"
+    Click [Here](./story-team-standards.md)
+    to access the Story Team Standards article.
+
+!!! info "Story Design Doc"
+    Click [Here](./story-design-doc.md)
+    to access the Story Design Doc article.
+
+!!! info "Story Team Tasks"
+    Click [Here](./story-tasks.md)
+    to access the Story Team Task List article.
 
 ---
 
-!!! example "No tutorials yet; be the first!"
-    Use the [Tutorial Template](../../contributing/templates/tutorial-template.md)
-    and follow the [Contributing Guide](../../contributing/index.md).
+??? note "im bored"
+    ??? note "im bored"
+        ??? note "im bored"
+            ??? note "im bored"
+                ??? note "im bored"
+                    ??? note "im bored"
+                        ??? note "im bored"
+                            ??? note "im bored"
+                                ??? note "im bored"
+                                    ??? note "im bored"
+                                        ??? note "im bored"
+                                            ??? note "im bored"
+                                                ??? note "im bored"
+                                                    ??? note "im bored"
+                                                        ??? note "im bored"
+                                                            ??? note "im bored"
+                                                                ??? note "im bored"
+                                                                    ??? note "im bored"
+                                                                        ??? note "im bored"
+                                                                            ??? note "im bored"
+                                                                                ??? danger "im bored"
+                                                                                    ??? note "im bored"
+                                                                                        im bored
