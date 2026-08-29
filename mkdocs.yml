@@ -40,8 +40,6 @@ theme:
     # Navigation
     - navigation.tabs
     - navigation.tabs.sticky
-    - navigation.sections
-    - navigation.expand
     - navigation.indexes
     - navigation.top
     - navigation.footer
@@ -88,10 +86,10 @@ nav:
           - tutorials/audio/index.md
       - Story:
           - tutorials/story/index.md
+          - Story Team Standards: tutorials/story/story-team-standards.md
           - Story Design Doc: tutorials/story/story-design-doc.md
           - Story Team Tasks: tutorials/story/story-tasks.md
           - Story Team Onboarding: tutorials/story/story-team-onboarding.md
-          - Story Team Standards: tutorials/story/story-team-standards.md
       - General:
           - tutorials/general/index.md
           - Getting Set Up: tutorials/general/getting-set-up.md
