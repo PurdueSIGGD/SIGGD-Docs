@@ -9,6 +9,16 @@ article if you have joined at any point after the first few weeks or so (probabl
 25).If you’re joining before then, I should be doing onboarding during the early meetings once it’s
 necessary so look forward to that.
 
+!!! abstract "What's in this article"
+    - Story Lead introduction
+    - Team dynamic
+    - Support opportunities
+    - Red, Yellow, and Green Zones
+
+---
+
+# Lead Introduction/Team Dynamic
+
 &emsp;&emsp;I’m Derek Harris, a sophomore in Computer Science who, by luck (good or bad, you decide)
 would have it, is the story lead for this year. I’m not normally this formal but I feel it’s
 important to very quickly let you guys know who I am, as I hope you will do for each other. SIGGD
@@ -20,6 +30,10 @@ going to avoid ever directly assigning them as much as possible. We should all b
 needs to be done to arrive at a finished story, and choosing to work on the tasks we want.
 Essentially I just want a sense of collaboration over simple labor.
 
+---
+
+# Support
+
 &emsp;&emsp;However, my ideals may not always be true to what will happen or is happening. Hopefully I
 will recognize this and any other issues to be dealt with, but this will realistically not always
 be the case. So I have the first, and hopefully only, assignment for you guys. Pretty pretty please
@@ -27,6 +41,10 @@ communicate with me. I’m just one guy; I can't figure it all out on my own. If
 sticking to my proposed structure for the team, tell me! If there is something happening within the
 team that is making you uncomfortable, tell me! If you have any questions, tell me!! My only real
 “job” as story lead is to support you guys and I hope you take full advantage of that.
+
+---
+
+# Red, Yellow, and Green Zones
 
 &emsp;&emsp;Now for some information relating to work throughout the year. I want to have story team
 collaborate with other teams quite a bit, which means you guys will not be meeting exclusively with
