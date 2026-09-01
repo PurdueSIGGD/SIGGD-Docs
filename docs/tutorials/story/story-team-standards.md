@@ -53,11 +53,23 @@ distinct structure to the story details we discuss. I’m currently running with
 Green zones for story details. Green zone means we have discussed that portion of the story and
 know generally what direction we want to go in, but specifics haven’t been completely decided. When
 you’re out amongst the other groups, decisions revolving around things in the Green Zone can be
-made freely. However, once decisions have been made on details in the Green Zone, they will enter
+made freely.
+
+??? success "Green Zone"
+    Decisions can be made freely
+
+&emsp;&emsp;However, once decisions have been made on details in the Green Zone, they will enter
 the Yellow Zone. Decisions can not be made in the Yellow Zone without discussing with the team, as
-this could undermine other decisions without proper discussion. And finally once writing has
-actually taken place for details in the Yellow Zone, those details enter the Red Zone. Nothing in
-the Red Zone should change unless absolutely necessary.
+this could undermine other decisions without proper discussion.
+
+??? warning "Yellow Zone"
+    New decisions/changes must be discussed
+
+&emsp;&emsp;And finally once writing has actually taken place for details in the Yellow Zone,
+those details enter the Red Zone. Nothing in the Red Zone should change unless absolutely necessary.
+
+??? danger "Red Zone"
+    Changes should not be made except under exceptional circumstances
 	
 &emsp;&emsp;This system hinges on two things, communication and communication. When story decisions/ideas
 arise while meeting with other teams, please note them down so that we can all be aware of what is
