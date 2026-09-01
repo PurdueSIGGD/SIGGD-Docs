@@ -4,10 +4,7 @@ title: Story Team Tasks
 
 # Story Team Tasks
 
-WIP
+!!! abstract "What's in this article"
+    Something very cool will be here... eventually
 
 ---
-
-!!! example "No tutorials yet — be the first!"
-    Use the [Tutorial Template](../../contributing/templates/tutorial-template.md)
-    and follow the [Contributing Guide](../../contributing/index.md).
