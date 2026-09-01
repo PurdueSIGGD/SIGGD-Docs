@@ -9,6 +9,16 @@ article if you have joined at any point after the first few weeks or so (probabl
 25).If you’re joining before then, I should be doing onboarding during the early meetings once it’s
 necessary so look forward to that.
 
+!!! abstract "What's in this article"
+    - Story Lead introduction
+    - Team dynamic
+    - Support opportunities
+    - Red, Yellow, and Green Zones
+
+---
+
+# Lead Introduction/Team Dynamic
+
 &emsp;&emsp;I’m Derek Harris, a sophomore in Computer Science who, by luck (good or bad, you decide)
 would have it, is the story lead for this year. I’m not normally this formal but I feel it’s
 important to very quickly let you guys know who I am, as I hope you will do for each other. SIGGD
@@ -20,6 +30,10 @@ going to avoid ever directly assigning them as much as possible. We should all b
 needs to be done to arrive at a finished story, and choosing to work on the tasks we want.
 Essentially I just want a sense of collaboration over simple labor.
 
+---
+
+# Support
+
 &emsp;&emsp;However, my ideals may not always be true to what will happen or is happening. Hopefully I
 will recognize this and any other issues to be dealt with, but this will realistically not always
 be the case. So I have the first, and hopefully only, assignment for you guys. Pretty pretty please
@@ -28,6 +42,10 @@ sticking to my proposed structure for the team, tell me! If there is something h
 team that is making you uncomfortable, tell me! If you have any questions, tell me!! My only real
 “job” as story lead is to support you guys and I hope you take full advantage of that.
 
+---
+
+# Red, Yellow, and Green Zones
+
 &emsp;&emsp;Now for some information relating to work throughout the year. I want to have story team
 collaborate with other teams quite a bit, which means you guys will not be meeting exclusively with
 the rest of the story team and I often times. Therefore this collaboration will require a more
@@ -35,11 +53,23 @@ distinct structure to the story details we discuss. I’m currently running with
 Green zones for story details. Green zone means we have discussed that portion of the story and
 know generally what direction we want to go in, but specifics haven’t been completely decided. When
 you’re out amongst the other groups, decisions revolving around things in the Green Zone can be
-made freely. However, once decisions have been made on details in the Green Zone, they will enter
+made freely.
+
+??? success "Green Zone"
+    Decisions can be made freely
+
+&emsp;&emsp;However, once decisions have been made on details in the Green Zone, they will enter
 the Yellow Zone. Decisions can not be made in the Yellow Zone without discussing with the team, as
-this could undermine other decisions without proper discussion. And finally once writing has
-actually taken place for details in the Yellow Zone, those details enter the Red Zone. Nothing in
-the Red Zone should change unless absolutely necessary.
+this could undermine other decisions without proper discussion.
+
+??? warning "Yellow Zone"
+    New decisions/changes must be discussed
+
+&emsp;&emsp;And finally once writing has actually taken place for details in the Yellow Zone,
+those details enter the Red Zone. Nothing in the Red Zone should change unless absolutely necessary.
+
+??? danger "Red Zone"
+    Changes should not be made except under exceptional circumstances
 	
 &emsp;&emsp;This system hinges on two things, communication and communication. When story decisions/ideas
 arise while meeting with other teams, please note them down so that we can all be aware of what is
