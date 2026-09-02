@@ -15,7 +15,7 @@ title: Story Design Doc
 # Accessing the Document
 
 &emsp;&emsp;To access the document, go to the [Projects Page](../../projects/index.md)
-and find the current project. From there go to (idk the page hasn't
+and find the current project. From there, go to (idk the page hasn't
 really been set up yet) and wowee there's the document.
 
 ---
