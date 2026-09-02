@@ -104,6 +104,10 @@ nav:
               - projects/2627-game/codebase/index.md
               - Systems: projects/2627-game/codebase/systems/index.md
               - Scripts: projects/2627-game/codebase/scripts/index.md
+          - Story:
+              - projects/2627-game/story/index.md
+              - Story Design Document: projects/2627-game/story/story-design-doc.md
+              - Story Team Task List: projects/2627-game/story/story-tasks.md
           - Team: projects/2627-game/team.md
   - Resources:
       - resources/index.md
