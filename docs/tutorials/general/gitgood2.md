@@ -119,7 +119,7 @@ When you open a PR, GitHub fills the description box with the repository's **pul
 
 ### What does this PR add or change?
 
-Be specific about what you changed and why. This is the part reviewers (the author of this post probably) read first and rely on most.
+Be specific about what you changed and why. This is the part reviewers (probably me) read first and rely on most.
 
 | Vague | Specific |
 |---|---|
@@ -145,21 +145,21 @@ Use `Related to #123` if your PR only partly addresses an issue and shouldn't cl
 These are here for your own use; I strongly recommend you check this before opening your PR (but I can't force you to).
 
 - **I opened the project in Unity and my change works as expected.** You've probably already done this, but just in case.
-- **No new errors in the Unity console.** Yellow warnings are not real and are probably fine. Red errors are not, unless they were there when you opened the project, in which case just ignore them (the lead team is probably already aware of those, but feel free to notify us!).
+- **No new errors in the Unity console.** Yellow warnings are (usually) fine. Red errors are not, unless they were there when you opened the project, in which case just ignore them (the lead team is probably already aware of those, but feel free to tell us!).
 - **Every new asset has its matching `.meta` file committed.** Unity generates a `.meta` file next to every asset, holding the ID everything else uses to reference it. These absolutely need to be included in the pull request, so make sure they exist.
 - **No unnecessary files are committed.** Debug scripts, test scenes, your personal editor settings, etc. If need be, you can ask a lead to add it to the .gitignore.
-- **My changes are complete, modular, and abide by standard C# style guides.** Make sure your code is understandable by anyone else reading your code (yes, this means comments where necessary).
+- **My changes are complete, modular, and abide by standard C# style guides.** Make sure your code is understandable by anyone else reading it (yes, this means comments where necessary). "Standard" here means the [C# Style Guide](../programming/csharp-style-guide.md), which has a quick pre-PR checklist at the bottom.
 - **My branch is up to date with `main`.** Covered in [Keeping Your Branch Up to Date](#keeping-your-branch-up-to-date) below.
 
 ### Type of change
 
-Pick whichever fits. It tells a reviewer what kind of attention your PR needs before they open the diff, since an art import and a refactor of the save system want very different eyes. You can also add your own types of changes nothing covers it.
+Pick whichever fits. It tells a reviewer what kind of attention your PR needs before they open the diff, since an art import and a refactor of the save system want very different eyes. You can also add your own type of change if nothing covers it.
 
 ### Screenshots or clips
 
 For anything visual, add a screenshot or a short clip.
 
-While we try to, reviewers would rather not boot up the game to verify your changes, and the diff of a `.prefab` or a `.png` is very unreadable. A picture is worth a thousand words, so if you can make sure to add them. Pictures sent here may also be used in our weekly highlight reels of progress made, so thats cool!
+While we try to, reviewers would rather not boot up the game to verify your changes, and the diff of a `.prefab` or a `.png` is very unreadable. A picture is worth a thousand words, so add them whenever you can. Pictures here may also end up in our weekly highlight reels of progress, so that's cool!
 
 ---
 
@@ -240,7 +240,7 @@ For anything visual or scene-based:
 - **Be specific.** "This function could be cleaner" is not actionable. "This could use early returns to reduce the nesting" is.
 - **Explain the why.** "Change this to a coroutine, because the current approach blocks the main thread and will cause frame stutters" teaches something. "Change this to a coroutine" is less informative.
 - **Mark optional comments as optional.** Start them with `nit:` so the author knows they can move on: `"nit: this variable name could be more descriptive"`.
-- **Say when something is good.** THIS IS REALLY IMPORTANT make sure to give positive reinforcement please it helps a lot with morale.
+- **Say when something is good.** This one is REALLY important. Please give positive reinforcement; it helps a lot with morale.
 
 ### When Not to Block a PR
 
@@ -323,7 +323,7 @@ gitGraph
 
 Two things follow from this, and they're the only parts you need to remember:
 
-**Your branch history doesn't matter.** Commit as messily as you like while you work. Commit messages like `wip`, `oops`, `actually works` won't actually reach `main`. This is why you arent strictly required to clean up your commits before opening a PR (though it's recommended to do so for your own sake!).
+**Your branch history doesn't matter.** Commit as messily as you like while you work. Commit messages like `wip`, `oops`, `actually works` won't actually reach `main`. This is why you aren't strictly required to clean up your commits before opening a PR (though it's recommended to do so for your own sake!).
 
 **Your PR title becomes the commit message on `main`,** so give the PR a real title. I recommend prefixing your pull requests with identifiers like `fix:` or `feat:` to make it extra clear what your PR is working on.
 

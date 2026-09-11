@@ -15,6 +15,9 @@ venv/
 env/
 .env
 
+# Private lead notes (workshop facilitation plans). Never commit.
+.private/
+
 # Editors
 .vscode/
 .idea/

@@ -72,6 +72,32 @@ this, replacing the path with your own:
 
 ---
 
+<!--
+Optional: exercise blocks. The Style Guide's "Exercises" section explains each one.
+Delete this comment, or copy the blocks you need out of it.
+
+!!! question "Predict: short title"
+    Code or a scenario to read. Ask the reader to commit to a prediction first.
+
+??? success "Check your prediction"
+    What actually happens, and why.
+
+!!! example "Make: short title"
+    A design or build task. Never include the answer.
+
+??? tip "Hint 1"
+    A nudge: a question that points the reader the right way.
+
+??? tip "Hint 2"
+    The concept to use, with a link to the docs.
+
+??? tip "Hint 3"
+    An approach in words (a little code is OK).
+
+??? note "What a good answer includes"
+    Criteria the reader can check their own answer against. Not a solution.
+-->
+
 ## Step 3: Third Step Title
 
 ...

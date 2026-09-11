@@ -80,6 +80,15 @@ nav:
       - tutorials/index.md
       - Programming:
           - tutorials/programming/index.md
+          - Onboarding Workshops:
+              - How Unity Thinks: tutorials/programming/how-unity-thinks.md
+              - Designing a System: tutorials/programming/designing-a-system.md
+              - Data-Driven Design: tutorials/programming/data-driven-design.md
+              - The OOP Toolkit: tutorials/programming/oop-toolkit.md
+          - Reference:
+              - C# Style Guide: tutorials/programming/csharp-style-guide.md
+              - C# for Unity: tutorials/programming/csharp-for-unity.md
+              - Thinking Like an Engineer: tutorials/programming/thinking-like-an-engineer.md
       - Art & Assets:
           - tutorials/art-and-assets/index.md
       - Audio:
