@@ -84,7 +84,7 @@ and see a green **Code** button.
     Your GitHub username appears in the top-left corner of the window.
 
 ??? note "I'd rather use the command line"
-    Very cool, but you'll need to do two things GitHub Desktop handles for you (and you also probably know how this works already lol)
+    Very cool, but you'll need to do two things GitHub Desktop handles for you (and you probably know how this works already lol).
 
     Install [Git for Windows](https://git-scm.com/download/win), or on Mac run `xcode-select --install`. Then set your identity and turn on LFS:
 
@@ -110,7 +110,7 @@ Open it and sign in. If you don't have a Unity account, create one when prompted
 
 ### Install the Right Unity Version
 
-SIGGD Game 2026-2027 uses **Unity 6000.3.21f1**. We use this one because its LTS (long term support).
+SIGGD Game 2026-2027 uses **Unity 6000.3.21f1**. We use this one because it's an LTS (long-term support) release.
 
 1. In Unity Hub, go to the **Installs** tab.
 2. Click **Install Editor**.
@@ -219,7 +219,7 @@ Once the editor has loaded:
 
     If it's still loading well past that, close Unity, reopen the project from Unity Hub, and let it resume.
 
-    If it STILL doesnt work, then you should probably delete the folder entirely and try the cloning process again.
+    If it STILL doesn't work, then you should probably delete the folder entirely and try the cloning process again.
 
 ---
 
@@ -229,3 +229,4 @@ You have the project running. Yay! If you want to contribute, I recommend readin
 
 - [Git Good: First Commits](gitgood.md): make changes, save them, and share them with the team
 - [Git Good: The PR Workflow](gitgood2.md): get your work reviewed and merged into the game
+- On the programming team? The [Programming tutorials](../programming/index.md) start with a refresher on Unity, and the [C# Style Guide](../programming/csharp-style-guide.md) covers how we write code.

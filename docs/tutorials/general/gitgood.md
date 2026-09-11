@@ -62,10 +62,10 @@ Git is a **version control system**. Think of it like a filing cabinet that:
 
 Many people get this wrong, but Git and GitHub are separate entities that are both necessary for our game development workflow:
 
-- **Git** is merely a tool, software that runs on your computer and tracks changes that works completely offline.
+- **Git** is the tool: software that runs on your computer, tracks your changes, and works completely offline.
 - **GitHub** is the cloud service, a website that stores the files you track with Git so your team can share them and access them from anywhere.
 
-You can use Git without GitHub completely locally on your computer, but GitHub needs Git. We recommend syncing all your Git repositories to a cloud service like GitHub, but its perfectly feasible to host your own servers or just keep everything locally!
+You can use Git without GitHub completely locally on your computer, but GitHub needs Git. We recommend syncing all your Git repositories to a cloud service like GitHub, but it's perfectly feasible to host your own servers or just keep everything locally!
 
 ### Key Terms
 
@@ -322,7 +322,7 @@ Staging is how you tell Git: "these are the changes I want to include in my next
     ```
 
     !!! tip
-        `git add .` stages all changes at once. It's fast, but check `git status` first so you know exactly what you're staging. You can also use regular expressions to stage multiple similar files at once.
+        `git add .` stages all changes at once. It's fast, but check `git status` first so you know exactly what you're staging. You can also use wildcard patterns, like `git add "*.cs"`, to stage every matching file at once.
 
 ### Step 4: Write a Good Commit Message
 
@@ -586,7 +586,8 @@ float jumpForce = 12.0f;
     ```
 
 !!! warning "Merge conflicts with non-text files"
-    The vast majority of files we will use in SIGGD won't be as nice as code files, which are human readable, instead being **binary files** (see the next section). Binary files aren't human readable, which mean you can't edit it line by line. Thus, it is extra important that you use version control to ensure that no one's work gets lost.
+    The vast majority of files we use in SIGGD won't be as nice as code files, which are human readable. Instead, they're **binary files** (see the next section). Binary files aren't human readable, which means Git can't merge them line by line. That makes it extra important to use version control carefully, so no one's work gets lost.
+
 ---
 
 ## Git LFS
