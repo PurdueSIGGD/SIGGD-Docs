@@ -32,8 +32,8 @@ status: published   # draft | review | published
 
 You don't need Unity open for any of this. Every section is a short explanation followed by an exercise:
 
-- **Predict:** read some code or a scenario and write down what you think will happen *before* you open "Check your prediction". Actually commit to an answer, on paper or in a notes app or mentally. The wrong guesses are where most of the learning happens anyways (I hope).
-- **Make:** a small design exercise. There's no answer key for these on purpose. If you're stuck, open the hints one at a time, and when you're done, check your work against "What a good answer includes". A lot of these can also be made in Unity if you want to get some practice with the engine.
+- **Predict:** read some code or a scenario and write down what you think will happen *before* you open "Check your prediction". I'd recommend committing to an answer, on paper or in a notes app or mentally. The wrong guesses are where most of the learning happens anyways (I hope).
+- **Make:** a small design exercise. There's no answer key for these on purpose; if you're stuck, open the hints one at a time, and when you're done, check your work against "What a good answer includes". A lot of these can also be made in Unity if you want to get some practice with the engine.
 - **Try it in Unity:** if Unity is ready on your machine, these let you check your predictions for real and figure out what's actually going on. If it isn't, you won't miss anything; this guide also works as a mental learning exercise on how to interpret Unity.
 
 This guide is intended to be for completely fresh Unity users, so if you already know something here, feel free to skip around! I do think there is value from reading this as an experienced person as well, however!
@@ -55,7 +55,7 @@ Almost every "why isn't this working" moment new Unity programmers have comes fr
 
 A **scene** is a level, a menu, or any other self-contained chunk of your game. Open one and you'll see the **Hierarchy**: a list of **GameObjects**.
 
-A GameObject, on its own, does nothing. It has a name, and it always has a **Transform** (its position, rotation, and scale), and that's it. It's a container.
+A GameObject, on its own, does nothing. It has a name, and it always has a **Transform** (its position, rotation, and scale), and that's it, a container.
 
 ??? info "New to this? A GameObject is a labeled box"
     Picture an empty cardboard box with a name written on it, sitting at a spot in the world. The box itself can't do anything. Everything interesting comes from what you put inside it, and in Unity, what you put inside are components.
@@ -76,7 +76,7 @@ Everything a GameObject can do comes from its **components**. A few you'll see c
 
 So a player might be one GameObject with a `SpriteRenderer`, a `Rigidbody2D`, a `CapsuleCollider2D`, a `PlayerMovement` script, and a `Health` script. An enemy might have a completely different movement script but the *same* `Health` script. That's the core idea of Unity: **a thing is what it's made of.** Instead of building a big class hierarchy (`Player` inherits from `Character` inherits from `Entity`), you assemble objects out of small pieces that each do one job.
 
-This idea has a name, the [Component pattern](https://gameprogrammingpatterns.com/component.html), and Unity's whole design is built around it.
+This idea has a name, the [Component pattern](https://gameprogrammingpatterns.com/component.html), and Unity's whole architecture is built around it.
 
 !!! question "Predict: the crate"
     A crate in your level has a `MeshRenderer` and a `BoxCollider`, but no `Rigidbody`. The player (who does have physics) walks into it.
@@ -125,7 +125,7 @@ This gives every GameObject two ways to describe where it is:
 - **World position:** where it actually is in the scene (`transform.position`).
 - **Local position:** where it is *relative to its parent* (`transform.localPosition`).
 
-So game development is actually secretly just math class (mostly linear algebra). So let's do some problems:
+So game development is actually secretly just math class (mostly linear algebra). Don't you love math? Surprise pop quiz:
 
 !!! question "Predict: parent and child"
     An empty parent GameObject sits at world position `(10, 0, 0)` with a scale of `1`. Its child sits at local position `(2, 0, 0)`.
@@ -145,12 +145,12 @@ So game development is actually secretly just math class (mostly linear algebra)
 
 When you write a class that inherits from `MonoBehaviour`, you've made a component. You add it to a GameObject exactly like a `Collider` or an `AudioSource`, and Unity creates the instance for you.
 
-Two consequences that trip people up:
+Two things to keep in mind:
 
 - **The file name has to match the class name.** `Turret.cs` must contain `class Turret`, or Unity won't let you add it to anything. (The [C# Style Guide](csharp-style-guide.md#files-and-namespaces) has more.)
 - **You never write `new Turret()`.** Unity logs a warning if you try, and you end up with a broken object that isn't attached to anything. Components come from adding them in the editor, from `AddComponent`, or from spawning a prefab.
 
-The other big thing a MonoBehaviour gets you is the **Inspector**: some of its fields appear there, where you (and designers) can change them without touching code. But not every field does.
+The other big thing a MonoBehaviour gets you is the **Inspector**, where some of its fields appear, and where you (and designers) can change them without touching code. But not every field shows up.
 
 !!! question "Predict: what shows up in the Inspector?"
     You add this script to a GameObject. Which of these eight members show up in the Inspector?
@@ -171,7 +171,7 @@ The other big thing a MonoBehaviour gets you is the **Inspector**: some of its f
     }
     ```
 
-    (Yes, `public float range` breaks two rules in the style guide. It's here because you'll see it in basically every Unity tutorial ever.)
+    (Yes I know that `public float range` breaks two rules in the style guide I meticulously wrote. It's here because you'll see it in basically every Unity tutorial ever.)
 
 ??? success "Check your prediction"
     Three of them: `range`, `fireRate`, and `Ammo`.
@@ -185,7 +185,7 @@ The other big thing a MonoBehaviour gets you is the **Inspector**: some of its f
     - `MaxRange` is a constant and can never change, so there's nothing to save. Hidden.
     - `Damage` is readonly, so Unity can't write a saved value back into it. Hidden.
     - `Cooldown` is a property, and Unity doesn't save properties. Hidden.
-    - `Ammo` is a property too, but `[field: SerializeField]` tells Unity to save the hidden field behind it, so it shows up.
+    - `Ammo` is a property too, but `[field: SerializeField]` tells Unity to save the hidden field behind it, so it shows up. I also recommend using this one.
 
 ??? tip "Try it in Unity"
     Create a new project from Unity Hub with any 2D/3D template (Universal 2D/3D is a safe choice). Go to **Assets &rarr; Create &rarr; Scripting** and create a MonoBehaviour script named `Turret`, paste the code in, and drag it onto any GameObject in the scene. Check the Inspector against your prediction.
@@ -208,7 +208,7 @@ Here's a mental shift that saves a lot of confusion: when you change a value in 
     1. `10`, `10`, and `25`. Nothing changed. When the scene was saved, every turret's range was written into the scene file, and that saved value wins over the code's default.
     2. `15`. The default only matters when a component is first created.
 
-    "I changed the number in the script and nothing happened" is one of the most common Unity confusions there is, and now you know why. If you want to change existing objects, change them in the Inspector (or in the prefab, which you'll see below).
+    If you want to change existing objects, change them in the Inspector (or in the prefab, which you'll see below).
 
 !!! question "Predict: Play Mode tweaking"
     You press Play, and the turret fires too slowly. While the game is running, you bump `fireRate` from `2` to `5` in the Inspector. It feels great. You stop Play Mode.
@@ -301,7 +301,7 @@ flowchart LR
     2. **A and B might print in the other order.** Unity [explicitly doesn't guarantee](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/MonoBehaviour.Awake.html) which object's `Awake` runs first, so your code can't rely on it.
     3. **Every `Awake` happens before any `Start`.** Unity doesn't call `Start` on anything until `Awake` has run on every object in the scene.
 
-    Points 2 and 3 together give you what I think is the most useful rule in this whole guide: **set yourself up in `Awake`, and talk to other objects in `Start`.** In `Awake`, the object you want to talk to might not exist yet. By `Start`, everybody's `Awake` is guaranteed to be done.
+    Points 2 and 3 together give you the easiest solution to all sorts of race condition problems: **set yourself up in `Awake`, and talk to other objects in `Start`.** In `Awake`, the object you want to talk to might not exist yet. By `Start`, everybody's `Awake` is guaranteed to be done.
 
 ??? tip "Try it in Unity"
     Make two cubes named A and B, add `LifecycleLogger` to both, untick it on B, and press Play. Then, while the game is running, tick B's checkbox and watch its `OnEnable` and `Start` show up.
@@ -309,7 +309,7 @@ flowchart LR
 !!! example "Make: the enemy registry"
     A `GameManager` needs to know about every enemy in the level, so it keeps a list. Each `Enemy` adds itself to that list when it appears, and removes itself when it's gone.
 
-    Decide which lifecycle method each of these belongs in, and write a sentence justifying each choice:
+    Decide which lifecycle method each of these belongs in, and make sure you know why:
 
     1. The `GameManager` creating its empty list.
     2. An `Enemy` adding itself to the list.
@@ -319,7 +319,7 @@ flowchart LR
     For each step, ask: what has to *already exist* for this to work? Then find the earliest method where that's guaranteed.
 
 ??? tip "Hint 2"
-    Remember the two guarantees from the prediction above: the order of different objects' `Awake` calls is random, but every `Awake` finishes before any `Start`. Also think about enemies that get disabled and re-enabled (a pooled enemy, say), not just ones that are created and destroyed. The [execution order page](https://docs.unity3d.com/6000.3/Documentation/Manual/execution-order.html) has the full picture.
+    Remember the two guarantees from the prediction above: the order of different objects' `Awake` calls is random, but every `Awake` finishes before any `Start`. Also think about enemies that get disabled and re-enabled (a pooled enemy, say), not just ones that are created and destroyed. The [execution order page](https://docs.unity3d.com/6000.3/Documentation/Manual/execution-order.html) has the full explanation if you're curious.
 
 ??? tip "Hint 3"
     The list is the manager's own setup, so it doesn't depend on anyone else. An enemy registering depends on the manager's list existing, which is only guaranteed after every `Awake`. For removal, think about which method is the natural "undo" of the one you picked for adding, so that disabling and re-enabling an enemy doesn't register it twice.
@@ -349,7 +349,7 @@ Instances can still **override** individual values. Overridden values show up in
 
     An instance only stores what's *different* about it (its overrides). Everything else comes from the prefab, so the 19 untouched goblins pick up the change immediately. The mini-boss's max health was overridden, and Unity's rule is that [an override always wins](https://docs.unity3d.com/6000.3/Documentation/Manual/PrefabInstanceOverrides.html) over the prefab's value.
 
-    That's great when it's what you meant, and a super annoying bug when it isn't: if you accidentally modify a value on some instance, prefab changes will ignore it.
+    That's great when it's what you want, and a super annoying bug when it isn't: if you accidentally modify a value on some instance, prefab changes will ignore it.
 
 !!! example "Make: prefabs, variants, or overrides?"
     Go back to the scene you took apart earlier. For each object, decide:
@@ -377,16 +377,9 @@ Instances can still **override** individual values. Overridden values show up in
 
 ## Two Things You'll Meet Next
 
-**ScriptableObjects.** Not everything lives in a scene. A ScriptableObject is an *asset*, like a texture or a sound, that holds data instead of pixels. A spell's damage and cooldown, an enemy type's stats, a level's settings: all good ScriptableObject material, shared by everything that references them. [Data-Driven Design](data-driven-design.md) is all about these.
+**ScriptableObjects.** Not everything lives in a scene. A ScriptableObject is an *asset*, like a texture or a sound, that holds data instead of pixels. A spell's damage and cooldown, an enemy type's stats, a level's settings: all good ScriptableObject material, shared by everything that references them. [Data-Driven Design](data-driven-design.md) explains this in much more detail.
 
 **How objects find each other.** A turret needs to know where the player is, and a health bar needs to know when health changes. The three most common ways are a serialized reference (drag the object into a field in the Inspector), `GetComponent` (grab another component on the same GameObject), and events (announce that something happened and let whoever cares listen). Choosing between them is a big part of [The OOP Toolkit](oop-toolkit.md).
-
----
-
-## This Week's Game Idea
-
-!!! example "This week's game idea"
-    Pick one mechanic from this week's game idea and break it into GameObjects and components, the same way you took apart a game you know. Then look for components the *whole game* could reuse across different objects.
 
 ---
 
