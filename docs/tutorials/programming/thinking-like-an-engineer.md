@@ -33,13 +33,13 @@ When you're programming for a class, the finish line is usually "it works." You 
 
 A game (and software projects in general) is the opposite. For example, the SIGGD games last for a whole year, a lot of different people touch it, and the code you write in October gets changed in February by some random person. On a project like that, "it works" is just the first step. The code also has to be something other people can understand and change without breaking many other things.
 
-That's most of what I mean by "thinking like an engineer," and it's what this guide is about. None of it is Unity-specific. These are ideas that working programmers argue about, write books about, and still get wrong sometimes, so don't worry if some of it takes a while to click, this gets way more obvious as you start doing things.
+That's basically what this guide is about. None of it is Unity-specific, since these are ideas that are still very relevant today (yes, even with AI), so don't worry if some of it takes a while to click, this gets way more obvious as you start doing things.
 
 ---
 
 ## Complexity Is the Enemy
 
-John Ousterhout, who teaches software design at Stanford, wrote a whole book arguing that the biggest problem in software is **complexity**: anything about the code that makes it hard to understand or change. He splits it into three symptoms you can actually notice:
+John Ousterhout, who teaches software design at Stanford, wrote a whole book arguing that the biggest problem in software is **complexity**: anything about the code that makes it hard to understand or change. He splits it into three symptoms:
 
 | Symptom | What it feels like |
 |---|---|
@@ -47,12 +47,12 @@ John Ousterhout, who teaches software design at Stanford, wrote a whole book arg
 | **Cognitive load** | You have to hold a lot in your head to make a change safely. |
 | **Unknown unknowns** | It isn't obvious *what* you need to change, or what you need to know, to do something correctly. |
 
-The last one is the most complicated to both discover and address. At least with the first two, you can see the work in front of you. With unknown unknowns, you make the change, it looks fine, and something breaks somewhere you'd never have thought to look.
+The last one is the most complicated to both discover and address. At least with the first two, you can see the work in front of you. With unknown unknowns, you make the change, it looks fine, and something breaks somewhere you'd never know to look.
 
 He also names the two main causes pf this, **dependencies** (pieces of code that can't be understood or changed on their own) and **obscurity** (important information that isn't obvious from the code).
 
 !!! question "Predict: three small requests"
-    Here's a condensed version of a script that shows up in a lot of first game projects:
+    Here's a condensed version of a script that shows up in a lot of first game tutorials you might see online:
 
     ```csharp
     public class Player : MonoBehaviour
@@ -152,7 +152,7 @@ Thus, readable code isn't about being pretty. It's about spending less of the re
     }
     ```
 
-    Make a list of everything you'd have to go find out before you could safely change this, or that could bite you later.
+    Make a list of everything you'd have to go find out before you could safely change this, or that could trip you up later.
 
 ??? success "Check your prediction"
     Here's what's hiding in there:
@@ -190,7 +190,8 @@ A pretty simple test for both is just *if two things change for the same reason,
 
 ## Deep Modules
 
-Here's one more of Ousterhout's ideas, because it changes how you judge a class. The best classes are **deep**: a simple interface on the outside, hiding a lot of complexity on the inside.
+So I'm talking about Ousterhout a lot here, but I swear its really useful!
+Here's one more. The best classes are **deep**: a simple interface on the outside, hiding a lot of complexity on the inside.
 
 A save system you use by calling `SaveSystem.Save()`, which quietly handles serialization, file paths, versioning, and backups, is deep. You get a lot of power for one line. A save system where you have to call `OpenFile()`, `WriteHeader()`, `WriteSection()` six times, `WriteChecksum()`, and `CloseFile()` in exactly the right order is shallow; its "interface" is just as complicated as its implementation, which means every caller has to know how to use it.
 
@@ -206,7 +207,7 @@ Your first idea for how to build something is just the first one you had, not ne
 
 ## Strategic vs. Tactical Programming
 
-Ousterhout draws a line between two ways of working:
+Ousterhout (am I glazing him too much?) draws a line between two ways of working:
 
 - **Tactical programming** is getting the current task working as fast as possible. Each shortcut seems harmless on its own.
 - **Strategic programming** is treating "is this still easy to change?" as part of the job, and spending a little extra time on design with every change.
@@ -219,7 +220,7 @@ Tactical feels faster, and for most short term projects, it is. However, the sho
 
 All of this can be overdone. It's easy to spend a week building a beautifully flexible system for a feature that never sees the light of day, or a framework that handles fifty cases when the game only ever has two. I am incredibly guilty of this unfortunately (re: *Project Deimos*'s cutscene engine), but it's good to know when to stop.
 
-One term that gets tossed around is [YAGNI](https://martinfowler.com/bliki/Yagni.html), You Aren't Gonna Need it. Building something for a future you think might need it costs you both the time it takes to design and build the system, the other work you could've been doing, and the extra complexity everyone deals with after, and if the guess was wrong, you pay to remove the system too.However, YAGNI is not a justification for neglecting the health of your code base. The balance looks like this:
+One term that gets tossed around is [YAGNI](https://martinfowler.com/bliki/Yagni.html), You Aren't Gonna Need it. Building something for a future you think might need it costs you the time it takes to design and build the system, the other work you could've been doing, and the extra complexity everyone deals with after, and if the guess was wrong, you pay to remove the system too. However, YAGNI is not a justification for neglecting the health of your code base. Thus, there's a balance to be found:
 
 - **Don't build features and flexibility you don't need yet.**
 - **Do keep what you build clean enough to change**, so that when you *do* need it, adding it is easy.
@@ -237,7 +238,7 @@ TLDR: If you just use clear names, small pieces, hidden decisions, and no magic 
     For each of the three change requests, ask: which *one* piece of code should that change live in?
 
 ??? tip "Hint 2"
-    Look for the decisions that are likely to change (Parnas), and for things that change for different reasons (cohesion). Input, health, how health is displayed, sound, and what happens on death are all candidates. The [Component pattern](https://gameprogrammingpatterns.com/component.html) chapter shows a very similar split.
+    Look for the decisions that are likely to change, and for things that change for different reasons (cohesion). Input, health, how health is displayed, sound, and what happens on death are all candidates. The [Component pattern](https://gameprogrammingpatterns.com/component.html) chapter shows a very similar split.
 
 ??? tip "Hint 3"
     Try one piece per decision: something that reads input, something that moves, something that tracks health, something that shows health, and something that reacts to death. For "how do they find out about each other," think about whether health should call the UI directly, or just announce that it changed and let the UI listen.
@@ -250,6 +251,8 @@ TLDR: If you just use clear names, small pieces, hidden decisions, and no magic 
     - You didn't create a piece that exists "just in case." Every piece answers one of the change requests or an obvious near-future need.
 
 ---
+
+Ousterhout count: three (I lowkey expected more)
 
 ## Next Steps
 

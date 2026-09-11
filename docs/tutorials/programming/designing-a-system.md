@@ -33,19 +33,19 @@ status: published   # draft | review | published
 
 Before starting, make sure you have:
 
-- [ ] A few index cards (or sheets of paper you can tear up), and a pen, or a whiteboard, or anything else you can share and draw on
-- [ ] A group of three or four people, if you're doing this in a meeting
+- [ ] A few index cards and a pen, or a whiteboard, or anything else you can share and draw on
+- [ ] A group of three or four people, if you're doing this during meeting
 - [ ] Read [How Unity Thinks](how-unity-thinks.md), or you're comfortable with GameObjects and components
 
 ---
 
 ## Introduction
 
-Here's a thing that happens constantly on game teams, and software projects in general. Someone gets assigned "the checkpoint system," opens their editor, and starts typing. Two days later it works, sort of, but the player script now knows about the fade effect, the checkpoint knows about the enemies, and adding "reset the collectibles on respawn" means editing four files. Nobody made a bad decision on purpose. They just made all of their decisions while typing, one line at a time, without ever seeing the whole thing at once.
+Here's a thing that happens constantly on game teams, and software projects in general. Someone gets assigned "the checkpoint system," opens their editor, and starts cooking something. Two days later it works, sort of, but the player script now knows about the fade effect, the checkpoint knows about the enemies, and adding "reset the collectibles on respawn" means editing four files. Nobody made a bad decision on purpose. They just made all of their decisions while typing, one line at a time, without ever seeing the whole thing at once.
 
 This guide is about seeing the whole thing first. You'll design a system on paper, with boxes and arrows, before anybody writes a line of it. It isn't about producing a perfect plan, because the plan *will* change when you build it. It's about making the big decisions (who owns what, who talks to whom, what's likely to change) deliberately, while they're still cheap to change.
 
-The process has ten steps, and you'll see every step applied to a full example, a **checkpoint and respawn system**, so you know what each step's output looks like before you make your own.
+The process has nine(ish) steps, and you'll see every step applied to a full example, a **checkpoint and respawn system**, so you know what each step's output looks like before you make your own.
 
 !!! info "Using this on a real system"
     None of this is workshop-only. When you're about to build a real system for the game, run the same steps (even alone, even quickly), then turn the result into a page with the [System Template](../../contributing/templates/system-template.md) and link it from the system's GitHub issue. Future you (and everyone else!) will be very grateful.
@@ -54,13 +54,13 @@ The process has ten steps, and you'll see every step applied to a full example, 
 
 ## Roles
 
-If you're in a group, I recommend you split these up.
+If you're in a group, I recommend you split these up. It'll probably keep things going smoothly, but also feel free to do whatever.
 
 | Role | Job |
 |---|---|
-| **Facilitator** | Keeps time, keeps the group moving through the steps, and makes sure everyone gets heard. |
-| **Scribe** | Writes the cards and draws the diagram. Everyone contributes, but one person holds the pen. |
-| **Skeptic** | Tries to break the design. "What happens if the player dies *during* the fade?" is exactly their job. |
+| **Facilitator** | Keeps time, keeps the group moving through the steps, and makes sure everything is considered. |
+| **Scribe** | Writes the cards and draws the diagram. |
+| **Skeptic** | Tries to break the design. "What happens if the player dies *during* the fade?" is the type of stuff they should be asking. |
 
 ---
 
@@ -70,9 +70,9 @@ If you're in a group, I recommend you split these up.
 
 A scenario is one concrete thing that happens, told from a player's perspective: "the player does X, then Y happens." Ideally, this isn't something vague like "the system handles respawning," since that could mean anything, but "the player falls in a pit, the screen fades out, and they reappear at the last checkpoint."
 
-Scenarios are a soft way of describing unit tests, a set of trials that every decision you make later gets tested against. Saving these will force you to notice the questions that nobody's answered yet.
+Scenarios are a soft introduction to unit tests, a set of trials that every decision you make later gets tested against. Saving these will force you to notice the questions that nobody's answered yet.
 
-??? example "Worked example: scenarios"
+???+ example "Worked example: scenarios"
     1. The player walks through a checkpoint for the first time. It lights up, and a "Checkpoint reached" message appears for a moment.
     2. The player dies (falls in a pit, or runs out of health). The screen fades to black, the player reappears at the last checkpoint they reached with full health, and the screen fades back in.
     3. The player reaches a second checkpoint. Now dying sends them there, not to the first one.
@@ -118,10 +118,10 @@ Then filter it, because not every noun deserves to be a class:
 
 **You'll produce:** one index card per class.
 
-CRC stands for **Class, Responsibilities, Collaborators**. It's a technique from the late 1980s, invented specifically to teach people to think in objects, and it still works because it's physical and fast. Each card has:
+CRC stands for **Class, Responsibilities, Collaborators**. It's a technique from the late 1980s, invented specifically to teach people to think in objects, and it still works (if you just slow down for a bit). Each card has:
 
 - **Class:** the name, at the top.
-- **Responsibilities:** two to four short verb phrases for what this class knows or does. "Remembers the active checkpoint." "Detects the player."
+- **Responsibilities:** two to four short verb phrases for what this class knows or does. For example, "Remembers the active checkpoint." "Detects the player."
 - **Collaborators:** the other classes it has to work with to do its job.
 
 Keep them small on purpose. If a card runs out of room, then the class probably does too much (at least at this scale).
@@ -143,7 +143,7 @@ Keep them small on purpose. If a card runs out of room, then the class probably 
 
 **You'll produce:** updated cards, and a list of gaps you found.
 
-This is the most important step, so don't rush it. Lay the cards out on the table. Take a scenario, and act it out: whoever holds a card speaks for that class. "I'm the Checkpoint. The player just walked through me, so I tell the RespawnSystem..." When a scenario needs something that no card is responsible for, you've found a gap, so give the responsibility to an existing card or make a new one.
+This is the most important step in testing your design. Lay the cards out on the table, take a scenario, and act it out: whoever holds a card speaks for that class (if this is cringe you don't have to I guess). "I'm the Checkpoint. The player just walked through me, so I tell the RespawnSystem..." When a scenario needs something that no card is responsible for, you've found a gap, so give the responsibility to an existing card or make a new one.
 
 This is a really easy and simple way to poke holes in a design that's too flimsy. The Skeptic should be throwing "what if" questions the whole time.
 
@@ -194,7 +194,7 @@ Two questions for every card:
 
 **You'll produce:** arrows between your cards showing who calls whom and who listens to whom, plus a state diagram if anything has distinct modes.
 
-For every collaborator line on your cards, decide how that conversation happens. The three everyday options:
+For every collaborator line on your cards, decide how that might happen. The options below are meant to be useful but not exhaustive, theres certainly other ways as well!
 
 | Option | Use it when | Example |
 |---|---|---|
@@ -212,7 +212,7 @@ If a class might behave differently depending on what it's currently doing, it m
     - `RespawnSystem` &rarr; `ScreenFader`: **direct call**, with a callback so the fader can say when it's finished.
     - `RespawnSystem` &rarr; everyone else: **events.** `CheckpointActivated`, `RespawnStarted`, and `RespawnFinished`. `CheckpointMessage`, `PlayerController`, and anything that needs resetting just listen.
 
-    RespawnSystem has modes (gap 3 from step 4), so it gets a state diagram:
+    RespawnSystem has modes (gap 3 from step 4), so it needs a state diagram:
 
     ```mermaid
     stateDiagram-v2
@@ -233,14 +233,14 @@ If a class might behave differently depending on what it's currently doing, it m
 
 **You'll produce:** one different alternative, a short trade-off table, and a decision.
 
-Your first design is rarely your best one. It's just the first one you thought of. So before you commit, sketch a real alternative (not a small tweak) and compare them honestly.
+Your first design is rarely your best one, it's just the first one you thought of. So before you commit, sketch an actual alternative (so not a small tweak) and seriously scrutinize and compare them.
 
-The comparison matters more than the winner. Writing down *why* you picked a design is what lets someone change it later without breaking the reasons it was built that way.
+The comparison matters more than just picking one or the other. Writing down *why* you picked a design is what lets someone change it later without breaking the reasons it was built that way. This whole process is super great in informing others how you came to a decision, so documentation is highly encouraged!
 
 ???+ example "Worked example: two designs"
     **Design A: checkpoints do it themselves.** No RespawnSystem. Each checkpoint listens for the player's death, and whichever checkpoint was activated most recently (tracked in a `static` field shared by all checkpoints) runs the respawn.
 
-    **Design B: one coordinator.** The design we've been building: checkpoints report being reached, and RespawnSystem owns remembering and respawning.
+    **Design B: one coordinator.** The design we've been talking about: checkpoints report being reached, and RespawnSystem owns remembering and respawning.
 
     | | A: checkpoints | B: coordinator |
     |---|---|---|
@@ -320,9 +320,9 @@ Inside a class, `+` means public and `-` means private. You don't need every fie
 
 **You'll produce:** a throwaway prototype, and something you learned from it.
 
-If you have time left, find the part of your design you're *least* sure about and build just that, as fast and messily as you like, in a blank project. This is called a spike: a quick experiment to answer one question, which you throw away afterwards. Don't build the whole system, just use this as a controlled prototype.
+If you have time left, find the part of your design you're *least* sure about and build just that, as fast and messily as you like, in a blank project or scene. This is called a **spike**: a quick experiment to answer one question, which you throw away afterwards. Don't build the whole system, just use this as a controlled prototype.
 
-For the checkpoint example, the risky part could be "does the fade feel okay at 0.5 seconds, and does disabling input actually stop the player mid-jump?" Testing this specific part out first before committing is a good idea.
+For the checkpoint example, the risky part could be "does the fade feel okay at 0.5 seconds, and does disabling input actually stop the player mid-jump?" Testing this specific part out first before committing might be a good idea.
 
 Then compare what you learned against your design. Did it hold up? What would you change? 
 
@@ -332,7 +332,7 @@ Designing a system is an ever-changing process, as you'll encounter a lot of iss
 
 ## Design Smells
 
-Things that should make you stop and look again, in your own design or someone else's:
+Things that should make you stop and look again in your own design or someone else's:
 
 - **The god class.** I swear this is a real term; one card with eight responsibilities, and every other card lists it as a collaborator.
 - **The do-everything Manager.** `GameManager` is where responsibilities go when nothing owns them.

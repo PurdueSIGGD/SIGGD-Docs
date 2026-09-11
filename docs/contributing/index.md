@@ -58,6 +58,11 @@ Before submitting a PR, run `mkdocs build --strict` to catch broken links and na
 | System doc | [System Template](templates/system-template.md) | `docs/projects/<project-name>/codebase/systems/` |
 | Script reference | [Script Template](templates/script-template.md) | `docs/projects/<project-name>/codebase/scripts/` |
 | Resource page | [Resource Template](templates/resource-template.md) | `docs/resources/` |
+| Google Doc page | [Google Doc Template](templates/google-doc-template.md) | anywhere |
+
+---
+
+**Prefer working in Google Docs?** You can embed a Google Doc, Sheet, Slides deck, or Form instead of writing Markdown, either as a whole page or inside a normal one. The doc stays live, so edits show up on the site right away. Put the file in the **SIGGD Shared Drive**, set sharing to "Anyone with the link", and follow the [Google Doc Template](templates/google-doc-template.md).
 
 ---
 
