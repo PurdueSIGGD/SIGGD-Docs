@@ -12,6 +12,9 @@ edit_uri: edit/main/docs/
 copyright: Copyright &copy; 2026 Purdue SIGGD
 
 hooks:
+  # google_docs runs before author_attribution so the attribution block stays
+  # at the very bottom of a page that ends with an embed.
+  - hooks/google_docs.py
   - hooks/author_attribution.py
   - hooks/section_nav.py
 
@@ -133,6 +136,7 @@ nav:
           - System Template: contributing/templates/system-template.md
           - Script Template: contributing/templates/script-template.md
           - Resource Template: contributing/templates/resource-template.md
+          - Google Doc Template: contributing/templates/google-doc-template.md
   - About:
       - about/index.md
       - Contributors: about/contributors.md
@@ -192,16 +196,17 @@ extra:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/nKdj4bTjNs
       name: Join our Discord
-  consent:
-    title: Cookie consent
-    description: >-
-      We use cookies to recognise your repeated visits and preferences, as well
-      as to measure the effectiveness of our documentation and whether users
-      find what they're searching for.
+
+# No `consent:` block on purpose. This site sets no cookies: there is no
+# analytics, and Material only ever writes UI preferences (selected content tab,
+# cached repo stars) to the browser's own storage. A consent banner here would
+# only be asking permission for the banner itself.
 
 extra_css:
   - assets/stylesheets/extra.css
 
 extra_javascript:
+  # extra.js configures MathJax and loads it from unpkg only on pages that
+  # actually contain math, so every other page makes no request to unpkg.
   - assets/javascripts/extra.js
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - assets/javascripts/toc-collapse.js

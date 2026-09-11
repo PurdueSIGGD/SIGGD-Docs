@@ -33,6 +33,21 @@ For tutorials, also add `difficulty`, `time_estimate`, and `prerequisites`.
 
 ---
 
+**Google Docs:** Embed a Google Doc, Sheet, Slides deck, or Form with `google_doc` in the frontmatter (a whole page), or by tagging a link with `{ .google-doc }` (inside a page). Both take the normal **Share → Copy link** URL, and `height` overrides the default size. Full instructions, including sharing and where files should live, are in the [Google Doc Template](templates/google-doc-template.md).
+
+```yaml
+---
+title: "Story Design Doc"
+google_doc: https://docs.google.com/document/d/FILE_ID/edit?usp=sharing
+---
+```
+
+```markdown
+[Story Design Doc](https://docs.google.com/document/d/FILE_ID/edit){ .google-doc }
+```
+
+---
+
 **Code blocks:** Always specify the language identifier.
 
 ````markdown

@@ -21,7 +21,7 @@ tags:
 
 Code gets read way more often than it gets written. When a lot of people share one codebase, every file that looks a little different gets very annoying over the course of the year. Thus, this year we have a rudimentary style guide.
 
-This isn't a grading rubric, either. Most of it is standard C# convention (the same rules Microsoft and Unity publish), plus a few Unity-specific habits that save you from real bugs. Code is super subjective, so I have some general preferences and considerations here, but a lot of it is up to you.
+This is **not** a rubric either; most of it is standard C# convention (the same rules Microsoft and Unity follow, for example), plus a few Unity-specific habits that save you from real bugs. Code is super subjective, so I have some general preferences and considerations listed here, but a lot of it is up to you. The most important part is just having good judgment on when to use what.
 
 If you do completely disagree with a rule here, please let me know, as I could be totally wrong or in the minority. This is an ever updating guide, so any and all feedback is appreciated!
 
@@ -53,7 +53,7 @@ Every rule also comes with a *why*. If a rule ever seems to be counterintuitive 
     - Raw string literals: `"""like this"""`
     - `init` setters and `required` members
 
-    Records technically work, but don't use them for anything Unity serializes. When a snippet from the internet gives you a strange syntax error, this is the first thing to check. [Unity's C# compiler page](https://docs.unity3d.com/6000.3/Documentation/Manual/csharp-compiler.html) has the full list.
+    Records technically work, but don't use them for anything Unity serializes. For anything else, [Unity's C# compiler page](https://docs.unity3d.com/6000.3/Documentation/Manual/csharp-compiler.html) has the full list.
 
 ### The `.editorconfig`
 
@@ -63,7 +63,9 @@ The game repository has an `.editorconfig` file at its root. Most code editors p
 - flags naming mistakes on types, public members, parameters, and locals as warnings,
 - nudges you toward the `var` rule below with subtle suggestions.
 
-Unity itself ignores the file, so it can never break a build. If your editor doesn't support it, you just miss out on the hints. It also can't check everything: private field naming, comments, and most of Part 2 are up to you and your reviewer.
+Unity itself ignores the file, so it can never break a build. If your editor doesn't support it, you just miss out on the hints. It also can't check everything: private field naming, comments, and most of Part 2 are up to you and whoever has the wonderful job of reviewing your code.
+
+PLEASE MAKE EVERYONES LIVES EASIER BY FOLLOWING THIS THE FIRST TIME BECAUSE WE WILL CALL YOU OUT DURING CODE REVIEW ok thanks
 
 ---
 
@@ -87,7 +89,7 @@ Naming conventions are pretty freeform across languages, but this is what we'll 
 
 **DO** use PascalCase for types, methods, properties, events, and anything public.
 
-**Why:** It's the .NET convention, and Unity's types and methods follow it too (`Transform`, `GetComponent`). Unity's *properties* are the famous exception (`transform.position`, `Time.deltaTime`), and that's just something you live with when calling Unity API. Don't copy it in your own code.
+**Why:** It's the .NET convention, and Unity's types and methods follow it too (`Transform`, `GetComponent`). Unity's *properties* are the one exception (`transform.position`, `Time.deltaTime`), and that's just something we all must learn to live with when using Unity API. Don't copy it in your own code.
 
 **DO** use camelCase for local variables and parameters.
 
@@ -237,7 +239,7 @@ else
 
 **Why:** It's the C# default. Microsoft's conventions, Unity's script templates, and the formatter in basically every C# editor all do it this way. The `.editorconfig` makes formatting produce this for you.
 
-**DO** indent with four spaces, not tabs.
+**DO** indent with four spaces, not tabs. Most IDEs will automatically convert the Tab key to four spaces, so you won't have to worry about this (but please check!).
 
 **Why:** Tabs show up at different widths in different editors and on GitHub, so four spaces is the C# standard, and the `.editorconfig` sets it automatically.
 
@@ -347,7 +349,7 @@ private Dictionary<int, Transform> _aggroTargets;
 [SerializeField] private float invulnerabilityDuration = 0.5f;
 ```
 
-**Why:** A tooltip shows up for designers hovering over the field in the Inspector *and* for programmers reading the code, so it does the doc comment's job twice. (Unity's own style guide recommends exactly this.) Units are the big one: is `duration` in seconds or frames? Definitely note things like this down.
+**Why:** A tooltip shows up for designers hovering over the field in the Inspector *and* for programmers reading the code, so it does the doc comment's job twice. Units are pretty important too; is `duration` in seconds or frames? Definitely note things like this down.
 
 **CONSIDER** pulling a confusing block into a well-named method before you reach for a comment. When you do write an inline comment, **DO NOT** restate what the code does. Explain *why* it does it.
 
@@ -362,7 +364,7 @@ yield return new WaitForFixedUpdate();
 yield return new WaitForFixedUpdate();
 ```
 
-**Why:** Code already tells you *what* happens. Comments are for everything it can't say: why this approach, what constraint forced it, which weird bug it dodges. A comment that restates the code is one more thing to keep in sync for zero new information.
+**Why:** Code already tells you *what* happens. Comments are for everything it can't convey: why this approach, what constraint forced it, which weird bug it dodges. A comment that restates the code is one more thing to keep in sync for zero new information.
 
 **CONSIDER** Microsoft's comment formatting: comments on their own line (not at the end of a line of code), starting with a capital letter, ending with a period, with a space after `//`.
 
@@ -390,7 +392,7 @@ or
 [field: SerializeField] public int maxHealth { get; private set; } = 100;
 ```
 
-**Why:** A public field can be overwritten by any script, at any time, with no way to validate the new value or even notice it happened. `[SerializeField] private` gets you the Inspector without handing the entire codebase write access. The usual exception is a small plain-data struct that's just a bundle of values.
+**Why:** A public field can be overwritten by any script, at any time, with no way to validate the new value or even notice it happened. `[SerializeField] private` lets you use the Inspector without handing the entire codebase write access.
 
 **DO** use auto-properties for state a class exposes, instead of a private field plus a property that just returns it.
 
@@ -414,7 +416,7 @@ Use `{ get; private set; }` when outside code should read the value but not chan
 public float MaxSpeed { get; private set; } = 8f;
 ```
 
-!!! warning "Renaming it quietly wipes saved values"
+!!! warning "Renaming it will wipe saved values"
     Unity doesn't save the property. It saves the hidden field the compiler generates behind it, named `<MaxSpeed>k__BackingField`. Rename the property and every value set in the Inspector silently resets to the default, unless you add `[field: FormerlySerializedAs("<MaxSpeed>k__BackingField")]` with the *old* name. With a plain `[SerializeField]` field, the same fix is just `[FormerlySerializedAs("oldName")]`, which is a lot easier to remember.
 
 **Why:** One declaration instead of a field plus a property is just simpler.
@@ -459,13 +461,14 @@ public static class SceneNames
 SceneManager.LoadScene(SceneNames.LevelTwo);
 ```
 
-A few more habits in the same spirit:
+**Why:** The compiler checks the names of your classes and variables, but it has no idea what's inside a string. If there's ever a typo, keeping the strings in one place means one fix instead of a project-wide search.
+
+A few more habits in the same vein:
 
 - Keep tag names in one static class too, and check them with `CompareTag(Tags.Enemy)`.
 - Turn animator parameter names into IDs once, in a `static readonly int` holding `Animator.StringToHash("Speed")`, instead of passing the string every frame. This one is also important as hashing a string can get expensive.
 - When you can drag a reference into a serialized field instead of looking something up by name, do that.
-
-**Why:** The compiler checks the names of your classes and variables, but it has no idea what's inside a string. If there's ever a typo, keeping the strings in one place means one fix instead of a project-wide search.
+- Cache component references from `GetComponent<T>()` when you can, as this method can get expensive. Definitely don't use this in an update loop!
 
 ---
 
@@ -512,7 +515,7 @@ using UnityEngine.Serialization;
 [SerializeField] private float moveSpeed = 5f;
 ```
 
-**Why:** Unity saves Inspector values by field name. Rename `speed` to `moveSpeed` and every scene and prefab that set a value quietly falls back to the default, with no error or warning. The attribute tells Unity to also look for the old name when loading.
+**Why:** Unity saves Inspector values by field name. Rename `speed` to `moveSpeed` and every scene and prefab that set a value will fall back to the default, with no error or warning. The attribute tells Unity to also look for the old name when loading.
 
 **CONSIDER** `[DisallowMultipleComponent]` on components that would break if a GameObject had two of them.
 
@@ -531,7 +534,7 @@ public class PlayerMovement : MonoBehaviour
 public class InputReader : MonoBehaviour
 ```
 
-**Why:** It's a global lever. It reorders your script relative to *every* other script in the project, and nobody reading those other scripts will know it's there. Most ordering problems have a simpler fix: set yourself up in `Awake` and talk to other objects in `Start` (see [How Unity Thinks](how-unity-thinks.md#the-lifecycle)), or have one script call the others explicitly.
+**Why:** This attribute seems fine, but it is still a global toggle. It reorders your script relative to *every* other script in the project, and nobody reading those other scripts will know it's there. Most ordering problems have a simpler fix: set yourself up in `Awake` and talk to other objects in `Start` (see [How Unity Thinks](how-unity-thinks.md#the-lifecycle)), or have one script call the others explicitly.
 
 **DO** wrap anything that uses the `UnityEditor` namespace in `#if UNITY_EDITOR` (or keep it in a folder named `Editor`). **CONSIDER** wrapping gizmo and debug-only code too.
 
@@ -568,12 +571,6 @@ A quick pass over the DO and DO NOT rules:
 - [ ] Renamed serialized fields have `[FormerlySerializedAs]`.
 - [ ] Anything touching `UnityEditor` is inside `#if UNITY_EDITOR` or an `Editor` folder.
 - [ ] You ran your editor's formatter, so braces and indentation match the `.editorconfig`.
-
----
-
-## What's Deliberately Not Here
-
-This guide is about how code *looks* and the everyday habits around it. It doesn't cover how to structure systems, when to use ScriptableObjects, or how scripts should interface with each other. That's a system design issue rather than a style rule, so take a look at the [onboarding workshops](index.md).
 
 ---
 

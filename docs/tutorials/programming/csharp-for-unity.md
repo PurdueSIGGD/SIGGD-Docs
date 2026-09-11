@@ -24,9 +24,9 @@ status: published   # draft | review | published
 
 ## How to Use This Page
 
-This isn't a from-scratch C# course. It's for people who can already program in *something* and want to read and write Unity code without getting ambushed by the differences. Skim the headings, read what's new to you, and come back when a snippet in another guide uses something you haven't seen.
+This is NOT a from-scratch C# course. It's for people who can already program in *something* and want to read and write Unity code without getting ambushed by the differences. Thus, I recommend skimming the headings, reading what's new to you, and coming back when a snippet in another guide (or someone else's code) uses something you haven't seen.
 
-Where it helps, sections have tabs comparing C# to Java, Python, and C++. Click whichever one you know.
+Where it helps, sections have tabs comparing C# to Java, Python, and C++ as well.
 
 !!! info "Unity uses C# 9"
     Microsoft's docs often show newer C# than Unity supports. If a snippet gives you a strange syntax error, check the [C# 9 note in the style guide](csharp-style-guide.md#how-to-read-the-rules) first.
@@ -35,12 +35,12 @@ Where it helps, sections have tabs comparing C# to Java, Python, and C++. Click 
 
 ## Value Types and Reference Types
 
-C# has two kinds of types, and the difference bites constantly in Unity:
+C# has two kinds of types:
 
 - **Classes are reference types.** A variable holds a *reference* to an object. Assign it to another variable and both point at the same object.
 - **Structs are value types.** A variable holds the *value itself*. Assign it and you get a copy.
 
-Unity's math types are structs: `Vector3`, `Quaternion`, `Color`. That leads to the most famous error message in Unity:
+Unity's math types are structs: `Vector3`, `Quaternion`, `Color`. Thus, you can't do this:
 
 ```csharp
 // Error CS1612: Cannot modify the return value of 'Transform.position'
@@ -62,11 +62,11 @@ transform.position = position;
 
 === "Coming from Python"
 
-    In Python, every variable is a reference, so `b = a` never copies anything. C# structs break that intuition; `Vector3 b = a;` makes an independent copy, and changing `b` leaves `a` alone.
+    In Python, every variable is a reference, so `b = a` never copies anything. C# structs don't do this; `Vector3 b = a;` makes an independent copy, and changing `b` leaves `a` alone.
 
 === "Coming from C++"
 
-    Careful: in C++, `struct` and `class` only differ in default access. In C#, they're totally different: `struct` is a value type (copied, usually on the stack or inline), and `class` is a reference type (always on the heap, garbage collected). There's no choosing per-variable like `T` versus `T*`.
+    Note that in C++, `struct` and `class` only differ in default access. In C#, they're totally different: `struct` is a value type (copied, usually on the stack or inline), and `class` is a reference type (always on the heap, garbage collected). There's no choosing per-variable like `T` versus `T*`.
 
 ---
 
@@ -110,7 +110,7 @@ The [style guide](csharp-style-guide.md#access-and-properties) has the conventio
 | `protected` | This class and classes that inherit from it |
 | `internal` | Anything in the same assembly (for us, usually the whole game, this isn't super relevant) |
 
-We [default to private](csharp-style-guide.md#access-and-properties) and open things up only when something outside actually needs them.
+Best practice is to [default to private](csharp-style-guide.md#access-and-properties) and open things up only when something outside actually needs them.
 
 ---
 
@@ -278,6 +278,8 @@ public abstract class Weapon : MonoBehaviour
 
     public abstract void Fire();
 
+    public virtual void Reload() { }
+
     protected void PlayFireSound()
     {
         // Shared code every weapon gets for free.
@@ -285,8 +287,8 @@ public abstract class Weapon : MonoBehaviour
 }
 ```
 
-- An **interface** is a pure contract: method signatures, no fields. A class can implement as many as it wants.
-- An **abstract class** can also share real code and fields, but a class can only inherit from one.
+- An **interface** is a pure contract: method signatures, no fields (you can provide default implementations, however). A class can implement as many as it wants.
+- An **abstract class** can also share real code and fields, but a class can only inherit from one. Virtual fields can also provide a default body.
 
 So interfaces are for "can do X" (damageable, interactable, flammable), and abstract classes are for "is a kind of X that shares the same interior." [The OOP Toolkit](oop-toolkit.md#interfaces-as-contracts) covers when to use each.
 
@@ -316,7 +318,7 @@ if (enemy == null)
 }
 ```
 
-The catch is that `?.` and `??` *can't* be overridden, so they skip Unity's check and see the shell as "not null." Unity's docs say it directly: [the null-conditional and null-coalescing operators "are not supported with Unity Objects"](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Object.html) because they can't treat destroyed objects the same as null.
+The catch is that `?.` and `??` *can't* be overridden, so they skip Unity's check and see the shell as "not null." Read [Unity's docs](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Object.html) for more.
 
 So for anything that's a Unity object (GameObjects, components, ScriptableObjects):
 
@@ -394,7 +396,7 @@ Strings are immutable; every change makes a new string. That's fine almost every
 | `Dictionary<TKey, TValue>` | Looking things up by key | **No** |
 | `HashSet<T>` | "Is this in the set?" checks | No |
 
-That "No" catches everyone at least once: a `Dictionary` field won't show up in the Inspector, and Unity [doesn't save it](https://docs.unity3d.com/6000.3/Documentation/Manual/script-serialization-rules.html). A common workaround is a serialized `List` of key/value pairs that you turn into a dictionary in `Awake`.
+Note that `Dictionary` field won't show up in the Inspector, and Unity [doesn't save it](https://docs.unity3d.com/6000.3/Documentation/Manual/script-serialization-rules.html). A common workaround is a serialized `List` of key/value pairs that you turn into a dictionary in `Awake`. Alternatively, if you use Odin Inspector (which the SIGGD games will be using), you can serialize special types of dictionaries.
 
 `foreach` loops over any of them:
 
@@ -414,7 +416,7 @@ Don't add or remove items from a collection while you're `foreach`-ing over it. 
 
 ## Exceptions
 
-When code throws an exception in Unity, the error shows up in the Console, the rest of that method call is skipped, and the game keeps running. Next frame, `Update` runs again like nothing happened. That's forgiving, but it also means an exception that fires every frame can hide behind a wall of identical Console messages, so fix the first red error first.
+When code throws an exception in Unity, the error shows up in the Console, the rest of that method call is skipped, and the game keeps running. Next frame, `Update` runs again like nothing happened. That's forgiving, but it also means you have to be more intentional. Ensure that your code doesn't throw unnecessary errors.
 
 Only catch exceptions you can actually do something about. Wrapping code in a `try`/`catch` that swallows everything tends to hide bugs that could be fixed.
 
@@ -437,7 +439,7 @@ private IEnumerator RespawnAfterDelay(float seconds)
 StartCoroutine(RespawnAfterDelay(2f));
 ```
 
-A coroutine belongs to the MonoBehaviour that started it. It stops if that GameObject is deactivated or the script is destroyed, but, surprisingly, [*not*](https://docs.unity3d.com/6000.3/Documentation/Manual/Coroutines.html) if you just disable the script with `enabled = false`.
+A coroutine belongs to the MonoBehaviour that started it. It stops if that GameObject is deactivated or the script is destroyed, but [*not*](https://docs.unity3d.com/6000.3/Documentation/Manual/Coroutines.html) if you just disable the script with `enabled = false`.
 
 **`async`/`await`** is C#'s general version of the same idea. The game project uses a library called **UniTask**, which makes async code work nicely with Unity's frame loop. You'll see it in the real codebase, but coroutines are completely fine for most people. I personally prefer UniTask, but it can be complicated to learn!
 
