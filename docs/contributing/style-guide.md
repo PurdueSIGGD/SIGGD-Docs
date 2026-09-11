@@ -4,7 +4,11 @@ title: Style Guide
 
 # Style Guide
 
-**Voice:** Write in second person ("you") or imperative, active voice, and keep it concise. This is a club wiki, so feel free to be casual!
+!!! info "Looking for how to write code?"
+    This page is about writing *docs*. For how we write C# in the game, see the
+    [C# Style Guide](../tutorials/programming/csharp-style-guide.md).
+
+**Voice:** Write in second person ("you") or imperative, active voice, and keep it concise. This is a club wiki, so feel free to be casual! Contractions and the occasional "I" are totally fine.
 
 ---
 
@@ -59,10 +63,23 @@ Use inline code for file paths (`Assets/Scripts/`), variable names (`playerHealt
 !!! warning     must-know before proceeding
 !!! danger      serious, destructive
 !!! example     worked example
+!!! question    an exercise prompt
 ??? note        collapsible
 ```
 
 Don't overuse them, as if every paragraph has one, none stand out.
+
+**Exercises:** The programming onboarding guides use a consistent set of blocks for exercises. If you're writing a guide with exercises, reuse them so readers know what to expect:
+
+| Block | Use it for |
+|---|---|
+| `!!! question "Predict: ..."` | Code or a scenario the reader predicts the outcome of before checking |
+| `??? success "Check your prediction"` | Right after a Predict: what happens, and *why* |
+| `!!! example "Make: ..."` | A design or build exercise. Never include the answer. |
+| `??? tip "Hint 1"`, `"Hint 2"`, `"Hint 3"` | After a Make: a nudge question, then the concept with a docs link, then an approach in words (a little code is OK) |
+| `??? note "What a good answer includes"` | After the hints: criteria readers can check their own answer against, not a solution |
+| `??? info "New to this? ..."` | Background that experienced readers can skip |
+| `!!! example "This week's game idea"` | One per onboarding guide. The only block that gets edited for a specific meeting. |
 
 ---
 
