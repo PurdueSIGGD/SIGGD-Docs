@@ -117,7 +117,7 @@ SIGGD Game 2026-2027 uses **Unity 6000.3.21f1**. We use this one because it's an
 3. If `6000.3.21f1` isn't in the list (it should be though), click the **Archive** tab and follow the link to the [Unity download archive](https://unity.com/releases/editor/archive) to find it. Clicking its **Unity Hub** button sends you back to the Hub with the right version selected.
 4. When asked which modules to add, tick the build support for your own operating system:
     - On Windows: **Windows Build Support (IL2CPP)**
-    - On Mac: **Mac Build Support (Mono)**
+    - On Mac: **Mac Build Support (IL2CPP)**
 5. Click **Install** and wait. This is the long download.
 
 ![Unity Hub module selection with build support ticked](../../assets/images/g0-unity-hub-install.png)
