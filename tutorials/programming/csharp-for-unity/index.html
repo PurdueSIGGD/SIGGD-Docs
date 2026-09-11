@@ -2531,6 +2531,8 @@
       
         
       
+        
+      
     
     
     
@@ -2743,6 +2745,34 @@
     
   
     Resource Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/templates/google-doc-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Doc Template
   
 
     
@@ -3261,20 +3291,20 @@
 </div>
 <hr />
 <h2 id="how-to-use-this-page">How to Use This Page<a class="headerlink" href="#how-to-use-this-page" title="Anchor link to this section">&para;</a></h2>
-<p>This isn't a from-scratch C# course. It's for people who can already program in <em>something</em> and want to read and write Unity code without getting ambushed by the differences. Skim the headings, read what's new to you, and come back when a snippet in another guide uses something you haven't seen.</p>
-<p>Where it helps, sections have tabs comparing C# to Java, Python, and C++. Click whichever one you know.</p>
+<p>This is NOT a from-scratch C# course. It's for people who can already program in <em>something</em> and want to read and write Unity code without getting ambushed by the differences. Thus, I recommend skimming the headings, reading what's new to you, and coming back when a snippet in another guide (or someone else's code) uses something you haven't seen.</p>
+<p>Where it helps, sections have tabs comparing C# to Java, Python, and C++ as well.</p>
 <div class="admonition info">
 <p class="admonition-title">Unity uses C# 9</p>
 <p>Microsoft's docs often show newer C# than Unity supports. If a snippet gives you a strange syntax error, check the <a href="../csharp-style-guide/#how-to-read-the-rules">C# 9 note in the style guide</a> first.</p>
 </div>
 <hr />
 <h2 id="value-types-and-reference-types">Value Types and Reference Types<a class="headerlink" href="#value-types-and-reference-types" title="Anchor link to this section">&para;</a></h2>
-<p>C# has two kinds of types, and the difference bites constantly in Unity:</p>
+<p>C# has two kinds of types:</p>
 <ul>
 <li><strong>Classes are reference types.</strong> A variable holds a <em>reference</em> to an object. Assign it to another variable and both point at the same object.</li>
 <li><strong>Structs are value types.</strong> A variable holds the <em>value itself</em>. Assign it and you get a copy.</li>
 </ul>
-<p>Unity's math types are structs: <code>Vector3</code>, <code>Quaternion</code>, <code>Color</code>. That leads to the most famous error message in Unity:</p>
+<p>Unity's math types are structs: <code>Vector3</code>, <code>Quaternion</code>, <code>Color</code>. Thus, you can't do this:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Error CS1612: Cannot modify the return value of 'Transform.position'</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">// because it is not a variable.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5f</span><span class="p">;</span>
@@ -3290,10 +3320,10 @@
 <p>Java has no user-defined value types. Everything except the primitives is a reference. In C#, a <code>struct</code> behaves like a primitive: copied on assignment, compared by value, and never <code>null</code> (unless you make it nullable, below).</p>
 </div>
 <div class="tabbed-block">
-<p>In Python, every variable is a reference, so <code>b = a</code> never copies anything. C# structs break that intuition; <code>Vector3 b = a;</code> makes an independent copy, and changing <code>b</code> leaves <code>a</code> alone.</p>
+<p>In Python, every variable is a reference, so <code>b = a</code> never copies anything. C# structs don't do this; <code>Vector3 b = a;</code> makes an independent copy, and changing <code>b</code> leaves <code>a</code> alone.</p>
 </div>
 <div class="tabbed-block">
-<p>Careful: in C++, <code>struct</code> and <code>class</code> only differ in default access. In C#, they're totally different: <code>struct</code> is a value type (copied, usually on the stack or inline), and <code>class</code> is a reference type (always on the heap, garbage collected). There's no choosing per-variable like <code>T</code> versus <code>T*</code>.</p>
+<p>Note that in C++, <code>struct</code> and <code>class</code> only differ in default access. In C#, they're totally different: <code>struct</code> is a value type (copied, usually on the stack or inline), and <code>class</code> is a reference type (always on the heap, garbage collected). There's no choosing per-variable like <code>T</code> versus <code>T*</code>.</p>
 </div>
 </div>
 </div>
@@ -3351,7 +3381,7 @@
 </tr>
 </tbody>
 </table>
-<p>We <a href="../csharp-style-guide/#access-and-properties">default to private</a> and open things up only when something outside actually needs them.</p>
+<p>Best practice is to <a href="../csharp-style-guide/#access-and-properties">default to private</a> and open things up only when something outside actually needs them.</p>
 <hr />
 <h2 id="namespaces-and-using">Namespaces and <code>using</code><a class="headerlink" href="#namespaces-and-using" title="Anchor link to this section">&para;</a></h2>
 <p>Namespaces group related types and stop names from colliding. <code>using</code> at the top of a file lets you skip the namespace prefix.</p>
@@ -3489,15 +3519,17 @@
 </span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
 </span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">abstract</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Fire</span><span class="p">();</span>
 </span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
-</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">PlayFireSound</span><span class="p">()</span>
-</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">        </span><span class="c1">// Shared code every weapon gets for free.</span>
-</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="p">}</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Reload</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">PlayFireSound</span><span class="p">()</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">        </span><span class="c1">// Shared code every weapon gets for free.</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="p">}</span>
 </span></code></pre></div>
 <ul>
-<li>An <strong>interface</strong> is a pure contract: method signatures, no fields. A class can implement as many as it wants.</li>
-<li>An <strong>abstract class</strong> can also share real code and fields, but a class can only inherit from one.</li>
+<li>An <strong>interface</strong> is a pure contract: method signatures, no fields (you can provide default implementations, however). A class can implement as many as it wants.</li>
+<li>An <strong>abstract class</strong> can also share real code and fields, but a class can only inherit from one. Virtual fields can also provide a default body.</li>
 </ul>
 <p>So interfaces are for "can do X" (damageable, interactable, flammable), and abstract classes are for "is a kind of X that shares the same interior." <a href="../oop-toolkit/#interfaces-as-contracts">The OOP Toolkit</a> covers when to use each.</p>
 <hr />
@@ -3518,7 +3550,7 @@
 </span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="c1">// true, even though the C# variable isn't technically null</span>
 </span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>The catch is that <code>?.</code> and <code>??</code> <em>can't</em> be overridden, so they skip Unity's check and see the shell as "not null." Unity's docs say it directly: <a href="https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Object.html">the null-conditional and null-coalescing operators "are not supported with Unity Objects"</a> because they can't treat destroyed objects the same as null.</p>
+<p>The catch is that <code>?.</code> and <code>??</code> <em>can't</em> be overridden, so they skip Unity's check and see the shell as "not null." Read <a href="https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Object.html">Unity's docs</a> for more.</p>
 <p>So for anything that's a Unity object (GameObjects, components, ScriptableObjects):</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// Works correctly with destroyed objects:</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">target</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
@@ -3602,7 +3634,7 @@
 </tr>
 </tbody>
 </table>
-<p>That "No" catches everyone at least once: a <code>Dictionary</code> field won't show up in the Inspector, and Unity <a href="https://docs.unity3d.com/6000.3/Documentation/Manual/script-serialization-rules.html">doesn't save it</a>. A common workaround is a serialized <code>List</code> of key/value pairs that you turn into a dictionary in <code>Awake</code>.</p>
+<p>Note that <code>Dictionary</code> field won't show up in the Inspector, and Unity <a href="https://docs.unity3d.com/6000.3/Documentation/Manual/script-serialization-rules.html">doesn't save it</a>. A common workaround is a serialized <code>List</code> of key/value pairs that you turn into a dictionary in <code>Awake</code>. Alternatively, if you use Odin Inspector (which the SIGGD games will be using), you can serialize special types of dictionaries.</p>
 <p><code>foreach</code> loops over any of them:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">Enemy</span><span class="w"> </span><span class="n">enemy</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">enemies</span><span class="p">)</span>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="p">{</span>
@@ -3616,7 +3648,7 @@
 </details>
 <hr />
 <h2 id="exceptions">Exceptions<a class="headerlink" href="#exceptions" title="Anchor link to this section">&para;</a></h2>
-<p>When code throws an exception in Unity, the error shows up in the Console, the rest of that method call is skipped, and the game keeps running. Next frame, <code>Update</code> runs again like nothing happened. That's forgiving, but it also means an exception that fires every frame can hide behind a wall of identical Console messages, so fix the first red error first.</p>
+<p>When code throws an exception in Unity, the error shows up in the Console, the rest of that method call is skipped, and the game keeps running. Next frame, <code>Update</code> runs again like nothing happened. That's forgiving, but it also means you have to be more intentional. Ensure that your code doesn't throw unnecessary errors.</p>
 <p>Only catch exceptions you can actually do something about. Wrapping code in a <code>try</code>/<code>catch</code> that swallows everything tends to hide bugs that could be fixed.</p>
 <hr />
 <h2 id="coroutines-and-async">Coroutines and Async<a class="headerlink" href="#coroutines-and-async" title="Anchor link to this section">&para;</a></h2>
@@ -3631,7 +3663,7 @@
 </span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1">// Start it:</span>
 </span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="n">StartCoroutine</span><span class="p">(</span><span class="n">RespawnAfterDelay</span><span class="p">(</span><span class="mf">2f</span><span class="p">));</span>
 </span></code></pre></div>
-<p>A coroutine belongs to the MonoBehaviour that started it. It stops if that GameObject is deactivated or the script is destroyed, but, surprisingly, <a href="https://docs.unity3d.com/6000.3/Documentation/Manual/Coroutines.html"><em>not</em></a> if you just disable the script with <code>enabled = false</code>.</p>
+<p>A coroutine belongs to the MonoBehaviour that started it. It stops if that GameObject is deactivated or the script is destroyed, but <a href="https://docs.unity3d.com/6000.3/Documentation/Manual/Coroutines.html"><em>not</em></a> if you just disable the script with <code>enabled = false</code>.</p>
 <p><strong><code>async</code>/<code>await</code></strong> is C#'s general version of the same idea. The game project uses a library called <strong>UniTask</strong>, which makes async code work nicely with Unity's frame loop. You'll see it in the real codebase, but coroutines are completely fine for most people. I personally prefer UniTask, but it can be complicated to learn!</p>
 <hr />
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Anchor link to this section">&para;</a></h2>
@@ -3670,7 +3702,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 11, 2026 01:09:36 UTC"><span class="timeago" datetime="2026-09-11T01:09:36+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 11, 2026 01:09:36 UTC">2026-09-11</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 11, 2026 22:30:42 UTC"><span class="timeago" datetime="2026-09-11T22:30:42+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 11, 2026 22:30:42 UTC">2026-09-11</span>
   </span>
 
     
@@ -3809,66 +3841,6 @@
     </div>
     
     
-      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
-        <div class="md-consent__overlay"></div>
-        <aside class="md-consent__inner">
-          <form class="md-consent__form md-grid md-typeset" name="consent">
-            
-
-
-  
-
-
-<h4>Cookie consent</h4>
-<p>We use cookies to recognise your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for.</p>
-<input class="md-toggle" type="checkbox" id="__settings" >
-<div class="md-consent__settings">
-  <ul class="task-list">
-    
-    
-      
-    
-    
-      
-        
-  
-  
-    
-    
-  
-  <li class="task-list-item">
-    <label class="task-list-control">
-      <input type="checkbox" name="github" checked>
-      <span class="task-list-indicator"></span>
-      GitHub
-    </label>
-  </li>
-
-      
-    
-    
-  </ul>
-</div>
-<div class="md-consent__controls">
-  
-    
-      <button class="md-button md-button--primary">Accept</button>
-    
-    
-    
-  
-    
-    
-    
-      <label class="md-button" for="__settings">Manage settings</label>
-    
-  
-</div>
-          </form>
-        </aside>
-      </div>
-      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
-    
     
       
       
@@ -3883,7 +3855,7 @@
       
         <script src="../../../assets/javascripts/extra.js"></script>
       
-        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../../assets/javascripts/toc-collapse.js"></script>
       
     
   </body>

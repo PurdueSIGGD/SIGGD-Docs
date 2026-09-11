@@ -823,17 +823,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#this-weeks-game-idea" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        This Week's Game Idea
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#going-further" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2476,6 +2465,8 @@
       
         
       
+        
+      
     
     
     
@@ -2688,6 +2679,34 @@
     
   
     Resource Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/templates/google-doc-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Doc Template
   
 
     
@@ -2955,17 +2974,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#this-weeks-game-idea" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        This Week's Game Idea
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#going-further" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3157,8 +3165,8 @@
 <h2 id="how-to-use-this-guide">How to Use This Guide<a class="headerlink" href="#how-to-use-this-guide" title="Anchor link to this section">&para;</a></h2>
 <p>You don't need Unity open for any of this. Every section is a short explanation followed by an exercise:</p>
 <ul>
-<li><strong>Predict:</strong> read some code or a scenario and write down what you think will happen <em>before</em> you open "Check your prediction". Actually commit to an answer, on paper or in a notes app or mentally. The wrong guesses are where most of the learning happens anyways (I hope).</li>
-<li><strong>Make:</strong> a small design exercise. There's no answer key for these on purpose. If you're stuck, open the hints one at a time, and when you're done, check your work against "What a good answer includes". A lot of these can also be made in Unity if you want to get some practice with the engine.</li>
+<li><strong>Predict:</strong> read some code or a scenario and write down what you think will happen <em>before</em> you open "Check your prediction". I'd recommend committing to an answer, on paper or in a notes app or mentally. The wrong guesses are where most of the learning happens anyways (I hope).</li>
+<li><strong>Make:</strong> a small design exercise. There's no answer key for these on purpose; if you're stuck, open the hints one at a time, and when you're done, check your work against "What a good answer includes". A lot of these can also be made in Unity if you want to get some practice with the engine.</li>
 <li><strong>Try it in Unity:</strong> if Unity is ready on your machine, these let you check your predictions for real and figure out what's actually going on. If it isn't, you won't miss anything; this guide also works as a mental learning exercise on how to interpret Unity.</li>
 </ul>
 <p>This guide is intended to be for completely fresh Unity users, so if you already know something here, feel free to skip around! I do think there is value from reading this as an experienced person as well, however!</p>
@@ -3173,7 +3181,7 @@
 <hr />
 <h2 id="scenes-are-made-of-gameobjects">Scenes Are Made of GameObjects<a class="headerlink" href="#scenes-are-made-of-gameobjects" title="Anchor link to this section">&para;</a></h2>
 <p>A <strong>scene</strong> is a level, a menu, or any other self-contained chunk of your game. Open one and you'll see the <strong>Hierarchy</strong>: a list of <strong>GameObjects</strong>.</p>
-<p>A GameObject, on its own, does nothing. It has a name, and it always has a <strong>Transform</strong> (its position, rotation, and scale), and that's it. It's a container.</p>
+<p>A GameObject, on its own, does nothing. It has a name, and it always has a <strong>Transform</strong> (its position, rotation, and scale), and that's it, a container.</p>
 <details class="info">
 <summary>New to this? A GameObject is a labeled box</summary>
 <p>Picture an empty cardboard box with a name written on it, sitting at a spot in the world. The box itself can't do anything. Everything interesting comes from what you put inside it, and in Unity, what you put inside are components.</p>
@@ -3212,7 +3220,7 @@
 </tbody>
 </table>
 <p>So a player might be one GameObject with a <code>SpriteRenderer</code>, a <code>Rigidbody2D</code>, a <code>CapsuleCollider2D</code>, a <code>PlayerMovement</code> script, and a <code>Health</code> script. An enemy might have a completely different movement script but the <em>same</em> <code>Health</code> script. That's the core idea of Unity: <strong>a thing is what it's made of.</strong> Instead of building a big class hierarchy (<code>Player</code> inherits from <code>Character</code> inherits from <code>Entity</code>), you assemble objects out of small pieces that each do one job.</p>
-<p>This idea has a name, the <a href="https://gameprogrammingpatterns.com/component.html">Component pattern</a>, and Unity's whole design is built around it.</p>
+<p>This idea has a name, the <a href="https://gameprogrammingpatterns.com/component.html">Component pattern</a>, and Unity's whole architecture is built around it.</p>
 <div class="admonition question">
 <p class="admonition-title">Predict: the crate</p>
 <p>A crate in your level has a <code>MeshRenderer</code> and a <code>BoxCollider</code>, but no <code>Rigidbody</code>. The player (who does have physics) walks into it.</p>
@@ -3269,7 +3277,7 @@
 <li><strong>World position:</strong> where it actually is in the scene (<code>transform.position</code>).</li>
 <li><strong>Local position:</strong> where it is <em>relative to its parent</em> (<code>transform.localPosition</code>).</li>
 </ul>
-<p>So game development is actually secretly just math class (mostly linear algebra). So let's do some problems:</p>
+<p>So game development is actually secretly just math class (mostly linear algebra). Don't you love math? Surprise pop quiz:</p>
 <div class="admonition question">
 <p class="admonition-title">Predict: parent and child</p>
 <p>An empty parent GameObject sits at world position <code>(10, 0, 0)</code> with a scale of <code>1</code>. Its child sits at local position <code>(2, 0, 0)</code>.</p>
@@ -3289,12 +3297,12 @@
 <hr />
 <h2 id="scripts-are-components-too">Scripts Are Components Too<a class="headerlink" href="#scripts-are-components-too" title="Anchor link to this section">&para;</a></h2>
 <p>When you write a class that inherits from <code>MonoBehaviour</code>, you've made a component. You add it to a GameObject exactly like a <code>Collider</code> or an <code>AudioSource</code>, and Unity creates the instance for you.</p>
-<p>Two consequences that trip people up:</p>
+<p>Two things to keep in mind:</p>
 <ul>
 <li><strong>The file name has to match the class name.</strong> <code>Turret.cs</code> must contain <code>class Turret</code>, or Unity won't let you add it to anything. (The <a href="../csharp-style-guide/#files-and-namespaces">C# Style Guide</a> has more.)</li>
 <li><strong>You never write <code>new Turret()</code>.</strong> Unity logs a warning if you try, and you end up with a broken object that isn't attached to anything. Components come from adding them in the editor, from <code>AddComponent</code>, or from spawning a prefab.</li>
 </ul>
-<p>The other big thing a MonoBehaviour gets you is the <strong>Inspector</strong>: some of its fields appear there, where you (and designers) can change them without touching code. But not every field does.</p>
+<p>The other big thing a MonoBehaviour gets you is the <strong>Inspector</strong>, where some of its fields appear, and where you (and designers) can change them without touching code. But not every field shows up.</p>
 <div class="admonition question">
 <p class="admonition-title">Predict: what shows up in the Inspector?</p>
 <p>You add this script to a GameObject. Which of these eight members show up in the Inspector?</p>
@@ -3312,7 +3320,7 @@
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="na">[field: SerializeField]</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Ammo</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span>
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>(Yes, <code>public float range</code> breaks two rules in the style guide. It's here because you'll see it in basically every Unity tutorial ever.)</p>
+<p>(Yes I know that <code>public float range</code> breaks two rules in the style guide I meticulously wrote. It's here because you'll see it in basically every Unity tutorial ever.)</p>
 </div>
 <details class="success">
 <summary>Check your prediction</summary>
@@ -3326,7 +3334,7 @@
 <li><code>MaxRange</code> is a constant and can never change, so there's nothing to save. Hidden.</li>
 <li><code>Damage</code> is readonly, so Unity can't write a saved value back into it. Hidden.</li>
 <li><code>Cooldown</code> is a property, and Unity doesn't save properties. Hidden.</li>
-<li><code>Ammo</code> is a property too, but <code>[field: SerializeField]</code> tells Unity to save the hidden field behind it, so it shows up.</li>
+<li><code>Ammo</code> is a property too, but <code>[field: SerializeField]</code> tells Unity to save the hidden field behind it, so it shows up. I also recommend using this one.</li>
 </ul>
 </details>
 <details class="tip">
@@ -3351,7 +3359,7 @@
 <li><code>10</code>, <code>10</code>, and <code>25</code>. Nothing changed. When the scene was saved, every turret's range was written into the scene file, and that saved value wins over the code's default.</li>
 <li><code>15</code>. The default only matters when a component is first created.</li>
 </ol>
-<p>"I changed the number in the script and nothing happened" is one of the most common Unity confusions there is, and now you know why. If you want to change existing objects, change them in the Inspector (or in the prefab, which you'll see below).</p>
+<p>If you want to change existing objects, change them in the Inspector (or in the prefab, which you'll see below).</p>
 </details>
 <div class="admonition question">
 <p class="admonition-title">Predict: Play Mode tweaking</p>
@@ -3466,7 +3474,7 @@
 <li><strong>A and B might print in the other order.</strong> Unity <a href="https://docs.unity3d.com/6000.3/Documentation/ScriptReference/MonoBehaviour.Awake.html">explicitly doesn't guarantee</a> which object's <code>Awake</code> runs first, so your code can't rely on it.</li>
 <li><strong>Every <code>Awake</code> happens before any <code>Start</code>.</strong> Unity doesn't call <code>Start</code> on anything until <code>Awake</code> has run on every object in the scene.</li>
 </ol>
-<p>Points 2 and 3 together give you what I think is the most useful rule in this whole guide: <strong>set yourself up in <code>Awake</code>, and talk to other objects in <code>Start</code>.</strong> In <code>Awake</code>, the object you want to talk to might not exist yet. By <code>Start</code>, everybody's <code>Awake</code> is guaranteed to be done.</p>
+<p>Points 2 and 3 together give you the easiest solution to all sorts of race condition problems: <strong>set yourself up in <code>Awake</code>, and talk to other objects in <code>Start</code>.</strong> In <code>Awake</code>, the object you want to talk to might not exist yet. By <code>Start</code>, everybody's <code>Awake</code> is guaranteed to be done.</p>
 </details>
 <details class="tip">
 <summary>Try it in Unity</summary>
@@ -3475,7 +3483,7 @@
 <div class="admonition example">
 <p class="admonition-title">Make: the enemy registry</p>
 <p>A <code>GameManager</code> needs to know about every enemy in the level, so it keeps a list. Each <code>Enemy</code> adds itself to that list when it appears, and removes itself when it's gone.</p>
-<p>Decide which lifecycle method each of these belongs in, and write a sentence justifying each choice:</p>
+<p>Decide which lifecycle method each of these belongs in, and make sure you know why:</p>
 <ol>
 <li>The <code>GameManager</code> creating its empty list.</li>
 <li>An <code>Enemy</code> adding itself to the list.</li>
@@ -3488,7 +3496,7 @@
 </details>
 <details class="tip">
 <summary>Hint 2</summary>
-<p>Remember the two guarantees from the prediction above: the order of different objects' <code>Awake</code> calls is random, but every <code>Awake</code> finishes before any <code>Start</code>. Also think about enemies that get disabled and re-enabled (a pooled enemy, say), not just ones that are created and destroyed. The <a href="https://docs.unity3d.com/6000.3/Documentation/Manual/execution-order.html">execution order page</a> has the full picture.</p>
+<p>Remember the two guarantees from the prediction above: the order of different objects' <code>Awake</code> calls is random, but every <code>Awake</code> finishes before any <code>Start</code>. Also think about enemies that get disabled and re-enabled (a pooled enemy, say), not just ones that are created and destroyed. The <a href="https://docs.unity3d.com/6000.3/Documentation/Manual/execution-order.html">execution order page</a> has the full explanation if you're curious.</p>
 </details>
 <details class="tip">
 <summary>Hint 3</summary>
@@ -3517,7 +3525,7 @@
 <summary>Check your prediction</summary>
 <p>Nineteen goblins now have <code>40</code>, and the mini-boss still has <code>100</code>.</p>
 <p>An instance only stores what's <em>different</em> about it (its overrides). Everything else comes from the prefab, so the 19 untouched goblins pick up the change immediately. The mini-boss's max health was overridden, and Unity's rule is that <a href="https://docs.unity3d.com/6000.3/Documentation/Manual/PrefabInstanceOverrides.html">an override always wins</a> over the prefab's value.</p>
-<p>That's great when it's what you meant, and a super annoying bug when it isn't: if you accidentally modify a value on some instance, prefab changes will ignore it.</p>
+<p>That's great when it's what you want, and a super annoying bug when it isn't: if you accidentally modify a value on some instance, prefab changes will ignore it.</p>
 </details>
 <div class="admonition example">
 <p class="admonition-title">Make: prefabs, variants, or overrides?</p>
@@ -3551,14 +3559,8 @@
 </details>
 <hr />
 <h2 id="two-things-youll-meet-next">Two Things You'll Meet Next<a class="headerlink" href="#two-things-youll-meet-next" title="Anchor link to this section">&para;</a></h2>
-<p><strong>ScriptableObjects.</strong> Not everything lives in a scene. A ScriptableObject is an <em>asset</em>, like a texture or a sound, that holds data instead of pixels. A spell's damage and cooldown, an enemy type's stats, a level's settings: all good ScriptableObject material, shared by everything that references them. <a href="../data-driven-design/">Data-Driven Design</a> is all about these.</p>
+<p><strong>ScriptableObjects.</strong> Not everything lives in a scene. A ScriptableObject is an <em>asset</em>, like a texture or a sound, that holds data instead of pixels. A spell's damage and cooldown, an enemy type's stats, a level's settings: all good ScriptableObject material, shared by everything that references them. <a href="../data-driven-design/">Data-Driven Design</a> explains this in much more detail.</p>
 <p><strong>How objects find each other.</strong> A turret needs to know where the player is, and a health bar needs to know when health changes. The three most common ways are a serialized reference (drag the object into a field in the Inspector), <code>GetComponent</code> (grab another component on the same GameObject), and events (announce that something happened and let whoever cares listen). Choosing between them is a big part of <a href="../oop-toolkit/">The OOP Toolkit</a>.</p>
-<hr />
-<h2 id="this-weeks-game-idea">This Week's Game Idea<a class="headerlink" href="#this-weeks-game-idea" title="Anchor link to this section">&para;</a></h2>
-<div class="admonition example">
-<p class="admonition-title">This week's game idea</p>
-<p>Pick one mechanic from this week's game idea and break it into GameObjects and components, the same way you took apart a game you know. Then look for components the <em>whole game</em> could reuse across different objects.</p>
-</div>
 <hr />
 <h2 id="going-further">Going Further<a class="headerlink" href="#going-further" title="Anchor link to this section">&para;</a></h2>
 <p>If you finished early, or this was all familiar:</p>
@@ -3604,7 +3606,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 11, 2026 01:09:36 UTC"><span class="timeago" datetime="2026-09-11T01:09:36+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 11, 2026 01:09:36 UTC">2026-09-11</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 11, 2026 22:30:42 UTC"><span class="timeago" datetime="2026-09-11T22:30:42+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 11, 2026 22:30:42 UTC">2026-09-11</span>
   </span>
 
     
@@ -3743,66 +3745,6 @@
     </div>
     
     
-      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
-        <div class="md-consent__overlay"></div>
-        <aside class="md-consent__inner">
-          <form class="md-consent__form md-grid md-typeset" name="consent">
-            
-
-
-  
-
-
-<h4>Cookie consent</h4>
-<p>We use cookies to recognise your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for.</p>
-<input class="md-toggle" type="checkbox" id="__settings" >
-<div class="md-consent__settings">
-  <ul class="task-list">
-    
-    
-      
-    
-    
-      
-        
-  
-  
-    
-    
-  
-  <li class="task-list-item">
-    <label class="task-list-control">
-      <input type="checkbox" name="github" checked>
-      <span class="task-list-indicator"></span>
-      GitHub
-    </label>
-  </li>
-
-      
-    
-    
-  </ul>
-</div>
-<div class="md-consent__controls">
-  
-    
-      <button class="md-button md-button--primary">Accept</button>
-    
-    
-    
-  
-    
-    
-    
-      <label class="md-button" for="__settings">Manage settings</label>
-    
-  
-</div>
-          </form>
-        </aside>
-      </div>
-      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
-    
     
       
       
@@ -3817,7 +3759,7 @@
       
         <script src="../../../assets/javascripts/extra.js"></script>
       
-        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../../assets/javascripts/toc-collapse.js"></script>
       
     
   </body>

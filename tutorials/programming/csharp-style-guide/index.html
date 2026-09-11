@@ -1088,17 +1088,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#whats-deliberately-not-here" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What's Deliberately Not Here
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#further-reading" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2520,6 +2509,8 @@
       
         
       
+        
+      
     
     
     
@@ -2732,6 +2723,34 @@
     
   
     Resource Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/templates/google-doc-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Doc Template
   
 
     
@@ -3072,17 +3091,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#whats-deliberately-not-here" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What's Deliberately Not Here
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#further-reading" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3248,7 +3256,7 @@
 <hr />
 <h2 id="why-have-a-style-guide">Why Have a Style Guide?<a class="headerlink" href="#why-have-a-style-guide" title="Anchor link to this section">&para;</a></h2>
 <p>Code gets read way more often than it gets written. When a lot of people share one codebase, every file that looks a little different gets very annoying over the course of the year. Thus, this year we have a rudimentary style guide.</p>
-<p>This isn't a grading rubric, either. Most of it is standard C# convention (the same rules Microsoft and Unity publish), plus a few Unity-specific habits that save you from real bugs. Code is super subjective, so I have some general preferences and considerations here, but a lot of it is up to you.</p>
+<p>This is <strong>not</strong> a rubric either; most of it is standard C# convention (the same rules Microsoft and Unity follow, for example), plus a few Unity-specific habits that save you from real bugs. Code is super subjective, so I have some general preferences and considerations listed here, but a lot of it is up to you. The most important part is just having good judgment on when to use what.</p>
 <p>If you do completely disagree with a rule here, please let me know, as I could be totally wrong or in the minority. This is an ever updating guide, so any and all feedback is appreciated!</p>
 <div class="admonition tip">
 <p class="admonition-title">Not covered here? Match the file you're in.</p>
@@ -3294,7 +3302,7 @@
 <li>Raw string literals: <code>"""like this"""</code></li>
 <li><code>init</code> setters and <code>required</code> members</li>
 </ul>
-<p>Records technically work, but don't use them for anything Unity serializes. When a snippet from the internet gives you a strange syntax error, this is the first thing to check. <a href="https://docs.unity3d.com/6000.3/Documentation/Manual/csharp-compiler.html">Unity's C# compiler page</a> has the full list.</p>
+<p>Records technically work, but don't use them for anything Unity serializes. For anything else, <a href="https://docs.unity3d.com/6000.3/Documentation/Manual/csharp-compiler.html">Unity's C# compiler page</a> has the full list.</p>
 </div>
 <h3 id="the-editorconfig">The <code>.editorconfig</code><a class="headerlink" href="#the-editorconfig" title="Anchor link to this section">&para;</a></h3>
 <p>The game repository has an <code>.editorconfig</code> file at its root. Most code editors pick it up automatically, and it:</p>
@@ -3303,7 +3311,8 @@
 <li>flags naming mistakes on types, public members, parameters, and locals as warnings,</li>
 <li>nudges you toward the <code>var</code> rule below with subtle suggestions.</li>
 </ul>
-<p>Unity itself ignores the file, so it can never break a build. If your editor doesn't support it, you just miss out on the hints. It also can't check everything: private field naming, comments, and most of Part 2 are up to you and your reviewer.</p>
+<p>Unity itself ignores the file, so it can never break a build. If your editor doesn't support it, you just miss out on the hints. It also can't check everything: private field naming, comments, and most of Part 2 are up to you and whoever has the wonderful job of reviewing your code.</p>
+<p>PLEASE MAKE EVERYONES LIVES EASIER BY FOLLOWING THIS THE FIRST TIME BECAUSE WE WILL CALL YOU OUT DURING CODE REVIEW ok thanks</p>
 <hr />
 <h2 id="part-1-style">Part 1: Style<a class="headerlink" href="#part-1-style" title="Anchor link to this section">&para;</a></h2>
 <h3 id="naming">Naming<a class="headerlink" href="#naming" title="Anchor link to this section">&para;</a></h3>
@@ -3365,7 +3374,7 @@
 </tbody>
 </table>
 <p><strong>DO</strong> use PascalCase for types, methods, properties, events, and anything public.</p>
-<p><strong>Why:</strong> It's the .NET convention, and Unity's types and methods follow it too (<code>Transform</code>, <code>GetComponent</code>). Unity's <em>properties</em> are the famous exception (<code>transform.position</code>, <code>Time.deltaTime</code>), and that's just something you live with when calling Unity API. Don't copy it in your own code.</p>
+<p><strong>Why:</strong> It's the .NET convention, and Unity's types and methods follow it too (<code>Transform</code>, <code>GetComponent</code>). Unity's <em>properties</em> are the one exception (<code>transform.position</code>, <code>Time.deltaTime</code>), and that's just something we all must learn to live with when using Unity API. Don't copy it in your own code.</p>
 <p><strong>DO</strong> use camelCase for local variables and parameters.</p>
 <p><strong>Why:</strong> It's the other half of the same convention. PascalCase says "this belongs to a type", and camelCase says "this only exists inside this method/class."</p>
 <p><strong>DO</strong> start interface names with <code>I</code>.</p>
@@ -3468,7 +3477,7 @@
 </span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="p">}</span>
 </span></code></pre></div>
 <p><strong>Why:</strong> It's the C# default. Microsoft's conventions, Unity's script templates, and the formatter in basically every C# editor all do it this way. The <code>.editorconfig</code> makes formatting produce this for you.</p>
-<p><strong>DO</strong> indent with four spaces, not tabs.</p>
+<p><strong>DO</strong> indent with four spaces, not tabs. Most IDEs will automatically convert the Tab key to four spaces, so you won't have to worry about this (but please check!).</p>
 <p><strong>Why:</strong> Tabs show up at different widths in different editors and on GitHub, so four spaces is the C# standard, and the <code>.editorconfig</code> sets it automatically.</p>
 <p><strong>DO</strong> use <code>var</code> only when the type is obvious from the right-hand side.</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// Obvious: it's a new List&lt;Enemy&gt;.</span>
@@ -3544,7 +3553,7 @@
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="na">[Tooltip("Seconds of invulnerability after taking a hit.")]</span>
 </span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">invulnerabilityDuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5f</span><span class="p">;</span>
 </span></code></pre></div>
-<p><strong>Why:</strong> A tooltip shows up for designers hovering over the field in the Inspector <em>and</em> for programmers reading the code, so it does the doc comment's job twice. (Unity's own style guide recommends exactly this.) Units are the big one: is <code>duration</code> in seconds or frames? Definitely note things like this down.</p>
+<p><strong>Why:</strong> A tooltip shows up for designers hovering over the field in the Inspector <em>and</em> for programmers reading the code, so it does the doc comment's job twice. Units are pretty important too; is <code>duration</code> in seconds or frames? Definitely note things like this down.</p>
 <p><strong>CONSIDER</strong> pulling a confusing block into a well-named method before you reach for a comment. When you do write an inline comment, <strong>DO NOT</strong> restate what the code does. Explain <em>why</em> it does it.</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1">// Bad: says exactly what the code already says.</span>
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="c1">// Wait for the next fixed update.</span>
@@ -3555,7 +3564,7 @@
 </span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1">// so raycasting before this would miss it.</span>
 </span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">WaitForFixedUpdate</span><span class="p">();</span>
 </span></code></pre></div>
-<p><strong>Why:</strong> Code already tells you <em>what</em> happens. Comments are for everything it can't say: why this approach, what constraint forced it, which weird bug it dodges. A comment that restates the code is one more thing to keep in sync for zero new information.</p>
+<p><strong>Why:</strong> Code already tells you <em>what</em> happens. Comments are for everything it can't convey: why this approach, what constraint forced it, which weird bug it dodges. A comment that restates the code is one more thing to keep in sync for zero new information.</p>
 <p><strong>CONSIDER</strong> Microsoft's comment formatting: comments on their own line (not at the end of a line of code), starting with a capital letter, ending with a period, with a space after <code>//</code>.</p>
 <p><strong>Why:</strong> It's the most common C# convention, and end-of-line comments get cut off in narrow editors and diffs.</p>
 <hr />
@@ -3571,7 +3580,7 @@
 or
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="na">[field: SerializeField]</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maxHealth</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 </span></code></pre></div></p>
-<p><strong>Why:</strong> A public field can be overwritten by any script, at any time, with no way to validate the new value or even notice it happened. <code>[SerializeField] private</code> gets you the Inspector without handing the entire codebase write access. The usual exception is a small plain-data struct that's just a bundle of values.</p>
+<p><strong>Why:</strong> A public field can be overwritten by any script, at any time, with no way to validate the new value or even notice it happened. <code>[SerializeField] private</code> lets you use the Inspector without handing the entire codebase write access.</p>
 <p><strong>DO</strong> use auto-properties for state a class exposes, instead of a private field plus a property that just returns it.</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">// Instead of this:</span>
 </span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">_score</span><span class="p">;</span>
@@ -3587,7 +3596,7 @@ or
 </span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="k">public</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">MaxSpeed</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">8f</span><span class="p">;</span>
 </span></code></pre></div>
 <div class="admonition warning">
-<p class="admonition-title">Renaming it quietly wipes saved values</p>
+<p class="admonition-title">Renaming it will wipe saved values</p>
 <p>Unity doesn't save the property. It saves the hidden field the compiler generates behind it, named <code>&lt;MaxSpeed&gt;k__BackingField</code>. Rename the property and every value set in the Inspector silently resets to the default, unless you add <code>[field: FormerlySerializedAs("&lt;MaxSpeed&gt;k__BackingField")]</code> with the <em>old</em> name. With a plain <code>[SerializeField]</code> field, the same fix is just <code>[FormerlySerializedAs("oldName")]</code>, which is a lot easier to remember.</p>
 </div>
 <p><strong>Why:</strong> One declaration instead of a field plus a property is just simpler.</p>
@@ -3621,13 +3630,14 @@ or
 </span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>
 </span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="n">SceneManager</span><span class="p">.</span><span class="n">LoadScene</span><span class="p">(</span><span class="n">SceneNames</span><span class="p">.</span><span class="n">LevelTwo</span><span class="p">);</span>
 </span></code></pre></div>
-<p>A few more habits in the same spirit:</p>
+<p><strong>Why:</strong> The compiler checks the names of your classes and variables, but it has no idea what's inside a string. If there's ever a typo, keeping the strings in one place means one fix instead of a project-wide search.</p>
+<p>A few more habits in the same vein:</p>
 <ul>
 <li>Keep tag names in one static class too, and check them with <code>CompareTag(Tags.Enemy)</code>.</li>
 <li>Turn animator parameter names into IDs once, in a <code>static readonly int</code> holding <code>Animator.StringToHash("Speed")</code>, instead of passing the string every frame. This one is also important as hashing a string can get expensive.</li>
 <li>When you can drag a reference into a serialized field instead of looking something up by name, do that.</li>
+<li>Cache component references from <code>GetComponent&lt;T&gt;()</code> when you can, as this method can get expensive. Definitely don't use this in an update loop!</li>
 </ul>
-<p><strong>Why:</strong> The compiler checks the names of your classes and variables, but it has no idea what's inside a string. If there's ever a typo, keeping the strings in one place means one fix instead of a project-wide search.</p>
 <hr />
 <h3 id="events">Events<a class="headerlink" href="#events" title="Anchor link to this section">&para;</a></h3>
 <p><strong>DO</strong> pick one way to raise events and stick to it within a class: either invoke with <code>?.</code>, or give the event an empty default so it's never null.</p>
@@ -3664,7 +3674,7 @@ or
 </span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="na">[FormerlySerializedAs("speed")]</span>
 </span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">moveSpeed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5f</span><span class="p">;</span>
 </span></code></pre></div>
-<p><strong>Why:</strong> Unity saves Inspector values by field name. Rename <code>speed</code> to <code>moveSpeed</code> and every scene and prefab that set a value quietly falls back to the default, with no error or warning. The attribute tells Unity to also look for the old name when loading.</p>
+<p><strong>Why:</strong> Unity saves Inspector values by field name. Rename <code>speed</code> to <code>moveSpeed</code> and every scene and prefab that set a value will fall back to the default, with no error or warning. The attribute tells Unity to also look for the old name when loading.</p>
 <p><strong>CONSIDER</strong> <code>[DisallowMultipleComponent]</code> on components that would break if a GameObject had two of them.</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="na">[DisallowMultipleComponent]</span>
 </span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PlayerMovement</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
@@ -3675,7 +3685,7 @@ or
 </span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="na">[DefaultExecutionOrder(-100)]</span>
 </span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">InputReader</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
 </span></code></pre></div>
-<p><strong>Why:</strong> It's a global lever. It reorders your script relative to <em>every</em> other script in the project, and nobody reading those other scripts will know it's there. Most ordering problems have a simpler fix: set yourself up in <code>Awake</code> and talk to other objects in <code>Start</code> (see <a href="../how-unity-thinks/#the-lifecycle">How Unity Thinks</a>), or have one script call the others explicitly.</p>
+<p><strong>Why:</strong> This attribute seems fine, but it is still a global toggle. It reorders your script relative to <em>every</em> other script in the project, and nobody reading those other scripts will know it's there. Most ordering problems have a simpler fix: set yourself up in <code>Awake</code> and talk to other objects in <code>Start</code> (see <a href="../how-unity-thinks/#the-lifecycle">How Unity Thinks</a>), or have one script call the others explicitly.</p>
 <p><strong>DO</strong> wrap anything that uses the <code>UnityEditor</code> namespace in <code>#if UNITY_EDITOR</code> (or keep it in a folder named <code>Editor</code>). <strong>CONSIDER</strong> wrapping gizmo and debug-only code too.</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="cp">#if UNITY_EDITOR</span>
 </span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEditor</span><span class="p">;</span>
@@ -3706,9 +3716,6 @@ or
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Anything touching <code>UnityEditor</code> is inside <code>#if UNITY_EDITOR</code> or an <code>Editor</code> folder.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> You ran your editor's formatter, so braces and indentation match the <code>.editorconfig</code>.</li>
 </ul>
-<hr />
-<h2 id="whats-deliberately-not-here">What's Deliberately Not Here<a class="headerlink" href="#whats-deliberately-not-here" title="Anchor link to this section">&para;</a></h2>
-<p>This guide is about how code <em>looks</em> and the everyday habits around it. It doesn't cover how to structure systems, when to use ScriptableObjects, or how scripts should interface with each other. That's a system design issue rather than a style rule, so take a look at the <a href="../">onboarding workshops</a>.</p>
 <hr />
 <h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Anchor link to this section">&para;</a></h2>
 <ul>
@@ -3742,7 +3749,7 @@ or
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 11, 2026 01:09:36 UTC"><span class="timeago" datetime="2026-09-11T01:09:36+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 11, 2026 01:09:36 UTC">2026-09-11</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 11, 2026 22:30:42 UTC"><span class="timeago" datetime="2026-09-11T22:30:42+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 11, 2026 22:30:42 UTC">2026-09-11</span>
   </span>
 
     
@@ -3881,66 +3888,6 @@ or
     </div>
     
     
-      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
-        <div class="md-consent__overlay"></div>
-        <aside class="md-consent__inner">
-          <form class="md-consent__form md-grid md-typeset" name="consent">
-            
-
-
-  
-
-
-<h4>Cookie consent</h4>
-<p>We use cookies to recognise your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for.</p>
-<input class="md-toggle" type="checkbox" id="__settings" >
-<div class="md-consent__settings">
-  <ul class="task-list">
-    
-    
-      
-    
-    
-      
-        
-  
-  
-    
-    
-  
-  <li class="task-list-item">
-    <label class="task-list-control">
-      <input type="checkbox" name="github" checked>
-      <span class="task-list-indicator"></span>
-      GitHub
-    </label>
-  </li>
-
-      
-    
-    
-  </ul>
-</div>
-<div class="md-consent__controls">
-  
-    
-      <button class="md-button md-button--primary">Accept</button>
-    
-    
-    
-  
-    
-    
-    
-      <label class="md-button" for="__settings">Manage settings</label>
-    
-  
-</div>
-          </form>
-        </aside>
-      </div>
-      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
-    
     
       
       
@@ -3955,7 +3902,7 @@ or
       
         <script src="../../../assets/javascripts/extra.js"></script>
       
-        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../../assets/javascripts/toc-collapse.js"></script>
       
     
   </body>

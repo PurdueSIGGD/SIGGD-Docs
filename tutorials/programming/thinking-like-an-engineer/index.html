@@ -2454,6 +2454,8 @@
       
         
       
+        
+      
     
     
     
@@ -2666,6 +2668,34 @@
     
   
     Resource Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/templates/google-doc-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Doc Template
   
 
     
@@ -3106,10 +3136,10 @@
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Anchor link to this section">&para;</a></h2>
 <p>When you're programming for a class, the finish line is usually "it works." You hand it in, it gets graded, and you never open that file again.</p>
 <p>A game (and software projects in general) is the opposite. For example, the SIGGD games last for a whole year, a lot of different people touch it, and the code you write in October gets changed in February by some random person. On a project like that, "it works" is just the first step. The code also has to be something other people can understand and change without breaking many other things.</p>
-<p>That's most of what I mean by "thinking like an engineer," and it's what this guide is about. None of it is Unity-specific. These are ideas that working programmers argue about, write books about, and still get wrong sometimes, so don't worry if some of it takes a while to click, this gets way more obvious as you start doing things.</p>
+<p>That's basically what this guide is about. None of it is Unity-specific, since these are ideas that are still very relevant today (yes, even with AI), so don't worry if some of it takes a while to click, this gets way more obvious as you start doing things.</p>
 <hr />
 <h2 id="complexity-is-the-enemy">Complexity Is the Enemy<a class="headerlink" href="#complexity-is-the-enemy" title="Anchor link to this section">&para;</a></h2>
-<p>John Ousterhout, who teaches software design at Stanford, wrote a whole book arguing that the biggest problem in software is <strong>complexity</strong>: anything about the code that makes it hard to understand or change. He splits it into three symptoms you can actually notice:</p>
+<p>John Ousterhout, who teaches software design at Stanford, wrote a whole book arguing that the biggest problem in software is <strong>complexity</strong>: anything about the code that makes it hard to understand or change. He splits it into three symptoms:</p>
 <table>
 <thead>
 <tr>
@@ -3132,11 +3162,11 @@
 </tr>
 </tbody>
 </table>
-<p>The last one is the most complicated to both discover and address. At least with the first two, you can see the work in front of you. With unknown unknowns, you make the change, it looks fine, and something breaks somewhere you'd never have thought to look.</p>
+<p>The last one is the most complicated to both discover and address. At least with the first two, you can see the work in front of you. With unknown unknowns, you make the change, it looks fine, and something breaks somewhere you'd never know to look.</p>
 <p>He also names the two main causes pf this, <strong>dependencies</strong> (pieces of code that can't be understood or changed on their own) and <strong>obscurity</strong> (important information that isn't obvious from the code).</p>
 <div class="admonition question">
 <p class="admonition-title">Predict: three small requests</p>
-<p>Here's a condensed version of a script that shows up in a lot of first game projects:</p>
+<p>Here's a condensed version of a script that shows up in a lot of first game tutorials you might see online:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Player</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">health</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
@@ -3230,7 +3260,7 @@
 </span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Make a list of everything you'd have to go find out before you could safely change this, or that could bite you later.</p>
+<p>Make a list of everything you'd have to go find out before you could safely change this, or that could trip you up later.</p>
 </div>
 <details class="success">
 <summary>Check your prediction</summary>
@@ -3259,7 +3289,8 @@
 <p>A pretty simple test for both is just <em>if two things change for the same reason, they belong together. If they change for different reasons, split them.</em> The health number and the heart icons change for different reasons (game balance versus UI design), so they don't belong in the same class. This idea is the "S" in the SOLID principles (single responsibility), which Unity's <a href="https://unity.com/resources/design-patterns-solid-ebook">design patterns and SOLID e-book</a> walks through with game examples (I won't!).</p>
 <hr />
 <h2 id="deep-modules">Deep Modules<a class="headerlink" href="#deep-modules" title="Anchor link to this section">&para;</a></h2>
-<p>Here's one more of Ousterhout's ideas, because it changes how you judge a class. The best classes are <strong>deep</strong>: a simple interface on the outside, hiding a lot of complexity on the inside.</p>
+<p>So I'm talking about Ousterhout a lot here, but I swear its really useful!
+Here's one more. The best classes are <strong>deep</strong>: a simple interface on the outside, hiding a lot of complexity on the inside.</p>
 <p>A save system you use by calling <code>SaveSystem.Save()</code>, which quietly handles serialization, file paths, versioning, and backups, is deep. You get a lot of power for one line. A save system where you have to call <code>OpenFile()</code>, <code>WriteHeader()</code>, <code>WriteSection()</code> six times, <code>WriteChecksum()</code>, and <code>CloseFile()</code> in exactly the right order is shallow; its "interface" is just as complicated as its implementation, which means every caller has to know how to use it.</p>
 <p>Thus, "more classes" and "smaller classes" aren't automatically better. What you want is for each piece to take complexity <em>off</em> the hands of whoever uses it.</p>
 <hr />
@@ -3267,7 +3298,7 @@
 <p>Your first idea for how to build something is just the first one you had, not necessarily the best one. Before committing to a design, sketch a completely different alternative and compare them. Even when the first design wins, you'll understand <em>why</em> it won, which is exactly what will help if things need to change. <a href="../designing-a-system/#step-7-design-it-twice">Designing a System</a> goes through a full worked example.</p>
 <hr />
 <h2 id="strategic-vs-tactical-programming">Strategic vs. Tactical Programming<a class="headerlink" href="#strategic-vs-tactical-programming" title="Anchor link to this section">&para;</a></h2>
-<p>Ousterhout draws a line between two ways of working:</p>
+<p>Ousterhout (am I glazing him too much?) draws a line between two ways of working:</p>
 <ul>
 <li><strong>Tactical programming</strong> is getting the current task working as fast as possible. Each shortcut seems harmless on its own.</li>
 <li><strong>Strategic programming</strong> is treating "is this still easy to change?" as part of the job, and spending a little extra time on design with every change.</li>
@@ -3276,7 +3307,7 @@
 <hr />
 <h2 id="knowing-when-to-stop">Knowing When to Stop<a class="headerlink" href="#knowing-when-to-stop" title="Anchor link to this section">&para;</a></h2>
 <p>All of this can be overdone. It's easy to spend a week building a beautifully flexible system for a feature that never sees the light of day, or a framework that handles fifty cases when the game only ever has two. I am incredibly guilty of this unfortunately (re: <em>Project Deimos</em>'s cutscene engine), but it's good to know when to stop.</p>
-<p>One term that gets tossed around is <a href="https://martinfowler.com/bliki/Yagni.html">YAGNI</a>, You Aren't Gonna Need it. Building something for a future you think might need it costs you both the time it takes to design and build the system, the other work you could've been doing, and the extra complexity everyone deals with after, and if the guess was wrong, you pay to remove the system too.However, YAGNI is not a justification for neglecting the health of your code base. The balance looks like this:</p>
+<p>One term that gets tossed around is <a href="https://martinfowler.com/bliki/Yagni.html">YAGNI</a>, You Aren't Gonna Need it. Building something for a future you think might need it costs you the time it takes to design and build the system, the other work you could've been doing, and the extra complexity everyone deals with after, and if the guess was wrong, you pay to remove the system too. However, YAGNI is not a justification for neglecting the health of your code base. Thus, there's a balance to be found:</p>
 <ul>
 <li><strong>Don't build features and flexibility you don't need yet.</strong></li>
 <li><strong>Do keep what you build clean enough to change</strong>, so that when you <em>do</em> need it, adding it is easy.</li>
@@ -3294,7 +3325,7 @@
 </details>
 <details class="tip">
 <summary>Hint 2</summary>
-<p>Look for the decisions that are likely to change (Parnas), and for things that change for different reasons (cohesion). Input, health, how health is displayed, sound, and what happens on death are all candidates. The <a href="https://gameprogrammingpatterns.com/component.html">Component pattern</a> chapter shows a very similar split.</p>
+<p>Look for the decisions that are likely to change, and for things that change for different reasons (cohesion). Input, health, how health is displayed, sound, and what happens on death are all candidates. The <a href="https://gameprogrammingpatterns.com/component.html">Component pattern</a> chapter shows a very similar split.</p>
 </details>
 <details class="tip">
 <summary>Hint 3</summary>
@@ -3311,6 +3342,7 @@
 </ul>
 </details>
 <hr />
+<p>Ousterhout count: three (I lowkey expected more)</p>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Anchor link to this section">&para;</a></h2>
 <ul>
 <li><a href="../designing-a-system/">Designing a System</a>: these ideas turned into a step-by-step process.</li>
@@ -3348,7 +3380,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 11, 2026 01:09:36 UTC"><span class="timeago" datetime="2026-09-11T01:09:36+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 11, 2026 01:09:36 UTC">2026-09-11</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 11, 2026 22:30:42 UTC"><span class="timeago" datetime="2026-09-11T22:30:42+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 11, 2026 22:30:42 UTC">2026-09-11</span>
   </span>
 
     
@@ -3487,66 +3519,6 @@
     </div>
     
     
-      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
-        <div class="md-consent__overlay"></div>
-        <aside class="md-consent__inner">
-          <form class="md-consent__form md-grid md-typeset" name="consent">
-            
-
-
-  
-
-
-<h4>Cookie consent</h4>
-<p>We use cookies to recognise your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for.</p>
-<input class="md-toggle" type="checkbox" id="__settings" >
-<div class="md-consent__settings">
-  <ul class="task-list">
-    
-    
-      
-    
-    
-      
-        
-  
-  
-    
-    
-  
-  <li class="task-list-item">
-    <label class="task-list-control">
-      <input type="checkbox" name="github" checked>
-      <span class="task-list-indicator"></span>
-      GitHub
-    </label>
-  </li>
-
-      
-    
-    
-  </ul>
-</div>
-<div class="md-consent__controls">
-  
-    
-      <button class="md-button md-button--primary">Accept</button>
-    
-    
-    
-  
-    
-    
-    
-      <label class="md-button" for="__settings">Manage settings</label>
-    
-  
-</div>
-          </form>
-        </aside>
-      </div>
-      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
-    
     
       
       
@@ -3561,7 +3533,7 @@
       
         <script src="../../../assets/javascripts/extra.js"></script>
       
-        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../../assets/javascripts/toc-collapse.js"></script>
       
     
   </body>

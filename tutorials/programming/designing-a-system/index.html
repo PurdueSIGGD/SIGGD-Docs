@@ -2487,6 +2487,8 @@
       
         
       
+        
+      
     
     
     
@@ -2699,6 +2701,34 @@
     
   
     Resource Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/templates/google-doc-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Doc Template
   
 
     
@@ -3179,22 +3209,22 @@
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Anchor link to this section">&para;</a></h2>
 <p>Before starting, make sure you have:</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A few index cards (or sheets of paper you can tear up), and a pen, or a whiteboard, or anything else you can share and draw on</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A group of three or four people, if you're doing this in a meeting</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A few index cards and a pen, or a whiteboard, or anything else you can share and draw on</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A group of three or four people, if you're doing this during meeting</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Read <a href="../how-unity-thinks/">How Unity Thinks</a>, or you're comfortable with GameObjects and components</li>
 </ul>
 <hr />
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Anchor link to this section">&para;</a></h2>
-<p>Here's a thing that happens constantly on game teams, and software projects in general. Someone gets assigned "the checkpoint system," opens their editor, and starts typing. Two days later it works, sort of, but the player script now knows about the fade effect, the checkpoint knows about the enemies, and adding "reset the collectibles on respawn" means editing four files. Nobody made a bad decision on purpose. They just made all of their decisions while typing, one line at a time, without ever seeing the whole thing at once.</p>
+<p>Here's a thing that happens constantly on game teams, and software projects in general. Someone gets assigned "the checkpoint system," opens their editor, and starts cooking something. Two days later it works, sort of, but the player script now knows about the fade effect, the checkpoint knows about the enemies, and adding "reset the collectibles on respawn" means editing four files. Nobody made a bad decision on purpose. They just made all of their decisions while typing, one line at a time, without ever seeing the whole thing at once.</p>
 <p>This guide is about seeing the whole thing first. You'll design a system on paper, with boxes and arrows, before anybody writes a line of it. It isn't about producing a perfect plan, because the plan <em>will</em> change when you build it. It's about making the big decisions (who owns what, who talks to whom, what's likely to change) deliberately, while they're still cheap to change.</p>
-<p>The process has ten steps, and you'll see every step applied to a full example, a <strong>checkpoint and respawn system</strong>, so you know what each step's output looks like before you make your own.</p>
+<p>The process has nine(ish) steps, and you'll see every step applied to a full example, a <strong>checkpoint and respawn system</strong>, so you know what each step's output looks like before you make your own.</p>
 <div class="admonition info">
 <p class="admonition-title">Using this on a real system</p>
 <p>None of this is workshop-only. When you're about to build a real system for the game, run the same steps (even alone, even quickly), then turn the result into a page with the <a href="../../../contributing/templates/system-template/">System Template</a> and link it from the system's GitHub issue. Future you (and everyone else!) will be very grateful.</p>
 </div>
 <hr />
 <h2 id="roles">Roles<a class="headerlink" href="#roles" title="Anchor link to this section">&para;</a></h2>
-<p>If you're in a group, I recommend you split these up.</p>
+<p>If you're in a group, I recommend you split these up. It'll probably keep things going smoothly, but also feel free to do whatever.</p>
 <table>
 <thead>
 <tr>
@@ -3205,15 +3235,15 @@
 <tbody>
 <tr>
 <td><strong>Facilitator</strong></td>
-<td>Keeps time, keeps the group moving through the steps, and makes sure everyone gets heard.</td>
+<td>Keeps time, keeps the group moving through the steps, and makes sure everything is considered.</td>
 </tr>
 <tr>
 <td><strong>Scribe</strong></td>
-<td>Writes the cards and draws the diagram. Everyone contributes, but one person holds the pen.</td>
+<td>Writes the cards and draws the diagram.</td>
 </tr>
 <tr>
 <td><strong>Skeptic</strong></td>
-<td>Tries to break the design. "What happens if the player dies <em>during</em> the fade?" is exactly their job.</td>
+<td>Tries to break the design. "What happens if the player dies <em>during</em> the fade?" is the type of stuff they should be asking.</td>
 </tr>
 </tbody>
 </table>
@@ -3221,8 +3251,8 @@
 <h2 id="step-1-write-the-scenarios">Step 1: Write the Scenarios<a class="headerlink" href="#step-1-write-the-scenarios" title="Anchor link to this section">&para;</a></h2>
 <p><strong>You'll produce:</strong> three to five short scenarios, plus at least one edge case.</p>
 <p>A scenario is one concrete thing that happens, told from a player's perspective: "the player does X, then Y happens." Ideally, this isn't something vague like "the system handles respawning," since that could mean anything, but "the player falls in a pit, the screen fades out, and they reappear at the last checkpoint."</p>
-<p>Scenarios are a soft way of describing unit tests, a set of trials that every decision you make later gets tested against. Saving these will force you to notice the questions that nobody's answered yet.</p>
-<details class="example">
+<p>Scenarios are a soft introduction to unit tests, a set of trials that every decision you make later gets tested against. Saving these will force you to notice the questions that nobody's answered yet.</p>
+<details class="example" open="open">
 <summary>Worked example: scenarios</summary>
 <ol>
 <li>The player walks through a checkpoint for the first time. It lights up, and a "Checkpoint reached" message appears for a moment.</li>
@@ -3262,10 +3292,10 @@
 <hr />
 <h2 id="step-3-make-crc-cards">Step 3: Make CRC Cards<a class="headerlink" href="#step-3-make-crc-cards" title="Anchor link to this section">&para;</a></h2>
 <p><strong>You'll produce:</strong> one index card per class.</p>
-<p>CRC stands for <strong>Class, Responsibilities, Collaborators</strong>. It's a technique from the late 1980s, invented specifically to teach people to think in objects, and it still works because it's physical and fast. Each card has:</p>
+<p>CRC stands for <strong>Class, Responsibilities, Collaborators</strong>. It's a technique from the late 1980s, invented specifically to teach people to think in objects, and it still works (if you just slow down for a bit). Each card has:</p>
 <ul>
 <li><strong>Class:</strong> the name, at the top.</li>
-<li><strong>Responsibilities:</strong> two to four short verb phrases for what this class knows or does. "Remembers the active checkpoint." "Detects the player."</li>
+<li><strong>Responsibilities:</strong> two to four short verb phrases for what this class knows or does. For example, "Remembers the active checkpoint." "Detects the player."</li>
 <li><strong>Collaborators:</strong> the other classes it has to work with to do its job.</li>
 </ul>
 <p>Keep them small on purpose. If a card runs out of room, then the class probably does too much (at least at this scale).</p>
@@ -3312,7 +3342,7 @@
 <hr />
 <h2 id="step-4-walk-the-scenarios">Step 4: Walk the Scenarios<a class="headerlink" href="#step-4-walk-the-scenarios" title="Anchor link to this section">&para;</a></h2>
 <p><strong>You'll produce:</strong> updated cards, and a list of gaps you found.</p>
-<p>This is the most important step, so don't rush it. Lay the cards out on the table. Take a scenario, and act it out: whoever holds a card speaks for that class. "I'm the Checkpoint. The player just walked through me, so I tell the RespawnSystem..." When a scenario needs something that no card is responsible for, you've found a gap, so give the responsibility to an existing card or make a new one.</p>
+<p>This is the most important step in testing your design. Lay the cards out on the table, take a scenario, and act it out: whoever holds a card speaks for that class (if this is cringe you don't have to I guess). "I'm the Checkpoint. The player just walked through me, so I tell the RespawnSystem..." When a scenario needs something that no card is responsible for, you've found a gap, so give the responsibility to an existing card or make a new one.</p>
 <p>This is a really easy and simple way to poke holes in a design that's too flimsy. The Skeptic should be throwing "what if" questions the whole time.</p>
 <details class="example" open="open">
 <summary>Worked example: walking scenario 2 (the player dies)</summary>
@@ -3378,7 +3408,7 @@
 <hr />
 <h2 id="step-6-decide-how-things-talk">Step 6: Decide How Things Talk<a class="headerlink" href="#step-6-decide-how-things-talk" title="Anchor link to this section">&para;</a></h2>
 <p><strong>You'll produce:</strong> arrows between your cards showing who calls whom and who listens to whom, plus a state diagram if anything has distinct modes.</p>
-<p>For every collaborator line on your cards, decide how that conversation happens. The three everyday options:</p>
+<p>For every collaborator line on your cards, decide how that might happen. The options below are meant to be useful but not exhaustive, theres certainly other ways as well!</p>
 <table>
 <thead>
 <tr>
@@ -3415,7 +3445,7 @@
 <li><code>RespawnSystem</code> &rarr; <code>ScreenFader</code>: <strong>direct call</strong>, with a callback so the fader can say when it's finished.</li>
 <li><code>RespawnSystem</code> &rarr; everyone else: <strong>events.</strong> <code>CheckpointActivated</code>, <code>RespawnStarted</code>, and <code>RespawnFinished</code>. <code>CheckpointMessage</code>, <code>PlayerController</code>, and anything that needs resetting just listen.</li>
 </ul>
-<p>RespawnSystem has modes (gap 3 from step 4), so it gets a state diagram:</p>
+<p>RespawnSystem has modes (gap 3 from step 4), so it needs a state diagram:</p>
 <pre class="mermaid"><code>stateDiagram-v2
     [*] --&gt; Waiting
     Waiting --&gt; FadingOut : player died
@@ -3430,12 +3460,12 @@
 <hr />
 <h2 id="step-7-design-it-twice">Step 7: Design It Twice<a class="headerlink" href="#step-7-design-it-twice" title="Anchor link to this section">&para;</a></h2>
 <p><strong>You'll produce:</strong> one different alternative, a short trade-off table, and a decision.</p>
-<p>Your first design is rarely your best one. It's just the first one you thought of. So before you commit, sketch a real alternative (not a small tweak) and compare them honestly.</p>
-<p>The comparison matters more than the winner. Writing down <em>why</em> you picked a design is what lets someone change it later without breaking the reasons it was built that way.</p>
+<p>Your first design is rarely your best one, it's just the first one you thought of. So before you commit, sketch an actual alternative (so not a small tweak) and seriously scrutinize and compare them.</p>
+<p>The comparison matters more than just picking one or the other. Writing down <em>why</em> you picked a design is what lets someone change it later without breaking the reasons it was built that way. This whole process is super great in informing others how you came to a decision, so documentation is highly encouraged!</p>
 <details class="example" open="open">
 <summary>Worked example: two designs</summary>
 <p><strong>Design A: checkpoints do it themselves.</strong> No RespawnSystem. Each checkpoint listens for the player's death, and whichever checkpoint was activated most recently (tracked in a <code>static</code> field shared by all checkpoints) runs the respawn.</p>
-<p><strong>Design B: one coordinator.</strong> The design we've been building: checkpoints report being reached, and RespawnSystem owns remembering and respawning.</p>
+<p><strong>Design B: one coordinator.</strong> The design we've been talking about: checkpoints report being reached, and RespawnSystem owns remembering and respawning.</p>
 <table>
 <thead>
 <tr>
@@ -3533,13 +3563,13 @@
 <hr />
 <h2 id="step-9-optional-spike-the-riskiest-part">Step 9 (Optional): Spike the Riskiest Part<a class="headerlink" href="#step-9-optional-spike-the-riskiest-part" title="Anchor link to this section">&para;</a></h2>
 <p><strong>You'll produce:</strong> a throwaway prototype, and something you learned from it.</p>
-<p>If you have time left, find the part of your design you're <em>least</em> sure about and build just that, as fast and messily as you like, in a blank project. This is called a spike: a quick experiment to answer one question, which you throw away afterwards. Don't build the whole system, just use this as a controlled prototype.</p>
-<p>For the checkpoint example, the risky part could be "does the fade feel okay at 0.5 seconds, and does disabling input actually stop the player mid-jump?" Testing this specific part out first before committing is a good idea.</p>
+<p>If you have time left, find the part of your design you're <em>least</em> sure about and build just that, as fast and messily as you like, in a blank project or scene. This is called a <strong>spike</strong>: a quick experiment to answer one question, which you throw away afterwards. Don't build the whole system, just use this as a controlled prototype.</p>
+<p>For the checkpoint example, the risky part could be "does the fade feel okay at 0.5 seconds, and does disabling input actually stop the player mid-jump?" Testing this specific part out first before committing might be a good idea.</p>
 <p>Then compare what you learned against your design. Did it hold up? What would you change? </p>
 <p>Designing a system is an ever-changing process, as you'll encounter a lot of issues in the process of implementation that you may need to tackle on the fly.</p>
 <hr />
 <h2 id="design-smells">Design Smells<a class="headerlink" href="#design-smells" title="Anchor link to this section">&para;</a></h2>
-<p>Things that should make you stop and look again, in your own design or someone else's:</p>
+<p>Things that should make you stop and look again in your own design or someone else's:</p>
 <ul>
 <li><strong>The god class.</strong> I swear this is a real term; one card with eight responsibilities, and every other card lists it as a collaborator.</li>
 <li><strong>The do-everything Manager.</strong> <code>GameManager</code> is where responsibilities go when nothing owns them.</li>
@@ -3587,7 +3617,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 11, 2026 01:09:36 UTC"><span class="timeago" datetime="2026-09-11T01:09:36+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 11, 2026 01:09:36 UTC">2026-09-11</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 11, 2026 22:30:42 UTC"><span class="timeago" datetime="2026-09-11T22:30:42+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 11, 2026 22:30:42 UTC">2026-09-11</span>
   </span>
 
     
@@ -3726,66 +3756,6 @@
     </div>
     
     
-      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
-        <div class="md-consent__overlay"></div>
-        <aside class="md-consent__inner">
-          <form class="md-consent__form md-grid md-typeset" name="consent">
-            
-
-
-  
-
-
-<h4>Cookie consent</h4>
-<p>We use cookies to recognise your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for.</p>
-<input class="md-toggle" type="checkbox" id="__settings" >
-<div class="md-consent__settings">
-  <ul class="task-list">
-    
-    
-      
-    
-    
-      
-        
-  
-  
-    
-    
-  
-  <li class="task-list-item">
-    <label class="task-list-control">
-      <input type="checkbox" name="github" checked>
-      <span class="task-list-indicator"></span>
-      GitHub
-    </label>
-  </li>
-
-      
-    
-    
-  </ul>
-</div>
-<div class="md-consent__controls">
-  
-    
-      <button class="md-button md-button--primary">Accept</button>
-    
-    
-    
-  
-    
-    
-    
-      <label class="md-button" for="__settings">Manage settings</label>
-    
-  
-</div>
-          </form>
-        </aside>
-      </div>
-      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
-    
     
       
       
@@ -3800,7 +3770,7 @@
       
         <script src="../../../assets/javascripts/extra.js"></script>
       
-        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../../assets/javascripts/toc-collapse.js"></script>
       
     
   </body>
