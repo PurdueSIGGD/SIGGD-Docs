@@ -6,37 +6,37 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Recommended engines, editors, and productivity tools used by SIGGD members.">
+        <meta name="description" content="Get tuning numbers and content out of your scripts and into data: serialized fields, ScriptableObjects, the Type Object pattern, and behavior as data.">
       
       
         <meta name="author" content="Purdue SIGGD">
       
       
-        <link rel="canonical" href="https://PurdueSIGGD.github.io/SIGGD-Docs/resources/tools/">
+        <link rel="canonical" href="https://PurdueSIGGD.github.io/SIGGD-Docs/tutorials/programming/data-driven-design/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../designing-a-system/">
       
       
-        <link rel="next" href="../external-references/">
+        <link rel="next" href="../oop-toolkit/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Tools - SIGGD Docs</title>
+        <title>Data-Driven Design - SIGGD Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,11 +55,11 @@
       
     
     
-      <link rel="stylesheet" href="../../css/timeago.css">
+      <link rel="stylesheet" href="../../../css/timeago.css">
     
-      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tools" class="md-skip">
+        <a href="#data-driven-design" class="md-skip">
           Skip to content
         </a>
       
@@ -100,9 +100,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="SIGGD Docs" class="md-header__button md-logo" aria-label="SIGGD Docs" data-md-component="logo">
+    <a href="../../.." title="SIGGD Docs" class="md-header__button md-logo" aria-label="SIGGD Docs" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Tools
+              Data-Driven Design
             
           </span>
         </div>
@@ -217,7 +217,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -234,11 +234,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../tutorials/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -260,7 +262,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../projects/" class="md-tabs__link">
+        <a href="../../../projects/" class="md-tabs__link">
           
   
   
@@ -278,13 +280,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../resources/" class="md-tabs__link">
           
   
   
@@ -306,7 +306,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../contributing/" class="md-tabs__link">
+        <a href="../../../contributing/" class="md-tabs__link">
           
   
   
@@ -328,7 +328,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../about/" class="md-tabs__link">
+        <a href="../../../about/" class="md-tabs__link">
           
   
   
@@ -370,9 +370,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="SIGGD Docs" class="md-nav__button md-logo" aria-label="SIGGD Docs" data-md-component="logo">
+    <a href="../../.." title="SIGGD Docs" class="md-nav__button md-logo" aria-label="SIGGD Docs" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     SIGGD Docs
@@ -399,7 +399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -423,6 +423,8 @@
       
   
   
+    
+  
   
   
     
@@ -446,18 +448,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tutorials/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -475,13 +480,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -498,6 +503,8 @@
                 
   
   
+    
+  
   
   
     
@@ -518,15 +525,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tutorials/programming/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -550,7 +557,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -567,8 +574,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -587,11 +596,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
@@ -612,7 +621,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -630,7 +639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/programming/how-unity-thinks/" class="md-nav__link">
+      <a href="../how-unity-thinks/" class="md-nav__link">
         
   
   
@@ -665,7 +674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/programming/designing-a-system/" class="md-nav__link">
+      <a href="../designing-a-system/" class="md-nav__link">
         
   
   
@@ -697,10 +706,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../tutorials/programming/data-driven-design/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -723,6 +741,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -735,7 +754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/programming/oop-toolkit/" class="md-nav__link">
+      <a href="../oop-toolkit/" class="md-nav__link">
         
   
   
@@ -836,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/programming/csharp-style-guide/" class="md-nav__link">
+      <a href="../csharp-style-guide/" class="md-nav__link">
         
   
   
@@ -864,7 +883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/programming/csharp-for-unity/" class="md-nav__link">
+      <a href="../csharp-for-unity/" class="md-nav__link">
         
   
   
@@ -899,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/programming/thinking-like-an-engineer/" class="md-nav__link">
+      <a href="../thinking-like-an-engineer/" class="md-nav__link">
         
   
   
@@ -971,7 +990,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tutorials/art-and-assets/" class="md-nav__link ">
+            <a href="../../art-and-assets/" class="md-nav__link ">
               
   
   
@@ -1039,7 +1058,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tutorials/audio/" class="md-nav__link ">
+            <a href="../../audio/" class="md-nav__link ">
               
   
   
@@ -1115,7 +1134,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tutorials/story/" class="md-nav__link ">
+            <a href="../../story/" class="md-nav__link ">
               
   
   
@@ -1159,7 +1178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/story/story-team-standards/" class="md-nav__link">
+      <a href="../../story/story-team-standards/" class="md-nav__link">
         
   
   
@@ -1187,7 +1206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/story/story-design-doc/" class="md-nav__link">
+      <a href="../../story/story-design-doc/" class="md-nav__link">
         
   
   
@@ -1215,7 +1234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/story/story-tasks/" class="md-nav__link">
+      <a href="../../story/story-tasks/" class="md-nav__link">
         
   
   
@@ -1243,7 +1262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/story/story-team-onboarding/" class="md-nav__link">
+      <a href="../../story/story-team-onboarding/" class="md-nav__link">
         
   
   
@@ -1304,7 +1323,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tutorials/general/" class="md-nav__link ">
+            <a href="../../general/" class="md-nav__link ">
               
   
   
@@ -1348,7 +1367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/general/getting-set-up/" class="md-nav__link">
+      <a href="../../general/getting-set-up/" class="md-nav__link">
         
   
   
@@ -1439,7 +1458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/general/gitgood/" class="md-nav__link">
+      <a href="../../general/gitgood/" class="md-nav__link">
         
   
   
@@ -1474,7 +1493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/general/gitgood2/" class="md-nav__link">
+      <a href="../../general/gitgood2/" class="md-nav__link">
         
   
   
@@ -1555,7 +1574,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../projects/" class="md-nav__link ">
+            <a href="../../../projects/" class="md-nav__link ">
               
   
   
@@ -1626,7 +1645,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../projects/2627-game/" class="md-nav__link ">
+            <a href="../../../projects/2627-game/" class="md-nav__link ">
               
   
   
@@ -1702,7 +1721,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../projects/2627-game/codebase/" class="md-nav__link ">
+            <a href="../../../projects/2627-game/codebase/" class="md-nav__link ">
               
   
   
@@ -1746,7 +1765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/2627-game/codebase/systems/" class="md-nav__link">
+      <a href="../../../projects/2627-game/codebase/systems/" class="md-nav__link">
         
   
   
@@ -1774,7 +1793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/2627-game/codebase/scripts/" class="md-nav__link">
+      <a href="../../../projects/2627-game/codebase/scripts/" class="md-nav__link">
         
   
   
@@ -1835,7 +1854,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../projects/2627-game/story/" class="md-nav__link ">
+            <a href="../../../projects/2627-game/story/" class="md-nav__link ">
               
   
   
@@ -1879,7 +1898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/2627-game/story/story-design-doc/" class="md-nav__link">
+      <a href="../../../projects/2627-game/story/story-design-doc/" class="md-nav__link">
         
   
   
@@ -1907,7 +1926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/2627-game/story/story-tasks/" class="md-nav__link">
+      <a href="../../../projects/2627-game/story/story-tasks/" class="md-nav__link">
         
   
   
@@ -1943,7 +1962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/2627-game/team/" class="md-nav__link">
+      <a href="../../../projects/2627-game/team/" class="md-nav__link">
         
   
   
@@ -1983,8 +2002,6 @@
       
   
   
-    
-  
   
   
     
@@ -2002,21 +2019,18 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../../resources/" class="md-nav__link ">
               
   
   
@@ -2034,13 +2048,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2057,37 +2071,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tools
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../resources/tools/" class="md-nav__link">
         
   
   
@@ -2103,216 +2090,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#game-engines" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Game Engines
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Game Engines">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#unity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unity
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#programming" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Programming
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Programming">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#visual-studio-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visual Studio Code
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jetbrains-rider" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        JetBrains Rider
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#art-design" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Art &amp; Design
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Art &amp; Design">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#blender" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Blender
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#audio" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Audio
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Audio">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#audacity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Audacity
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fmod-studio" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        FMOD Studio
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-control" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version Control
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Version Control">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#git-github-desktop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Git + GitHub Desktop
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Documentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mkdocs-material" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MkDocs + Material
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2325,7 +2102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../external-references/" class="md-nav__link">
+      <a href="../../../resources/external-references/" class="md-nav__link">
         
   
   
@@ -2387,7 +2164,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../contributing/" class="md-nav__link ">
+            <a href="../../../contributing/" class="md-nav__link ">
               
   
   
@@ -2431,7 +2208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/style-guide/" class="md-nav__link">
+      <a href="../../../contributing/style-guide/" class="md-nav__link">
         
   
   
@@ -2459,7 +2236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/markdown-cheatsheet/" class="md-nav__link">
+      <a href="../../../contributing/markdown-cheatsheet/" class="md-nav__link">
         
   
   
@@ -2551,7 +2328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/templates/tutorial-template/" class="md-nav__link">
+      <a href="../../../contributing/templates/tutorial-template/" class="md-nav__link">
         
   
   
@@ -2586,7 +2363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/templates/project-template/" class="md-nav__link">
+      <a href="../../../contributing/templates/project-template/" class="md-nav__link">
         
   
   
@@ -2621,7 +2398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/templates/codebase-template/" class="md-nav__link">
+      <a href="../../../contributing/templates/codebase-template/" class="md-nav__link">
         
   
   
@@ -2649,7 +2426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/templates/system-template/" class="md-nav__link">
+      <a href="../../../contributing/templates/system-template/" class="md-nav__link">
         
   
   
@@ -2677,7 +2454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/templates/script-template/" class="md-nav__link">
+      <a href="../../../contributing/templates/script-template/" class="md-nav__link">
         
   
   
@@ -2705,7 +2482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/templates/resource-template/" class="md-nav__link">
+      <a href="../../../contributing/templates/resource-template/" class="md-nav__link">
         
   
   
@@ -2771,7 +2548,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../about/" class="md-nav__link ">
+            <a href="../../../about/" class="md-nav__link ">
               
   
   
@@ -2815,7 +2592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../about/contributors/" class="md-nav__link">
+      <a href="../../../about/contributors/" class="md-nav__link">
         
   
   
@@ -2863,204 +2640,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#game-engines" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Game Engines
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Game Engines">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#unity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unity
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#programming" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Programming
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Programming">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#visual-studio-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visual Studio Code
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jetbrains-rider" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        JetBrains Rider
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#art-design" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Art &amp; Design
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Art &amp; Design">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#blender" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Blender
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#audio" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Audio
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Audio">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#audacity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Audacity
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fmod-studio" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        FMOD Studio
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-control" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version Control
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Version Control">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#git-github-desktop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Git + GitHub Desktop
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Documentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mkdocs-material" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MkDocs + Material
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -3084,7 +2663,7 @@
   
   
     <li class="md-path__item">
-      <a href="../.." class="md-path__link">
+      <a href="../../.." class="md-path__link">
         
   <span class="md-ellipsis">
     Home
@@ -3102,10 +2681,46 @@
     
     
       <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Resources
+    Programming
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../how-unity-thinks/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Onboarding Workshops
   </span>
 
         </a>
@@ -3128,21 +2743,28 @@
       
       
       
-        <a href="../../tags/#tag:resources" class="md-tag">resources</a>
+        <a href="../../../tags/#tag:intermediate" class="md-tag">intermediate</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:tools" class="md-tag">tools</a>
+        <a href="../../../tags/#tag:programming" class="md-tag">programming</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:unity" class="md-tag">unity</a>
       
     
   </nav>
 
 
   
-    <a href="https://github.com/PurdueSIGGD/SIGGD-Docs/edit/main/docs/resources/tools.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/PurdueSIGGD/SIGGD-Docs/edit/main/docs/tutorials/programming/data-driven-design.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -3151,77 +2773,28 @@
     
       
     
-    <a href="https://github.com/PurdueSIGGD/SIGGD-Docs/raw/main/docs/resources/tools.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/PurdueSIGGD/SIGGD-Docs/raw/main/docs/tutorials/programming/data-driven-design.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="tools">Tools<a class="headerlink" href="#tools" title="Anchor link to this section">&para;</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Link freshness</p>
-<p>If a link is broken, please <a href="https://github.com/PurdueSIGGD/SIGGD-Docs/issues">open an issue</a>.</p>
+<h1 id="data-driven-design">Data-Driven Design<a class="headerlink" href="#data-driven-design" title="Anchor link to this section">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">What You Will Learn</p>
+<p>By the end of this guide you will be able to:</p>
+<ul>
+<li>Spot tuning data that's trapped in code, and explain what it costs the team</li>
+<li>Move it into serialized fields and ScriptableObjects, and know when each one fits</li>
+<li>Use the Type Object pattern so new content means a new asset, not a new script</li>
+<li>Make <em>behavior</em> data-driven without an ever-growing <code>switch</code> statement</li>
+<li>Avoid the classic ScriptableObject traps (and know when not to bother at all)</li>
+</ul>
 </div>
+<p><strong>Difficulty:</strong> Intermediate · <strong>Time:</strong> ~45 minutes</p>
 <hr />
-<h2 id="game-engines">Game Engines<a class="headerlink" href="#game-engines" title="Anchor link to this section">&para;</a></h2>
-<h3 id="unity">Unity<a class="headerlink" href="#unity" title="Anchor link to this section">&para;</a></h3>
-<p><strong>Cost:</strong> Free for personal/educational use<br />
-<strong>Link:</strong> <a href="https://unity.com">unity.com</a></p>
-<p>The engine SIGGD projects use. C# scripting, a massive asset store, and
-an enormous community.</p>
-<hr />
-<h2 id="programming">Programming<a class="headerlink" href="#programming" title="Anchor link to this section">&para;</a></h2>
-<h3 id="visual-studio-code">Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Anchor link to this section">&para;</a></h3>
-<p><strong>Cost:</strong> Free<br />
-<strong>Link:</strong> <a href="https://code.visualstudio.com">code.visualstudio.com</a></p>
-<p>Recommended code editor for most SIGGD work. Excellent extensions for C#, and Markdown. Integrates with Git natively.</p>
-<hr />
-<h3 id="jetbrains-rider">JetBrains Rider<a class="headerlink" href="#jetbrains-rider" title="Anchor link to this section">&para;</a></h3>
-<p><strong>Cost:</strong> Free for students (JetBrains Student License)<br />
-<strong>Link:</strong> <a href="https://www.jetbrains.com/rider">jetbrains.com/rider</a></p>
-<p>Full-featured C# IDE. Significantly better Unity integration than VS Code.
-Apply for a free student license with your Purdue email.</p>
-<hr />
-<h2 id="art-design">Art &amp; Design<a class="headerlink" href="#art-design" title="Anchor link to this section">&para;</a></h2>
-<h3 id="blender">Blender<a class="headerlink" href="#blender" title="Anchor link to this section">&para;</a></h3>
-<p><strong>Cost:</strong> Free and open source<br />
-<strong>Link:</strong> <a href="https://www.blender.org">blender.org</a></p>
-<p>The gold standard in open-source 3D. Modeling, rigging, animation, rendering,
-and a game-ready export pipeline.</p>
-<hr />
-<h2 id="audio">Audio<a class="headerlink" href="#audio" title="Anchor link to this section">&para;</a></h2>
-<h3 id="audacity">Audacity<a class="headerlink" href="#audacity" title="Anchor link to this section">&para;</a></h3>
-<p><strong>Cost:</strong> Free and open source<br />
-<strong>Link:</strong> <a href="https://www.audacityteam.org">audacityteam.org</a></p>
-<p>Simple audio recording and editing. Good for recording and trimming SFX.
-Not a full DAW, but excellent for basic needs.</p>
-<hr />
-<h3 id="fmod-studio">FMOD Studio<a class="headerlink" href="#fmod-studio" title="Anchor link to this section">&para;</a></h3>
-<p><strong>Cost:</strong> Free for indie (revenue limits apply)<br />
-<strong>Link:</strong> <a href="https://www.fmod.com">fmod.com</a></p>
-<p>Professional audio middleware widely used in the games industry. Integrates
-directly with Unity and Unreal. Powerful adaptive audio tools.</p>
-<hr />
-<h2 id="version-control">Version Control<a class="headerlink" href="#version-control" title="Anchor link to this section">&para;</a></h2>
-<h3 id="git-github-desktop">Git + GitHub Desktop<a class="headerlink" href="#git-github-desktop" title="Anchor link to this section">&para;</a></h3>
-<p><strong>Cost:</strong> Free<br />
-<strong>Link:</strong> <a href="https://desktop.github.com">desktop.github.com</a></p>
-<p>Git is essential for any collaborative game project. GitHub Desktop provides
-a user-friendly GUI for those not comfortable with the command line.</p>
-<hr />
-<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Anchor link to this section">&para;</a></h2>
-<h3 id="mkdocs-material">MkDocs + Material<a class="headerlink" href="#mkdocs-material" title="Anchor link to this section">&para;</a></h3>
-<p><strong>Cost:</strong> Free and open source<br />
-<strong>Link:</strong> <a href="https://squidfunk.github.io/mkdocs-material">squidfunk.github.io/mkdocs-material</a></p>
-<p>What this very site is built with. Markdown-based, deploys to GitHub Pages.
-See the <a href="../../contributing/">Contributing Guide</a> to add pages here.</p>
-<hr />
-<div class="admonition tip">
-<p class="admonition-title">Missing a tool?</p>
-<p>Use the <a href="../../contributing/templates/resource-template/">Resource Template</a>
-to add it via pull request.</p>
-</div>
+<p>To be released!</p>
 
 
 
@@ -3244,7 +2817,7 @@ to add it via pull request.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 27, 2026 20:05:58 UTC"><span class="timeago" datetime="2026-08-27T20:05:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 27, 2026 20:05:58 UTC">2026-08-27</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 11, 2026 01:09:36 UTC"><span class="timeago" datetime="2026-09-11T01:09:36+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 11, 2026 01:09:36 UTC">2026-09-11</span>
   </span>
 
     
@@ -3254,7 +2827,7 @@ to add it via pull request.</p>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="June 3, 2026 18:59:01 UTC"><span class="timeago" datetime="2026-06-03T18:59:01+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="June 3, 2026 18:59:01 UTC">2026-06-03</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 11, 2026 01:09:36 UTC"><span class="timeago" datetime="2026-09-11T01:09:36+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 11, 2026 01:09:36 UTC">2026-09-11</span>
   </span>
 
     
@@ -3264,12 +2837,11 @@ to add it via pull request.</p>
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributors">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:pranavsukesh@gmail.com">Pranav Sukesh</a>, 
         <a href="mailto:psukesh@purdue.edu">Pranav Sukesh</a>
     </nav>
   </span>
@@ -3307,7 +2879,7 @@ to add it via pull request.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Resources">
+          <a href="../designing-a-system/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Designing a System">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3317,20 +2889,20 @@ to add it via pull request.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Resources
+                Designing a System
               </div>
             </div>
           </a>
         
         
           
-          <a href="../external-references/" class="md-footer__link md-footer__link--next" aria-label="Next: External References">
+          <a href="../oop-toolkit/" class="md-footer__link md-footer__link--next" aria-label="Next: The OOP Toolkit">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                External References
+                The OOP Toolkit
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3447,16 +3019,16 @@ to add it via pull request.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.path", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.path", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="../../js/timeago.min.js"></script>
+        <script src="../../../js/timeago.min.js"></script>
       
-        <script src="../../js/timeago_mkdocs_material.js"></script>
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
       
-        <script src="../../assets/javascripts/extra.js"></script>
+        <script src="../../../assets/javascripts/extra.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -6,19 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Documentation, tutorials, and resources for Purdue's Special Interest Group in Game Development.">
+        <meta name="description" content="The mental model behind every Unity project: GameObjects, components, the Inspector, the lifecycle, and prefabs. You don't need Unity open for this one.">
       
       
         <meta name="author" content="Purdue SIGGD">
       
       
-        <link rel="canonical" href="https://PurdueSIGGD.github.io/SIGGD-Docs/tutorials/story/story-team-standards/">
+        <link rel="canonical" href="https://PurdueSIGGD.github.io/SIGGD-Docs/tutorials/programming/how-unity-thinks/">
       
       
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../story-design-doc/">
+        <link rel="next" href="../designing-a-system/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Story Team Standards - SIGGD Docs</title>
+        <title>How Unity Thinks - SIGGD Docs</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#story-team-standards" class="md-skip">
+        <a href="#how-unity-thinks" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Story Team Standards
+              How Unity Thinks
             
           </span>
         </div>
@@ -503,6 +503,8 @@
                 
   
   
+    
+  
   
   
     
@@ -523,15 +525,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../programming/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -555,7 +557,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -572,8 +574,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -592,11 +596,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
@@ -617,7 +621,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -632,10 +636,44 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../programming/how-unity-thinks/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How Unity Thinks
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--published"></span>
+  
+
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -658,6 +696,180 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-this-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Use This Guide
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenes-are-made-of-gameobjects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenes Are Made of GameObjects
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#components-do-the-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Components Do the Work
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-transform-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Transform Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scripts-are-components-too" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scripts Are Components Too
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-inspector-is-data-not-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Inspector Is Data, Not Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prefabs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-things-youll-meet-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two Things You'll Meet Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#this-weeks-game-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        This Week's Game Idea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#going-further" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Going Further
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -670,7 +882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../programming/designing-a-system/" class="md-nav__link">
+      <a href="../designing-a-system/" class="md-nav__link">
         
   
   
@@ -705,7 +917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../programming/data-driven-design/" class="md-nav__link">
+      <a href="../data-driven-design/" class="md-nav__link">
         
   
   
@@ -740,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../programming/oop-toolkit/" class="md-nav__link">
+      <a href="../oop-toolkit/" class="md-nav__link">
         
   
   
@@ -841,7 +1053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../programming/csharp-style-guide/" class="md-nav__link">
+      <a href="../csharp-style-guide/" class="md-nav__link">
         
   
   
@@ -869,7 +1081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../programming/csharp-for-unity/" class="md-nav__link">
+      <a href="../csharp-for-unity/" class="md-nav__link">
         
   
   
@@ -904,7 +1116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../programming/thinking-like-an-engineer/" class="md-nav__link">
+      <a href="../thinking-like-an-engineer/" class="md-nav__link">
         
   
   
@@ -1088,8 +1300,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1114,15 +1324,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../story/" class="md-nav__link ">
               
   
   
@@ -1146,7 +1356,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1163,19 +1373,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../story/story-team-standards/" class="md-nav__link">
         
   
   
@@ -1191,7 +1392,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1204,7 +1404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../story-design-doc/" class="md-nav__link">
+      <a href="../../story/story-design-doc/" class="md-nav__link">
         
   
   
@@ -1232,7 +1432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../story-tasks/" class="md-nav__link">
+      <a href="../../story/story-tasks/" class="md-nav__link">
         
   
   
@@ -1260,7 +1460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../story-team-onboarding/" class="md-nav__link">
+      <a href="../../story/story-team-onboarding/" class="md-nav__link">
         
   
   
@@ -2638,6 +2838,168 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-this-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Use This Guide
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenes-are-made-of-gameobjects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenes Are Made of GameObjects
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#components-do-the-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Components Do the Work
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-transform-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Transform Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scripts-are-components-too" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scripts Are Components Too
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-inspector-is-data-not-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Inspector Is Data, Not Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prefabs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-things-youll-meet-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two Things You'll Meet Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#this-weeks-game-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        This Week's Game Idea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#going-further" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Going Further
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2700,7 +3062,25 @@
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Story
+    Programming
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Onboarding Workshops
   </span>
 
         </a>
@@ -2717,9 +3097,34 @@
                 
                   
 
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:beginner" class="md-tag">beginner</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:programming" class="md-tag">programming</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:unity" class="md-tag">unity</a>
+      
+    
+  </nav>
+
 
   
-    <a href="https://github.com/PurdueSIGGD/SIGGD-Docs/edit/main/docs/tutorials/story/story-team-standards.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/PurdueSIGGD/SIGGD-Docs/edit/main/docs/tutorials/programming/how-unity-thinks.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2728,87 +3133,455 @@
     
       
     
-    <a href="https://github.com/PurdueSIGGD/SIGGD-Docs/raw/main/docs/tutorials/story/story-team-standards.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/PurdueSIGGD/SIGGD-Docs/raw/main/docs/tutorials/programming/how-unity-thinks.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="story-team-standards">Story Team Standards<a class="headerlink" href="#story-team-standards" title="Anchor link to this section">&para;</a></h1>
-<p>&emsp;&emsp;First, I would like to direct whoever is reading this to the <a href="../story-team-onboarding/">Story Team Onboarding</a>
-article if you have joined at any point after the first few weeks or so (probably any day after Sep.
-25).If you’re joining before then, I should be doing onboarding during the early meetings once it’s
-necessary so look forward to that.</p>
+<h1 id="how-unity-thinks">How Unity Thinks<a class="headerlink" href="#how-unity-thinks" title="Anchor link to this section">&para;</a></h1>
 <div class="admonition abstract">
-<p class="admonition-title">What's in this article</p>
+<p class="admonition-title">What You Will Learn</p>
+<p>By the end of this guide you will be able to:</p>
 <ul>
-<li>Story Lead introduction</li>
-<li>Team dynamic</li>
-<li>Support opportunities</li>
-<li>Red, Yellow, and Green Zones</li>
+<li>Describe any Unity scene as GameObjects built out of components</li>
+<li>Predict which fields of a script show up in the Inspector, and why</li>
+<li>Explain where Inspector values actually live (and why Play Mode edits vanish)</li>
+<li>Predict the order Unity calls <code>Awake</code>, <code>OnEnable</code>, <code>Start</code>, and <code>Update</code></li>
+<li>Decide what should be a prefab, a prefab variant, or just an override</li>
 </ul>
 </div>
+<p><strong>Difficulty:</strong> Beginner · <strong>Time:</strong> ~45 minutes</p>
 <hr />
-<h1 id="lead-introductionteam-dynamic">Lead Introduction/Team Dynamic<a class="headerlink" href="#lead-introductionteam-dynamic" title="Anchor link to this section">&para;</a></h1>
-<p>&emsp;&emsp;I’m Derek Harris, a sophomore in Computer Science who, by luck (good or bad, you decide)
-would have it, is the story lead for this year. I’m not normally this formal but I feel it’s
-important to very quickly let you guys know who I am, as I hope you will do for each other. SIGGD
-is an interesting club because although we are doing work to create a product, it is not structured
-like a job with manager and employee relationships (generally). Except for having extra
-responsibilities, I will just be another member of this team working to make whatever story will be
-supporting this year’s game. My hope is that tasks won’t feel like assignments, and as such I’m
-going to avoid ever directly assigning them as much as possible. We should all be discussing what
-needs to be done to arrive at a finished story, and choosing to work on the tasks we want.
-Essentially I just want a sense of collaboration over simple labor.</p>
+<h2 id="how-to-use-this-guide">How to Use This Guide<a class="headerlink" href="#how-to-use-this-guide" title="Anchor link to this section">&para;</a></h2>
+<p>You don't need Unity open for any of this. Every section is a short explanation followed by an exercise:</p>
+<ul>
+<li><strong>Predict:</strong> read some code or a scenario and write down what you think will happen <em>before</em> you open "Check your prediction". Actually commit to an answer, on paper or in a notes app or mentally. The wrong guesses are where most of the learning happens anyways (I hope).</li>
+<li><strong>Make:</strong> a small design exercise. There's no answer key for these on purpose. If you're stuck, open the hints one at a time, and when you're done, check your work against "What a good answer includes". A lot of these can also be made in Unity if you want to get some practice with the engine.</li>
+<li><strong>Try it in Unity:</strong> if Unity is ready on your machine, these let you check your predictions for real and figure out what's actually going on. If it isn't, you won't miss anything; this guide also works as a mental learning exercise on how to interpret Unity.</li>
+</ul>
+<p>This guide is intended to be for completely fresh Unity users, so if you already know something here, feel free to skip around! I do think there is value from reading this as an experienced person as well, however!</p>
+<div class="admonition tip">
+<p class="admonition-title">Compare notes</p>
+<p>If someone's sitting next to you, talk to them! Programming is actually a super collaborative task, and it helps a lot to talk to others about what you're doing.</p>
+</div>
 <hr />
-<h1 id="support">Support<a class="headerlink" href="#support" title="Anchor link to this section">&para;</a></h1>
-<p>&emsp;&emsp;However, my ideals may not always be true to what will happen or is happening. Hopefully I
-will recognize this and any other issues to be dealt with, but this will realistically not always
-be the case. So I have the first, and hopefully only, assignment for you guys. Pretty pretty please
-communicate with me. I’m just one guy; I can't figure it all out on my own. If I seem to not be
-sticking to my proposed structure for the team, tell me! If there is something happening within the
-team that is making you uncomfortable, tell me! If you have any questions, tell me!! My only real
-“job” as story lead is to support you guys and I hope you take full advantage of that.</p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Anchor link to this section">&para;</a></h2>
+<p>If you've written programs before, you're probably used to a <code>main()</code> function where everything starts, and code that runs top to bottom. Unity doesn't work like that. There's no <code>main()</code> for you to write. Instead, you build a world out of objects, attach small scripts to them, and Unity calls those scripts at specific moments: when an object is created, every frame, when it's destroyed, and so on.</p>
+<p>Almost every "why isn't this working" moment new Unity programmers have comes from expecting the first model while Unity runs the second one. So before we write any real code, I want you to have the mental model of what a scene is made of, where data lives, and when your code actually runs.</p>
 <hr />
-<h1 id="red-yellow-and-green-zones">Red, Yellow, and Green Zones<a class="headerlink" href="#red-yellow-and-green-zones" title="Anchor link to this section">&para;</a></h1>
-<p>&emsp;&emsp;Now for some information relating to work throughout the year. I want to have story team
-collaborate with other teams quite a bit, which means you guys will not be meeting exclusively with
-the rest of the story team and I often times. Therefore this collaboration will require a more
-distinct structure to the story details we discuss. I’m currently running with Red, Yellow, and
-Green zones for story details. Green zone means we have discussed that portion of the story and
-know generally what direction we want to go in, but specifics haven’t been completely decided. When
-you’re out amongst the other groups, decisions revolving around things in the Green Zone can be
-made freely.</p>
+<h2 id="scenes-are-made-of-gameobjects">Scenes Are Made of GameObjects<a class="headerlink" href="#scenes-are-made-of-gameobjects" title="Anchor link to this section">&para;</a></h2>
+<p>A <strong>scene</strong> is a level, a menu, or any other self-contained chunk of your game. Open one and you'll see the <strong>Hierarchy</strong>: a list of <strong>GameObjects</strong>.</p>
+<p>A GameObject, on its own, does nothing. It has a name, and it always has a <strong>Transform</strong> (its position, rotation, and scale), and that's it. It's a container.</p>
+<details class="info">
+<summary>New to this? A GameObject is a labeled box</summary>
+<p>Picture an empty cardboard box with a name written on it, sitting at a spot in the world. The box itself can't do anything. Everything interesting comes from what you put inside it, and in Unity, what you put inside are components.</p>
+</details>
+<hr />
+<h2 id="components-do-the-work">Components Do the Work<a class="headerlink" href="#components-do-the-work" title="Anchor link to this section">&para;</a></h2>
+<p>Everything a GameObject can do comes from its <strong>components</strong>. A few you'll see constantly:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>What it gives the GameObject</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SpriteRenderer</code> / <code>MeshRenderer</code></td>
+<td>Something to look at</td>
+</tr>
+<tr>
+<td><code>Collider</code> (box, sphere, capsule...)</td>
+<td>A shape that things can bump into</td>
+</tr>
+<tr>
+<td><code>Rigidbody</code></td>
+<td>Physics: gravity, forces, being pushed around</td>
+</tr>
+<tr>
+<td><code>AudioSource</code></td>
+<td>The ability to play sound</td>
+</tr>
+<tr>
+<td>Your own scripts</td>
+<td>Whatever behavior you write</td>
+</tr>
+</tbody>
+</table>
+<p>So a player might be one GameObject with a <code>SpriteRenderer</code>, a <code>Rigidbody2D</code>, a <code>CapsuleCollider2D</code>, a <code>PlayerMovement</code> script, and a <code>Health</code> script. An enemy might have a completely different movement script but the <em>same</em> <code>Health</code> script. That's the core idea of Unity: <strong>a thing is what it's made of.</strong> Instead of building a big class hierarchy (<code>Player</code> inherits from <code>Character</code> inherits from <code>Entity</code>), you assemble objects out of small pieces that each do one job.</p>
+<p>This idea has a name, the <a href="https://gameprogrammingpatterns.com/component.html">Component pattern</a>, and Unity's whole design is built around it.</p>
+<div class="admonition question">
+<p class="admonition-title">Predict: the crate</p>
+<p>A crate in your level has a <code>MeshRenderer</code> and a <code>BoxCollider</code>, but no <code>Rigidbody</code>. The player (who does have physics) walks into it.</p>
+<ol>
+<li>What happens to the player, and what happens to the crate?</li>
+<li>You add a <code>Rigidbody</code> to the crate. What changes?</li>
+<li>Instead, you remove the crate's <code>MeshRenderer</code> but keep the collider. What does the player experience?</li>
+</ol>
+</div>
 <details class="success">
-<summary>Green Zone</summary>
-<p>Decisions can be made freely</p>
+<summary>Check your prediction</summary>
+<ol>
+<li>The player stops, and the crate doesn't move at all. A collider with no <code>Rigidbody</code> is treated as a static part of the level, like a wall.</li>
+<li>Now the crate falls under gravity and gets shoved when the player pushes it. The <code>Rigidbody</code> is the part that says "physics applies to me."</li>
+<li>An invisible wall. The collider still blocks the player; there's just nothing to see.</li>
+</ol>
+<p>Each component adds exactly one capability. Remove a component and you remove exactly that capability, and nothing else. Keep that in mind, because it's also a great rule for the scripts you write.</p>
 </details>
-<p>&emsp;&emsp;However, once decisions have been made on details in the Green Zone, they will enter
-the Yellow Zone. Decisions can not be made in the Yellow Zone without discussing with the team, as
-this could undermine other decisions without proper discussion.</p>
-<details class="warning">
-<summary>Yellow Zone</summary>
-<p>New decisions/changes must be discussed</p>
+<div class="admonition example">
+<p class="admonition-title">Make: take apart a game you know</p>
+<p>Pick one moment from a game you've played: a room in a roguelike, a boss arena, a dialogue scene, anything. Find a screenshot of it online (or open it up yourself). Then:</p>
+<ol>
+<li>List every GameObject you think is in that scene, including ones you can't <em>see</em>.</li>
+<li>For each one, list the components it needs.</li>
+<li>Mark any component that shows up on more than one kind of object.</li>
+</ol>
+</div>
+<details class="tip">
+<summary>Hint 1</summary>
+<p>Start with what's visible, then ask: what's making things happen that I <em>can't</em> see? Who spawns the enemies? What's playing the music? What keeps track of the score?</p>
 </details>
-<p>&emsp;&emsp;And finally once writing has actually taken place for details in the Yellow Zone,
-those details enter the Red Zone. Nothing in the Red Zone should change unless absolutely necessary.</p>
-<details class="danger">
-<summary>Red Zone</summary>
-<p>Changes should not be made except under exceptional circumstances</p>
+<details class="tip">
+<summary>Hint 2</summary>
+<p>Invisible GameObjects are completely normal. Spawners, trigger zones, managers, and music players are usually GameObjects with no renderer at all. And a component should do one job, the way a <code>Collider</code> only handles shape. Unity's manual page on <a href="https://docs.unity3d.com/6000.3/Documentation/Manual/GameObjects.html">GameObjects</a> has a good overview.</p>
 </details>
-<p>&emsp;&emsp;This system hinges on two things, communication and communication. When story decisions/ideas
-arise while meeting with other teams, please note them down so that we can all be aware of what is
-happening. And before writing for story details, please make sure they have been decided. Actually
-putting pen to paper will inherently make decisions that you maybe shouldn’t be making on your own.
-There will be many decisions that will be left up to individuals when they start actually writing,
-but certain broader details need to be decided within the group.</p>
-<p>&emsp;&emsp;This system is likely to change unless it somehow just perfectly works immediately, so I’ll
-likely be clarifying/changing details with it throughout the year. So if you have any questions, see
-paragraph 3. Feel free to reach out to me through discord using either the story channel or direct
-messages. I’ll generally respond faster to DMs but if it pertains to the team as a whole it’s probably
-better to use the channel.</p>
+<details class="tip">
+<summary>Hint 3</summary>
+<p>Go object by object and ask four questions: does it need to be <em>seen</em>, to be <em>touched</em>, to <em>do</em> something, and to <em>remember</em> something? Each "yes" is usually a component. A coin needs to be seen (<code>SpriteRenderer</code>), to be touched (a <code>Collider</code> set as a trigger), and to do something when touched (a <code>Coin</code> script that adds to the score).</p>
+</details>
+<details class="note">
+<summary>What a good answer includes</summary>
+<ul>
+<li>At least one GameObject with nothing visible (a spawner, a trigger zone, a manager).</li>
+<li>At least one component reused across different kinds of objects, like <code>Health</code> on the player and the enemies.</li>
+<li>No component described as doing several unrelated jobs. "PlayerController moves, attacks, plays the music, and saves the game" should really be four components.</li>
+<li>Script names that say what they do (<code>EnemySpawner</code>), not vague ones (<code>Manager2</code>).</li>
+</ul>
+</details>
 <hr />
+<h2 id="the-transform-hierarchy">The Transform Hierarchy<a class="headerlink" href="#the-transform-hierarchy" title="Anchor link to this section">&para;</a></h2>
+<p>GameObjects can be parented to other GameObjects. A child moves, rotates, and scales along with its parent, which is how a sword stays in a character's hand or a health bar floats over an enemy's head.</p>
+<p>This gives every GameObject two ways to describe where it is:</p>
+<ul>
+<li><strong>World position:</strong> where it actually is in the scene (<code>transform.position</code>).</li>
+<li><strong>Local position:</strong> where it is <em>relative to its parent</em> (<code>transform.localPosition</code>).</li>
+</ul>
+<p>So game development is actually secretly just math class (mostly linear algebra). So let's do some problems:</p>
+<div class="admonition question">
+<p class="admonition-title">Predict: parent and child</p>
+<p>An empty parent GameObject sits at world position <code>(10, 0, 0)</code> with a scale of <code>1</code>. Its child sits at local position <code>(2, 0, 0)</code>.</p>
+<ol>
+<li>What's the child's world position?</li>
+<li>The parent's scale changes to <code>2</code>. What's the child's world position now? What's its local position? What happens to how big it looks?</li>
+</ol>
+</div>
+<details class="success">
+<summary>Check your prediction</summary>
+<ol>
+<li><code>(12, 0, 0)</code>. The child's local offset of 2 gets added to the parent's position.</li>
+<li>The child's world position becomes <code>(14, 0, 0)</code>, because the parent's scale stretches the offset too. Its local position is still <code>(2, 0, 0)</code>, since nothing about its relationship to the parent changed, and it looks twice as big because children inherit their parent's scale.</li>
+</ol>
+<p>Rotation works the same way: rotate the parent and the child swings around it like it's on an invisible arm. That's why mixing up <code>position</code> and <code>localPosition</code> in code is top 5 bugs ever; they're both correct, just measured from different places.</p>
+</details>
+<hr />
+<h2 id="scripts-are-components-too">Scripts Are Components Too<a class="headerlink" href="#scripts-are-components-too" title="Anchor link to this section">&para;</a></h2>
+<p>When you write a class that inherits from <code>MonoBehaviour</code>, you've made a component. You add it to a GameObject exactly like a <code>Collider</code> or an <code>AudioSource</code>, and Unity creates the instance for you.</p>
+<p>Two consequences that trip people up:</p>
+<ul>
+<li><strong>The file name has to match the class name.</strong> <code>Turret.cs</code> must contain <code>class Turret</code>, or Unity won't let you add it to anything. (The <a href="../csharp-style-guide/#files-and-namespaces">C# Style Guide</a> has more.)</li>
+<li><strong>You never write <code>new Turret()</code>.</strong> Unity logs a warning if you try, and you end up with a broken object that isn't attached to anything. Components come from adding them in the editor, from <code>AddComponent</code>, or from spawning a prefab.</li>
+</ul>
+<p>The other big thing a MonoBehaviour gets you is the <strong>Inspector</strong>: some of its fields appear there, where you (and designers) can change them without touching code. But not every field does.</p>
+<div class="admonition question">
+<p class="admonition-title">Predict: what shows up in the Inspector?</p>
+<p>You add this script to a GameObject. Which of these eight members show up in the Inspector?</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Turret</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">{</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10f</span><span class="p">;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">fireRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2f</span><span class="p">;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">shotsFired</span><span class="p">;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">TurretCount</span><span class="p">;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">MaxRange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50f</span><span class="p">;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">Damage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5f</span><span class="p">;</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">Cooldown</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="na">[field: SerializeField]</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Ammo</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>(Yes, <code>public float range</code> breaks two rules in the style guide. It's here because you'll see it in basically every Unity tutorial ever.)</p>
+</div>
+<details class="success">
+<summary>Check your prediction</summary>
+<p>Three of them: <code>range</code>, <code>fireRate</code>, and <code>Ammo</code>.</p>
+<p>Unity <a href="https://docs.unity3d.com/6000.3/Documentation/Manual/script-serialization-rules.html">serializes</a> (saves, and shows in the Inspector) a field when it's <code>public</code> or marked <code>[SerializeField]</code>, <em>and</em> it isn't <code>static</code>, <code>const</code>, or <code>readonly</code>. So:</p>
+<ul>
+<li><code>range</code> is public. It shows up.</li>
+<li><code>fireRate</code> is private, but <code>[SerializeField]</code> opts it in. It shows up. This is the version you should actually write.</li>
+<li><code>shotsFired</code> is private with no attribute. Hidden.</li>
+<li><code>TurretCount</code> is static, so it belongs to the class rather than any one turret. Hidden.</li>
+<li><code>MaxRange</code> is a constant and can never change, so there's nothing to save. Hidden.</li>
+<li><code>Damage</code> is readonly, so Unity can't write a saved value back into it. Hidden.</li>
+<li><code>Cooldown</code> is a property, and Unity doesn't save properties. Hidden.</li>
+<li><code>Ammo</code> is a property too, but <code>[field: SerializeField]</code> tells Unity to save the hidden field behind it, so it shows up.</li>
+</ul>
+</details>
+<details class="tip">
+<summary>Try it in Unity</summary>
+<p>Create a new project from Unity Hub with any 2D/3D template (Universal 2D/3D is a safe choice). Go to <strong>Assets &rarr; Create &rarr; Scripting</strong> and create a MonoBehaviour script named <code>Turret</code>, paste the code in, and drag it onto any GameObject in the scene. Check the Inspector against your prediction.</p>
+</details>
+<hr />
+<h2 id="the-inspector-is-data-not-code">The Inspector Is Data, Not Code<a class="headerlink" href="#the-inspector-is-data-not-code" title="Anchor link to this section">&para;</a></h2>
+<p>Here's a mental shift that saves a lot of confusion: when you change a value in the Inspector, you're not editing your script. You're editing <strong>data saved in the scene (or prefab) file</strong>. The <code>= 10f</code> in your code is only a <em>default</em>, used when the component is first added.</p>
+<div class="admonition question">
+<p class="admonition-title">Predict: the changed default</p>
+<p>Your <code>Turret</code> has <code>public float range = 10f;</code>. You add it to three turret GameObjects in a scene, and set the third one's range to <code>25</code> in the Inspector. Save the scene.</p>
+<p>Later, you change the code to <code>public float range = 15f;</code>.</p>
+<ol>
+<li>What's the range on each of the three turrets now?</li>
+<li>What range does a brand-new fourth turret get?</li>
+</ol>
+</div>
+<details class="success">
+<summary>Check your prediction</summary>
+<ol>
+<li><code>10</code>, <code>10</code>, and <code>25</code>. Nothing changed. When the scene was saved, every turret's range was written into the scene file, and that saved value wins over the code's default.</li>
+<li><code>15</code>. The default only matters when a component is first created.</li>
+</ol>
+<p>"I changed the number in the script and nothing happened" is one of the most common Unity confusions there is, and now you know why. If you want to change existing objects, change them in the Inspector (or in the prefab, which you'll see below).</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Predict: Play Mode tweaking</p>
+<p>You press Play, and the turret fires too slowly. While the game is running, you bump <code>fireRate</code> from <code>2</code> to <code>5</code> in the Inspector. It feels great. You stop Play Mode.</p>
+<p>What's <code>fireRate</code> now?</p>
+</div>
+<details class="success">
+<summary>Check your prediction</summary>
+<p>It's back to <code>2</code>. Any change you make to scene objects while in Play Mode is thrown away when you stop. Play Mode is a sandbox: tweak freely to find values you like, but write them down (or copy the component's values) before you stop, then set them again in Edit Mode.</p>
+<p>One exception you'll meet soon: changes to <strong>ScriptableObject assets</strong> <em>do</em> stick around after Play Mode ends. That's handy and occasionally dangerous, but this will show up later.</p>
+</details>
+<details class="tip">
+<summary>Try it in Unity</summary>
+<p>Put the <code>Turret</code> on a cube, press Play, change <code>fireRate</code> in the Inspector, and stop. While you're at it, I'd recommend setting a Play Mode tint (under <strong>Preferences &rarr; Colors</strong>) so the editor turns a different color while the game is running. It makes it much harder to forget you're in Play Mode.</p>
+</details>
+<hr />
+<h2 id="the-lifecycle">The Lifecycle<a class="headerlink" href="#the-lifecycle" title="Anchor link to this section">&para;</a></h2>
+<p>Since there's no <code>main()</code>, Unity calls specific methods on your scripts at specific moments. You don't subscribe to anything; if your MonoBehaviour has a method with the right name, Unity calls it. These are the ones you'll use most:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>When Unity calls it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Awake</code></td>
+<td>Once, when the object is loaded or created, <em>even if this script component is disabled</em> (as long as the GameObject is active)</td>
+</tr>
+<tr>
+<td><code>OnEnable</code></td>
+<td>Every time the component becomes enabled and active</td>
+</tr>
+<tr>
+<td><code>Start</code></td>
+<td>Once, just before the component's first <code>Update</code>, but only once the component is enabled</td>
+</tr>
+<tr>
+<td><code>FixedUpdate</code></td>
+<td>Every physics step, which might be zero, one, or several times per frame</td>
+</tr>
+<tr>
+<td><code>Update</code></td>
+<td>Every frame</td>
+</tr>
+<tr>
+<td><code>LateUpdate</code></td>
+<td>Every frame, after every <code>Update</code> has run</td>
+</tr>
+<tr>
+<td><code>OnDisable</code></td>
+<td>When the component is disabled or its GameObject is deactivated</td>
+</tr>
+<tr>
+<td><code>OnDestroy</code></td>
+<td>When the object is destroyed</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart LR
+    A["Awake"] --&gt; B["OnEnable"]
+    B --&gt; C["Start"]
+    C --&gt; D["FixedUpdate"]
+    D --&gt; E["Update"]
+    E --&gt; F["LateUpdate"]
+    F --&gt;|"next frame"| D
+    F --&gt; G["OnDisable"]
+    G --&gt; H["OnDestroy"]</code></pre>
+<details class="info">
+<summary>New to this? What's a frame?</summary>
+<p>A game redraws the screen many times per second, and each redraw is a <strong>frame</strong>. At 60 frames per second, <code>Update</code> runs about 60 times a second. Physics runs on its own fixed clock (<code>FixedUpdate</code>), which is why the two can run a different number of times.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Predict: two loggers</p>
+<p>This script logs a message from each method:</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">LifecycleLogger</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">{</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">hasLoggedUpdate</span><span class="p">;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Awake</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"{name}: Awake"</span><span class="p">);</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnEnable</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"{name}: OnEnable"</span><span class="p">);</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"{name}: Start"</span><span class="p">);</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Update</span><span class="p">()</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">hasLoggedUpdate</span><span class="p">)</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">            </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$"{name}: first Update"</span><span class="p">);</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">            </span><span class="n">hasLoggedUpdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>The scene has two GameObjects, <strong>A</strong> and <strong>B</strong>, each with a <code>LifecycleLogger</code>. On <strong>B</strong>, the <code>LifecycleLogger</code> component is <em>disabled</em> (its checkbox in the Inspector is unticked). Both GameObjects are active.</p>
+<p>Write down every line you expect in the Console after pressing Play, in order.</p>
+</div>
+<details class="success">
+<summary>Check your prediction</summary>
+<p>You'll see something like:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>A: Awake
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>B: Awake
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>A: OnEnable
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>A: Start
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>A: first Update
+</span></code></pre></div>
+<p>Three things are worth noticing:</p>
+<ol>
+<li><strong>B's <code>Awake</code> runs even though its component is disabled.</strong> <code>Awake</code> belongs to the object being loaded, not to the component being enabled. B never gets <code>OnEnable</code>, <code>Start</code>, or <code>Update</code>, until something enables it.</li>
+<li><strong>A and B might print in the other order.</strong> Unity <a href="https://docs.unity3d.com/6000.3/Documentation/ScriptReference/MonoBehaviour.Awake.html">explicitly doesn't guarantee</a> which object's <code>Awake</code> runs first, so your code can't rely on it.</li>
+<li><strong>Every <code>Awake</code> happens before any <code>Start</code>.</strong> Unity doesn't call <code>Start</code> on anything until <code>Awake</code> has run on every object in the scene.</li>
+</ol>
+<p>Points 2 and 3 together give you what I think is the most useful rule in this whole guide: <strong>set yourself up in <code>Awake</code>, and talk to other objects in <code>Start</code>.</strong> In <code>Awake</code>, the object you want to talk to might not exist yet. By <code>Start</code>, everybody's <code>Awake</code> is guaranteed to be done.</p>
+</details>
+<details class="tip">
+<summary>Try it in Unity</summary>
+<p>Make two cubes named A and B, add <code>LifecycleLogger</code> to both, untick it on B, and press Play. Then, while the game is running, tick B's checkbox and watch its <code>OnEnable</code> and <code>Start</code> show up.</p>
+</details>
+<div class="admonition example">
+<p class="admonition-title">Make: the enemy registry</p>
+<p>A <code>GameManager</code> needs to know about every enemy in the level, so it keeps a list. Each <code>Enemy</code> adds itself to that list when it appears, and removes itself when it's gone.</p>
+<p>Decide which lifecycle method each of these belongs in, and write a sentence justifying each choice:</p>
+<ol>
+<li>The <code>GameManager</code> creating its empty list.</li>
+<li>An <code>Enemy</code> adding itself to the list.</li>
+<li>An <code>Enemy</code> removing itself from the list.</li>
+</ol>
+</div>
+<details class="tip">
+<summary>Hint 1</summary>
+<p>For each step, ask: what has to <em>already exist</em> for this to work? Then find the earliest method where that's guaranteed.</p>
+</details>
+<details class="tip">
+<summary>Hint 2</summary>
+<p>Remember the two guarantees from the prediction above: the order of different objects' <code>Awake</code> calls is random, but every <code>Awake</code> finishes before any <code>Start</code>. Also think about enemies that get disabled and re-enabled (a pooled enemy, say), not just ones that are created and destroyed. The <a href="https://docs.unity3d.com/6000.3/Documentation/Manual/execution-order.html">execution order page</a> has the full picture.</p>
+</details>
+<details class="tip">
+<summary>Hint 3</summary>
+<p>The list is the manager's own setup, so it doesn't depend on anyone else. An enemy registering depends on the manager's list existing, which is only guaranteed after every <code>Awake</code>. For removal, think about which method is the natural "undo" of the one you picked for adding, so that disabling and re-enabling an enemy doesn't register it twice.</p>
+</details>
+<details class="note">
+<summary>What a good answer includes</summary>
+<ul>
+<li>The manager's list is created in the manager's own setup (its <code>Awake</code>, or even right where the field is declared).</li>
+<li>No enemy touches the manager during its own <code>Awake</code>, because the manager might not be set up yet.</li>
+<li>If you used <code>OnEnable</code> anywhere, you've accounted for the fact that at scene start it runs right after that same object's <code>Awake</code>.</li>
+<li>Adding and removing mirror each other, and you can say exactly what happens under your choice to an enemy that's disabled and re-enabled (like a pooled one).</li>
+<li>Your justifications talk about what's <em>guaranteed</em>, not what happened to work when you tried it once.</li>
+</ul>
+</details>
+<hr />
+<h2 id="prefabs">Prefabs<a class="headerlink" href="#prefabs" title="Anchor link to this section">&para;</a></h2>
+<p>A <strong>prefab</strong> is a GameObject (with all its components and children) saved as an asset, so you can stamp out copies of it. Each copy in a scene is a <strong>prefab instance</strong>, and instances stay linked to the prefab: change the prefab and every instance updates.</p>
+<p>Instances can still <strong>override</strong> individual values. Overridden values show up in bold in the Inspector, with a blue line next to them. And when you want a reusable "same thing, but different" version, like a Spear Goblin based on a Goblin, you make a <strong>prefab variant</strong>: a prefab built on top of another prefab.</p>
+<div class="admonition question">
+<p class="admonition-title">Predict: the mini-boss</p>
+<p>Your <code>Goblin</code> prefab has a <code>Health</code> component with a max health of <code>30</code>. You place 20 goblins in a level. On one of them, the mini-boss, you change max health to <code>100</code> in the Inspector.</p>
+<p>Later, you open the <code>Goblin</code> prefab and change its max health to <code>40</code>. What's the max health of each of the 20 goblins?</p>
+</div>
+<details class="success">
+<summary>Check your prediction</summary>
+<p>Nineteen goblins now have <code>40</code>, and the mini-boss still has <code>100</code>.</p>
+<p>An instance only stores what's <em>different</em> about it (its overrides). Everything else comes from the prefab, so the 19 untouched goblins pick up the change immediately. The mini-boss's max health was overridden, and Unity's rule is that <a href="https://docs.unity3d.com/6000.3/Documentation/Manual/PrefabInstanceOverrides.html">an override always wins</a> over the prefab's value.</p>
+<p>That's great when it's what you meant, and a super annoying bug when it isn't: if you accidentally modify a value on some instance, prefab changes will ignore it.</p>
+</details>
+<div class="admonition example">
+<p class="admonition-title">Make: prefabs, variants, or overrides?</p>
+<p>Go back to the scene you took apart earlier. For each object, decide:</p>
+<ol>
+<li>Should it be a prefab?</li>
+<li>Would any prefabs make good variants of each other?</li>
+<li>Which differences are just per-placement tweaks (overrides) rather than a new kind of thing (a variant)?</li>
+</ol>
+</div>
+<details class="tip">
+<summary>Hint 1</summary>
+<p>Ask: if I placed this object twice, would I want a fix to one of them to fix both?</p>
+</details>
+<details class="tip">
+<summary>Hint 2</summary>
+<p>Variants are for <em>kinds</em> of things you'll reuse ("Spear Goblin" everywhere), and overrides are for one specific placement ("this particular goblin guards the door, so it's tougher"). The <a href="https://docs.unity3d.com/6000.3/Documentation/Manual/Prefabs.html">Prefabs manual page</a> covers both.</p>
+</details>
+<details class="tip">
+<summary>Hint 3</summary>
+<p>If you'd find yourself making the same five overrides on every instance of something, that's a variant asking to exist. If a change only makes sense for one spot in one level, it's an override.</p>
+</details>
+<details class="note">
+<summary>What a good answer includes</summary>
+<ul>
+<li>Anything that appears more than once is a prefab.</li>
+<li>Variants for reusable kinds that share most of their structure, not for one-off tweaks.</li>
+<li>Overrides for placement-specific changes, and a reason why each one isn't a variant.</li>
+<li>A few things that aren't prefabs at all, because they only ever exist once and never get spawned (though even those are often prefabs so they're easy to reuse across scenes, which is a fine answer too).</li>
+</ul>
+</details>
+<hr />
+<h2 id="two-things-youll-meet-next">Two Things You'll Meet Next<a class="headerlink" href="#two-things-youll-meet-next" title="Anchor link to this section">&para;</a></h2>
+<p><strong>ScriptableObjects.</strong> Not everything lives in a scene. A ScriptableObject is an <em>asset</em>, like a texture or a sound, that holds data instead of pixels. A spell's damage and cooldown, an enemy type's stats, a level's settings: all good ScriptableObject material, shared by everything that references them. <a href="../data-driven-design/">Data-Driven Design</a> is all about these.</p>
+<p><strong>How objects find each other.</strong> A turret needs to know where the player is, and a health bar needs to know when health changes. The three most common ways are a serialized reference (drag the object into a field in the Inspector), <code>GetComponent</code> (grab another component on the same GameObject), and events (announce that something happened and let whoever cares listen). Choosing between them is a big part of <a href="../oop-toolkit/">The OOP Toolkit</a>.</p>
+<hr />
+<h2 id="this-weeks-game-idea">This Week's Game Idea<a class="headerlink" href="#this-weeks-game-idea" title="Anchor link to this section">&para;</a></h2>
+<div class="admonition example">
+<p class="admonition-title">This week's game idea</p>
+<p>Pick one mechanic from this week's game idea and break it into GameObjects and components, the same way you took apart a game you know. Then look for components the <em>whole game</em> could reuse across different objects.</p>
+</div>
+<hr />
+<h2 id="going-further">Going Further<a class="headerlink" href="#going-further" title="Anchor link to this section">&para;</a></h2>
+<p>If you finished early, or this was all familiar:</p>
+<ul>
+<li><strong><a href="../csharp-for-unity/">C# for Unity</a>:</strong> the language-level stuff (properties, events, structs, and Unity's strange version of <code>null</code>), especially if you're coming from Java, Python, or C++.</li>
+<li><strong><a href="../thinking-like-an-engineer/">Thinking Like an Engineer</a>:</strong> why "a thing is what it's made of" is a good idea far beyond Unity.</li>
+<li><strong>The <a href="https://docs.unity3d.com/6000.3/Documentation/Manual/execution-order.html">execution order page</a></strong> has the complete lifecycle diagram, including the physics and rendering steps this guide skipped.</li>
+</ul>
+<hr />
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Anchor link to this section">&para;</a></h2>
+<ul>
+<li><a href="../designing-a-system/">Designing a System</a>: next meeting, we use this mental model to design a system for this week's game idea.</li>
+<li><a href="../csharp-style-guide/">C# Style Guide</a>: how we write the scripts you've been reading.</li>
+</ul>
+<hr />
+<h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Anchor link to this section">&para;</a></h2>
+<ul>
+<li><a href="https://docs.unity3d.com/6000.3/Documentation/Manual/GameObjects.html">Unity Manual: GameObjects</a>: the official explanation of GameObjects as containers for components.</li>
+<li><a href="https://docs.unity3d.com/6000.3/Documentation/Manual/Prefabs.html">Unity Manual: Prefabs</a>: instances, overrides, nesting, and variants in depth.</li>
+<li><a href="https://docs.unity3d.com/6000.3/Documentation/Manual/script-serialization-rules.html">Unity Manual: Script serialization rules</a>: exactly what Unity saves and shows in the Inspector.</li>
+<li><a href="https://docs.unity3d.com/6000.3/Documentation/Manual/execution-order.html">Unity Manual: Event function execution order</a>: the full lifecycle.</li>
+<li><a href="https://gameprogrammingpatterns.com/component.html">Game Programming Patterns: Component</a>: Robert Nystrom's chapter on the pattern Unity is built around, and a great read in general.</li>
+</ul>
 
 
 
@@ -2831,7 +3604,7 @@ better to use the channel.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 1, 2026 15:34:19 UTC"><span class="timeago" datetime="2026-09-01T15:34:19+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 1, 2026 15:34:19 UTC">2026-09-01</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 11, 2026 01:09:36 UTC"><span class="timeago" datetime="2026-09-11T01:09:36+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 11, 2026 01:09:36 UTC">2026-09-11</span>
   </span>
 
     
@@ -2841,7 +3614,7 @@ better to use the channel.</p>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 28, 2026 20:21:54 UTC"><span class="timeago" datetime="2026-08-28T20:21:54+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 28, 2026 20:21:54 UTC">2026-08-28</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 11, 2026 01:09:36 UTC"><span class="timeago" datetime="2026-09-11T01:09:36+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 11, 2026 01:09:36 UTC">2026-09-11</span>
   </span>
 
     
@@ -2856,7 +3629,7 @@ better to use the channel.</p>
     </span>
     <nav>
       
-        <a href="mailto:thederkharry@gmail.com">Derek Harris</a>
+        <a href="mailto:psukesh@purdue.edu">Pranav Sukesh</a>
     </nav>
   </span>
 
@@ -2893,7 +3666,7 @@ better to use the channel.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Story Tutorials">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Programming Tutorials">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2903,20 +3676,20 @@ better to use the channel.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Story Tutorials
+                Programming Tutorials
               </div>
             </div>
           </a>
         
         
           
-          <a href="../story-design-doc/" class="md-footer__link md-footer__link--next" aria-label="Next: Story Design Doc">
+          <a href="../designing-a-system/" class="md-footer__link md-footer__link--next" aria-label="Next: Designing a System">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Story Design Doc
+                Designing a System
               </div>
             </div>
             <div class="md-footer__button md-icon">

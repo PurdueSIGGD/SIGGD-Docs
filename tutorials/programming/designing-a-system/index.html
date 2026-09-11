@@ -6,37 +6,37 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Recommended engines, editors, and productivity tools used by SIGGD members.">
+        <meta name="description" content="A repeatable process for designing a game system before you build it: scenarios, CRC cards, trade-offs, and a class diagram, with a full worked example.">
       
       
         <meta name="author" content="Purdue SIGGD">
       
       
-        <link rel="canonical" href="https://PurdueSIGGD.github.io/SIGGD-Docs/resources/tools/">
+        <link rel="canonical" href="https://PurdueSIGGD.github.io/SIGGD-Docs/tutorials/programming/designing-a-system/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../how-unity-thinks/">
       
       
-        <link rel="next" href="../external-references/">
+        <link rel="next" href="../data-driven-design/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Tools - SIGGD Docs</title>
+        <title>Designing a System - SIGGD Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,11 +55,11 @@
       
     
     
-      <link rel="stylesheet" href="../../css/timeago.css">
+      <link rel="stylesheet" href="../../../css/timeago.css">
     
-      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tools" class="md-skip">
+        <a href="#designing-a-system" class="md-skip">
           Skip to content
         </a>
       
@@ -100,9 +100,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="SIGGD Docs" class="md-header__button md-logo" aria-label="SIGGD Docs" data-md-component="logo">
+    <a href="../../.." title="SIGGD Docs" class="md-header__button md-logo" aria-label="SIGGD Docs" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Tools
+              Designing a System
             
           </span>
         </div>
@@ -217,7 +217,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -234,11 +234,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../tutorials/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -260,7 +262,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../projects/" class="md-tabs__link">
+        <a href="../../../projects/" class="md-tabs__link">
           
   
   
@@ -278,13 +280,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../resources/" class="md-tabs__link">
           
   
   
@@ -306,7 +306,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../contributing/" class="md-tabs__link">
+        <a href="../../../contributing/" class="md-tabs__link">
           
   
   
@@ -328,7 +328,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../about/" class="md-tabs__link">
+        <a href="../../../about/" class="md-tabs__link">
           
   
   
@@ -370,9 +370,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="SIGGD Docs" class="md-nav__button md-logo" aria-label="SIGGD Docs" data-md-component="logo">
+    <a href="../../.." title="SIGGD Docs" class="md-nav__button md-logo" aria-label="SIGGD Docs" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     SIGGD Docs
@@ -399,7 +399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -423,6 +423,8 @@
       
   
   
+    
+  
   
   
     
@@ -446,18 +448,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tutorials/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -475,13 +480,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -498,6 +503,8 @@
                 
   
   
+    
+  
   
   
     
@@ -518,15 +525,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tutorials/programming/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -550,7 +557,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -567,8 +574,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -587,11 +596,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
@@ -612,7 +621,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -630,7 +639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/programming/how-unity-thinks/" class="md-nav__link">
+      <a href="../how-unity-thinks/" class="md-nav__link">
         
   
   
@@ -662,10 +671,44 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../tutorials/programming/designing-a-system/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Designing a System
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--published"></span>
+  
+
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -688,6 +731,191 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Roles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-write-the-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Write the Scenarios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-find-the-candidate-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Find the Candidate Objects
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-make-crc-cards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Make CRC Cards
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-walk-the-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Walk the Scenarios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-split-data-from-code-and-hide-what-will-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Split Data from Code, and Hide What Will Change
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-decide-how-things-talk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Decide How Things Talk
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-design-it-twice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Design It Twice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-draw-the-class-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Draw the Class Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-9-optional-spike-the-riskiest-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 9 (Optional): Spike the Riskiest Part
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-smells" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Smells
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -700,7 +928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/programming/data-driven-design/" class="md-nav__link">
+      <a href="../data-driven-design/" class="md-nav__link">
         
   
   
@@ -735,7 +963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/programming/oop-toolkit/" class="md-nav__link">
+      <a href="../oop-toolkit/" class="md-nav__link">
         
   
   
@@ -836,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/programming/csharp-style-guide/" class="md-nav__link">
+      <a href="../csharp-style-guide/" class="md-nav__link">
         
   
   
@@ -864,7 +1092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/programming/csharp-for-unity/" class="md-nav__link">
+      <a href="../csharp-for-unity/" class="md-nav__link">
         
   
   
@@ -899,7 +1127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/programming/thinking-like-an-engineer/" class="md-nav__link">
+      <a href="../thinking-like-an-engineer/" class="md-nav__link">
         
   
   
@@ -971,7 +1199,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tutorials/art-and-assets/" class="md-nav__link ">
+            <a href="../../art-and-assets/" class="md-nav__link ">
               
   
   
@@ -1039,7 +1267,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tutorials/audio/" class="md-nav__link ">
+            <a href="../../audio/" class="md-nav__link ">
               
   
   
@@ -1115,7 +1343,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tutorials/story/" class="md-nav__link ">
+            <a href="../../story/" class="md-nav__link ">
               
   
   
@@ -1159,7 +1387,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/story/story-team-standards/" class="md-nav__link">
+      <a href="../../story/story-team-standards/" class="md-nav__link">
         
   
   
@@ -1187,7 +1415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/story/story-design-doc/" class="md-nav__link">
+      <a href="../../story/story-design-doc/" class="md-nav__link">
         
   
   
@@ -1215,7 +1443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/story/story-tasks/" class="md-nav__link">
+      <a href="../../story/story-tasks/" class="md-nav__link">
         
   
   
@@ -1243,7 +1471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/story/story-team-onboarding/" class="md-nav__link">
+      <a href="../../story/story-team-onboarding/" class="md-nav__link">
         
   
   
@@ -1304,7 +1532,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tutorials/general/" class="md-nav__link ">
+            <a href="../../general/" class="md-nav__link ">
               
   
   
@@ -1348,7 +1576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/general/getting-set-up/" class="md-nav__link">
+      <a href="../../general/getting-set-up/" class="md-nav__link">
         
   
   
@@ -1439,7 +1667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/general/gitgood/" class="md-nav__link">
+      <a href="../../general/gitgood/" class="md-nav__link">
         
   
   
@@ -1474,7 +1702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/general/gitgood2/" class="md-nav__link">
+      <a href="../../general/gitgood2/" class="md-nav__link">
         
   
   
@@ -1555,7 +1783,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../projects/" class="md-nav__link ">
+            <a href="../../../projects/" class="md-nav__link ">
               
   
   
@@ -1626,7 +1854,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../projects/2627-game/" class="md-nav__link ">
+            <a href="../../../projects/2627-game/" class="md-nav__link ">
               
   
   
@@ -1702,7 +1930,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../projects/2627-game/codebase/" class="md-nav__link ">
+            <a href="../../../projects/2627-game/codebase/" class="md-nav__link ">
               
   
   
@@ -1746,7 +1974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/2627-game/codebase/systems/" class="md-nav__link">
+      <a href="../../../projects/2627-game/codebase/systems/" class="md-nav__link">
         
   
   
@@ -1774,7 +2002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/2627-game/codebase/scripts/" class="md-nav__link">
+      <a href="../../../projects/2627-game/codebase/scripts/" class="md-nav__link">
         
   
   
@@ -1835,7 +2063,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../projects/2627-game/story/" class="md-nav__link ">
+            <a href="../../../projects/2627-game/story/" class="md-nav__link ">
               
   
   
@@ -1879,7 +2107,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/2627-game/story/story-design-doc/" class="md-nav__link">
+      <a href="../../../projects/2627-game/story/story-design-doc/" class="md-nav__link">
         
   
   
@@ -1907,7 +2135,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/2627-game/story/story-tasks/" class="md-nav__link">
+      <a href="../../../projects/2627-game/story/story-tasks/" class="md-nav__link">
         
   
   
@@ -1943,7 +2171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/2627-game/team/" class="md-nav__link">
+      <a href="../../../projects/2627-game/team/" class="md-nav__link">
         
   
   
@@ -1983,8 +2211,6 @@
       
   
   
-    
-  
   
   
     
@@ -2002,21 +2228,18 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../../resources/" class="md-nav__link ">
               
   
   
@@ -2034,13 +2257,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2057,37 +2280,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tools
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../resources/tools/" class="md-nav__link">
         
   
   
@@ -2103,216 +2299,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#game-engines" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Game Engines
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Game Engines">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#unity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unity
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#programming" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Programming
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Programming">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#visual-studio-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visual Studio Code
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jetbrains-rider" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        JetBrains Rider
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#art-design" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Art &amp; Design
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Art &amp; Design">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#blender" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Blender
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#audio" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Audio
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Audio">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#audacity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Audacity
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fmod-studio" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        FMOD Studio
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-control" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version Control
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Version Control">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#git-github-desktop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Git + GitHub Desktop
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Documentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mkdocs-material" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MkDocs + Material
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2325,7 +2311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../external-references/" class="md-nav__link">
+      <a href="../../../resources/external-references/" class="md-nav__link">
         
   
   
@@ -2387,7 +2373,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../contributing/" class="md-nav__link ">
+            <a href="../../../contributing/" class="md-nav__link ">
               
   
   
@@ -2431,7 +2417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/style-guide/" class="md-nav__link">
+      <a href="../../../contributing/style-guide/" class="md-nav__link">
         
   
   
@@ -2459,7 +2445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/markdown-cheatsheet/" class="md-nav__link">
+      <a href="../../../contributing/markdown-cheatsheet/" class="md-nav__link">
         
   
   
@@ -2551,7 +2537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/templates/tutorial-template/" class="md-nav__link">
+      <a href="../../../contributing/templates/tutorial-template/" class="md-nav__link">
         
   
   
@@ -2586,7 +2572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/templates/project-template/" class="md-nav__link">
+      <a href="../../../contributing/templates/project-template/" class="md-nav__link">
         
   
   
@@ -2621,7 +2607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/templates/codebase-template/" class="md-nav__link">
+      <a href="../../../contributing/templates/codebase-template/" class="md-nav__link">
         
   
   
@@ -2649,7 +2635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/templates/system-template/" class="md-nav__link">
+      <a href="../../../contributing/templates/system-template/" class="md-nav__link">
         
   
   
@@ -2677,7 +2663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/templates/script-template/" class="md-nav__link">
+      <a href="../../../contributing/templates/script-template/" class="md-nav__link">
         
   
   
@@ -2705,7 +2691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/templates/resource-template/" class="md-nav__link">
+      <a href="../../../contributing/templates/resource-template/" class="md-nav__link">
         
   
   
@@ -2771,7 +2757,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../about/" class="md-nav__link ">
+            <a href="../../../about/" class="md-nav__link ">
               
   
   
@@ -2815,7 +2801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../about/contributors/" class="md-nav__link">
+      <a href="../../../about/contributors/" class="md-nav__link">
         
   
   
@@ -2870,192 +2856,167 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#game-engines" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Game Engines
+        Prerequisites
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Game Engines">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#unity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unity
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#programming" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Programming
+        Introduction
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Programming">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#visual-studio-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visual Studio Code
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jetbrains-rider" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        JetBrains Rider
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#art-design" class="md-nav__link">
+  <a href="#roles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Art &amp; Design
+        Roles
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Art &amp; Design">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#blender" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Blender
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#audio" class="md-nav__link">
+  <a href="#step-1-write-the-scenarios" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Audio
+        Step 1: Write the Scenarios
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Audio">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#audacity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Audacity
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fmod-studio" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        FMOD Studio
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#version-control" class="md-nav__link">
+  <a href="#step-2-find-the-candidate-objects" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Version Control
+        Step 2: Find the Candidate Objects
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Version Control">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#git-github-desktop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Git + GitHub Desktop
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
+  <a href="#step-3-make-crc-cards" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Documentation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Documentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mkdocs-material" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MkDocs + Material
+        Step 3: Make CRC Cards
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-walk-the-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Walk the Scenarios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-split-data-from-code-and-hide-what-will-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Split Data from Code, and Hide What Will Change
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-decide-how-things-talk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Decide How Things Talk
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-design-it-twice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Design It Twice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-draw-the-class-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Draw the Class Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-9-optional-spike-the-riskiest-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 9 (Optional): Spike the Riskiest Part
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-smells" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Smells
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
+      
+    </span>
+  </a>
   
 </li>
       
@@ -3084,7 +3045,7 @@
   
   
     <li class="md-path__item">
-      <a href="../.." class="md-path__link">
+      <a href="../../.." class="md-path__link">
         
   <span class="md-ellipsis">
     Home
@@ -3102,10 +3063,46 @@
     
     
       <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Resources
+    Programming
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../how-unity-thinks/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Onboarding Workshops
   </span>
 
         </a>
@@ -3128,21 +3125,28 @@
       
       
       
-        <a href="../../tags/#tag:resources" class="md-tag">resources</a>
+        <a href="../../../tags/#tag:beginner" class="md-tag">beginner</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:tools" class="md-tag">tools</a>
+        <a href="../../../tags/#tag:programming" class="md-tag">programming</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:unity" class="md-tag">unity</a>
       
     
   </nav>
 
 
   
-    <a href="https://github.com/PurdueSIGGD/SIGGD-Docs/edit/main/docs/resources/tools.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/PurdueSIGGD/SIGGD-Docs/edit/main/docs/tutorials/programming/designing-a-system.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -3151,77 +3155,416 @@
     
       
     
-    <a href="https://github.com/PurdueSIGGD/SIGGD-Docs/raw/main/docs/resources/tools.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/PurdueSIGGD/SIGGD-Docs/raw/main/docs/tutorials/programming/designing-a-system.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="tools">Tools<a class="headerlink" href="#tools" title="Anchor link to this section">&para;</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Link freshness</p>
-<p>If a link is broken, please <a href="https://github.com/PurdueSIGGD/SIGGD-Docs/issues">open an issue</a>.</p>
+<h1 id="designing-a-system">Designing a System<a class="headerlink" href="#designing-a-system" title="Anchor link to this section">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">What You Will Learn</p>
+<p>By the end of this guide you will be able to:</p>
+<ul>
+<li>Turn a vague feature ("checkpoints!") into concrete scenarios</li>
+<li>Find the objects in a system and give each one clear responsibilities</li>
+<li>Test a design by walking through it before writing any code</li>
+<li>Compare two designs and pick one for a reason</li>
+<li>Draw a class diagram other people can actually read</li>
+</ul>
+</div>
+<p><strong>Difficulty:</strong> Beginner · <strong>Time:</strong> ~60 minutes</p>
+<hr />
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Anchor link to this section">&para;</a></h2>
+<p>Before starting, make sure you have:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A few index cards (or sheets of paper you can tear up), and a pen, or a whiteboard, or anything else you can share and draw on</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A group of three or four people, if you're doing this in a meeting</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Read <a href="../how-unity-thinks/">How Unity Thinks</a>, or you're comfortable with GameObjects and components</li>
+</ul>
+<hr />
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Anchor link to this section">&para;</a></h2>
+<p>Here's a thing that happens constantly on game teams, and software projects in general. Someone gets assigned "the checkpoint system," opens their editor, and starts typing. Two days later it works, sort of, but the player script now knows about the fade effect, the checkpoint knows about the enemies, and adding "reset the collectibles on respawn" means editing four files. Nobody made a bad decision on purpose. They just made all of their decisions while typing, one line at a time, without ever seeing the whole thing at once.</p>
+<p>This guide is about seeing the whole thing first. You'll design a system on paper, with boxes and arrows, before anybody writes a line of it. It isn't about producing a perfect plan, because the plan <em>will</em> change when you build it. It's about making the big decisions (who owns what, who talks to whom, what's likely to change) deliberately, while they're still cheap to change.</p>
+<p>The process has ten steps, and you'll see every step applied to a full example, a <strong>checkpoint and respawn system</strong>, so you know what each step's output looks like before you make your own.</p>
+<div class="admonition info">
+<p class="admonition-title">Using this on a real system</p>
+<p>None of this is workshop-only. When you're about to build a real system for the game, run the same steps (even alone, even quickly), then turn the result into a page with the <a href="../../../contributing/templates/system-template/">System Template</a> and link it from the system's GitHub issue. Future you (and everyone else!) will be very grateful.</p>
 </div>
 <hr />
-<h2 id="game-engines">Game Engines<a class="headerlink" href="#game-engines" title="Anchor link to this section">&para;</a></h2>
-<h3 id="unity">Unity<a class="headerlink" href="#unity" title="Anchor link to this section">&para;</a></h3>
-<p><strong>Cost:</strong> Free for personal/educational use<br />
-<strong>Link:</strong> <a href="https://unity.com">unity.com</a></p>
-<p>The engine SIGGD projects use. C# scripting, a massive asset store, and
-an enormous community.</p>
+<h2 id="roles">Roles<a class="headerlink" href="#roles" title="Anchor link to this section">&para;</a></h2>
+<p>If you're in a group, I recommend you split these up.</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Job</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Facilitator</strong></td>
+<td>Keeps time, keeps the group moving through the steps, and makes sure everyone gets heard.</td>
+</tr>
+<tr>
+<td><strong>Scribe</strong></td>
+<td>Writes the cards and draws the diagram. Everyone contributes, but one person holds the pen.</td>
+</tr>
+<tr>
+<td><strong>Skeptic</strong></td>
+<td>Tries to break the design. "What happens if the player dies <em>during</em> the fade?" is exactly their job.</td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h2 id="programming">Programming<a class="headerlink" href="#programming" title="Anchor link to this section">&para;</a></h2>
-<h3 id="visual-studio-code">Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Anchor link to this section">&para;</a></h3>
-<p><strong>Cost:</strong> Free<br />
-<strong>Link:</strong> <a href="https://code.visualstudio.com">code.visualstudio.com</a></p>
-<p>Recommended code editor for most SIGGD work. Excellent extensions for C#, and Markdown. Integrates with Git natively.</p>
+<h2 id="step-1-write-the-scenarios">Step 1: Write the Scenarios<a class="headerlink" href="#step-1-write-the-scenarios" title="Anchor link to this section">&para;</a></h2>
+<p><strong>You'll produce:</strong> three to five short scenarios, plus at least one edge case.</p>
+<p>A scenario is one concrete thing that happens, told from a player's perspective: "the player does X, then Y happens." Ideally, this isn't something vague like "the system handles respawning," since that could mean anything, but "the player falls in a pit, the screen fades out, and they reappear at the last checkpoint."</p>
+<p>Scenarios are a soft way of describing unit tests, a set of trials that every decision you make later gets tested against. Saving these will force you to notice the questions that nobody's answered yet.</p>
+<details class="example">
+<summary>Worked example: scenarios</summary>
+<ol>
+<li>The player walks through a checkpoint for the first time. It lights up, and a "Checkpoint reached" message appears for a moment.</li>
+<li>The player dies (falls in a pit, or runs out of health). The screen fades to black, the player reappears at the last checkpoint they reached with full health, and the screen fades back in.</li>
+<li>The player reaches a second checkpoint. Now dying sends them there, not to the first one.</li>
+<li>The player walks back through the <em>first</em> checkpoint again. It becomes the active one again.</li>
+<li><strong>Edge case:</strong> the player dies before touching any checkpoint. They respawn at the start of the level.</li>
+<li><strong>Edge case:</strong> the player takes damage from lava <em>while</em> the respawn fade is happening. Nothing extra happens.</li>
+</ol>
+<p>Writing scenario 4 forced a decision: does revisiting an old checkpoint reactivate it?. And one question didn't get answered at all: do enemies reset when you respawn? That one becomes an open question for now.</p>
+<p>In practice, these decisions you'll have to make will be in conjunction with other teams, like design. For now, we can make those decisions ourselves, but game development is a multidisciplinary task, so collaboration here will help in the future.</p>
+</details>
 <hr />
-<h3 id="jetbrains-rider">JetBrains Rider<a class="headerlink" href="#jetbrains-rider" title="Anchor link to this section">&para;</a></h3>
-<p><strong>Cost:</strong> Free for students (JetBrains Student License)<br />
-<strong>Link:</strong> <a href="https://www.jetbrains.com/rider">jetbrains.com/rider</a></p>
-<p>Full-featured C# IDE. Significantly better Unity integration than VS Code.
-Apply for a free student license with your Purdue email.</p>
+<h2 id="step-2-find-the-candidate-objects">Step 2: Find the Candidate Objects<a class="headerlink" href="#step-2-find-the-candidate-objects" title="Anchor link to this section">&para;</a></h2>
+<p><strong>You'll produce:</strong> a rough list of the objects your system might need.</p>
+<p>Go through your scenarios and underline the <strong>nouns</strong> (they're candidate objects) and the <strong>verbs</strong> (they're candidate responsibilities).</p>
+<p>Then filter it, because not every noun deserves to be a class:</p>
+<ul>
+<li>Some nouns are just <strong>data</strong>. A "spawn point" might only be a position.</li>
+<li>Some are <strong>processes</strong>, not things. "Respawning" is something that happens; the question is who <em>does</em> it.</li>
+<li>Some already <strong>exist</strong>. If the game already has a <code>PlayerHealth</code>, reuse it.</li>
+</ul>
+<details class="example" open="open">
+<summary>Worked example: candidates</summary>
+<p><strong>Nouns:</strong> player, checkpoint, message, screen, health, level start, pit, lava, enemies.</p>
+<p><strong>Verbs:</strong> walk through, light up, show, die, fade, reappear, remember (which checkpoint was last), restore (health).</p>
+<p><strong>After filtering:</strong></p>
+<ul>
+<li><code>Checkpoint</code>: definitely a thing.</li>
+<li><code>PlayerHealth</code>: already exists in the game; we'll use it.</li>
+<li>Something that fades the screen: <code>ScreenFader</code>.</li>
+<li>Something that shows the message: <code>CheckpointMessage</code> (UI).</li>
+<li>"Level start" is really just a place to respawn, which sounds a lot like a checkpoint, so perhaps we could reuse that if there's no functional difference.</li>
+<li>"Remember the last checkpoint" and "make the player reappear" are verbs with no obvious owner yet. That's the real question this design needs to resolve.</li>
+</ul>
+</details>
 <hr />
-<h2 id="art-design">Art &amp; Design<a class="headerlink" href="#art-design" title="Anchor link to this section">&para;</a></h2>
-<h3 id="blender">Blender<a class="headerlink" href="#blender" title="Anchor link to this section">&para;</a></h3>
-<p><strong>Cost:</strong> Free and open source<br />
-<strong>Link:</strong> <a href="https://www.blender.org">blender.org</a></p>
-<p>The gold standard in open-source 3D. Modeling, rigging, animation, rendering,
-and a game-ready export pipeline.</p>
+<h2 id="step-3-make-crc-cards">Step 3: Make CRC Cards<a class="headerlink" href="#step-3-make-crc-cards" title="Anchor link to this section">&para;</a></h2>
+<p><strong>You'll produce:</strong> one index card per class.</p>
+<p>CRC stands for <strong>Class, Responsibilities, Collaborators</strong>. It's a technique from the late 1980s, invented specifically to teach people to think in objects, and it still works because it's physical and fast. Each card has:</p>
+<ul>
+<li><strong>Class:</strong> the name, at the top.</li>
+<li><strong>Responsibilities:</strong> two to four short verb phrases for what this class knows or does. "Remembers the active checkpoint." "Detects the player."</li>
+<li><strong>Collaborators:</strong> the other classes it has to work with to do its job.</li>
+</ul>
+<p>Keep them small on purpose. If a card runs out of room, then the class probably does too much (at least at this scale).</p>
+<details class="example" open="open">
+<summary>Worked example: first draft of the cards</summary>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Responsibilities</th>
+<th>Collaborators</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Checkpoint</strong></td>
+<td>Knows where the player should appear. Detects the player walking through. Shows active or inactive visuals.</td>
+<td>Player</td>
+</tr>
+<tr>
+<td><strong>RespawnSystem</strong></td>
+<td>Remembers the active checkpoint. Respawns the player when they die.</td>
+<td>Checkpoint, PlayerHealth, ScreenFader</td>
+</tr>
+<tr>
+<td><strong>PlayerHealth</strong></td>
+<td>Tracks health. Announces when the player dies. Resets to full.</td>
+<td>(none)</td>
+</tr>
+<tr>
+<td><strong>ScreenFader</strong></td>
+<td>Fades the screen to black and says when it's done.</td>
+<td>(none)</td>
+</tr>
+<tr>
+<td><strong>CheckpointMessage</strong></td>
+<td>Shows "Checkpoint reached" briefly.</td>
+<td>RespawnSystem</td>
+</tr>
+</tbody>
+</table>
+<p><code>RespawnSystem</code> exists because of the question from step 2: <em>somebody</em> has to own "remember the last checkpoint" and "run the respawn." (See Step 7, where this is compared against the more straightforward but worse alternative, where checkpoints do it themselves.)</p>
+</details>
 <hr />
-<h2 id="audio">Audio<a class="headerlink" href="#audio" title="Anchor link to this section">&para;</a></h2>
-<h3 id="audacity">Audacity<a class="headerlink" href="#audacity" title="Anchor link to this section">&para;</a></h3>
-<p><strong>Cost:</strong> Free and open source<br />
-<strong>Link:</strong> <a href="https://www.audacityteam.org">audacityteam.org</a></p>
-<p>Simple audio recording and editing. Good for recording and trimming SFX.
-Not a full DAW, but excellent for basic needs.</p>
+<h2 id="step-4-walk-the-scenarios">Step 4: Walk the Scenarios<a class="headerlink" href="#step-4-walk-the-scenarios" title="Anchor link to this section">&para;</a></h2>
+<p><strong>You'll produce:</strong> updated cards, and a list of gaps you found.</p>
+<p>This is the most important step, so don't rush it. Lay the cards out on the table. Take a scenario, and act it out: whoever holds a card speaks for that class. "I'm the Checkpoint. The player just walked through me, so I tell the RespawnSystem..." When a scenario needs something that no card is responsible for, you've found a gap, so give the responsibility to an existing card or make a new one.</p>
+<p>This is a really easy and simple way to poke holes in a design that's too flimsy. The Skeptic should be throwing "what if" questions the whole time.</p>
+<details class="example" open="open">
+<summary>Worked example: walking scenario 2 (the player dies)</summary>
+<ul>
+<li><strong>PlayerHealth:</strong> "Health hit zero. I announce that the player died."</li>
+<li><strong>RespawnSystem:</strong> "I heard that. I tell the ScreenFader to fade out."</li>
+<li><strong>ScreenFader:</strong> "Faded out. I tell whoever asked that I'm done."</li>
+<li><strong>RespawnSystem:</strong> "I move the player to the active checkpoint's spawn position, and tell PlayerHealth to reset to full. Then I ask ScreenFader to fade back in."</li>
+<li><strong>Skeptic:</strong> "Wait. During the fade, can the player still move? Can they still take damage?"</li>
+</ul>
+<p><strong>Gaps found:</strong></p>
+<ol>
+<li><strong>Player control during respawn.</strong> Nobody stops the player from moving while the screen is black. We don't want RespawnSystem reaching into the player's movement script, so instead RespawnSystem announces "respawn started" and "respawn finished", and <code>PlayerController</code> listens and disables input in between. New collaborator, and RespawnSystem never has to know the movement script exists.</li>
+<li><strong>Scenario 5, no checkpoint yet.</strong> RespawnSystem has no active checkpoint to send the player to. Level start is very similar to a checkpoint, so just make it one; put a <code>Checkpoint</code> at the level start that begins active. No special case needed.</li>
+<li><strong>Scenario 6, damage during the fade.</strong> If PlayerHealth announces another death mid-respawn, we'd start a second respawn. RespawnSystem needs to know it's already respawning and ignore deaths until it's done.</li>
+</ol>
+</details>
 <hr />
-<h3 id="fmod-studio">FMOD Studio<a class="headerlink" href="#fmod-studio" title="Anchor link to this section">&para;</a></h3>
-<p><strong>Cost:</strong> Free for indie (revenue limits apply)<br />
-<strong>Link:</strong> <a href="https://www.fmod.com">fmod.com</a></p>
-<p>Professional audio middleware widely used in the games industry. Integrates
-directly with Unity and Unreal. Powerful adaptive audio tools.</p>
+<h2 id="step-5-split-data-from-code-and-hide-what-will-change">Step 5: Split Data from Code, and Hide What Will Change<a class="headerlink" href="#step-5-split-data-from-code-and-hide-what-will-change" title="Anchor link to this section">&para;</a></h2>
+<p><strong>You'll produce:</strong> a list of values designers should be able to tune, and a list of decisions likely to change, with where each one is hidden.</p>
+<p>Two questions for every card:</p>
+<ol>
+<li><strong>What's data?</strong> Numbers, timings, and settings a designer will want to tweak shouldn't be buried in code. They become serialized fields or data assets. (<a href="../data-driven-design/">Data-Driven Design</a> goes deep on this.)</li>
+<li><strong>What's likely to change?</strong> This is the big one. A system should be split up around the <em>decisions most likely to change</em>, with each one hidden inside one module so that changing it doesn't ripple through everything else. List the things you think will change, and make sure each one is contained in one place.</li>
+</ol>
+<details class="example" open="open">
+<summary>Worked example: data and change</summary>
+<p><strong>Data (designer-tunable):</strong></p>
+<ul>
+<li>Fade duration (on <code>ScreenFader</code>).</li>
+<li>How long the message stays up (on <code>CheckpointMessage</code>).</li>
+<li>Where each checkpoint puts the player (a child spawn-point object on each <code>Checkpoint</code>, so designers can drag it into place).</li>
+</ul>
+<p><strong>Likely to change, and where it's hidden:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Likely change</th>
+<th>Where it lives</th>
+<th>Why that's safe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>What</em> resets on respawn (enemies? collectibles? timers?)</td>
+<td>Each system that cares listens for "respawn finished" and resets itself</td>
+<td>Adding "reset the enemies" never touches RespawnSystem</td>
+</tr>
+<tr>
+<td>How the transition looks (fade, wipe, dissolve)</td>
+<td>Entirely inside <code>ScreenFader</code></td>
+<td>RespawnSystem only knows "transition out, transition in, tell me when done"</td>
+</tr>
+<tr>
+<td>Whether old checkpoints can reactivate</td>
+<td>One rule inside RespawnSystem</td>
+<td>Checkpoints just report being reached; they don't decide</td>
+</tr>
+</tbody>
+</table>
+<p>That first row is also the answer to our open question from step 1. We still don't know <em>whether</em> enemies reset, but the design no longer cares; the enemy system can just hook into it now.</p>
+</details>
 <hr />
-<h2 id="version-control">Version Control<a class="headerlink" href="#version-control" title="Anchor link to this section">&para;</a></h2>
-<h3 id="git-github-desktop">Git + GitHub Desktop<a class="headerlink" href="#git-github-desktop" title="Anchor link to this section">&para;</a></h3>
-<p><strong>Cost:</strong> Free<br />
-<strong>Link:</strong> <a href="https://desktop.github.com">desktop.github.com</a></p>
-<p>Git is essential for any collaborative game project. GitHub Desktop provides
-a user-friendly GUI for those not comfortable with the command line.</p>
+<h2 id="step-6-decide-how-things-talk">Step 6: Decide How Things Talk<a class="headerlink" href="#step-6-decide-how-things-talk" title="Anchor link to this section">&para;</a></h2>
+<p><strong>You'll produce:</strong> arrows between your cards showing who calls whom and who listens to whom, plus a state diagram if anything has distinct modes.</p>
+<p>For every collaborator line on your cards, decide how that conversation happens. The three everyday options:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Use it when</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Direct reference</strong> (a serialized field, a method call)</td>
+<td>A really needs B to do something, and there's one obvious B</td>
+<td>RespawnSystem tells ScreenFader to fade</td>
+</tr>
+<tr>
+<td><strong>Event</strong> (announce it, let listeners react)</td>
+<td>A just wants to say "this happened," and doesn't care who's listening, or how many</td>
+<td>PlayerHealth announces the player died</td>
+</tr>
+<tr>
+<td><strong>Interface</strong> (depend on "anything that can X")</td>
+<td>A needs <em>a kind of</em> thing, and there could be several kinds</td>
+<td>Anything that can be damaged is an <code>IDamageable</code></td>
+</tr>
+</tbody>
+</table>
+<p>Also look at the <em>direction</em> of each arrow. Arrows that go both ways between two cards (A knows B and B knows A) are a warning sign, because now neither can change without the other. <a href="../oop-toolkit/">The OOP Toolkit</a> goes deeper on all three options.</p>
+<p>If a class might behave differently depending on what it's currently doing, it might function as a state machine with different states. A state diagram is just the states as boxes and the events that move between them as arrows.</p>
+<details class="example" open="open">
+<summary>Worked example: communication</summary>
+<ul>
+<li><code>Checkpoint</code> &rarr; <code>RespawnSystem</code>: <strong>direct call.</strong> When the player walks through, the checkpoint calls <code>respawnSystem.ActivateCheckpoint(this)</code>. Each checkpoint gets the reference from a serialized field. It's one obvious receiver, and the arrow only goes one way.</li>
+<li><code>PlayerHealth</code> &rarr; <code>RespawnSystem</code>: <strong>event.</strong> PlayerHealth announces <code>Died</code> and has no idea who's listening. (The audio system and the stats screen might listen too.)</li>
+<li><code>RespawnSystem</code> &rarr; <code>ScreenFader</code>: <strong>direct call</strong>, with a callback so the fader can say when it's finished.</li>
+<li><code>RespawnSystem</code> &rarr; everyone else: <strong>events.</strong> <code>CheckpointActivated</code>, <code>RespawnStarted</code>, and <code>RespawnFinished</code>. <code>CheckpointMessage</code>, <code>PlayerController</code>, and anything that needs resetting just listen.</li>
+</ul>
+<p>RespawnSystem has modes (gap 3 from step 4), so it gets a state diagram:</p>
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; Waiting
+    Waiting --&gt; FadingOut : player died
+    FadingOut --&gt; Respawning : fade out finished
+    Respawning --&gt; FadingIn : player moved and health reset
+    FadingIn --&gt; Waiting : fade in finished
+    note right of FadingOut
+        Deaths are ignored in every
+        state except Waiting
+    end note</code></pre>
+</details>
 <hr />
-<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Anchor link to this section">&para;</a></h2>
-<h3 id="mkdocs-material">MkDocs + Material<a class="headerlink" href="#mkdocs-material" title="Anchor link to this section">&para;</a></h3>
-<p><strong>Cost:</strong> Free and open source<br />
-<strong>Link:</strong> <a href="https://squidfunk.github.io/mkdocs-material">squidfunk.github.io/mkdocs-material</a></p>
-<p>What this very site is built with. Markdown-based, deploys to GitHub Pages.
-See the <a href="../../contributing/">Contributing Guide</a> to add pages here.</p>
+<h2 id="step-7-design-it-twice">Step 7: Design It Twice<a class="headerlink" href="#step-7-design-it-twice" title="Anchor link to this section">&para;</a></h2>
+<p><strong>You'll produce:</strong> one different alternative, a short trade-off table, and a decision.</p>
+<p>Your first design is rarely your best one. It's just the first one you thought of. So before you commit, sketch a real alternative (not a small tweak) and compare them honestly.</p>
+<p>The comparison matters more than the winner. Writing down <em>why</em> you picked a design is what lets someone change it later without breaking the reasons it was built that way.</p>
+<details class="example" open="open">
+<summary>Worked example: two designs</summary>
+<p><strong>Design A: checkpoints do it themselves.</strong> No RespawnSystem. Each checkpoint listens for the player's death, and whichever checkpoint was activated most recently (tracked in a <code>static</code> field shared by all checkpoints) runs the respawn.</p>
+<p><strong>Design B: one coordinator.</strong> The design we've been building: checkpoints report being reached, and RespawnSystem owns remembering and respawning.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>A: checkpoints</th>
+<th>B: coordinator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of classes</td>
+<td>One fewer</td>
+<td>One more</td>
+</tr>
+<tr>
+<td>Where the respawn sequence lives</td>
+<td>Inside every checkpoint, but only one runs it at a time</td>
+<td>In one place</td>
+</tr>
+<tr>
+<td>Level start with no checkpoint</td>
+<td>Needs a special case</td>
+<td>Just a checkpoint that starts active</td>
+</tr>
+<tr>
+<td>"Already respawning" state</td>
+<td>A <code>static</code> field, which is global state in disguise</td>
+<td>A normal field on one object</td>
+</tr>
+<tr>
+<td>Adding "reset enemies on respawn"</td>
+<td>Edit Checkpoint</td>
+<td>Enemies listen for <code>RespawnFinished</code>; nothing else changes</td>
+</tr>
+<tr>
+<td>Figuring out what happened when it breaks</td>
+<td>Every checkpoint is a suspect</td>
+<td>One class to look at</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Decision: B.</strong> Respawning is one process, so it should have one owner. Design A may look smaller, but it spreads that one process across every checkpoint in the level and glues it together with shared static state, which is a massive code smell that could cause issues in the future if anything needs to change or be injected in.</p>
+</details>
 <hr />
-<div class="admonition tip">
-<p class="admonition-title">Missing a tool?</p>
-<p>Use the <a href="../../contributing/templates/resource-template/">Resource Template</a>
-to add it via pull request.</p>
-</div>
+<h2 id="step-8-draw-the-class-diagram">Step 8: Draw the Class Diagram<a class="headerlink" href="#step-8-draw-the-class-diagram" title="Anchor link to this section">&para;</a></h2>
+<p><strong>You'll produce:</strong> a diagram of your classes and how they connect.</p>
+<p>Typically, you'll see boxes for classes, arrows for relationships, and a label on each arrow saying what it means. If you want something you can paste into docs later, this site renders <a href="https://mermaid.js.org/syntax/classDiagram.html">Mermaid</a> diagrams, which are written as text. These five arrows cover almost everything:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>A --&gt; B     association: A uses or knows about B
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>A ..&gt; B     dependency: A depends on B loosely (listens to it, takes it as a parameter)
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>B &lt;|-- A    inheritance: A inherits from B
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>B &lt;|.. A    realization: A implements interface B
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>A *-- B     composition: A is made of B, and B can't exist without A
+</span></code></pre></div>
+<p>Inside a class, <code>+</code> means public and <code>-</code> means private. You don't need every field and method, just the ones that explain the design.</p>
+<details class="example" open="open">
+<summary>Worked example: the class diagram</summary>
+<pre class="mermaid"><code>classDiagram
+    class RespawnSystem {
+        -Transform player
+        -Checkpoint activeCheckpoint
+        -bool isRespawning
+        +ActivateCheckpoint(Checkpoint checkpoint)
+        +CheckpointActivated
+        +RespawnStarted
+        +RespawnFinished
+    }
+    class Checkpoint {
+        -Transform spawnPoint
+        +SpawnPosition
+        +SetActiveVisual(bool isActive)
+    }
+    class PlayerHealth {
+        +Died
+        +ResetToFull()
+    }
+    class ScreenFader {
+        -float fadeDuration
+        +FadeOut(Action onFinished)
+        +FadeIn(Action onFinished)
+    }
+    class CheckpointMessage {
+        -float displayDuration
+    }
+    class PlayerController
+
+    Checkpoint --&gt; RespawnSystem : reports reached
+    RespawnSystem --&gt; Checkpoint : remembers active
+    RespawnSystem ..&gt; PlayerHealth : listens for Died, resets
+    RespawnSystem --&gt; ScreenFader : fades
+    CheckpointMessage ..&gt; RespawnSystem : listens
+    PlayerController ..&gt; RespawnSystem : listens</code></pre>
+<p>Look closely and you'll notice one pair of arrows going both ways: <code>Checkpoint</code> reports to <code>RespawnSystem</code>, and <code>RespawnSystem</code> remembers a <code>Checkpoint</code>. It's fine here, since RespawnSystem only reads the checkpoint's position and toggles its visuals, but it's exactly the kind of thing the Skeptic should point at and ask about. That's what the diagram is for.</p>
+<p><strong>Still open:</strong> do enemies reset on respawn? Should checkpoints survive quitting the game? (That second one would mean talking to whoever builds the save system.)</p>
+</details>
+<hr />
+<h2 id="step-9-optional-spike-the-riskiest-part">Step 9 (Optional): Spike the Riskiest Part<a class="headerlink" href="#step-9-optional-spike-the-riskiest-part" title="Anchor link to this section">&para;</a></h2>
+<p><strong>You'll produce:</strong> a throwaway prototype, and something you learned from it.</p>
+<p>If you have time left, find the part of your design you're <em>least</em> sure about and build just that, as fast and messily as you like, in a blank project. This is called a spike: a quick experiment to answer one question, which you throw away afterwards. Don't build the whole system, just use this as a controlled prototype.</p>
+<p>For the checkpoint example, the risky part could be "does the fade feel okay at 0.5 seconds, and does disabling input actually stop the player mid-jump?" Testing this specific part out first before committing is a good idea.</p>
+<p>Then compare what you learned against your design. Did it hold up? What would you change? </p>
+<p>Designing a system is an ever-changing process, as you'll encounter a lot of issues in the process of implementation that you may need to tackle on the fly.</p>
+<hr />
+<h2 id="design-smells">Design Smells<a class="headerlink" href="#design-smells" title="Anchor link to this section">&para;</a></h2>
+<p>Things that should make you stop and look again, in your own design or someone else's:</p>
+<ul>
+<li><strong>The god class.</strong> I swear this is a real term; one card with eight responsibilities, and every other card lists it as a collaborator.</li>
+<li><strong>The do-everything Manager.</strong> <code>GameManager</code> is where responsibilities go when nothing owns them.</li>
+<li><strong>Arrows both ways.</strong> Two classes that each depend on the other can't change independently and are forever coupled.</li>
+<li><strong>Everyone talks to everyone.</strong> If your diagram looks like a spider web, some of those conversations probably want to be events.</li>
+<li><strong>Data baked into behavior.</strong> Numbers a designer might need to tune that lives inside a method.</li>
+<li><strong>A class that only forwards.</strong> If a card's only responsibility is "passes things along to another card," you can probably merge them.</li>
+<li><strong>Singletons as glue.</strong> <code>Something.Instance</code> everywhere means every class secretly depends on it, which is really easy to turn into a god object.</li>
+</ul>
+<hr />
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Anchor link to this section">&para;</a></h2>
+<ul>
+<li><a href="../data-driven-design/">Data-Driven Design</a>: what to do with everything you marked as "data" in step 5.</li>
+<li><a href="../oop-toolkit/">The OOP Toolkit</a>: more tools for step 6, like interfaces, state machines, and commands.</li>
+<li><a href="../thinking-like-an-engineer/">Thinking Like an Engineer</a>: the ideas behind this process, in more depth.</li>
+</ul>
+<hr />
+<h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Anchor link to this section">&para;</a></h2>
+<ul>
+<li><a href="http://c2.com/doc/oopsla89/paper.html">A Laboratory for Teaching Object-Oriented Thinking</a>: Kent Beck and Ward Cunningham's original 1989 paper on CRC cards. It's short, and they found that "even weaker programmers" could contribute to designs with them.</li>
+<li><a href="https://cacm.acm.org/research/on-the-criteria-to-be-used-in-decomposing-systems-into-modules/">On the Criteria To Be Used in Decomposing Systems into Modules</a>: David Parnas's 1972 paper behind step 5.</li>
+<li><a href="https://web.stanford.edu/~ouster/cgi-bin/book.php">A Philosophy of Software Design</a>: John Ousterhout's book, where "design it twice" comes from.</li>
+<li><a href="https://www.industrialempathy.com/posts/design-docs-at-google/">Design Docs at Google</a>: how design docs work at a big company, including the "alternatives considered" section.</li>
+<li><a href="https://mermaid.js.org/syntax/classDiagram.html">Mermaid class diagram syntax</a>: everything you can draw in text.</li>
+</ul>
 
 
 
@@ -3244,7 +3587,7 @@ to add it via pull request.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 27, 2026 20:05:58 UTC"><span class="timeago" datetime="2026-08-27T20:05:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 27, 2026 20:05:58 UTC">2026-08-27</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 11, 2026 01:09:36 UTC"><span class="timeago" datetime="2026-09-11T01:09:36+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 11, 2026 01:09:36 UTC">2026-09-11</span>
   </span>
 
     
@@ -3254,7 +3597,7 @@ to add it via pull request.</p>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="June 3, 2026 18:59:01 UTC"><span class="timeago" datetime="2026-06-03T18:59:01+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="June 3, 2026 18:59:01 UTC">2026-06-03</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 11, 2026 01:09:36 UTC"><span class="timeago" datetime="2026-09-11T01:09:36+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 11, 2026 01:09:36 UTC">2026-09-11</span>
   </span>
 
     
@@ -3264,12 +3607,11 @@ to add it via pull request.</p>
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributors">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:pranavsukesh@gmail.com">Pranav Sukesh</a>, 
         <a href="mailto:psukesh@purdue.edu">Pranav Sukesh</a>
     </nav>
   </span>
@@ -3307,7 +3649,7 @@ to add it via pull request.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Resources">
+          <a href="../how-unity-thinks/" class="md-footer__link md-footer__link--prev" aria-label="Previous: How Unity Thinks">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3317,20 +3659,20 @@ to add it via pull request.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Resources
+                How Unity Thinks
               </div>
             </div>
           </a>
         
         
           
-          <a href="../external-references/" class="md-footer__link md-footer__link--next" aria-label="Next: External References">
+          <a href="../data-driven-design/" class="md-footer__link md-footer__link--next" aria-label="Next: Data-Driven Design">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                External References
+                Data-Driven Design
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3447,16 +3789,16 @@ to add it via pull request.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.path", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.path", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="../../js/timeago.min.js"></script>
+        <script src="../../../js/timeago.min.js"></script>
       
-        <script src="../../js/timeago_mkdocs_material.js"></script>
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
       
-        <script src="../../assets/javascripts/extra.js"></script>
+        <script src="../../../assets/javascripts/extra.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
