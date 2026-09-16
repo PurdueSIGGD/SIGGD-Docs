@@ -22,4 +22,12 @@ title: Resources
 
     [:octicons-arrow-right-24: Explore references](external-references.md)
 
+-   :material-youtube:{ .lg .middle } **Unity Tutorial Library**
+
+    ---
+
+    Short YouTube tutorials for learning Unity at your own pace, sorted by level and topic.
+
+    [:octicons-arrow-right-24: Browse tutorials](unity-tutorial-library.md)
+
 </div>
