@@ -125,6 +125,7 @@ nav:
       - resources/index.md
       - Tools: resources/tools.md
       - External References: resources/external-references.md
+      - Unity Tutorial Library: resources/unity-tutorial-library.md
   - Contributing:
       - contributing/index.md
       - Style Guide: contributing/style-guide.md
