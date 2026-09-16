@@ -42,6 +42,14 @@ Important resource for a lot of the systems made in this club.
 
 ---
 
+### Unity Tutorial Library
+
+**Link:** [Unity Tutorial Library](unity-tutorial-library.md)
+
+Our own list of short YouTube tutorials for Unity, sorted by level and topic.
+
+---
+
 !!! tip "Missing a reference?"
     Use the [Resource Template](../contributing/templates/resource-template.md)
     to add it. Include a one-sentence description of why it's useful.
