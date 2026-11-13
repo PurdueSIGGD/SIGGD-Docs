@@ -10,107 +10,97 @@ tags:
 
 # System Name
 
-**Script:** `Assets/Scripts/Path/SystemName.cs`  
-**Namespace:** YourNamespace (or "None")  
-**Dependencies:** List components or scripts this requires
+If the project has a milestone banner, include it here, right under the title. See "Codebase docs" in the [Style Guide](../style-guide.md).
 
-One paragraph describing what this system is responsible for and the problem
-it solves. Be specific; "manages player movement and animation state" is
-better than "controls the player."
+```markdown
+;--8<-- "includes/your-project/milestone.md"
+```
+
+One specific paragraph on what this system is responsible for and how it does it. "Accelerates the player toward the held direction and caps speed at MaxVelocity" is better than "controls the player."
+
+**Folder:** [`Assets/YourSystem/`](https://github.com/PurdueSIGGD/your-project/tree/v0.1.0/Assets/YourSystem) &nbsp;&middot;&nbsp; **Namespace:** `YourNamespace` (or global) &nbsp;&middot;&nbsp; **Tuning:** link to the tuning guide section, if designers edit this system's assets
+
+---
+
+## How It's Put Together
+
+A class diagram of the system's classes, the data assets they read, and the interfaces they implement. Keep labels plain ASCII.
+
+```mermaid
+classDiagram
+    direction TB
+    class SystemController {
+        +float CurrentValue
+        +DoThing(amount)
+    }
+    class SystemData {
+        <<ScriptableObject>>
+    }
+    class IDamageable {
+        <<interface>>
+    }
+    SystemController --> SystemData
+    SystemController ..|> IDamageable
+```
+
+A sentence or two on where these components live (which prefab, which object).
 
 ---
 
 ## How It Works
 
-Describe the approach or algorithm at a conceptual level. Avoid copy-pasting
-code; explain the *what* and *why*, not the *how*.
+Explain the runtime behavior in the order it happens. Explain the *what* and the *why*; link to the source for the line-by-line *how*.
 
-A state diagram or flowchart is especially valuable here:
+A state diagram helps wherever something changes state:
 
 ```mermaid
 stateDiagram-v2
     [*] --> Idle
     Idle --> Active : trigger condition
     Active --> Idle : reset condition
-    Active --> Complete : completion condition
-    Complete --> [*]
 ```
 
----
+Use TeX for formulas, never Unicode math symbols:
 
-## Public Fields (Inspector-configurable)
-
-| Field | Type | Default | Description |
-|-------|------|---------|-------------|
-| `fieldName` | `float` | `1.0` | What this value controls and its effect |
-| `anotherField` | `bool` | `true` | What this toggle enables |
-| `someReference` | `Transform` | `null` | What this reference is used for |
+$$
+\text{damage} = \text{speed} \times \text{multiplier}
+$$
 
 ---
 
-## Public Methods
+## Class Reference
 
-### `ReturnType MethodName(ParameterType paramName)`
+One subsection per class, in order of importance.
 
-What this method does in one sentence.
+### `SystemController`
 
-**Parameters:**
+[`SystemController.cs`](https://github.com/PurdueSIGGD/your-project/blob/v0.1.0/Assets/YourSystem/SystemController.cs) &middot; `MonoBehaviour` &middot; requires `Rigidbody2D`
 
-- `paramName`: What this parameter controls.
+One sentence on the class's job.
 
-**Returns:** What the return value represents.
-
-```csharp
-// Example usage
-var result = system.MethodName(someValue);
-```
-
----
-
-### `void AnotherMethod()`
-
-Description of another public method.
-
-```csharp
-system.AnotherMethod();
-```
+| Member | Type | Description |
+|---|---|---|
+| `data` | `SystemData` (Inspector) | Private `[SerializeField]` fields have (Inspector) after their type. |
+| `CurrentValue` | `float` (get) | Properties say whether they're get-only. |
+| `ValueChanged` | `event Action<float>` | When it's raised. |
+| `DoThing(float amount)` | method | What it does, and who calls it. |
 
 ---
 
-## Events
+## Extending
 
-| Event | Signature | When fired |
-|-------|-----------|-----------|
-| `OnEventName` | `UnityEvent<Type>` | Describe when this fires |
-
-```csharp
-// Subscribe to an event
-system.OnEventName.AddListener(YourHandler);
-```
+Where new code for this system should go, with a link to the matching How-To recipe if there is one.
 
 ---
 
-## Configuration Tips
+## Known Issues
 
-Practical tips for tuning this system's behavior:
+Bugs, stubs, and behavior that would surprise a reader. Link each one to the line at the documented release when one line is at fault:
 
-- **Problem A?** Adjust `fieldName`: increasing it causes X, decreasing causes Y.
-- **Problem B?** Check that the `someReference` transform is positioned correctly.
+- **Short bold summary.** What goes wrong, why, and the likely fix if it's clear. [Link to the line](https://github.com/PurdueSIGGD/your-project/blob/v0.1.0/Assets/YourSystem/SystemController.cs#L42).
 
----
+### Differs from the GDD
 
-## Known Issues / Quirks
+Where the code doesn't match the Game Design Document yet. Leave this out if the project has no design doc.
 
-List any non-obvious behaviors, edge cases, or known bugs:
-
-- **Edge case:** Describe what happens in an unusual situation.
-- **Known bug:** Describe a known issue and any workaround.
-
----
-
-## Called By / Calls Into
-
-| Direction | Script | Why |
-|-----------|--------|-----|
-| Called by | `ScriptName.cs` | Why this script calls into this system |
-| Calls into | `AnotherScript.cs` | Why this system calls into another |
+- **Feature.** What the GDD says, then what the code does.
