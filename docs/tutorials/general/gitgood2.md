@@ -26,7 +26,8 @@ status: published   # draft | review | published
     - Keep your branch up to date while your PR is open
     - Understand SIGGD's merge rules and why each one exists
 
-**Difficulty:** Intermediate · **Time:** ~35 minutes
+- **Difficulty:** Intermediate
+- **Time:** ~35 minutes
 
 ---
 

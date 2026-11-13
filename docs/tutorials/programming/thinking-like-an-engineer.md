@@ -23,7 +23,8 @@ status: published   # draft | review | published
     - Tell the difference between code that works and code that scales
     - Know when to stop designing and just build the thing
 
-**Difficulty:** Beginner · **Time:** ~40 minutes
+- **Difficulty:** Beginner
+- **Time:** ~40 minutes
 
 ---
 

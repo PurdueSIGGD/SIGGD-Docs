@@ -24,7 +24,8 @@ status: published   # draft | review | published
     - Predict the order Unity calls `Awake`, `OnEnable`, `Start`, and `Update`
     - Decide what should be a prefab, a prefab variant, or just an override
 
-**Difficulty:** Beginner · **Time:** ~45 minutes
+- **Difficulty:** Beginner
+- **Time:** ~45 minutes
 
 ---
 

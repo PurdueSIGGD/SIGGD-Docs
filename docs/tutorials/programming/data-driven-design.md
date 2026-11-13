@@ -25,7 +25,8 @@ status: published   # draft | review | published
     - Make *behavior* data-driven without an ever-growing `switch` statement
     - Avoid the classic ScriptableObject traps (and know when not to bother at all)
 
-**Difficulty:** Intermediate · **Time:** ~45 minutes
+- **Difficulty:** Intermediate
+- **Time:** ~45 minutes
 
 ---
 

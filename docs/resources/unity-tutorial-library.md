@@ -54,7 +54,7 @@ These are short YouTube tutorials for picking up different parts of Unity, sorte
 
 | Video | Length | Year | What it covers |
 |---|---|---|---|
-| [Unity Input System in Unity 6 (1/7): Input Action Editor](https://www.youtube.com/watch?v=TiTKAseu17A){ target="_blank" }<br>*Unity* · [Assets pack](https://discussions.unity.com/t/get-up-and-running-with-the-input-system/1620267){ target="_blank" } | 9:02 | 2025 | An intro to the new Input System: action maps, action types, bindings, composites, interactions, and processors. |
+| [Unity Input System in Unity 6 (1/7): Input Action Editor](https://www.youtube.com/watch?v=TiTKAseu17A){ target="_blank" }<br>*Unity* ([Assets pack](https://discussions.unity.com/t/get-up-and-running-with-the-input-system/1620267){ target="_blank" }) | 9:02 | 2025 | An intro to the new Input System: action maps, action types, bindings, composites, interactions, and processors. |
 | [New Input System in Unity 6: Full Guide](https://www.youtube.com/watch?v=1b7H203kBVg){ target="_blank" }<br>*Unity Unlocked* | 17:59 | 2026 | An applied example of the new Input System, making a cube jump and move with keyboard and gamepad. |
 
 ### Physics
@@ -71,8 +71,8 @@ These are short YouTube tutorials for picking up different parts of Unity, sorte
 
 | Video | Length | Year | What it covers |
 |---|---|---|---|
-| [Prefabs, Prefab Variants, and Nested Prefabs](https://www.youtube.com/watch?v=JiJUo3rRwEA){ target="_blank" }<br>*Unity* · [Tanks! project](https://on.unity.com/TanksTutorial){ target="_blank" } | 13:46 | 2026 | A worked example of creating a prefab, editing prefabs and overrides, variants, nested prefabs, naming them, swapping one prefab for another, and editing in context. |
-| [Scriptable Objects in Unity](https://www.youtube.com/watch?v=aPXvoWVabPY){ target="_blank" }<br>*Brackeys* · [Project files](https://github.com/Brackeys/Scriptable-Objects){ target="_blank" } | 8:57 | 2018 | Uses card decks as an applied example for using ScriptableObject assets. |
+| [Prefabs, Prefab Variants, and Nested Prefabs](https://www.youtube.com/watch?v=JiJUo3rRwEA){ target="_blank" }<br>*Unity* ([Tanks! project](https://on.unity.com/TanksTutorial){ target="_blank" }) | 13:46 | 2026 | A worked example of creating a prefab, editing prefabs and overrides, variants, nested prefabs, naming them, swapping one prefab for another, and editing in context. |
+| [Scriptable Objects in Unity](https://www.youtube.com/watch?v=aPXvoWVabPY){ target="_blank" }<br>*Brackeys* ([Project files](https://github.com/Brackeys/Scriptable-Objects){ target="_blank" }) | 8:57 | 2018 | Uses card decks as an applied example for using ScriptableObject assets. |
 
 **Watch**
 
@@ -110,8 +110,8 @@ These are short YouTube tutorials for picking up different parts of Unity, sorte
 
 | Video | Length | Year | What it covers |
 |---|---|---|---|
-| [Shader Graph Basics, Part 1: Your First Shader](https://www.youtube.com/watch?v=TbZYoSu1w8Y){ target="_blank" }<br>*Daniel Ilett* · [Project files](https://github.com/daniel-ilett/shader-graph-basics-2022-3){ target="_blank" } · [Article](https://danielilett.com/2023-09-26-tut7-3-intro-to-shader-graph/){ target="_blank" } | 7:40 | 2023 | Render pipelines, installing Shader Graph, the graph interface, and a first shader with a color you can change on each material. |
-| [Shader Graph Basics, Part 2: Textures and UVs](https://www.youtube.com/watch?v=jVNC0Z2p9qw){ target="_blank" }<br>*Daniel Ilett* · [Project files](https://github.com/daniel-ilett/shader-graph-basics-2022-3){ target="_blank" } · [Article](https://danielilett.com/2023-12-04-tut7-4-intro-to-shader-graph-part-2/){ target="_blank" } | 8:02 | 2023 | Picks up where Part 1 left off: sampling a texture, how UVs map it onto a mesh, tinting it with your color, and scrolling it with built-in shader nodes. |
+| [Shader Graph Basics, Part 1: Your First Shader](https://www.youtube.com/watch?v=TbZYoSu1w8Y){ target="_blank" }<br>*Daniel Ilett* ([Project files](https://github.com/daniel-ilett/shader-graph-basics-2022-3){ target="_blank" }, [Article](https://danielilett.com/2023-09-26-tut7-3-intro-to-shader-graph/){ target="_blank" }) | 7:40 | 2023 | Render pipelines, installing Shader Graph, the graph interface, and a first shader with a color you can change on each material. |
+| [Shader Graph Basics, Part 2: Textures and UVs](https://www.youtube.com/watch?v=jVNC0Z2p9qw){ target="_blank" }<br>*Daniel Ilett* ([Project files](https://github.com/daniel-ilett/shader-graph-basics-2022-3){ target="_blank" }, [Article](https://danielilett.com/2023-12-04-tut7-4-intro-to-shader-graph-part-2/){ target="_blank" }) | 8:02 | 2023 | Picks up where Part 1 left off: sampling a texture, how UVs map it onto a mesh, tinting it with your color, and scrolling it with built-in shader nodes. |
 
 ### VFX Graph
 
@@ -127,7 +127,7 @@ These are short YouTube tutorials for picking up different parts of Unity, sorte
 
 | Video | Length | Year | What it covers |
 |---|---|---|---|
-| [AI Navigation 2.0: NavMesh Basics](https://www.youtube.com/watch?v=SMWxCpLvrcc){ target="_blank" }<br>*Unity* · [Project assets](https://on.unity.com/3Vr1Qg1){ target="_blank" } | 11:27 | 2024 | An introduction project to Unity's NavMesh Ai Navigation system. |
+| [AI Navigation 2.0: NavMesh Basics](https://www.youtube.com/watch?v=SMWxCpLvrcc){ target="_blank" }<br>*Unity* ([Project assets](https://on.unity.com/3Vr1Qg1){ target="_blank" }) | 11:27 | 2024 | An introduction project to Unity's NavMesh Ai Navigation system. |
 
 ---
 
@@ -139,8 +139,8 @@ These are short YouTube tutorials for picking up different parts of Unity, sorte
 
 | Video | Length | Year | What it covers |
 |---|---|---|---|
-| [What Are Events? (C# Basics)](https://www.youtube.com/watch?v=OuZrhykVytg){ target="_blank" }<br>*Code Monkey* · [Project files](https://unitycodemonkey.com/video.php?v=OuZrhykVytg){ target="_blank" } | 15:05 | 2020 | An introduction to C# events and their use cases in game projects. |
-| [What Are Interfaces? (C# Basics)](https://www.youtube.com/watch?v=MZOrGXk4XFI){ target="_blank" }<br>*Code Monkey* · [Project files](https://unitycodemonkey.com/video.php?v=MZOrGXk4XFI){ target="_blank" } | 13:53 | 2020 | Interfaces, OOP, and their best uses through a worked example. |
+| [What Are Events? (C# Basics)](https://www.youtube.com/watch?v=OuZrhykVytg){ target="_blank" }<br>*Code Monkey* ([Project files](https://unitycodemonkey.com/video.php?v=OuZrhykVytg){ target="_blank" }) | 15:05 | 2020 | An introduction to C# events and their use cases in game projects. |
+| [What Are Interfaces? (C# Basics)](https://www.youtube.com/watch?v=MZOrGXk4XFI){ target="_blank" }<br>*Code Monkey* ([Project files](https://unitycodemonkey.com/video.php?v=MZOrGXk4XFI){ target="_blank" }) | 13:53 | 2020 | Interfaces, OOP, and their best uses through a worked example. |
 
 ### Cameras
 
@@ -149,7 +149,7 @@ These are short YouTube tutorials for picking up different parts of Unity, sorte
 | Video | Length | Year | What it covers |
 |---|---|---|---|
 | [Types of Cinemachine Cameras](https://www.youtube.com/watch?v=XTVzs4B1d7I){ target="_blank" }<br>*Unity* | 19:17 | 2025 | An introduction to Cinemachine, exploring its camera types (follow, third person aim, FreeLook, spline dolly, handheld), priorities, blends, custom blends, blend hints, the Sequencer camera, and the State-Driven camera. |
-| [Essential Elements of Cinemachine 3.1](https://www.youtube.com/watch?v=4xd37R1spKw){ target="_blank" }<br>*git-amend* · [Code](https://gist.github.com/adammyhre/b81eb6e1d07ebe24a49844fbbddf368b){ target="_blank" } | 17:12 | 2024 | Additional features in Cinemachine that will help when designing and setting up cameras. |
+| [Essential Elements of Cinemachine 3.1](https://www.youtube.com/watch?v=4xd37R1spKw){ target="_blank" }<br>*git-amend* ([Code](https://gist.github.com/adammyhre/b81eb6e1d07ebe24a49844fbbddf368b){ target="_blank" }) | 17:12 | 2024 | Additional features in Cinemachine that will help when designing and setting up cameras. |
 
 ### Lighting
 
@@ -181,7 +181,7 @@ These are short YouTube tutorials for picking up different parts of Unity, sorte
 
 | Video | Length | Year | What it covers |
 |---|---|---|---|
-| [Simple Enemy AI in Unity](https://www.youtube.com/watch?v=db0KWYaWfeM){ target="_blank" }<br>*Code Monkey* · [Project files](https://unitycodemonkey.com/video.php?v=db0KWYaWfeM){ target="_blank" } | 16:26 | 2020 | A small state-machine driven enemy AI system you can follow along with. |
+| [Simple Enemy AI in Unity](https://www.youtube.com/watch?v=db0KWYaWfeM){ target="_blank" }<br>*Code Monkey* ([Project files](https://unitycodemonkey.com/video.php?v=db0KWYaWfeM){ target="_blank" }) | 16:26 | 2020 | A small state-machine driven enemy AI system you can follow along with. |
 
 ---
 
@@ -201,11 +201,11 @@ These are short YouTube tutorials for picking up different parts of Unity, sorte
 
 | Video | Length | Year | What it covers |
 |---|---|---|---|
-| [Learn to Build an Advanced Event Bus](https://www.youtube.com/watch?v=4_DTAnigmaQ){ target="_blank" }<br>*git-amend* · [Code](https://github.com/adammyhre/Unity-Event-Bus){ target="_blank" } | 13:27 | 2023 | **This is the event bus our game project uses** its really cool top 1 videos on here imo. Builds a generic event bus with bindings while bootstrapping it to Unity's asssemblies. |
+| [Learn to Build an Advanced Event Bus](https://www.youtube.com/watch?v=4_DTAnigmaQ){ target="_blank" }<br>*git-amend* ([Code](https://github.com/adammyhre/Unity-Event-Bus){ target="_blank" }) | 13:27 | 2023 | **This is the event bus our game project uses** its really cool top 1 videos on here imo. Builds a generic event bus with bindings while bootstrapping it to Unity's asssemblies. |
 | [Clean Code Using the Strategy Pattern](https://www.youtube.com/watch?v=QrxiD2dfdG4){ target="_blank" }<br>*git-amend* | 12:33 | 2023 | A case study on the strategy design pattern (also top 3 design patterns) and how to best use it within Unity. |
-| [How to Do More with the Observer Pattern](https://www.youtube.com/watch?v=Qa8QUru6hc0){ target="_blank" }<br>*git-amend* · [Code](https://gist.github.com/adammyhre/353195d4870e8fd0cc0028659e66f208){ target="_blank" } | 13:09 | 2023 | A quick recap of C# events, then building a generic observer design pattern that builds upon the utility events give you. |
-| [Service Locator: Inversion of Control in Unity C#](https://www.youtube.com/watch?v=D4r5EyYQvwY){ target="_blank" }<br>*git-amend* · [Code](https://github.com/adammyhre/Unity-Service-Locator){ target="_blank" } | 19:03 | 2023 | Builds a service locator within Unity, explaining its tradeoffs and benefits when used instead of singletons or dependency injection. |
-| [Using Data to Drive Gameplay Systems in Unity](https://www.youtube.com/watch?v=6qd22ulEds4){ target="_blank" }<br>*git-amend* · [Code](https://gist.github.com/adammyhre/8e6f57d24e96d33738273ed0570828be){ target="_blank" } | 12:17 | 2025 | Turns hardcoded ability logic into ScriptableObject ability data as an overview on how to make your projects more data-driven. |
+| [How to Do More with the Observer Pattern](https://www.youtube.com/watch?v=Qa8QUru6hc0){ target="_blank" }<br>*git-amend* ([Code](https://gist.github.com/adammyhre/353195d4870e8fd0cc0028659e66f208){ target="_blank" }) | 13:09 | 2023 | A quick recap of C# events, then building a generic observer design pattern that builds upon the utility events give you. |
+| [Service Locator: Inversion of Control in Unity C#](https://www.youtube.com/watch?v=D4r5EyYQvwY){ target="_blank" }<br>*git-amend* ([Code](https://github.com/adammyhre/Unity-Service-Locator){ target="_blank" }) | 19:03 | 2023 | Builds a service locator within Unity, explaining its tradeoffs and benefits when used instead of singletons or dependency injection. |
+| [Using Data to Drive Gameplay Systems in Unity](https://www.youtube.com/watch?v=6qd22ulEds4){ target="_blank" }<br>*git-amend* ([Code](https://gist.github.com/adammyhre/8e6f57d24e96d33738273ed0570828be){ target="_blank" }) | 12:17 | 2025 | Turns hardcoded ability logic into ScriptableObject ability data as an overview on how to make your projects more data-driven. |
 
 ---
 
@@ -215,9 +215,9 @@ These are short YouTube tutorials for picking up different parts of Unity, sorte
 
 | Course | Length | Year | What it covers |
 |---|---|---|---|
-| [The Unity Tutorial for Complete Beginners](https://www.youtube.com/watch?v=XtQMytORBmM){ target="_blank" }<br>*Game Maker's Toolkit* · [Project files](https://github.com/Britishgaming/GMTK-Unity-Tutorial){ target="_blank" } | 46:39 | 2022 | A worked example of making Flappy Bird in Unity from scratch. Very beginner friendly. |
-| [Learn Unity Beginner/Intermediate (Free Complete Course)](https://www.youtube.com/watch?v=AmGSEH7QcDg){ target="_blank" }<br>*Code Monkey* · [Course page and assets](https://cmonkey.co/freecourse){ target="_blank" } | 10:49:41 | 2023 | Super long, but has a lot of good information on Unity and some best practices. I'd recommend skipping around. |
-| [Shaders for Game Devs, Part 1](https://www.youtube.com/watch?v=kfM-yu0iQBk){ target="_blank" }<br>*Freya Holmér* · [Project and assignments](https://docs.google.com/document/d/1h_7O9n5-q8Kb-rhnMJyF4Tab6i3lH97E4Ykn7tsP-zc){ target="_blank" } | 3:53:10 | 2021 | The first of a three-part lecture on writing shader code by hand, including what shaders are, vertex and fragment shaders, normals, UVs, gradients, blending, depth testing, vertex offsets, and textures. |
+| [The Unity Tutorial for Complete Beginners](https://www.youtube.com/watch?v=XtQMytORBmM){ target="_blank" }<br>*Game Maker's Toolkit* ([Project files](https://github.com/Britishgaming/GMTK-Unity-Tutorial){ target="_blank" }) | 46:39 | 2022 | A worked example of making Flappy Bird in Unity from scratch. Very beginner friendly. |
+| [Learn Unity Beginner/Intermediate (Free Complete Course)](https://www.youtube.com/watch?v=AmGSEH7QcDg){ target="_blank" }<br>*Code Monkey* ([Course page and assets](https://cmonkey.co/freecourse){ target="_blank" }) | 10:49:41 | 2023 | Super long, but has a lot of good information on Unity and some best practices. I'd recommend skipping around. |
+| [Shaders for Game Devs, Part 1](https://www.youtube.com/watch?v=kfM-yu0iQBk){ target="_blank" }<br>*Freya Holmér* ([Project and assignments](https://docs.google.com/document/d/1h_7O9n5-q8Kb-rhnMJyF4Tab6i3lH97E4Ykn7tsP-zc){ target="_blank" }) | 3:53:10 | 2021 | The first of a three-part lecture on writing shader code by hand, including what shaders are, vertex and fragment shaders, normals, UVs, gradients, blending, depth testing, vertex offsets, and textures. |
 | [Learn Procedural Animation in Unity](https://www.youtube.com/watch?v=cg_vXWPaG8A){ target="_blank" }<br>*iHeartGameDev* | 1:31:04 | 2024 | Procedural animation, using a reusable state machine, Animation Rigging, and code that detects the environment around the character. |
 
 ### Unity Learn

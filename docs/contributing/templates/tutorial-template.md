@@ -21,7 +21,8 @@ status: draft   # draft | review | published
     - Learning outcome two
     - Learning outcome three
 
-**Difficulty:** Beginner · **Time:** ~20 minutes
+- **Difficulty:** Beginner
+- **Time:** ~20 minutes
 
 ---
 
