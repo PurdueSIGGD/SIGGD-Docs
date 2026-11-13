@@ -8,7 +8,7 @@ tags:
 
 # Milestones
 
-The codebase docs always describe the latest milestone. This page records what each milestone added, so you can see how the project got here. To read the docs as they were for an older milestone, open this site's history on GitHub at the commit that updated them.
+The codebase docs always describe the latest milestone. This page records what each milestone added. To read the docs as they were for an older milestone, open this site's history on GitHub at the commit that updated them.
 
 | Milestone | Game release | Code as of | Docs updated |
 |---|---|---|---|
@@ -18,7 +18,7 @@ The codebase docs always describe the latest milestone. This page records what e
 
 ## Milestone 1 (v0.1.0)
 
-The first playable build: one player can fly, shoot, bomb, and fight the Factory Planet in MasterScene, with sound.
+In the first playable build, one player can fly, shoot, bomb, and fight the Factory Planet in MasterScene, with sound.
 
 | Area | Pull requests |
 |---|---|
@@ -37,8 +37,6 @@ The first playable build: one player can fly, shoot, bomb, and fight the Factory
 
 ## Updating the Docs for a New Milestone
 
-For whoever updates these pages next. Do it on one branch, as one pull request.
-
 1. **Tag the release** in the game repo, using [semantic versioning](https://semver.org/): `v0.2.0` for Milestone 2. Publish a GitHub Release with short notes.
 2. **Update the banner** in `docs/includes/2627-game/milestone.md`: milestone name, tag, short commit hash, and date. Every codebase page includes this file.
 3. **Repoint source links.** Replace `blob/v0.1.0/` and `tree/v0.1.0/` with the new tag everywhere under `docs/projects/2627-game/`. Then re-check every link with a line number (`#L123`), since the lines will have moved.
@@ -49,9 +47,9 @@ For whoever updates these pages next. Do it on one branch, as one pull request.
     git diff --name-status v0.1.0 v0.2.0 -- '*.cs' ':!Assets/Plugins'
     ```
 
-    Added, removed, and renamed scripts go in the [Script Index](scripts/index.md) and on their system page. Changed `.asset` files mean the [Tuning Guide](tuning-guide.md) values need updating.
+    Added, removed, and renamed scripts go in the [Script Index](scripts/index.md) and on their system page. Changes to `.asset` files go in the [Tuning Guide](tuning-guide.md).
 
 5. **Revisit every Known Issues list.** Delete what was fixed, add what's new, and re-check the "Differs from the GDD" notes against the current GDD.
 6. **Update the Overview's "Milestone 1 at a Glance" table** and rename it for the new milestone.
 7. **Add a row and a section to this page.**
-8. **Build with `mkdocs build --strict`** and click through the diagrams. Mermaid fails quietly, so a broken diagram renders as raw text instead of failing the build.
+8. **Build with `mkdocs build --strict`** and check in `mkdocs serve` that every diagram draws.

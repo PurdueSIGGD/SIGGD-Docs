@@ -11,9 +11,11 @@ tags:
 
 --8<-- "includes/2627-game/milestone.md"
 
-The player is a zero-gravity `Rigidbody2D` that accelerates in the direction you hold, glides to a stop when you let go, and can brake to a dead stop and then relaunch at the speed it had. It has three hit points, a short invincibility window after each hit, and in co-op it turns into a ghost that a teammate can revive.
+The player is a zero-gravity `Rigidbody2D` that accelerates in the direction you hold, glides to a stop when you let go, and can brake to a dead stop and then relaunch at the speed it had. It has three hit points and a short invincibility window after each hit. In co-op, a dead player turns into a ghost that a teammate can revive.
 
-**Folder:** [`Assets/Player/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Player) &nbsp;&middot;&nbsp; **Namespace:** `PlayerSystem` (except `PlayerAiming` and `PlayerAnimator`) &nbsp;&middot;&nbsp; **Tuning:** [`PlayerStats` asset](../tuning-guide.md#player)
+- **Folder:** [`Assets/Player/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Player)
+- **Namespace:** `PlayerSystem` (except `PlayerAiming` and `PlayerAnimator`)
+- **Tuning:** [`PlayerStats` asset](../tuning-guide.md#player)
 
 ---
 
@@ -78,7 +80,7 @@ classDiagram
     PlayerDeath --> PlayerRegistry : checks other players
 ```
 
-`PlayerController`, `PlayerHealth`, and `PlayerDeath` each hold their own reference to the same `PlayerStats` asset. If you swap in a different stats asset, swap it on all three.
+`PlayerController`, `PlayerHealth`, and `PlayerDeath` each hold their own reference to the same `PlayerStats` asset.
 
 ---
 
@@ -91,10 +93,10 @@ classDiagram
 Each physics step works like this:
 
 1. **Holding a direction:** if the player was at rest and wasn't holding anything last step, apply a one-time `Impulse` to get moving. Then add `Acceleration` as a continuous force. The first step of input also plays the jetpack start sound.
-2. **Not holding anything:** push against the current velocity with `Deceleration`. The push is capped so it can't overshoot, so the player slides to an exact stop instead of jittering past zero. If the player is still moving on the first step after letting go, the jetpack end sound plays.
+2. **Not holding anything:** push against the current velocity with `Deceleration`. Because the push is capped so it can't overshoot, the player slides to an exact stop instead of jittering past zero. If the player is still moving on the first step after letting go, the jetpack end sound plays.
 3. **Either way:** clamp speed to `MaxVelocity`.
 
-The clamp runs at the start of the step, but Unity applies the forces added during the step (thrust, the starting impulse, recoil) after it. So the player can go slightly over the cap: while holding a direction at top speed, they cruise at `MaxVelocity + Acceleration / Mass x 0.02`, which is 8.4 units/s with the shipped values. The next step clamps them back down before adding thrust again.
+The clamp runs at the end of `FixedUpdate`, but Unity applies the forces added during the step (thrust, the starting impulse, recoil) after it. So the player can go slightly over the cap. While holding a direction at top speed, they cruise at `MaxVelocity + Acceleration / Mass x 0.02`, which is 8.4 units/s with the shipped values. The next step clamps them back down before adding thrust again.
 
 `linearDamping` is forced to `0` in `Awake`, so the only thing that slows the player is the deceleration force.
 
@@ -134,10 +136,10 @@ stateDiagram-v2
 
 ### Aiming
 
-Two scripts rotate arms toward the aim direction, and they do different jobs:
+Two scripts rotate arms toward the aim direction:
 
-- **`RotateArmToAim`** sits on the `Arm Rotate Point` object in `Player.prefab`. Gameplay reads it: the gun fires along this arm, and tools read its `AimDirection`. It's documented with [Weapons and Projectiles](weapons.md#rotatearmtoaim).
-- **`PlayerAiming`** sits on the art in `Player - Scope`, and it's visual only. It runs in `LateUpdate` with `[DefaultExecutionOrder(100)]` so it rotates after `PlayerAnimator` flips the player, and it rotates in the parent's local space so the arm stays correct while the player is mirrored.
+- **`RotateArmToAim`** sits on the `Arm Rotate Point` object in `Player.prefab`. This is the one gameplay uses. The gun fires along this arm, and tools read its `AimDirection`. It's documented with [Weapons and Projectiles](weapons.md#rotatearmtoaim).
+- **`PlayerAiming`** sits on the art in `Player - Scope`, and it's visual only. It runs in `LateUpdate` with `[DefaultExecutionOrder(100)]` so it rotates after `PlayerAnimator` flips the player. It rotates in the parent's local space so the arm stays correct while the player is mirrored.
 
 ### Health, Death, and Ghosts
 
@@ -170,7 +172,7 @@ Fields with (Inspector) after their type are private `[SerializeField]`s you set
 
 ### `Player`
 
-[`Player.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/Player.cs) &middot; `MonoBehaviour` &middot; requires `PlayerController`
+[`Player.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/Player.cs): `MonoBehaviour`; requires `PlayerController`
 
 The root component. Registers the player with `PlayerRegistry` in `Awake`, destroys the whole player object if the registry is full, and unregisters in `OnDestroy`.
 
@@ -182,7 +184,7 @@ The root component. Registers the player with `PlayerRegistry` in `Awake`, destr
 
 ### `PlayerController`
 
-[`PlayerController.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/PlayerController.cs) &middot; `MonoBehaviour` &middot; requires `PlayerHealth`, `PlayerInputHandler`
+[`PlayerController.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/PlayerController.cs): `MonoBehaviour`; requires `PlayerHealth`, `PlayerInputHandler`
 
 Movement and braking, as described above.
 
@@ -195,7 +197,7 @@ Movement and braking, as described above.
 
 ### `PlayerInputHandler`
 
-[`PlayerInputHandler.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/PlayerInputHandler.cs) &middot; `MonoBehaviour` &middot; requires `PlayerInput` &middot; one per object
+[`PlayerInputHandler.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/PlayerInputHandler.cs): `MonoBehaviour`; requires `PlayerInput`; one per object
 
 | Member | Type | Description |
 |---|---|---|
@@ -208,11 +210,9 @@ Movement and braking, as described above.
 | `UseToolAltPressed` | `event Action` | Tool alternate action performed, which takes a 0.4 s hold. |
 | `GetAimDirection(Vector2 origin)` | `Vector2` | Normalized aim direction from `origin`. Keeps the last direction when there's no aim input. |
 
-Subscribe in `OnEnable` and unsubscribe in `OnDisable`, the way `PrimaryGun` and `ToolUser` do.
-
 ### `PlayerHealth`
 
-[`PlayerHealth.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/PlayerHealth.cs) &middot; `MonoBehaviour`, `IDamageable` &middot; requires `PlayerDeath`
+[`PlayerHealth.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/PlayerHealth.cs): `MonoBehaviour`, `IDamageable`; requires `PlayerDeath`
 
 | Member | Type | Description |
 |---|---|---|
@@ -226,7 +226,7 @@ Subscribe in `OnEnable` and unsubscribe in `OnDisable`, the way `PrimaryGun` and
 
 ### `PlayerDeath`
 
-[`PlayerDeath.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/PlayerDeath.cs) &middot; `MonoBehaviour`
+[`PlayerDeath.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/PlayerDeath.cs): `MonoBehaviour`
 
 | Member | Type | Description |
 |---|---|---|
@@ -238,20 +238,18 @@ Subscribe in `OnEnable` and unsubscribe in `OnDisable`, the way `PrimaryGun` and
 
 ### `PlayerData`
 
-[`PlayerData.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/PlayerData.cs) &middot; `ScriptableObject` &middot; **Create > Player > Stats**
+[`PlayerData.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/PlayerData.cs): `ScriptableObject`; **Create > Player > Stats**
 
 Read-only properties for every stat: `MoveSpeed`, `Mass`, `Acceleration`, `Deceleration`, `MaxVelocity`, `Impulse`, `MaxHealth`, `ReviveHealth`, `IframeDuration`, `DamageSpeedDecrease`, `BaseGhostSpeed`, `DeathSpeedIncrease`. The [Tuning Guide](../tuning-guide.md#player) explains each one and gives the shipped values.
 
 ### `PlayerRegistry`
 
-[`PlayerRegistry.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/PlayerRegistry.cs) &middot; `static class`
-
-The one place to find the players. Use it instead of `FindObjectsByType<Player>`.
+[`PlayerRegistry.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/PlayerRegistry.cs): `static class`
 
 | Member | Type | Description |
 |---|---|---|
 | `MaxPlayers` | `const int` | `2`. |
-| `Players` | `Player[]` (get) | Length `MaxPlayers`. Empty slots are `null`, so null-check each entry. |
+| `Players` | `Player[]` (get) | Length `MaxPlayers`. Empty slots are `null`. |
 | `PlayerCount` | `int` (get) | Registered players. |
 | `IsMultiplayer` | `bool` (get) | `PlayerCount > 1`. |
 | `RegisterPlayer(Player)` | `int` | Puts the player in the first free slot and returns its index, or `-1` when full. Called by `Player.Awake`. |
@@ -259,13 +257,13 @@ The one place to find the players. Use it instead of `FindObjectsByType<Player>`
 
 ### `Tags`
 
-[`Tags.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/Tags.cs) &middot; `static class`
+[`Tags.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/Tags.cs): `static class`
 
-String constants for `CompareTag`: `Tags.Player` and `Tags.Finish`. Add a constant here when you add a tag in the Tag Manager, rather than typing the string.
+String constants for `CompareTag`: `Tags.Player` and `Tags.Finish`.
 
 ### `PlayerAiming`
 
-[`PlayerAiming.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/PlayerAiming.cs) &middot; `MonoBehaviour` &middot; global namespace
+[`PlayerAiming.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/PlayerAiming.cs): `MonoBehaviour`; global namespace
 
 | Member | Type | Description |
 |---|---|---|
@@ -274,23 +272,15 @@ String constants for `CompareTag`: `Tags.Player` and `Tags.Finish`. Add a consta
 
 ### `PlayerAnimator`
 
-[`PlayerAnimator.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/PlayerAnimator.cs) &middot; `MonoBehaviour` &middot; requires `Animator` &middot; global namespace
+[`PlayerAnimator.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/PlayerAnimator.cs): `MonoBehaviour`; requires `Animator`; global namespace
 
 Sets the Animator float `CharVelocity` to the current speed every frame. It also faces the player left or right from the sign of the horizontal velocity, by rotating the object it's on 180 degrees around Y. In `Player - Scope` that's the root, so the whole player flips, arm and `WeaponHolder` included. No public members.
 
 ---
 
-## Extending
-
-- **Changing how movement feels** is usually a [Tuning Guide](../tuning-guide.md#player) job, not a code change.
-- **Reacting to input** means subscribing to a `PlayerInputHandler` event or reading a property. Don't add a second `PlayerInput` or read devices directly, or co-op will break.
-- **Finding a player from another system** goes through `PlayerRegistry.Players`. `Robot` does this to chase the nearest player.
-
----
-
 ## Known Issues
 
-- **Single-player game over does nothing.** [`GameOver()`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/PlayerDeath.cs#L123) only clears ghost state. The dead player stops moving and the fight keeps going. Restarting the boss is still to be built.
+- **Single-player game over does nothing.** [`GameOver()`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/PlayerDeath.cs#L123) only clears ghost state. The dead player stops moving and the fight keeps going.
 - **Dead players can still shoot.** `PrimaryGun` and `ToolUser` don't check `IsAlive`, so a dead player or a ghost can fire and throw bombs. With `PlayerController` skipped there's no deceleration or speed cap, so recoil leaves a dead player drifting.
 - **Ghosts are never removed in MasterScene.** Touching an object tagged [`Finish`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Player/PlayerDeath.cs#L53) removes a ghost, but nothing in MasterScene has that tag, including the Factory Boss, so ghosts drift off-screen forever.
 - **Co-op can't start from MasterScene.** The scene has one player and no `PlayerInputManager`, so a second player has to be placed by hand to test co-op.
@@ -303,4 +293,4 @@ Sets the Animator float `CharVelocity` to the current speed every frame. It also
 - **Speed cap.** The GDD discusses a soft cap where holding a direction keeps adding speed more slowly. The code clamps to `MaxVelocity` every step.
 - **Getting hit.** The GDD also displaces the player away from the attacker. The code only reduces speed.
 - **Ghost speed.** The GDD speeds ghosts up for every death in the match. The code tracks deaths per player.
-- **Escape and terminal velocity aren't implemented.** These are the GDD's two speed thresholds for ramming a boss: one to deal damage, one to kill it outright. Neither is the GDD rule that touching a boss below escape velocity damages the player.
+- **Escape and terminal velocity aren't implemented.** These are the GDD's two speed thresholds for ramming a boss: one to deal damage, one to kill it outright. The GDD rule that touching a boss below escape velocity damages the player isn't implemented either.

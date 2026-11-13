@@ -11,7 +11,7 @@ tags:
 
 --8<-- "includes/2627-game/milestone.md"
 
-Boss attacks are ScriptableObjects, so a new pattern is one class plus a few assets. Before you write code, check whether one of the [four existing attack types](../systems/boss.md#the-attack-types) can do it with different settings. More bullets, a different angle, or a new projectile is a new asset, not a new class.
+Boss attacks are ScriptableObjects, so a new pattern is one class plus a few assets. Before you write code, check whether one of the [four existing attack types](../systems/boss.md#the-attack-types) can do it with different settings. More bullets, a different angle, or a new projectile needs only a new asset.
 
 This recipe builds a **ring**: a burst of bullets in every direction at once, fired from the boss itself.
 
@@ -71,7 +71,7 @@ Things to copy from this into your own attack:
     }
     ```
 
-- **Fire from `bossObject`**, not from fixed world coordinates. The existing attacks use world positions, so they break when the boss moves; passing `bossObject.transform` as the fire point keeps the attack attached to the boss.
+- **Fire from `bossObject`**, not from fixed world coordinates. The existing attacks use world positions, so they break when the boss moves. Passing `bossObject.transform` as the fire point keeps the attack attached to the boss.
 - **Put every number in a serialized field**, so designers can make variants without touching code. The fields follow the [C# Style Guide](../../../../tutorials/programming/csharp-style-guide.md): `[SerializeField] private`, camelCase. (The older attack classes use `[field: SerializeField]` auto-properties instead.)
 
 ## 2. Make the Attack Asset
@@ -83,7 +83,7 @@ Things to copy from this into your own attack:
 
 ## 3. Give It a Weight
 
-The boss doesn't reference attacks directly. It reads `AttackPercents` assets, which pair an attack with a weight for each phase.
+The boss reads its attacks through `AttackPercents` assets, which pair an attack with a weight for each phase.
 
 1. Right-click and choose **Create > Data > AttackPercents**.
 2. Set `Attack` to your new asset.

@@ -11,19 +11,20 @@ tags:
 
 --8<-- "includes/2627-game/milestone.md"
 
-This section is the map of the [SIGGD-Game-2026](https://github.com/PurdueSIGGD/SIGGD-Game-2026) Unity project. Read this page first to see how the pieces fit together, then open the [system page](systems/index.md) for whatever you're about to touch.
+This section is the map of the [SIGGD-Game-2026](https://github.com/PurdueSIGGD/SIGGD-Game-2026) Unity project.
 
-- **Programmers:** this page, then [Systems](systems/index.md) for reference and [How-To](how-to/index.md) for step-by-step recipes.
-- **Designers:** the [Tuning Guide](tuning-guide.md) lists every asset you can edit to change how the game plays, with no code required.
-- **Looking for one file?** The [Script Index](scripts/index.md) lists every script and the page that covers it.
-- **New word?** Check the [Glossary](#glossary) at the bottom of this page.
+- [Systems](systems/index.md): reference for each system.
+- [How-To](how-to/index.md): recipes for common changes.
+- [Tuning Guide](tuning-guide.md): every value designers can change.
+- [Script Index](scripts/index.md): every script and the page that covers it.
+- [Glossary](#glossary): project-specific terms.
 
 ---
 
 ## Running the Project
 
 1. Set up Unity Hub, Git, and the repo by following [Getting Set Up](../../../tutorials/general/getting-set-up.md).
-2. Open the project with Unity **6000.3.21f1**. A different editor version will offer to upgrade the project; don't accept, since that rewrites project files for everyone.
+2. Open the project with Unity **6000.3.21f1**.
 3. Open `Assets/Scenes/MasterScene.unity`. It's the only scene in the build.
 4. Press **Play**. Use the [controls on the Overview page](../index.md#controls).
 
@@ -35,8 +36,6 @@ You should see the player, the Factory Planet spinning, and seven test asteroids
 
 ## Milestone 1 at a Glance
 
-What's playable at v0.1.0 and what's only partly built. Each link goes to that system's **Known Issues**.
-
 | System | State at v0.1.0 |
 |---|---|
 | [Player](systems/player.md#known-issues) | **Working.** Movement, brake and relaunch, aiming, health with a short invincibility window after each hit. Co-op ghosts and revives work in code, but MasterScene only has one player. |
@@ -45,9 +44,9 @@ What's playable at v0.1.0 and what's only partly built. Each link goes to that s
 | [Tools](systems/tools.md#known-issues) | **Working.** The Bomb Thrower is the one tool. |
 | [Loadout and Passives](systems/loadout.md#known-issues) | **Partial.** The loadout menu swaps guns. Tool swapping is stubbed out, and passives are stored but never applied. |
 | [Boss](systems/boss.md#known-issues) | **Working.** The Factory Planet picks weighted random attacks (scrap fan, lasers, robots). It has one phase and no death sequence. |
-| [Asteroids](systems/asteroids.md#known-issues) | **Built, not placed.** The full spawner, fragmenting, and pooling code exists, but no scene uses it yet. MasterScene uses seven simple test asteroids instead. |
+| [Asteroids](systems/asteroids.md#known-issues) | **Built but not placed.** The full spawner, fragmenting, and pooling code exists, but no scene uses it yet. MasterScene uses seven simple test asteroids instead. |
 | [Audio](systems/audio.md#known-issues) | **Working.** FMOD one-shots and boss music, through a generated `AudioEvents` class. |
-| [Shared Infrastructure](systems/infrastructure.md#known-issues) | **Working.** Singletons, an event bus, and an object pool. Only the singleton runs in the game; the pool waits on the asteroid system, and the event bus isn't used yet. |
+| [Shared Infrastructure](systems/infrastructure.md#known-issues) | **Working.** Singletons, an event bus, and an object pool. Only the singleton runs in the game. `PrefabPool` waits on the asteroid system, and the event bus isn't used yet. |
 
 ---
 
@@ -80,33 +79,21 @@ flowchart TB
     REG[("PlayerRegistry")] -.-> ROBOT
 ```
 
-*Arrows show who calls or creates what. Robots read `PlayerRegistry` to chase the nearest player, but don't deal damage yet. `AudioManager` isn't drawn: the gun, the boss and its attacks, and the player all call it to play sounds.*
+*Arrows show who calls or creates what. Robots read `PlayerRegistry` to chase the nearest player, but don't deal damage yet. `AudioManager` isn't shown. The gun, the boss and its attacks, and the player all call it to play sounds.*
 
-A few rules hold across the whole codebase:
+A few codebase rules:
 
 - **Only `PlayerInputHandler` reads input.** Everything else reads its properties (`Move`, `IsBrakeHeld`) or subscribes to its events (`FirePressed`, `UseToolPressed`). See [Player](systems/player.md#input).
-- **Anything that can be hurt implements `IDamageable`.** Attackers never check what they hit. They build a `DamageContext` and call `TakeDamage`. See [Damage and Health](systems/damage.md). (The MasterScene test asteroids are the exception: they check for the `Player` tag.)
+- **Anything that can be hurt implements `IDamageable`.** Attackers don't check what they hit. They build a `DamageContext` and call `TakeDamage`. The one exception is the MasterScene test asteroids, which check for the `Player` tag. See [Damage and Health](systems/damage.md).
 - **Collision damage is computed by the thing being hit.** The boss and the asteroid system's asteroids each turn impact speed into damage to themselves. That's how "speed = damage" works in code.
 - **Tuning numbers live in assets.** Guns, bullets, boss attacks, player stats, and asteroids all read from ScriptableObjects. See the [Tuning Guide](tuning-guide.md).
-- **Sounds go through `AudioManager` and `AudioEvents`.** Nobody types an FMOD path by hand. See [Audio](systems/audio.md).
+- **Sounds go through `AudioManager` and `AudioEvents`.** Do not type an FMOD path by hand. See [Audio](systems/audio.md).
 
 ---
 
-## What's in MasterScene
+## Physics Layers and Tags
 
-| Object | What it is |
-|---|---|
-| `Player - Scope` | A prefab variant of `Assets/Player/Player.prefab` that adds the character art, `PlayerAnimator`, and `PlayerAiming`. All the gameplay components live on the base `Player` prefab. |
-| `Factory Boss` | `Assets/Boss/Factory Planet/Factory Boss.prefab`: `GenericBoss` reading `Factory Boss Data`, plus `PlanetRotation` to spin it. Kinematic, on the `Boss` layer. |
-| `ProjectileManager` | The bullet pool. Must be in any scene that shoots. |
-| `Asteroid` (x7) | Test asteroids from `Assets/Player/PlayerHealthTesting/`. They damage the player on contact and destroy themselves on any collision. |
-| `HUD` | Static art for the combat HUD. No scripts yet, so it doesn't react to health or ammo. |
-| `Main Camera` | Has FMOD's `StudioListener` so 3D sounds play relative to the camera. |
-| `Background`, `Stars`, `Debris`, `Global Volume` | Visuals and post-processing only. |
-
-### Physics Layers and Tags
-
-The 2D collision matrix (**Project Settings > Physics 2D**) lets every layer hit every other layer. Bullets, robots, and ghosts then opt out of specific layers on their own colliders, so the layer you give a new object decides what passes through it.
+The 2D collision matrix (**Project Settings > Physics 2D**) lets every layer hit every other layer. Bullets, robots, and ghosts then exclude specific layers on their own colliders, and anything on an excluded layer passes through them.
 
 | Layer | Index | On it at v0.1.0 | Skipped by |
 |---|---|---|---|
@@ -117,7 +104,7 @@ The 2D collision matrix (**Project Settings > Physics 2D**) lets every layer hit
 
 Everything else, including robots, lasers, bullets, and bombs, is on `Default`.
 
-Tags are listed as constants in `PlayerSystem.Tags`: `Player` (the player prefab) and `Finish` (what removes a ghost on contact; see [Player](systems/player.md#known-issues)).
+Tags are listed as constants in `PlayerSystem.Tags`. `Player` is on the player prefab, and `Finish` marks whatever removes a ghost on contact (see [Player](systems/player.md#known-issues)).
 
 ---
 
@@ -141,7 +128,7 @@ Everything game-specific is under `Assets/`. Folders are grouped by feature, not
 | `Assets/Input/` | `InputActions.inputactions`, the input map. | [Player](systems/player.md#input) |
 | `Assets/UI/HUD/` | HUD prefab and sprites. | |
 | `Assets/Scenes/` | `MasterScene` plus two old test scenes. | |
-| `Assets/Plugins/` | Third-party code: FMOD, Odin Inspector, PrimeTween. Don't edit. | |
+| `Assets/Plugins/` | Third-party code: FMOD, Odin Inspector, PrimeTween. | |
 | `FMODProject/` (repo root) | The FMOD Studio project the audio team edits. | [Audio](systems/audio.md) |
 | `FMOD/` (repo root) | Built FMOD banks that Unity loads. | [Audio](systems/audio.md) |
 
@@ -164,22 +151,8 @@ Everything game-specific is under `Assets/`. Folders are grouped by feature, not
 
 The [C# Style Guide](../../../tutorials/programming/csharp-style-guide.md) covers naming and formatting, and the repo's `.editorconfig` mirrors it. Two project-specific notes:
 
-- **Namespaces.** Most player code is in `PlayerSystem` (`PlayerAiming` and `PlayerAnimator` are still global), and the shared extensions are in `Extensions.EventBus` and `Extensions.Singleton`. Everything else is in the global namespace for now.
-- **Unity 6 physics names.** The code uses `Rigidbody2D.linearVelocity` and `linearDamping`, the Unity 6 names for what older tutorials call `velocity` and `drag`.
-
----
-
-## Picking Up Work
-
-Every system page ends with **Known Issues**, and each item there is a task someone can take. These are small, self-contained, and a good first pull request:
-
-- Skip `null` when [`Laser`](systems/boss.md#known-issues) adds a target, so non-damageable objects stop breaking its damage tick.
-- Store the new instance in [`AudioManager.PlayTrack`](systems/audio.md#known-issues) so a second music track stops the first.
-- Fix the wrong tooltips on [`PlayerData`](systems/player.md#known-issues) (`Impulse`, `Mass`) and [`Passive.debuff`](systems/loadout.md#known-issues).
-- Initialize [`Bullet.OnBulletHit`](systems/weapons.md#known-issues) so other scripts can subscribe to it.
-- Remove the unused `using NUnit.Framework;` from [`PassiveHolder`](systems/loadout.md#known-issues).
-
-Before you start, ask in the [club Discord](https://discord.gg/nKdj4bTjNs) so two people don't take the same fix. The game repo has issue templates for bug reports and feature proposals, and [The PR Workflow](../../../tutorials/general/gitgood2.md) covers branching and opening a pull request.
+- **Namespaces.** Most player code is in `PlayerSystem`, and the shared extensions are in `Extensions.EventBus` and `Extensions.Singleton`. Everything else is in the global namespace for now.
+- **Unity 6 physics names.** The code uses `Rigidbody2D.linearVelocity` and `linearDamping`, the Unity 6 names for what used to be called `velocity` and `drag`.
 
 ---
 
@@ -224,7 +197,7 @@ Scrap fan
 :   The Factory Planet's basic bullet attack (`BossAttackLinearFan`).
 
 Telegraph
-:   A warning shown before an attack lands. The GDD asks for them; none exist yet.
+:   A warning shown before an attack lands. The GDD asks for them, but none exist yet.
 
 Weight
 :   A number that sets how likely the boss is to pick an attack in a phase, stored in an `AttackPercents` asset. See [Boss](systems/boss.md#picking-an-attack).

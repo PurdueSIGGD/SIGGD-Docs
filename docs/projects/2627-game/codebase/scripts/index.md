@@ -11,7 +11,7 @@ tags:
 
 --8<-- "includes/2627-game/milestone.md"
 
-All 68 game scripts at v0.1.0 in alphabetical order, not counting third-party code in `Assets/Plugins/`. Click a script to read its source (the link shows its folder), or its system to read the docs. Use the search box (or ++ctrl+f++) to find a class.
+All 68 game scripts at v0.1.0 in alphabetical order, not counting third-party code in `Assets/Plugins/`. Each script links to its source, and each system links to its docs page.
 
 | Script | Kind | Documented in |
 |---|---|---|

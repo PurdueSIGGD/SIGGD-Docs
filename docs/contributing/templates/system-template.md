@@ -18,7 +18,9 @@ If the project has a milestone banner, include it here, right under the title. S
 
 One specific paragraph on what this system is responsible for and how it does it. "Accelerates the player toward the held direction and caps speed at MaxVelocity" is better than "controls the player."
 
-**Folder:** [`Assets/YourSystem/`](https://github.com/PurdueSIGGD/your-project/tree/v0.1.0/Assets/YourSystem) &nbsp;&middot;&nbsp; **Namespace:** `YourNamespace` (or global) &nbsp;&middot;&nbsp; **Tuning:** link to the tuning guide section, if designers edit this system's assets
+- **Folder:** [`Assets/YourSystem/`](https://github.com/PurdueSIGGD/your-project/tree/v0.1.0/Assets/YourSystem)
+- **Namespace:** `YourNamespace` (or global)
+- **Tuning:** link to the tuning guide section, if designers edit this system's assets
 
 ---
 
@@ -49,7 +51,7 @@ A sentence or two on where these components live (which prefab, which object).
 
 ## How It Works
 
-Explain the runtime behavior in the order it happens. Explain the *what* and the *why*; link to the source for the line-by-line *how*.
+Explain what happens at runtime, in order, and why. Link to the source for the line-by-line details.
 
 A state diagram helps wherever something changes state:
 
@@ -74,7 +76,7 @@ One subsection per class, in order of importance.
 
 ### `SystemController`
 
-[`SystemController.cs`](https://github.com/PurdueSIGGD/your-project/blob/v0.1.0/Assets/YourSystem/SystemController.cs) &middot; `MonoBehaviour` &middot; requires `Rigidbody2D`
+[`SystemController.cs`](https://github.com/PurdueSIGGD/your-project/blob/v0.1.0/Assets/YourSystem/SystemController.cs): `MonoBehaviour`; requires `Rigidbody2D`
 
 One sentence on the class's job.
 
@@ -87,17 +89,11 @@ One sentence on the class's job.
 
 ---
 
-## Extending
-
-Where new code for this system should go, with a link to the matching How-To recipe if there is one.
-
----
-
 ## Known Issues
 
 Bugs, stubs, and behavior that would surprise a reader. Link each one to the line at the documented release when one line is at fault:
 
-- **Short bold summary.** What goes wrong, why, and the likely fix if it's clear. [Link to the line](https://github.com/PurdueSIGGD/your-project/blob/v0.1.0/Assets/YourSystem/SystemController.cs#L42).
+- **Short bold summary.** What goes wrong, and why. [Link to the line](https://github.com/PurdueSIGGD/your-project/blob/v0.1.0/Assets/YourSystem/SystemController.cs#L42).
 
 ### Differs from the GDD
 

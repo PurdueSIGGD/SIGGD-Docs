@@ -12,9 +12,11 @@ tags:
 
 --8<-- "includes/2627-game/milestone.md"
 
-The loadout menu lets a player pick a gun, a tool, and a passive before a fight. It's built to be set up entirely in the Inspector: each button holds one choice, and a `LoadoutTarget` on the menu panel forwards clicks to that player's components. At v0.1.0 the gun slot works, the tool slot is stubbed out, and passives are stored but nothing applies them yet.
+The loadout menu lets a player pick a gun, a tool, and a passive before a fight. The whole menu is set up in the Inspector. Each button holds one choice, and a `LoadoutTarget` on the menu panel forwards clicks to that player's components. At v0.1.0 the gun slot works, the tool slot is stubbed out, and passives are stored but nothing applies them yet.
 
-**Folders:** [`Assets/Equipment/LoadoutMenu/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Equipment/LoadoutMenu), [`Assets/PassiveFiles/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/PassiveFiles), [`Assets/Equipment/EquipmentManager/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Equipment/EquipmentManager) &nbsp;&middot;&nbsp; **Namespace:** global &nbsp;&middot;&nbsp; **Tuning:** [passives](../tuning-guide.md#passives)
+- **Folders:** [`Assets/Equipment/LoadoutMenu/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Equipment/LoadoutMenu), [`Assets/PassiveFiles/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/PassiveFiles), [`Assets/Equipment/EquipmentManager/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Equipment/EquipmentManager)
+- **Namespace:** global
+- **Tuning:** [passives](../tuning-guide.md#passives)
 
 ---
 
@@ -76,18 +78,18 @@ classDiagram
 
 1. A `LoadoutTarget` sits on the menu panel and holds references to one player's `PrimaryGun`, `Tool`, and `PassiveHolder`.
 2. Each choice is its own button, a child of that panel. Gun and passive buttons hold an **asset** (a `PrimaryWeapon` or a `Passive`). A tool button holds a **component**: a reference to a `Tool` on that specific player, because tools are `MonoBehaviour`s, not assets.
-3. In `Awake`, each equip button adds itself to the `Button` component's `onClick`. Leave the button's **On Click** list empty in the Inspector, or every click equips twice.
+3. In `Awake`, each equip button adds itself to the `Button` component's `onClick`. If `Equip` is also in the **On Click** list, each click equips twice.
 4. On click, the button finds its `LoadoutTarget` (its own `target` field if set, otherwise the nearest parent) and calls `EquipGun`, `EquipTool`, or `EquipPassive`.
 5. `LoadoutTarget` passes the choice to the player, then raises `Changed`.
 6. Every button and `LoadoutReadout` listening to `Changed` refreshes: buttons turn their optional `equippedMarker` child on or off, and the readout writes the equipped names into its text labels.
 
-For a second player, duplicate the whole menu and point the copy's `LoadoutTarget` at player 2. Re-point the copy's tool buttons too, since they reference player 1's tool components.
+For a second player, duplicate the whole menu and point the copy's `LoadoutTarget` at player 2. The copy's tool buttons still reference player 1's tool components.
 
 Custom Inspectors in `LoadoutMenu/Editor/LoadoutMenuEditors.cs` draw a help box with setup steps on each of these components, so teammates can wire up a menu without reading the scripts.
 
-### Testing the Menu
+### The Test Scene
 
-The only scene with a loadout menu at v0.1.0 is `Assets/Equipment/LoadoutMenu/Test.unity`. It contains `Player.prefab`, a `ProjectileManager`, and a menu panel with equip buttons. Press **Play** and click the buttons; the Inspector shows `PrimaryGun.Weapon` and `PassiveHolder.currentPassive` changing. One of the scene's tool buttons still points at an asset that was deleted, so re-point it at a `Tool` component on the player before testing tools. You also need a second `Tool` on the player to see any switching.
+The only scene with a loadout menu at v0.1.0 is `Assets/Equipment/LoadoutMenu/Test.unity`. It contains `Player.prefab`, a `ProjectileManager`, and a menu panel with equip buttons. One of its tool buttons points at a deleted asset.
 
 ### Passives
 
@@ -97,11 +99,11 @@ A `Passive` asset stores a description, a `buff`, a `debuff`, and a `StatModifyM
 - `Flat` adds or subtracts the value directly; `Percent` scales the stat by that percentage.
 - A passive that switches on a behavior instead of changing a number keeps both values at `0`, and other scripts check whether it's equipped.
 
-`PassiveHolder` stores the equipped passive. The loadout menu reads it back for its markers and labels, but no gameplay code reads it, so equipping a passive has no effect on play.
+`PassiveHolder` stores the equipped passive. The loadout menu reads it back for its markers and labels. No gameplay code reads it, so equipping a passive has no effect on play.
 
 ### `IEquipment`
 
-`PrimaryWeapon` and `Passive` both implement `IEquipment`, whose single `Use()` method is meant for "what happens when this item is used". Both implementations are empty and nothing calls them; gun firing and tool use go through `PrimaryGun` and `Tool` instead.
+`PrimaryWeapon` and `Passive` both implement `IEquipment`, whose single `Use()` method is meant for "what happens when this item is used". Both implementations are empty and nothing calls them. Gun firing and tool use go through `PrimaryGun` and `Tool` instead.
 
 ---
 
@@ -109,7 +111,7 @@ A `Passive` asset stores a description, a `buff`, a `debuff`, and a `StatModifyM
 
 ### `LoadoutTarget`
 
-[`LoadoutTarget.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/LoadoutMenu/LoadoutTarget.cs) &middot; `MonoBehaviour`
+[`LoadoutTarget.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/LoadoutMenu/LoadoutTarget.cs): `MonoBehaviour`
 
 | Member | Type | Description |
 |---|---|---|
@@ -125,7 +127,7 @@ A `Passive` asset stores a description, a `buff`, a `debuff`, and a `StatModifyM
 
 ### `EquipGunButton`, `EquipToolButton`, `EquipPassiveButton`
 
-[`EquipGunButton.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/LoadoutMenu/EquipGunButton.cs), [`EquipToolButton.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/LoadoutMenu/EquipToolButton.cs), [`EquipPassiveButton.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/LoadoutMenu/EquipPassiveButton.cs) &middot; `MonoBehaviour` &middot; one per object
+[`EquipGunButton.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/LoadoutMenu/EquipGunButton.cs), [`EquipToolButton.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/LoadoutMenu/EquipToolButton.cs), [`EquipPassiveButton.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/LoadoutMenu/EquipPassiveButton.cs): `MonoBehaviour`; one per object
 
 The three are identical apart from what they equip.
 
@@ -133,12 +135,12 @@ The three are identical apart from what they equip.
 |---|---|---|
 | `weapon` / `tool` / `passive` | `PrimaryWeapon` asset / `Tool` component / `Passive` asset | What this button equips. |
 | `target` | `LoadoutTarget` | Leave empty to use the nearest parent `LoadoutTarget`. |
-| `equippedMarker` | `GameObject` | Optional child (a checkmark, say) shown while this item is equipped. Never the button itself, or the button hides itself. |
+| `equippedMarker` | `GameObject` | Optional child (a checkmark, say) shown while this item is equipped. |
 | `Equip()` | method | Equip this button's choice. Called on click. |
 
 ### `LoadoutReadout`
 
-[`LoadoutReadout.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/LoadoutMenu/LoadoutReadout.cs) &middot; `MonoBehaviour`
+[`LoadoutReadout.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/LoadoutMenu/LoadoutReadout.cs): `MonoBehaviour`
 
 | Member | Type | Description |
 |---|---|---|
@@ -147,7 +149,7 @@ The three are identical apart from what they equip.
 
 ### `Passive` and `StatModifyMode`
 
-[`Passive.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/PassiveFiles/Passive.cs) &middot; `ScriptableObject`, `IEquipment` &middot; **Create > Passives > Passive**
+[`Passive.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/PassiveFiles/Passive.cs): `ScriptableObject`, `IEquipment`; **Create > Passives > Passive**
 
 | Member | Type | Description |
 |---|---|---|
@@ -158,7 +160,7 @@ The three are identical apart from what they equip.
 
 ### `PassiveHolder`
 
-[`PassiveHolder.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/PassiveFiles/PassiveHolder.cs) &middot; `MonoBehaviour`
+[`PassiveHolder.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/PassiveFiles/PassiveHolder.cs): `MonoBehaviour`
 
 | Member | Type | Description |
 |---|---|---|
@@ -168,7 +170,7 @@ The three are identical apart from what they equip.
 
 ### `IEquipment`
 
-[`IEquipment.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/EquipmentManager/IEquipment.cs) &middot; `interface`
+[`IEquipment.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/EquipmentManager/IEquipment.cs): `interface`
 
 One method, `void Use()`.
 
@@ -176,14 +178,11 @@ One method, `void Use()`.
 
 ## Known Issues
 
-- **Tool equipping is stubbed out.** The call in [`LoadoutTarget.EquipTool`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/LoadoutMenu/LoadoutTarget.cs#L59) is commented out, so clicking a tool button only raises `Changed`. `IsCurrentTool` returns `true` for every tool, so every tool marker lights up, and `CurrentToolName` returns an empty string. A full fix touches three classes:
-    - `LoadoutTarget` references the player's `ToolUser` instead of a `Tool`, and `EquipTool` calls `ToolUser.SetTool`.
-    - `ToolUser` gets a public getter for its current tool, so `IsCurrentTool` can compare against it.
-    - `Tool` exposes its `ToolData` (it's `protected` now), so `CurrentToolName` can show `toolName`.
+- **Tool equipping is stubbed out.** The call in [`LoadoutTarget.EquipTool`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/LoadoutMenu/LoadoutTarget.cs#L59) is commented out, so clicking a tool button only raises `Changed`. `IsCurrentTool` returns `true` for every tool, so every tool marker lights up. `CurrentToolName` returns an empty string. `ToolUser` has no public getter for its current tool, and `Tool.data` is `protected`, so `LoadoutTarget` has no way to implement `IsCurrentTool` or `CurrentToolName` as it stands.
 - **Passives do nothing.** No gameplay code reads `PassiveHolder`, and `Player.prefab` doesn't have a `PassiveHolder` on it.
 - **The READMEs in `Assets/Equipment/` are out of date.** `EquipmentManager/README.md` and `LoadoutMenu/README.md` mention an Input Manager, `MiscGun.EquipMisc`, `EquipmentManager.cs`, and `PlayerEquipmentSystem`. None of those exist at v0.1.0. Input now goes through [`PlayerInputHandler`](player.md#input), and tools through [`ToolUser`](tools.md).
 - **`Passive.debuff` has the wrong tooltip.** It reads "The number of additional asteroids spawned per wave", left over from the Spawner passive.
-- **`PassiveHolder` imports `NUnit.Framework`.** It's a test-only namespace the class doesn't use. Remove the `using` line.
+- **`PassiveHolder` imports `NUnit.Framework`.** It's a test-only namespace the class doesn't use.
 
 ### Differs from the GDD
 

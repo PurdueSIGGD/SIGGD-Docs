@@ -9,4 +9,4 @@ google_doc: https://docs.google.com/document/d/1xuSXOrjvi9oLlZho6mjICaOTDCxLA3qs
 
 # Game Design Document
 
-The design team's master document for Space Jam. Start at the Overview tab, then follow its table of contents. For programmers, the most relevant sections are **Player Moveset**, **Player Equipment**, and **Boss Mechanics**.
+The design team's master document for Space Jam. For programmers, the most relevant sections are **Player Moveset**, **Player Equipment**, and **Boss Mechanics**.

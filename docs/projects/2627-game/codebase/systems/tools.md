@@ -11,9 +11,11 @@ tags:
 
 --8<-- "includes/2627-game/milestone.md"
 
-A tool is the equipment on right click: bombs now, and later grapples, magnets, and portals. The [GDD](../../design/game-design-doc.md) and some older code call this the **Misc** slot; players see "tool". Every tool is a `Tool` component with a cooldown, and `ToolUser` forwards the two tool buttons to whichever `Tool` is equipped. The Bomb Thrower is the only tool at v0.1.0.
+A tool is the equipment on right click. The [GDD](../../design/game-design-doc.md) and some older code call this the **Misc** slot; players see "tool". Every tool is a `Tool` component with a cooldown, and `ToolUser` forwards the two tool buttons to whichever `Tool` is equipped. The Bomb Thrower is the only tool at v0.1.0. Grapples, magnets, and portals come later.
 
-**Folder:** [`Assets/Equipment/Tools/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Equipment/Tools) &nbsp;&middot;&nbsp; **Namespace:** global &nbsp;&middot;&nbsp; **Tuning:** [tools](../tuning-guide.md#tools)
+- **Folder:** [`Assets/Equipment/Tools/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Equipment/Tools)
+- **Namespace:** global
+- **Tuning:** [tools](../tuning-guide.md#tools)
 
 ---
 
@@ -97,7 +99,7 @@ $$
 
 where $d$ is the distance from the blast to the nearest point of the collider and $d_{\min}$ is `blastMinDistance`. Anything closer than $d_{\min}$ gets the full impulse; at twice that distance it gets half.
 
-The blast doesn't skip the thrower, so a bomb at your feet launches you. That matches the GDD, whose shockwave pushes any rigidbody. It also counts as a hit on the thrower, even at the shipped `blastDamage` of 0: the player hears the hurt sound, loses `DamageSpeedDecrease` worth of speed before the push lands, and gets the 1 s invincibility window. Above 0, it costs health too, since there's no team check.
+The blast doesn't skip the thrower, so a bomb at your feet launches you. That matches the GDD, whose shockwave pushes any rigidbody. The blast also counts as a hit on the thrower, even at the shipped `blastDamage` of 0. The player hears the hurt sound, loses `DamageSpeedDecrease` worth of speed before the push lands, and gets the 1 s invincibility window. With `blastDamage` above 0, the thrower loses health too, since there's no team check.
 
 ---
 
@@ -107,7 +109,7 @@ Fields with (Inspector) after their type are private or protected `[SerializeFie
 
 ### `ToolUser`
 
-[`ToolUser.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/Tools/Scripts/Core/ToolUser.cs) &middot; `MonoBehaviour`
+[`ToolUser.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/Tools/Scripts/Core/ToolUser.cs): `MonoBehaviour`
 
 | Member | Type | Description |
 |---|---|---|
@@ -116,7 +118,7 @@ Fields with (Inspector) after their type are private or protected `[SerializeFie
 
 ### `Tool`
 
-[`Tool.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/Tools/Scripts/Core/Tool.cs) &middot; `abstract MonoBehaviour`
+[`Tool.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/Tools/Scripts/Core/Tool.cs): `abstract MonoBehaviour`
 
 | Member | Type | Description |
 |---|---|---|
@@ -127,7 +129,7 @@ Fields with (Inspector) after their type are private or protected `[SerializeFie
 
 ### `ProjectileTool`
 
-[`ProjectileTool.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/Tools/Scripts/Tools/ProjectileTool.cs) &middot; `abstract`, extends `Tool`
+[`ProjectileTool.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/Tools/Scripts/Tools/ProjectileTool.cs): `abstract`, extends `Tool`
 
 | Member | Type | Description |
 |---|---|---|
@@ -138,24 +140,24 @@ Fields with (Inspector) after their type are private or protected `[SerializeFie
 
 ### `BombThrower`
 
-[`BombThrower.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/Tools/Scripts/Tools/BombThrower.cs) &middot; extends `ProjectileTool`
+[`BombThrower.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/Tools/Scripts/Tools/BombThrower.cs): extends `ProjectileTool`
 
-Implements `OnUse()` as `Fire()`. Nothing else.
+Its only code is an `OnUse()` that calls `Fire()`.
 
 ### `ToolProjectile`
 
-[`ToolProjectile.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/Tools/Scripts/Projectiles/ToolProjectile.cs) &middot; `abstract MonoBehaviour`
+[`ToolProjectile.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/Tools/Scripts/Projectiles/ToolProjectile.cs): `abstract MonoBehaviour`
 
 | Member | Type | Description |
 |---|---|---|
 | `Data` | `ToolProjectileData` (get) | The data it was launched with. |
 | `Finished` | `event Action<ToolProjectile>` | Raised just before the projectile destroys itself. |
-| `Init(ToolProjectileData, Vector2 direction)` | `virtual` method | Called right after spawning. Overrides should call `base.Init` first. |
+| `Init(ToolProjectileData, Vector2 direction)` | `virtual` method | Called right after spawning. |
 | `Finish()` | `protected` method | Raise `Finished` and destroy the object. |
 
 ### `Bomb`
 
-[`Bomb.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/Tools/Scripts/Projectiles/Bomb.cs) &middot; extends `ToolProjectile` &middot; prefab at `Assets/Equipment/Tools/Prefabs/Projectiles/Bomb.prefab`
+[`Bomb.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/Tools/Scripts/Projectiles/Bomb.cs): extends `ToolProjectile`; prefab at `Assets/Equipment/Tools/Prefabs/Projectiles/Bomb.prefab`
 
 Overrides `Init` to require `BombData` (it logs an error and destroys itself otherwise), set its velocity, and schedule the explosion. No other public members.
 
@@ -171,15 +173,9 @@ Overrides `Init` to require `BombData` (it logs an error and destroys itself oth
 
 ---
 
-## Extending
-
-Follow [Add a Tool](../how-to/add-a-tool.md). In short: a tool that throws something extends `ProjectileTool` and gets its own `ToolProjectile` subclass, and anything else extends `Tool` directly. Override `UseAlt()` for the second button, which the GDD gives most tools (detonating a remote bomb, flipping a magnet's polarity).
-
----
-
 ## Known Issues
 
-- **The loadout menu can't change tools yet.** See [Loadout and Passives](loadout.md#known-issues). To test a different tool, assign it to `ToolUser`'s `Secondary Tool` on the prefab.
+- **The loadout menu can't change tools yet.** See [Loadout and Passives](loadout.md#known-issues).
 - **Unused fields.** Nothing reads `ToolProjectileData.lifetime`, `ToolData.toolName`, or `ToolData.sprite` yet.
 - **No explosion effect or sound.** `Bomb.Explode` has a `TODO` for effects, and there's no player bomb sound in FMOD yet.
 - **`UseAlt` on the Bomb Thrower does nothing.** `BombThrower` doesn't override it.

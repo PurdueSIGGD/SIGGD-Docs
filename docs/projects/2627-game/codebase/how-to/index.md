@@ -20,4 +20,4 @@ Recipes for the changes people make most often. Each one assumes you have the pr
 | [Add a Tool](add-a-tool.md) | Yes, one class | A `Tool` subclass, a `ToolData` asset, the player prefab |
 | [Add a Sound Effect](add-a-sound.md) | One line | FMOD Studio, the generated `AudioEvents.cs`, the script that plays it |
 
-Changing a number, like gun recoil, boss health, or player speed, isn't a recipe. Find the asset in the [Tuning Guide](../tuning-guide.md) and edit it.
+To change a number, like gun recoil, boss health, or player speed, find its asset in the [Tuning Guide](../tuning-guide.md) and edit it.

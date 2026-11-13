@@ -11,12 +11,14 @@ tags:
 
 --8<-- "includes/2627-game/milestone.md"
 
-Asteroids are the ammunition of Space Jam: the GDD has players push them into the boss. The asteroid system spawns asteroids off-screen and drifts them into view, damages them by impact speed, and splits them into fragments that carry the parent's momentum. Everything is pooled.
+Asteroids are Space Jam's ammunition. In the GDD, players push them into the boss. The asteroid system spawns asteroids off-screen and drifts them into view, damages them by impact speed, and splits them into fragments that carry the parent's momentum. Everything is pooled.
 
 !!! warning "Built, but not in the game yet"
-    No scene or prefab uses `AsteroidSpawner` or `AsteroidController` at v0.1.0, and there are no `AsteroidData` assets yet. MasterScene uses seven simpler [test asteroids](#the-test-asteroids-in-masterscene) instead. Wiring this system into MasterScene is open work.
+    No scene or prefab uses `AsteroidSpawner` or `AsteroidController` at v0.1.0, and there are no `AsteroidData` assets yet. MasterScene uses seven simpler [test asteroids](#the-test-asteroids-in-masterscene) instead.
 
-**Folder:** [`Assets/Asteroids/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Asteroids) &nbsp;&middot;&nbsp; **Namespace:** global &nbsp;&middot;&nbsp; **Tuning:** [asteroids](../tuning-guide.md#asteroids)
+- **Folder:** [`Assets/Asteroids/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Asteroids)
+- **Namespace:** global
+- **Tuning:** [asteroids](../tuning-guide.md#asteroids)
 
 ---
 
@@ -96,7 +98,7 @@ $$
 v_0 = d \cdot \frac{\ln(1 + c\,\Delta t)}{\Delta t}
 $$
 
-Because the physics actually runs in discrete steps, the asteroid stops slightly short: about 1% short at the default damping of 1, and about 5% short at a damping of 5.
+Because the physics runs in discrete steps, the asteroid stops slightly short: about 1% short at the default damping of 1, and about 5% short at a damping of 5.
 
 ### Impact Damage
 
@@ -106,7 +108,7 @@ Any collision faster than `speedDamageThreshold` damages the asteroid by the imp
 
 When an asteroid breaks, it spawns its `ExplosionPrefab` and `DebrisCount` fragments using `FragmentPrefab` and `FragmentData`. Fragments can split again if their own data has a `DebrisCount` above 0. `AsteroidData.OnValidate` reports an error if the chain of `FragmentData` loops back on itself.
 
-Each of the $n$ fragments gets mass $m_f = m / n$ and scale $s / \sqrt{n}$, so the fragments' total area matches the parent's. They spawn spread evenly around the parent's center. Each one gets an outward impulse $\vec{J}_i$ of about `ExplosionImpulse`, randomized by `ImpulseVariationPercentage`, and then the average impulse is subtracted from all of them so they sum to exactly zero. Each fragment's velocity is
+Each of the $n$ fragments gets mass $m_f = m / n$ and scale $s / \sqrt{n}$, so the fragments' total area matches the parent's. They spawn spread evenly around the parent's center. Each one gets an outward impulse $\vec{J}_i$ of about `ExplosionImpulse`, randomized by `ImpulseVariationPercentage`. The average impulse is then subtracted from all of them so they sum to exactly zero. Each fragment's velocity is
 
 $$
 \vec{v}_i = \vec{v}_{\text{parent}} + \frac{\vec{J}_i}{m_f}
@@ -118,15 +120,15 @@ $$
 \sum_{i=1}^{n} m_f\,\vec{v}_i = m\,\vec{v}_{\text{parent}} + \sum_{i=1}^{n} \vec{J}_i = m\,\vec{v}_{\text{parent}}
 $$
 
-Fragments also inherit the parent's spin and damping. Freshly spawned fragments overlap, so each pair ignores collisions with each other until they're `siblingClearance` apart; otherwise they'd immediately damage each other.
+Fragments also inherit the parent's spin and damping. Freshly spawned fragments overlap and would immediately damage each other, so each pair ignores collisions with each other until they're `siblingClearance` apart.
 
 ### The Explosion Effect
 
-`ExplosionEffect` is a pooled sprite that grows to `endScaleMultiplier` times its starting size and fades out along `alphaCurve` over `duration` seconds, moving at the dead asteroid's velocity. The default curve stays fully opaque for the first 30% of the effect, so the fragments underneath are hidden until the flash fades.
+`ExplosionEffect` is a pooled sprite that grows to `endScaleMultiplier` times its starting size and fades out along `alphaCurve` over `duration` seconds. It moves at the dead asteroid's velocity. The default curve stays fully opaque for the first 30% of the effect, so the fragments underneath are hidden until the flash fades.
 
 ### The Test Asteroids in MasterScene
 
-The seven asteroids in MasterScene come from `Assets/Player/PlayerHealthTesting/Asteroid.prefab`, which was built to test player health. Each one drifts in a random direction at 3 units/s and is destroyed 20 units from where it started, so about 7 seconds after the scene starts. Any collision destroys it, and if it hits a player, it deals that player 1 damage. That means touching one hurts you instead of pushing it, so you can't steer them into the boss yet. `Spawner.cs` in the same folder spawns them on a timer in `PlayerHealthTestScene`.
+The seven asteroids in MasterScene come from `Assets/Player/PlayerHealthTesting/Asteroid.prefab`, which was built to test player health. Each one drifts in a random direction at 3 units/s and is destroyed 20 units from where it started, so about 7 seconds after the scene starts. Any collision destroys it, and if it hits a player, it deals that player 1 damage. Touching one hurts you instead of pushing it, so you can't steer them into the boss yet. `Spawner.cs` in the same folder spawns them on a timer in `PlayerHealthTestScene`.
 
 ---
 
@@ -136,7 +138,7 @@ Fields with (Inspector) after their type are private `[SerializeField]`s.
 
 ### `AsteroidController`
 
-[`AsteroidController.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Asteroids/Scripts/AsteroidController.cs) &middot; `MonoBehaviour`, `IDamageable` &middot; requires `Rigidbody2D` and `SpriteRenderer`, and warns in `OnValidate` if there's no `Collider2D`
+[`AsteroidController.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Asteroids/Scripts/AsteroidController.cs): `MonoBehaviour`, `IDamageable`; requires `Rigidbody2D` and `SpriteRenderer`, and warns in `OnValidate` if there's no `Collider2D`
 
 | Member | Type | Description |
 |---|---|---|
@@ -150,17 +152,17 @@ Fields with (Inspector) after their type are private `[SerializeField]`s.
 | `TakeDamage(DamageContext)` / `ResetHealth()` | methods | From `IDamageable`. |
 | `IgnoreCollisionUntilClear(Collider2D other)` | method | Ignore collisions with `other` until the two separate. |
 
-Turn **Use Auto Mass** off on the `Rigidbody2D`. With it on, the mass `Initialize` sets is ignored and fragments stop conserving momentum; `OnValidate` warns about this.
+`OnValidate` warns if **Use Auto Mass** is on. Auto mass ignores the mass `Initialize` sets, so fragments stop conserving momentum.
 
 ### `AsteroidData`
 
-[`AsteroidData.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Asteroids/Scripts/AsteroidData.cs) &middot; `ScriptableObject` &middot; **Create > Scriptable Objects > AsteroidData**
+[`AsteroidData.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Asteroids/Scripts/AsteroidData.cs): `ScriptableObject`; **Create > Scriptable Objects > AsteroidData**
 
 Read-only properties for every setting. The [Tuning Guide](../tuning-guide.md#asteroids) explains each one.
 
 ### `AsteroidSpawner`
 
-[`AsteroidSpawner.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Asteroids/Scripts/AsteroidSpawner.cs) &middot; `MonoBehaviour`
+[`AsteroidSpawner.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Asteroids/Scripts/AsteroidSpawner.cs): `MonoBehaviour`
 
 | Member | Type | Description |
 |---|---|---|
@@ -172,7 +174,7 @@ The spawner disables itself with an error in the Console if its data, the data's
 
 ### `AsteroidSpawnerData`
 
-[`AsteroidSpawnerData.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Asteroids/Scripts/AsteroidSpawnerData.cs) &middot; `ScriptableObject` &middot; **Create > Scriptable Objects > AsteroidSpawnerData**
+[`AsteroidSpawnerData.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Asteroids/Scripts/AsteroidSpawnerData.cs): `ScriptableObject`; **Create > Scriptable Objects > AsteroidSpawnerData**
 
 | Member | Type | Description |
 |---|---|---|
@@ -183,13 +185,13 @@ Plus read-only properties for every setting, covered in the [Tuning Guide](../tu
 
 ### `AsteroidDespawnZone`
 
-[`AsteroidDespawnZone.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Asteroids/Scripts/AsteroidDespawnZone.cs) &middot; `MonoBehaviour` &middot; requires a `Collider2D` with **Is Trigger** on
+[`AsteroidDespawnZone.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Asteroids/Scripts/AsteroidDespawnZone.cs): `MonoBehaviour`; requires a `Collider2D` with **Is Trigger** on
 
-Returns any asteroid that *leaves* its trigger to the pool. Size it to cover the play area plus the spawn margin.
+Returns any asteroid that *leaves* its trigger to the pool.
 
 ### `ExplosionEffect`
 
-[`ExplosionEffect.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Asteroids/Scripts/ExplosionEffect.cs) &middot; `MonoBehaviour` &middot; requires `SpriteRenderer`
+[`ExplosionEffect.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Asteroids/Scripts/ExplosionEffect.cs): `MonoBehaviour`; requires `SpriteRenderer`
 
 | Member | Type | Description |
 |---|---|---|
@@ -199,14 +201,6 @@ Returns any asteroid that *leaves* its trigger to the pool. Size it to cover the
 | `Play(float baseSize, Vector2 driftVelocity)` | method | Start the effect. Call right after `PrefabPool.Get`. |
 
 `PrefabPool` is documented with [Shared Infrastructure](infrastructure.md#prefabpool).
-
----
-
-## Extending
-
-To get asteroids into a scene: make an asteroid prefab with `AsteroidController`, a `Rigidbody2D` (gravity 0, Use Auto Mass off), a collider, and the `FrictionlessSpace` physics material from `Assets/Asteroids/Data/`. Create an `AsteroidData` for it and a second one for its fragments (with `DebrisCount` 0), then an `AsteroidSpawnerData` pointing at the prefab. Add an `AsteroidSpawner` and an `AsteroidDespawnZone` to the scene.
-
-Subscribe to `Died` to react to an asteroid breaking. The GDD's Asteroid Spawner passive and asteroid hostility (the boss turning idle asteroids against the player) both need a count of live asteroids, which `Died` and the spawner can provide.
 
 ---
 

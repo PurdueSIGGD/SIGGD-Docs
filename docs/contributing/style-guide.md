@@ -64,7 +64,7 @@ google_doc: https://docs.google.com/document/d/FILE_ID/edit?usp=sharing
 
 ---
 
-**Diagrams:** Use Mermaid in a fenced block with the `mermaid` language. Use a class diagram for how classes connect, a state diagram for anything that changes state, and a flowchart for a pipeline. Prefer top-to-bottom layouts (`direction TB`, `flowchart TB`); wide left-to-right diagrams shrink until their text is unreadable. The build doesn't check Mermaid, so preview the page with `mkdocs serve` and make sure the diagram draws.
+**Diagrams:** Use Mermaid in a fenced block with the `mermaid` language. Use a class diagram for how classes connect, a state diagram for anything that changes state, and a flowchart for a pipeline. Prefer top-to-bottom layouts (`direction TB`, `flowchart TB`), because wide left-to-right diagrams shrink until their text is unreadable. The build doesn't check Mermaid, so preview the page with `mkdocs serve` and make sure the diagram draws.
 
 ---
 
@@ -129,7 +129,7 @@ Don't overuse them, as if every paragraph has one, none stand out.
 
 **Tags:** Lowercase, hyphen-separated. Reuse existing tags before adding new ones.
 
-`programming` · `art` · `game-design` · `audio` · `general` · `unity` · `godot` · `unreal` · `pixel-art` · `3d` · `animation` · `ui` · `tools` · `assets` · `project` · `game-jam` · `tutorial` · `reference` · `setup` · `beginner` · `intermediate` · `advanced`
+`programming`, `art`, `game-design`, `audio`, `general`, `unity`, `godot`, `unreal`, `pixel-art`, `3d`, `animation`, `ui`, `tools`, `assets`, `project`, `game-jam`, `tutorial`, `reference`, `setup`, `beginner`, `intermediate`, `advanced`
 
 ---
 

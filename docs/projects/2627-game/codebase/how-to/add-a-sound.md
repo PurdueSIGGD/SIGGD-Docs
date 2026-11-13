@@ -27,7 +27,7 @@ The audio team adds the event in FMOD Studio and builds the banks. A programmer 
 
 1. Pull the audio team's change and open Unity. FMOD for Unity notices the new banks on its own.
 2. Choose **Tools > Audio > Refresh Audio Events**.
-3. The Console should say `Wrote N audio events to Assets/Audio/AudioEvents.cs`. If it says they're already up to date, Unity hasn't picked up the new banks yet: check that the pull included the `.bank` files, then refresh again.
+3. The Console should say `Wrote N audio events to Assets/Audio/AudioEvents.cs`. If it says they're already up to date, Unity hasn't picked up the new banks yet. Check that the pull included the `.bank` files, then refresh again.
 
 ## Programmer: Play It
 
@@ -57,7 +57,7 @@ Commit the regenerated `AudioEvents.cs` in the same PR as the code that uses it.
 === "No sound plays"
     **Symptom:** The code runs, but you hear nothing.
 
-    **Fix:** Check the Console for an `[FMOD] Event not found` warning (or an `EventNotFoundException` for music), which means the generated class is newer than the banks you have. Pull the latest banks. Then check that MasterScene's Main Camera still has its `StudioListener`.
+    **Fix:** Check the Console for an `[FMOD] Event not found` warning, or an `EventNotFoundException` for music. Either one means the generated class is newer than the banks you have, so pull the latest banks. Then check that MasterScene's Main Camera still has its `StudioListener`.
 
 === "Music plays twice"
     **Symptom:** Starting a second music track doesn't stop the first.

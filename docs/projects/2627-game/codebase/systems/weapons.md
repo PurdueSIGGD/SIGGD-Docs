@@ -11,9 +11,11 @@ tags:
 
 --8<-- "includes/2627-game/milestone.md"
 
-The player's gun fires pooled bullets along the aiming arm. A gun is a `PrimaryWeapon` asset (ammo, spread, recoil), and each gun points at a `ProjectileScriptableObject` asset (damage, speed, sprite). `ProjectileManager` owns the one bullet pool, and boss attacks fire through the same pool, so player bullets and boss bullets are the same `Bullet` prefab with different data.
+The player's gun fires pooled bullets along the aiming arm. A gun is a `PrimaryWeapon` asset (ammo, spread, recoil), and each gun points at a `ProjectileScriptableObject` asset (damage, speed, sprite). `ProjectileManager` owns the one bullet pool, and boss attacks fire through it too. Player bullets and boss bullets are the same `Bullet` prefab with different data.
 
-**Folders:** [`Assets/Projectiles/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Projectiles), [`Assets/Equipment/WeaponScripts/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Equipment/WeaponScripts), [`Assets/Equipment/WeaponScriptableObjects/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Equipment/WeaponScriptableObjects) &nbsp;&middot;&nbsp; **Namespace:** global &nbsp;&middot;&nbsp; **Tuning:** [guns](../tuning-guide.md#guns) and [projectiles](../tuning-guide.md#projectiles)
+- **Folders:** [`Assets/Projectiles/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Projectiles), [`Assets/Equipment/WeaponScripts/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Equipment/WeaponScripts), [`Assets/Equipment/WeaponScriptableObjects/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Equipment/WeaponScriptableObjects)
+- **Namespace:** global
+- **Tuning:** [guns](../tuning-guide.md#guns) and [projectiles](../tuning-guide.md#projectiles)
 
 ---
 
@@ -105,7 +107,7 @@ stateDiagram-v2
     note right of InPool : inactive, velocity zeroed
 ```
 
-There is only one bullet prefab, so each bullet's look and shape come from the asset. The collider is a `PolygonCollider2D` rebuilt from the projectile sprite's physics shape, which Unity generates when it imports the sprite. To change the shape, edit it in the Sprite Editor's **Custom Physics Shape** mode. The asset computes those outlines in `OnValidate` and stores them in `PhysicsPaths`.
+There is only one bullet prefab, so each bullet's look and shape come from the asset. The collider is a `PolygonCollider2D` rebuilt from the projectile sprite's physics shape, which Unity generates when it imports the sprite. The asset computes those outlines in `OnValidate` and stores them in `PhysicsPaths`.
 
 ### Layers: Who a Bullet Can Hit
 
@@ -135,11 +137,11 @@ Fields with (Inspector) after their type are private `[SerializeField]`s.
 
 ### `PrimaryGun`
 
-[`PrimaryGun.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Projectiles/Scripts/PrimaryGun.cs) &middot; `MonoBehaviour`
+[`PrimaryGun.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Projectiles/Scripts/PrimaryGun.cs): `MonoBehaviour`
 
 | Member | Type | Description |
 |---|---|---|
-| `Weapon` | `PrimaryWeapon` | The equipped gun. Change it through `EquipWeapon`, not directly. |
+| `Weapon` | `PrimaryWeapon` | The equipped gun. |
 | `FirePoint` | `Transform` | Where bullets spawn. Replaced by the gun visual's `Firepoint` on equip. |
 | `PlayerBody` | `Rigidbody2D` | Receives recoil. |
 | `CurrentAmmo` | `int` | Rounds left. |
@@ -153,24 +155,24 @@ Fields with (Inspector) after their type are private `[SerializeField]`s.
 
 ### `PrimaryWeapon`
 
-[`PrimaryWeapon.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/WeaponScripts/PrimaryWeapon.cs) &middot; `ScriptableObject`, `IEquipment` &middot; **Create > Scriptable Objects > PrimaryWeapon**
+[`PrimaryWeapon.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/WeaponScripts/PrimaryWeapon.cs): `ScriptableObject`, `IEquipment`; **Create > Scriptable Objects > PrimaryWeapon**
 
 Public fields: `Projectile`, `WeaponName`, `NumBullets`, `Spread`, `ReloadTime`, `Offset`, `Recoil`, `AmmoCapacity`, `FireSpeed`, `WeaponVisualPrefab`, `WeaponVisualRotationOffset`. The [Tuning Guide](../tuning-guide.md#guns) describes each. `Use()` from `IEquipment` is empty.
 
 ### `ProjectileScriptableObject`
 
-[`ProjectileScriptableObject.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Projectiles/ScriptableObjects/ProjectileScriptableObject.cs) &middot; `ScriptableObject` &middot; **Create > Scriptable Objects > ProjectileScriptableObject**
+[`ProjectileScriptableObject.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Projectiles/ScriptableObjects/ProjectileScriptableObject.cs): `ScriptableObject`; **Create > Scriptable Objects > ProjectileScriptableObject**
 
-Public fields: `IsExplosive`, `HasSpline`, `Damage`, `Lifetime`, `Velocity`, `SpriteAngleOffset`, `ProjectileSprite`, `ProjectileColor`, `ProjectileScale`, `SplineGameObject`, `SplineContainer`, `Spline`, `PhysicsPaths`. The [Tuning Guide](../tuning-guide.md#projectiles) describes the ones you should edit. `HasSpline`, `SplineContainer`, `Spline`, and `PhysicsPaths` are filled in by `OnValidate`; don't set them by hand.
+Public fields: `IsExplosive`, `HasSpline`, `Damage`, `Lifetime`, `Velocity`, `SpriteAngleOffset`, `ProjectileSprite`, `ProjectileColor`, `ProjectileScale`, `SplineGameObject`, `SplineContainer`, `Spline`, `PhysicsPaths`. `HasSpline`, `SplineContainer`, `Spline`, and `PhysicsPaths` are filled in by `OnValidate`.
 
 ### `ProjectileManager`
 
-[`ProjectileManager.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Projectiles/Scripts/ProjectileManager.cs) &middot; `Singleton<ProjectileManager>` &middot; prefab at `Assets/Projectiles/Prefabs/ProjectileManager.prefab`
+[`ProjectileManager.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Projectiles/Scripts/ProjectileManager.cs): `Singleton<ProjectileManager>`; prefab at `Assets/Projectiles/Prefabs/ProjectileManager.prefab`
 
 | Member | Type | Description |
 |---|---|---|
 | `Instance` | `ProjectileManager` (static) | The manager, from `Singleton<T>`. |
-| `ProjectilePool` | `ObjectPool<GameObject>` | The bullet pool. Bullets release themselves; other code shouldn't need it. |
+| `ProjectilePool` | `ObjectPool<GameObject>` | The bullet pool. |
 | `bulletPrefab` | `GameObject` (Inspector) | The prefab every pooled bullet is made from. |
 | `ShootProjectileTowardsDirection(ProjectileScriptableObject, Transform firePoint, Vector2 direction, LayerMask layerToHit, LayerMask layerToIgnore)` | method | Fire one bullet from `firePoint` along `direction`. |
 | `ShootProjectileTowardsPoint(ProjectileScriptableObject, Transform firePoint, Transform targetPoint, LayerMask layerToHit, LayerMask layerToIgnore)` | method | Fire one bullet from `firePoint` toward `targetPoint`. |
@@ -178,12 +180,12 @@ Public fields: `IsExplosive`, `HasSpline`, `Damage`, `Lifetime`, `Velocity`, `Sp
 
 ### `Bullet`
 
-[`Bullet.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Projectiles/Scripts/Bullet.cs) &middot; `MonoBehaviour` &middot; on `Assets/Projectiles/Bullets/BaseBullet.prefab`
+[`Bullet.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Projectiles/Scripts/Bullet.cs): `MonoBehaviour`; on `Assets/Projectiles/Bullets/BaseBullet.prefab`
 
 | Member | Type | Description |
 |---|---|---|
-| `OnBulletHit` | `static UnityEvent<Bullet, GameObject>` | Raised on every hit with the bullet and what it hit. See Known Issues before using it. |
-| `DestroyOnHit` | `bool` | Return to the pool on the first hit. `true` by default; set `false` for piercing bullets. |
+| `OnBulletHit` | `static UnityEvent<Bullet, GameObject>` | Raised on every hit with the bullet and what it hit. See Known Issues. |
+| `DestroyOnHit` | `bool` | Return to the pool on the first hit. `true` by default. With `false`, the bullet pierces. |
 | `PopulateBulletValues(ProjectileScriptableObject, Transform firePoint, Vector2 shootDirection, LayerMask layerToHit, LayerMask layerToIgnore)` | method | Reset the bullet and copy everything from the asset. Called by `ProjectileManager`. |
 | `GetDamage()` / `SetDamage(int)` | method | Read or override this bullet's damage. |
 | `GetLifetime()` / `SetLifetime(float)` | method | Read or override the seconds left. |
@@ -191,7 +193,7 @@ Public fields: `IsExplosive`, `HasSpline`, `Damage`, `Lifetime`, `Velocity`, `Sp
 
 ### `RotateArmToAim`
 
-[`RotateArmToAim.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/WeaponScripts/RotateArmToAim.cs) &middot; `MonoBehaviour`
+[`RotateArmToAim.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/WeaponScripts/RotateArmToAim.cs): `MonoBehaviour`
 
 | Member | Type | Description |
 |---|---|---|
@@ -200,17 +202,9 @@ Public fields: `IsExplosive`, `HasSpline`, `Damage`, `Lifetime`, `Velocity`, `Sp
 
 ### `WeaponPrefabTransformHolder`
 
-[`WeaponPrefabTransformHolder.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/WeaponScripts/WeaponPrefabTransformHolder.cs) &middot; `MonoBehaviour`
+[`WeaponPrefabTransformHolder.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Equipment/WeaponScripts/WeaponPrefabTransformHolder.cs): `MonoBehaviour`
 
 Marks two points on a gun's visual prefab: `Firepoint` (where bullets spawn) and `Holdpoint` (where the hand grips it). Every `WeaponVisualPrefab` needs one on its root.
-
----
-
-## Extending
-
-- **A new gun** with existing bullet behavior is only data. Follow [Add a Gun](../how-to/add-a-gun.md).
-- **A new bullet behavior** (piercing, explosive, homing) belongs in `Bullet`, switched on by a field in `ProjectileScriptableObject`, so every gun and boss attack can use it.
-- **Something else that shoots**, like a turret or enemy, should call `ProjectileManager.Instance.ShootProjectileTowardsDirection` with its own layer masks rather than instantiating bullets.
 
 ---
 
@@ -219,11 +213,11 @@ Marks two points on a gun's visual prefab: `Firepoint` (where bullets spawn) and
 - **No fire-rate limit.** The line that sets the next allowed fire time is inside a [commented-out block](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Projectiles/Scripts/PrimaryGun.cs#L76), so `FireSpeed` does nothing and the gun fires as fast as you can click until ammo runs out.
 - **The Shotgun asset isn't a gun.** `Assets/Equipment/WeaponScriptableObjects/Shotgun.asset` was created as a `ProjectileScriptableObject`, not a `PrimaryWeapon`, so it can't be equipped. The Pistol is the only working gun.
 - **Bullets collide with each other.** Every bullet is on the `Default` layer, and no shot ignores `Default`. When two bullets touch, both return to the pool. That happens to cancel boss bullets the way the GDD wants, but pellets from a multi-bullet gun spawn overlapping and would destroy each other.
-- **Bullets may have no collider in builds.** `PhysicsPaths` is a `List<Vector2[]>`, which Unity doesn't serialize, and it's only filled by `OnValidate`, which only runs in the editor. In a player build the list would be empty, and `Bullet` would give the collider zero paths. Check that bullets hit things in a build before relying on them.
-- **`Bullet.OnBulletHit` is never created.** The static event is declared but never assigned, so it's always `null` and calling `AddListener` on it throws. Initialize it (`= new UnityEvent<Bullet, GameObject>()`) before using it.
+- **Bullets may have no collider in builds.** `PhysicsPaths` is a `List<Vector2[]>`, which Unity doesn't serialize. It's only filled by `OnValidate`, which only runs in the editor. In a player build the list would be empty, and `Bullet` would give the collider zero paths.
+- **`Bullet.OnBulletHit` is never created.** The static event is declared but never assigned, so it's always `null` and calling `AddListener` on it throws.
 - **The pool breaks on a scene reload.** `ProjectileManager` survives scene loads but its bullets don't. See [Shared Infrastructure](infrastructure.md#known-issues).
 - **`IsExplosive` does nothing yet.** `Bullet.Update` has an empty branch where the explosion will go.
-- **The Pistol has `NumBullets` set to `0`.** The code treats anything below 1 as 1, so it works, but set it to `1` if you copy the Pistol for a new gun.
+- **The Pistol has `NumBullets` set to `0`.** The code treats anything below 1 as 1.
 
 ### Differs from the GDD
 

@@ -13,7 +13,9 @@ tags:
 
 A boss is one `GenericBoss` component driven by a `BossData` asset. The boss loops forever: pick a weighted random attack for the current phase, wait for it to finish firing, wait out its cooldown, repeat. Attacks are ScriptableObject assets, so a new boss is mostly a new set of assets. The Factory Planet is the only boss at v0.1.0.
 
-**Folders:** [`Assets/GenericBoss/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/GenericBoss) (logic and the Factory Planet's attack assets), [`Assets/Boss/Factory Planet/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Boss/Factory%20Planet) (the `Factory Boss` prefab and art) &nbsp;&middot;&nbsp; **Namespace:** global &nbsp;&middot;&nbsp; **Tuning:** [boss](../tuning-guide.md#boss)
+- **Folders:** [`Assets/GenericBoss/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/GenericBoss) (logic and the Factory Planet's attack assets), [`Assets/Boss/Factory Planet/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Boss/Factory%20Planet) (the `Factory Boss` prefab and art)
+- **Namespace:** global
+- **Tuning:** [boss](../tuning-guide.md#boss)
 
 ---
 
@@ -73,7 +75,7 @@ Three layers of assets describe a boss:
 
 1. **`BossData`**, one per boss: health per phase, collision damage settings, music, and the list of attacks.
 2. **`AttackPercents`**, one per attack in that list: which `BossAttack` to use, and a weight for each phase.
-3. **`BossAttack`** subclasses, one per attack variant: the actual pattern (projectile, count, angles, timing).
+3. **`BossAttack`** subclasses, one per attack variant: the pattern (projectile, count, angles, timing).
 
 The same `BossAttack` asset can appear in several bosses' lists with different weights.
 
@@ -109,7 +111,7 @@ stateDiagram-v2
 
 `Shoot()` returns a task that completes once the attack has finished *firing*. Projectiles, lasers, and robots it created keep going after that.
 
-The loop holds a cancellation token tied to the boss object, so destroying the boss stops the loop from waiting on the current attack or cooldown. `Shoot()` itself doesn't receive that token, though. An attack that awaits its own delays, like the scrap fan, keeps firing to the end even after the boss is gone. New attacks should pass `bossObject.GetCancellationTokenOnDestroy()` to their delays; [Add a Boss Attack](../how-to/add-a-boss-attack.md) shows how.
+The loop holds a cancellation token tied to the boss object, so destroying the boss stops the loop from waiting on the current attack or cooldown. `Shoot()` itself doesn't receive that token, though. An attack that awaits its own delays, like the scrap fan, keeps firing to the end even after the boss is gone.
 
 ### Picking an Attack
 
@@ -138,7 +140,7 @@ The phase only moves forward, and a single big hit can skip a phase. Every `Atta
 
 ### The Attack Types
 
-All positions are **world coordinates**, not offsets from the boss, and the `bossObject` parameter `Shoot` receives isn't used yet. The attacks don't share an angle convention; the **Angles** column gives each one's.
+All positions are **world coordinates**, not offsets from the boss. The `bossObject` parameter that `Shoot` receives isn't used yet. The attacks use different angle conventions, listed in the **Angles** column.
 
 | Attack | What it does | Angles |
 |---|---|---|
@@ -171,33 +173,33 @@ The planet spins at 5 degrees per second through `PlanetRotation`. Its `Rigidbod
 
 ### `GenericBoss`
 
-[`GenericBoss.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/GenericBoss/GenericBoss.cs) &middot; `MonoBehaviour`, `IDamageable`
+[`GenericBoss.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/GenericBoss/GenericBoss.cs): `MonoBehaviour`, `IDamageable`
 
 | Member | Type | Description |
 |---|---|---|
 | `bossData` | `BossData` (Inspector) | This boss's settings. |
 | `OnBossTakeDamage` | `UnityEvent<DamageContext>` | Raised on every hit. No listeners on the `Factory Boss` prefab yet. |
 | `OnBossDeath` | `UnityEvent<DamageContext>` | Raised when health reaches 0. No listeners yet. |
-| `CurrentPhase` | `int` | Index of the current phase. Public so you can watch it, but let `TakeDamage` change it. |
+| `CurrentPhase` | `int` | Index of the current phase. Only `TakeDamage` changes it. |
 | `CurrentHealth`, `MaxHealth`, `IsAlive` | (get) | From `IDamageable`. Shown read-only in the Inspector through Odin. |
 | `TakeDamage(DamageContext)` | method | Subtract damage, update the phase, check for death. |
 | `ResetHealth()` | method | Not implemented; throws. |
 
 ### `BossData`
 
-[`BossData.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/GenericBoss/BossData.cs) &middot; `ScriptableObject` &middot; **Create > Data > BossData**
+[`BossData.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/GenericBoss/BossData.cs): `ScriptableObject`; **Create > Data > BossData**
 
 Read-only properties `PhaseHealthBoundaries` (`int[]`), `SpeedDamageThreshold`, `DamageMultiplier`, `AttackPercentList` (`AttackPercents[]`), and the public field `BossSoundTrack` (`EventReference`).
 
 ### `AttackPercents`
 
-[`AttackPercents.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/GenericBoss/AttackPercents.cs) &middot; `ScriptableObject` &middot; **Create > Data > AttackPercents**
+[`AttackPercents.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/GenericBoss/AttackPercents.cs): `ScriptableObject`; **Create > Data > AttackPercents**
 
-Read-only properties `ChanceWeights` (`uint[]`, one per phase) and `Attack` (`BossAttack`). It also declares a public constructor taking both, but Unity creates ScriptableObjects through the Create menu or `ScriptableObject.CreateInstance`, so that constructor isn't usable.
+Read-only properties `ChanceWeights` (`uint[]`, one per phase) and `Attack` (`BossAttack`). It also declares a public constructor taking both. That constructor isn't usable, because Unity creates ScriptableObjects through the Create menu or `ScriptableObject.CreateInstance`.
 
 ### `BossAttack`
 
-[`BossAttack.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/GenericBoss/BossAttack.cs) &middot; `abstract ScriptableObject`
+[`BossAttack.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/GenericBoss/BossAttack.cs): `abstract ScriptableObject`
 
 | Member | Type | Description |
 |---|---|---|
@@ -208,16 +210,16 @@ The four subclasses each add their own private serialized settings, listed in th
 
 ### `Laser`
 
-[`Laser.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/GenericBoss/Laser.cs) &middot; `MonoBehaviour` &middot; prefab at `Assets/GenericBoss/Laser.prefab`
+[`Laser.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/GenericBoss/Laser.cs): `MonoBehaviour`; prefab at `Assets/GenericBoss/Laser.prefab`
 
 | Member | Type | Description |
 |---|---|---|
 | `InitLaser(float length, float angle, Vector2 origin, float damage, float lifetime)` | method | Place, rotate, and stretch the beam so it starts at `origin`, and set its damage and lifetime. The prefab's sprite must be 1 unit long, since the length is applied as x scale. |
-| `OnTriggerEnter2D` / `OnTriggerExit2D` | methods | Unity callbacks that keep the list of targets. They're `public`, but nothing else should call them. |
+| `OnTriggerEnter2D` / `OnTriggerExit2D` | methods | Unity callbacks that keep the list of targets. |
 
 ### `Robot`
 
-[`Robot.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/GenericBoss/Robot.cs) &middot; `MonoBehaviour`, `IDamageable` &middot; prefab at `Assets/Projectiles/Prefabs/Robot.prefab`
+[`Robot.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/GenericBoss/Robot.cs): `MonoBehaviour`, `IDamageable`; prefab at `Assets/Projectiles/Prefabs/Robot.prefab`
 
 A robot takes its sprite, scale, collider shape, speed, and lifetime from a `ProjectileScriptableObject` (the `Robot` asset), like a bullet does. Its collider excludes the `Enemy` and `Boss` layers, so robots pass through the boss.
 
@@ -232,32 +234,21 @@ A robot takes its sprite, scale, collider shape, speed, and lifetime from a `Pro
 
 ### `PlanetRotation`
 
-[`PlanetRotation.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/PlanetRotation.cs) &middot; `MonoBehaviour`
+[`PlanetRotation.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/PlanetRotation.cs): `MonoBehaviour`
 
 `SpinSpeed` (`float`, degrees per second) is applied once as the `Rigidbody2D`'s angular velocity in `Start`.
 
 ---
 
-## Extending
-
-- **A new attack pattern** is a new `BossAttack` subclass. Follow [Add a Boss Attack](../how-to/add-a-boss-attack.md).
-- **A variant of an existing pattern** (more bullets, a different angle) is a new asset of the existing class. No code.
-- **Changing an existing attack**, such as adding a warning before the lasers fire, means editing its class. For a telegraph there are two places it can go: make `BossAttackLaser.Shoot` `async`, spawn a warning sprite, `await UniTask.Delay(...)`, then spawn the beams; or give `Laser` an armed state that leaves its collider off until the warning ends. The first keeps `Laser` simple; the second lets every laser attack share the telegraph.
-- **A new boss** is a prefab with `GenericBoss` and a `Rigidbody2D`, a new `BossData`, and a set of `AttackPercents`. Boss-specific behavior that doesn't fit the attack loop (the Factory Planet's scrap belt, say) should go in a separate component that listens to `OnBossTakeDamage`, so `GenericBoss` stays generic.
-
-To test one attack, temporarily set every other attack's weight to `0` in its `AttackPercents` asset. When only one attack has weight, the boss repeats it. Put the weights back before committing.
-
----
-
 ## Known Issues
 
-- **Nothing happens when the boss dies.** `OnBossDeath` has no listeners, so the attack loop stops and the planet just sits there. There's no victory sequence or return to a menu.
-- **The laser breaks on non-damageable objects.** [`Laser`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/GenericBoss/Laser.cs#L54) adds whatever `GetComponent<IDamageable>()` returns to its list, including `null` for non-damageable colliders such as the test asteroids. The [damage tick](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/GenericBoss/Laser.cs#L47) then throws a `NullReferenceException` on that entry, and nothing after it in the list takes damage. Skip `null` when adding.
-- **Lasers last 500 seconds.** The Factory Planet's laser asset has `Lifetime` set to `500`, and since `Laser` counts it in seconds, every laser attack leaves two beams on screen for over eight minutes. The value may have been meant as milliseconds.
+- **Nothing happens when the boss dies.** The attack loop stops, but `OnBossDeath` has no listeners, so the planet sits idle. There's no victory sequence or return to a menu.
+- **The laser breaks on non-damageable objects.** [`Laser`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/GenericBoss/Laser.cs#L54) adds whatever `GetComponent<IDamageable>()` returns to its list, including `null` for non-damageable colliders such as the test asteroids. The [damage tick](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/GenericBoss/Laser.cs#L47) then throws a `NullReferenceException` on that entry, and nothing after it in the list takes damage.
+- **Lasers last 500 seconds.** The Factory Planet's laser asset has `Lifetime` set to `500`. `Laser` counts it in seconds, so every laser attack leaves two beams on screen for over eight minutes. The value may have been meant as milliseconds.
 - **Robots don't hurt the player.** `Robot` stores a damage value but never applies it. Touching one does nothing.
 - **Robots are on the `Default` layer, not `Enemy`.** Layer masks that mention `Enemy` don't affect them.
-- **Attacks ignore the boss's position.** Every origin is a world coordinate. The `Factory Boss` object sits at x = 28.8, but the scrap fan and robots fire from (1, 1). Moving the boss means editing every attack asset.
-- **`BossAttackBomb` targets one player.** It finds a target with `FindAnyObjectByType<Player>()` instead of `PlayerRegistry`, and its projectile (`BossBomb`) is marked explosive, which `Bullet` doesn't support yet.
+- **Attacks ignore the boss's position.** Every origin is a world coordinate. The `Factory Boss` object sits at x = 28.8, but the scrap fan and robots fire from (1, 1).
+- **`BossAttackBomb` targets one player.** It finds a target with `FindAnyObjectByType<Player>()` instead of `PlayerRegistry`. Its projectile (`BossBomb`) is also marked explosive, which `Bullet` doesn't support yet.
 - **The scrap fan runs for 50 seconds.** The Factory Planet's fan fires 100 shots 500 ms apart, and the boss can't start another attack until it finishes.
 - **Robot colliders may be empty in builds.** Robots build their collider from a projectile asset, the same way bullets do. See [Weapons and Projectiles](weapons.md#known-issues).
 - **Leftover code and assets.** `BasicPercent.asset` duplicates `BasicAttack.asset`, `BombPercent.asset` isn't in any boss's list, and `BossAttack` declares four private fields its subclasses never use.

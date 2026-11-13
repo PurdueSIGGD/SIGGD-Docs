@@ -11,7 +11,7 @@ tags:
 
 --8<-- "includes/2627-game/milestone.md"
 
-A gun is three assets and no code: a **projectile** (what comes out), a **gun** (how it fires), and a **visual prefab** (what the player holds). The fastest start is copying the Pistol's three and changing them. For how firing works, see [Weapons and Projectiles](../systems/weapons.md).
+A gun is three assets and no code: a **projectile** (what comes out), a **gun** (how it fires), and a **visual prefab** (what the player holds). The quickest way to start is to copy the Pistol's three assets and change them. For how firing works, see [Weapons and Projectiles](../systems/weapons.md).
 
 ---
 
@@ -59,12 +59,12 @@ Make sure the root still has `WeaponPrefabTransformHolder` with both fields fill
 
 1. Open `Assets/Player/Player.prefab`, select `WeaponHolder`, and drag your gun asset into `Primary Gun > Weapon`.
 2. Press **Play** in MasterScene and shoot.
-3. Undo the prefab change before you commit, unless your gun should be the new default. The [loadout menu](../systems/loadout.md) is the way to offer it as a choice.
+3. Undo the prefab change before you commit, unless your gun should be the new default. To offer it as a choice instead, give it a button in the [loadout menu](../systems/loadout.md).
 
 ---
 
 ## Things to Watch For
 
-- **Multi-bullet guns.** Bullets collide with each other at v0.1.0, so pellets that spawn overlapping cancel each other out. Until that's fixed, a shotgun loses pellets at the muzzle. See [Known Issues](../systems/weapons.md#known-issues).
+- **Multi-bullet guns.** Bullets collide with each other at v0.1.0, so a shotgun's pellets that spawn overlapping cancel each other out at the muzzle. See [Known Issues](../systems/weapons.md#known-issues).
 - **Recoil and the speed cap.** The player's speed is clamped to `Max Velocity` every physics step, so at top speed recoil can turn you or slow you down, but not add lasting speed.
 - **Commit the `.meta` files.** Every new asset has a matching `.meta` file, and Unity loses references without it.

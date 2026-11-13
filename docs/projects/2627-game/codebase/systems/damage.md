@@ -13,7 +13,8 @@ tags:
 
 Everything that can be hurt implements one interface, `IDamageable`. Anything that deals damage builds a `DamageContext` and calls `TakeDamage` on whatever it hit, without knowing whether that's a player, the boss, a robot, or an asteroid. Each damageable object decides for itself what a hit means.
 
-**Folder:** [`Assets/Damage/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Damage) &nbsp;&middot;&nbsp; **Namespace:** global
+- **Folder:** [`Assets/Damage/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Damage)
+- **Namespace:** global
 
 ---
 
@@ -72,7 +73,7 @@ $$
 \text{damage} = |\vec{v}_{\text{relative}}| \times \text{DamageMultiplier}
 $$
 
-`AsteroidController` uses the same formula with its own fields. Rams and pushed asteroids both work through this path: the boss computes its own collision damage, so neither the player nor the asteroid that hits it needs any damage-dealing code.
+`AsteroidController` uses the same formula with its own fields. Rams and pushed asteroids both work through this path. Because the boss computes its own collision damage, the player and the asteroid that hits it need no damage-dealing code.
 
 ---
 
@@ -80,7 +81,7 @@ $$
 
 ### `IDamageable`
 
-[`IDamageable.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Damage/IDamageable.cs) &middot; `interface`
+[`IDamageable.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Damage/IDamageable.cs): `interface`
 
 | Member | Type | Description |
 |---|---|---|
@@ -92,7 +93,7 @@ $$
 
 ### `DamageContext`
 
-[`IDamageable.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Damage/IDamageable.cs) &middot; `struct`
+[`IDamageable.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Damage/IDamageable.cs): `struct`
 
 | Field | Type | Description |
 |---|---|---|
@@ -114,14 +115,6 @@ TakeDamage(new DamageContext
     Victim = gameObject
 });
 ```
-
----
-
-## Extending
-
-To make something new damageable, implement `IDamageable` on a component on the object that owns the collider. `Bullet` and `Laser` look the interface up with `GetComponent`, which only searches that one object. `Bomb` uses `GetComponentInParent`, which also searches up the hierarchy.
-
-To make something new deal damage, find the `IDamageable` on whatever you hit and call `TakeDamage`. Null-check the result, since most colliders in a scene aren't damageable.
 
 ---
 

@@ -27,10 +27,9 @@ Each page covers one system: what it does, how the classes connect, the public A
 
 ## Reading a System Page
 
-System pages follow the same order, so you can jump to the part you need. Two pages differ: Audio opens with its asset pipeline instead of a class diagram, and Shared Infrastructure has one section per tool, since its three tools are unrelated.
+System pages follow the same order. Two pages differ: Audio opens with its asset pipeline instead of a class diagram, and Shared Infrastructure has one section per tool, since its three tools are unrelated.
 
 1. **How It's Put Together:** a class diagram of the system. In these diagrams, a solid arrow means "holds a reference to", a dotted arrow means "uses or creates", a hollow triangle means "inherits from", and a dotted line with a hollow triangle means "implements".
 2. **How It Works:** the runtime behavior, with state diagrams where something changes state.
 3. **Class Reference:** each class's public members and Inspector fields, with a link to its source at v0.1.0. Fields with (Inspector) after their type are private `[SerializeField]`s.
-4. **Extending:** where new code should go, and the matching [How-To](../how-to/index.md) recipe.
-5. **Known Issues:** bugs and gaps at v0.1.0, then where the code **differs from the GDD** (the [Game Design Document](../../design/game-design-doc.md)). Each is a candidate task.
+4. **Known Issues:** bugs and gaps at v0.1.0, then where the code **differs from the GDD** (the [Game Design Document](../../design/game-design-doc.md)).

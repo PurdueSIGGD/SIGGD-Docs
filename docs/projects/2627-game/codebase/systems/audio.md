@@ -14,7 +14,8 @@ tags:
 
 All game audio goes through [FMOD](https://www.fmod.com/docs/2.03/unity/welcome.html). The audio team builds events in FMOD Studio, and code plays them with one line, `AudioManager.PlayOneShot(AudioEvents.<path>)`. `AudioEvents` is a generated C# class with one field per FMOD event, so a typo in an event name is a compile error instead of a silent missing sound.
 
-**Folder:** [`Assets/Audio/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Audio) &nbsp;&middot;&nbsp; **Namespace:** global
+- **Folder:** [`Assets/Audio/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Audio)
+- **Namespace:** global
 
 ---
 
@@ -51,8 +52,7 @@ To make every path a legal C# name, the generator:
 
 Each field stores the event's GUID, which is what FMOD uses in a build. The readable path is only compiled into the editor, inside `#if UNITY_EDITOR`.
 
-!!! warning "Don't edit `AudioEvents.cs` by hand"
-    The next refresh overwrites it. If an event is missing, rebuild the banks in FMOD Studio and refresh.
+Each refresh rewrites the whole file, so hand edits don't survive.
 
 ### Events at v0.1.0
 
@@ -70,7 +70,7 @@ These exist in the banks but nothing plays them yet: `Boss_1_BombExplode`, `Boss
 
 ### Where Sounds Are Heard From
 
-FMOD's `StudioListener` is on the Main Camera in MasterScene. `PlayOneShot` takes an optional world position, but every call at v0.1.0 leaves it out. That doesn't matter for 2D events, which ignore position. A 3D event would play as if it came from (0, 0), so pass `transform.position` for any event the audio team sets up as 3D in FMOD Studio.
+FMOD's `StudioListener` is on the Main Camera in MasterScene. `PlayOneShot` takes an optional world position, but every call at v0.1.0 leaves it out. That doesn't matter for 2D events, which ignore position. A 3D event would play as if it came from (0, 0).
 
 ---
 
@@ -78,9 +78,9 @@ FMOD's `StudioListener` is on the Main Camera in MasterScene. `PlayOneShot` take
 
 ### `AudioManager`
 
-[`AudioManager.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Audio/AudioManager.cs) &middot; `MonoBehaviour` with only static members
+[`AudioManager.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Audio/AudioManager.cs): `MonoBehaviour` with only static members
 
-You don't need an `AudioManager` in the scene; call its static methods from anywhere.
+Every member is static, so no `AudioManager` needs to be in the scene.
 
 | Member | Type | Description |
 |---|---|---|
@@ -89,13 +89,13 @@ You don't need an `AudioManager` in the scene; call its static methods from anyw
 
 ### `AudioEvents`
 
-[`AudioEvents.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Audio/AudioEvents.cs) &middot; generated `static class`
+[`AudioEvents.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Audio/AudioEvents.cs): generated `static class`
 
 Nested static classes mirroring the FMOD folder tree, as described [above](#the-generated-audioevents-class).
 
 ### `AudioEventsGenerator` (editor only)
 
-[`AudioEventsGenerator.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Audio/Editor/AudioEventsGenerator.cs) &middot; `static class` in an `Editor` folder
+[`AudioEventsGenerator.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Audio/Editor/AudioEventsGenerator.cs): `static class` in an `Editor` folder
 
 | Member | Type | Description |
 |---|---|---|
@@ -104,13 +104,8 @@ Nested static classes mirroring the FMOD folder tree, as described [above](#the-
 
 ---
 
-## Extending
-
-Follow [Add a Sound Effect](../how-to/add-a-sound.md). For music, give the boss's `BossData` a different `BossSoundTrack`.
-
----
-
 ## Known Issues
 
-- **Music tracks stack.** [`PlayTrack`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Audio/AudioManager.cs#L19) creates the new instance in a local variable and never stores it in `currentMusicTrack`. The check that stops the previous track never finds one, so starting a second track plays both, and no track is ever released. Assign the new instance to `currentMusicTrack`.
-- **No way to stop music.** There's no `StopTrack`, so music keeps playing after the boss dies.- **No call passes a position.** Any 3D event would play from the origin. See [above](#where-sounds-are-heard-from).
+- **Music tracks stack.** [`PlayTrack`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Audio/AudioManager.cs#L19) creates the new instance in a local variable and never stores it in `currentMusicTrack`. The check that stops the previous track never finds one, so starting a second track plays both. No track is ever released either.
+- **No way to stop music.** There's no `StopTrack`, so music keeps playing after the boss dies.
+- **No call passes a position.** Any 3D event would play from the origin. See [above](#where-sounds-are-heard-from).

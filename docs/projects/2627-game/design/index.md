@@ -21,5 +21,5 @@ The story team's document lives under [Story](../story/index.md).
 !!! tip "Designers: changing numbers in the game"
     The [Tuning Guide](../codebase/tuning-guide.md) lists every value you can change in Unity (player speed, boss health, attack timing, gun recoil) and what it's set to now.
 
-!!! tip "Programmers: read the GDD with the code docs open"
-    The [codebase docs](../codebase/index.md) list where Milestone 1's code differs from the GDD, in the **Differs from the GDD** section at the end of each system page. Those notes are a good place to find work that's ready to pick up.
+!!! tip "Programmers: where the code differs from the GDD"
+    The [codebase docs](../codebase/index.md) list where Milestone 1's code differs from the GDD, in the **Differs from the GDD** section at the end of each system page.

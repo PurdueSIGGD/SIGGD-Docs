@@ -11,7 +11,7 @@ tags:
 
 --8<-- "includes/2627-game/milestone.md"
 
-Most of Space Jam's feel comes from numbers stored in assets. This page lists those assets, what each field does, and its value at v0.1.0, so you can tune the game without opening a script.
+Most of Space Jam's feel comes from numbers stored in assets, all of which are listed here.
 
 ---
 
@@ -24,37 +24,27 @@ Most of Space Jam's feel comes from numbers stored in assets. This page lists th
 5. **Share the change.** Either open a pull request with the changed `.asset` file ([The PR Workflow](../../../tutorials/general/gitgood2.md) shows how), or send the numbers to a programmer to put in.
 
 !!! warning "Asset edits made during Play mode are kept"
-    Changes to an object in the scene are thrown away when you stop playing, but changes to these assets are **saved**. That makes it easy to tune while playing, and just as easy to forget what you changed. Write down your starting values, and check GitHub Desktop's **Changes** tab before you share anything.
+    Changes to an object in the scene are thrown away when you stop playing, but changes to these assets are **saved**. That makes it easy to tune while playing, and just as easy to forget what you changed.
 
-!!! info "When a tooltip disagrees with this page, trust this page"
-    Hovering over a field shows its tooltip, but three tooltips are wrong at v0.1.0: `Impulse` and `Mass` on the player stats, and `Debuff` on passives. The rows below give the real behavior.
+!!! warning "Changes in Unity may not save through Git"
+    You may make changes to a scriptable object in Unity, but not see that in your Git tracking. To fix this, navigate to File --> Save Project to write those changes to disk.
 
 Units used below: distances are in **units** (Unity's world units), speeds in **units per second**, angles in **degrees**, and times in **seconds** unless a row says otherwise.
 
 ---
 
-## Common Goals
+## Damage Numbers at v0.1.0
 
-**Make the player feel faster.** In [Player](#player), raise `Max Velocity` (top speed) and `Acceleration` (how fast you reach it), or lower `Deceleration` so you glide longer. Careful: raising `Max Velocity` also makes rams hit harder. At 10 or more, a single full-speed ram kills the Factory Planet.
+**The player** has 3 HP. Hits come from boss scrap bullets (1 each), lasers (1 per second while inside one), and the test asteroids (1 each). Robots deal no damage on contact. Getting caught in your own bomb's blast counts as a hit that does 0 damage but still slows you.
 
-**Make the first boss easier.** In [Boss](#boss) and [Boss Attacks](#boss-attacks):
-
-- Lower its health (the first number in `Phase Health Boundaries`), or raise `Damage Multiplier` so rams do more.
-- Lengthen each attack's `Cooldown` so there's more rest between attacks.
-- Shorten the lasers' `Lifetime`. At v0.1.0 it's 500 seconds, so lasers pile up all fight.
-- Lower the scrap fan's `Projectile Count`, or lower `Damage` on `BossBasicBullet`.
-
-### What Hurts What at v0.1.0
-
-**The player** has 3 HP. Hits come from boss scrap bullets (1 each), lasers (1 per second while inside one), and the test asteroids (1 each). Robots touch you for no damage. Getting caught in your own bomb's blast counts as a hit that does 0 damage but still slows you.
-
-**The boss** has 100 HP. Hits come from rams and pushed objects moving faster than 5 units per second (10 damage per unit per second of speed), player bullets (5 each, with no fire-rate limit), and bombs (0 damage as shipped). The GDD doesn't want bullets to hurt the boss; that's a [known gap](systems/damage.md#differs-from-the-gdd).
+**The boss** has 100 HP. Hits come from rams and pushed objects moving faster than 5 units per second (10 damage per unit per second of speed), player bullets (5 each, with no fire-rate limit), and bombs (0 damage as shipped). The GDD says bullets shouldn't hurt the boss, so bullet damage to the boss is a [known gap](systems/damage.md#differs-from-the-gdd).
 
 ---
 
 ## Player
 
-**Asset:** `Assets/Player/PlayerStats.asset` &nbsp;&middot;&nbsp; **System:** [Player](systems/player.md)
+- **Asset:** `Assets/Player/PlayerStats.asset`
+- **System:** [Player](systems/player.md)
 
 | Field | v0.1.0 | What it does |
 |---|---|---|
@@ -72,14 +62,15 @@ Units used below: distances are in **units** (Unity's world units), speeds in **
 | Move Speed | 8 | Unused at v0.1.0. |
 
 !!! tip "How these interact"
-    - With `Impulse` at 20 and `Max Velocity` at 8, starting from a standstill launches the player straight to top speed. Lower `Impulse` below `Max Velocity` if you want a visible ramp-up.
+    - With `Impulse` at 20 and `Max Velocity` at 8, starting from a standstill launches the player straight to top speed.
     - A ram faster than 5 units per second deals 10 x its speed in damage to the boss. At a `Max Velocity` of 8, a full-speed ram deals about 80 of the Factory Planet's 100 HP.
 
 ---
 
 ## Guns
 
-**Assets:** `Assets/Equipment/WeaponScriptableObjects/` (the Pistol is `Pistol.asset`) &nbsp;&middot;&nbsp; **System:** [Weapons and Projectiles](systems/weapons.md)
+- **Assets:** `Assets/Equipment/WeaponScriptableObjects/` (the Pistol is `Pistol.asset`)
+- **System:** [Weapons and Projectiles](systems/weapons.md)
 
 | Field | Pistol | What it does |
 |---|---|---|
@@ -101,7 +92,8 @@ To make a new gun, see [Add a Gun](how-to/add-a-gun.md).
 
 ## Projectiles
 
-**Assets:** `Assets/Projectiles/Bullets/` &nbsp;&middot;&nbsp; **System:** [Weapons and Projectiles](systems/weapons.md)
+- **Assets:** `Assets/Projectiles/Bullets/`
+- **System:** [Weapons and Projectiles](systems/weapons.md)
 
 Guns, boss attacks, and robots all read projectile assets, so changing one changes everything that uses it.
 
@@ -115,7 +107,7 @@ Guns, boss attacks, and robots all read projectile assets, so changing one chang
 | Projectile Color | Tint over the sprite. |
 | Projectile Scale | Size, without needing new art. |
 | Is Explosive | Unused at v0.1.0. |
-| Spline Game Object | Work in progress. Leave empty. |
+| Spline Game Object | Work in progress. |
 
 | Asset | Used by | Damage | Lifetime | Velocity |
 |---|---|---|---|---|
@@ -129,7 +121,8 @@ Guns, boss attacks, and robots all read projectile assets, so changing one chang
 
 ## Boss
 
-**Asset:** `Assets/GenericBoss/Factory Boss Data.asset` &nbsp;&middot;&nbsp; **System:** [Boss](systems/boss.md)
+- **Asset:** `Assets/GenericBoss/Factory Boss Data.asset`
+- **System:** [Boss](systems/boss.md)
 
 | Field | v0.1.0 | What it does |
 |---|---|---|
@@ -151,7 +144,7 @@ Each weight asset pairs one attack with a list of `Chance Weights`, one number p
 | `LaserAttack` | Lasers | `[1, 1]` | About 1 in 3 overall |
 | `RobotSpawn` | Robot spawn | `[1, 2]` | About 1 in 3 overall |
 
-Because of the no-repeat rule, each pick is really a coin flip between the two attacks that didn't just fire. The second weight in each list is ready for a phase 2 that doesn't exist yet. If you add phases to `Phase Health Boundaries`, every weight asset needs a number for each one.
+Because of the no-repeat rule, each pick is a coin flip between the two attacks that didn't just fire. The second weight in each list is ready for a phase 2 that doesn't exist yet. If you add phases to `Phase Health Boundaries`, every weight asset needs a number for each one.
 
 ### Boss Attacks
 
@@ -173,7 +166,7 @@ Because of the no-repeat rule, each pick is really a coin flip between the two a
 | Angle Offset | 15 | How far each shot turns from the last. |
 | H Offset | 0 | How far the origin slides sideways after each shot. |
 | Target Layer Mask | `Asteroid`, `Player` | No effect at v0.1.0. |
-| Ignore Player Mask | `Enemy`, `Boss` | What the bullets pass through. Keep `Boss` in it. |
+| Ignore Player Mask | `Enemy`, `Boss` | What the bullets pass through. With `Boss` removed, the fan hits the boss. |
 
 **Lasers** (`BossAttackLaser.asset`): two beams at once.
 
@@ -200,13 +193,14 @@ Because of the no-repeat rule, each pick is really a coin flip between the two a
 
 Each robot has 10 HP (set on `Assets/Projectiles/Prefabs/Robot.prefab`) and re-aims at the nearest player every 3 seconds. Robots don't hurt the player at v0.1.0.
 
-**AOE bomb** (`BossAttackBomb.asset`) isn't in the Factory Planet's attack list. It fires `Projectile Count` (1) projectiles from `Origin` (`[10, 0]`), `Delay` (0) ms apart, at where the player will be one second later, using the `BossBomb` projectile.
+**AOE bomb** (`BossAttackBomb.asset`) isn't in the Factory Planet's attack list. It fires `Projectile Count` (1) `BossBomb` projectiles from `Origin` (`[10, 0]`), `Delay` (0) ms apart. They aim at where the player will be one second later.
 
 ---
 
 ## Tools
 
-**Assets:** `Assets/Equipment/Tools/Scriptable Objects/` &nbsp;&middot;&nbsp; **System:** [Tools](systems/tools.md)
+- **Assets:** `Assets/Equipment/Tools/Scriptable Objects/`
+- **System:** [Tools](systems/tools.md)
 
 **Bomb Thrower** (`Tools/BombThrowerData.asset`):
 
@@ -223,17 +217,18 @@ Each robot has 10 HP (set on `Assets/Projectiles/Prefabs/Robot.prefab`) and re-a
 | Blast Radius | 3 | How far the explosion reaches, in units. |
 | Blast Damage | 0 | Damage to everything in the blast, the thrower included. Even at 0, catching yourself counts as a hit that slows you. |
 | Blast Impulse | 20 | Push at the center of the blast. |
-| Blast Min Distance | 0.5 | Inside this distance, things get the full push. Beyond it, the push falls off: twice as far gets half. |
+| Blast Min Distance | 0.5 | Inside this distance, things get the full push. Beyond it, the push falls off with distance: at twice this distance, it's half. |
 | Lifetime | 0 | Unused at v0.1.0. |
 
 ---
 
 ## Passives
 
-**Assets:** `Assets/PassiveFiles/` &nbsp;&middot;&nbsp; **System:** [Loadout and Passives](systems/loadout.md)
+- **Assets:** `Assets/PassiveFiles/`
+- **System:** [Loadout and Passives](systems/loadout.md)
 
 !!! info "Passives don't do anything yet"
-    You can create and edit passive assets, and the loadout menu stores the chosen one, but no code applies them at v0.1.0. The values below are what's in the assets, ready for when it does.
+    You can create and edit passive assets, and the loadout menu stores the chosen one, but no code applies them at v0.1.0. The values below are what's in the assets now.
 
 | Field | Meaning (from the Passive Inspector's guide) |
 |---|---|

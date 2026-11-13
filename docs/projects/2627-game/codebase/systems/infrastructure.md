@@ -11,9 +11,10 @@ tags:
 
 --8<-- "includes/2627-game/milestone.md"
 
-These pieces know nothing about Space Jam. They're general patterns the systems build on: singleton base classes, a type-safe event bus, and an object pool. At v0.1.0, only `Singleton<T>` runs in the game, through `ProjectileManager`. `PrefabPool` is used by the asteroid system, which isn't in a scene yet, and the event bus is ready but unused.
+These pieces know nothing about Space Jam. They're general patterns the systems build on: singleton base classes, a type-safe event bus, and an object pool. At v0.1.0, only `Singleton<T>` runs in the game, through `ProjectileManager`. `PrefabPool` is used by the asteroid system, which isn't in a scene yet. The event bus is ready but unused.
 
-**Folders:** [`Assets/Extensions/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Extensions), [`Assets/Asteroids/Scripts/PrefabPool.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Asteroids/Scripts/PrefabPool.cs) &nbsp;&middot;&nbsp; **Namespaces:** `Extensions.Singleton`, `Extensions.EventBus`, and global for `PrefabPool`
+- **Folders:** [`Assets/Extensions/`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/tree/v0.1.0/Assets/Extensions), [`Assets/Asteroids/Scripts/PrefabPool.cs`](https://github.com/PurdueSIGGD/SIGGD-Game-2026/blob/v0.1.0/Assets/Asteroids/Scripts/PrefabPool.cs)
+- **Namespaces:** `Extensions.Singleton`, `Extensions.EventBus`, and global for `PrefabPool`
 
 ---
 
@@ -49,7 +50,7 @@ classDiagram
 | **A second copy** | Destroyed in `Awake`, with a warning | Destroyed in `Awake` | Not prevented: `T` needs a public parameterless constructor, so `new T()` anywhere makes another |
 | **Used by at v0.1.0** | `ProjectileManager` | Nothing | Nothing |
 
-To use `Singleton<T>`, inherit from it with your own class as `T`. If you override `Awake` or `OnDestroy`, call the base method first, the way `ProjectileManager` does:
+`ProjectileManager` inherits `Singleton<T>` with itself as `T`, and calls the base `Awake` from its own:
 
 ```csharp
 public class ProjectileManager : Singleton<ProjectileManager>
@@ -62,9 +63,7 @@ public class ProjectileManager : Singleton<ProjectileManager>
 }
 ```
 
-`PersistentSingleton<T>` also has `UnparentOnAwake` (on by default), which detaches the object from its parent before marking it `DontDestroyOnLoad`, since Unity only keeps root objects across scene loads.
-
-Reach for a singleton only when the whole game has exactly one of something. For anything per-player, like input or health, use components on the player and find them through [`PlayerRegistry`](player.md#playerregistry).
+`PersistentSingleton<T>` also has `UnparentOnAwake` (on by default). It detaches the object from its parent before marking it `DontDestroyOnLoad`, because Unity only keeps root objects across scene loads.
 
 ---
 
@@ -136,7 +135,7 @@ There's one pool per prefab, created on first use. Each pool keeps up to 128 rel
 
 ### Two Pools in One Codebase
 
-Bullets don't use `PrefabPool`. `ProjectileManager` owns its own `ObjectPool<GameObject>` for the one bullet prefab (see [Weapons and Projectiles](weapons.md#the-bullet-pool)). `PrefabPool` works for any prefab, so it's the one to use for new pooled objects.
+Bullets don't use `PrefabPool`. `ProjectileManager` owns its own `ObjectPool<GameObject>` for the one bullet prefab (see [Weapons and Projectiles](weapons.md#the-bullet-pool)). `PrefabPool` works for any prefab.
 
 ---
 
@@ -148,5 +147,5 @@ Bullets don't use `PrefabPool`. `ProjectileManager` owns its own `ObjectPool<Gam
 
 ## Known Issues
 
-- **Bullets won't survive a scene reload.** `ProjectileManager` is `DontDestroyOnLoad`, but the bullets in its pool are root objects in the scene. Reloading the scene (which restarting a boss will likely do) destroys the bullets while the pool still holds them, so the next shot hands out a destroyed object. Parent pooled bullets under the manager, or clear the pool on scene load.
+- **Bullets won't survive a scene reload.** `ProjectileManager` is `DontDestroyOnLoad`, but the bullets in its pool are root objects in the scene. Reloading the scene destroys the bullets while the pool still holds them, so the next shot hands out a destroyed object.
 - **Changing bindings during `Raise` throws.** `EventBus<T>.Raise` loops over a `HashSet`, so registering or deregistering a binding for the same event from inside a handler throws `InvalidOperationException`.
