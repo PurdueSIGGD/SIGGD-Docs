@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Documentation, tutorials, and resources for Purdue's Special Interest Group in Game Development.">
+        <meta name="description" content="Architecture, folder map, and conventions for the Space Jam Unity project.">
       
       
         <meta name="author" content="Purdue SIGGD">
@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://PurdueSIGGD.github.io/SIGGD-Docs/projects/2627-game/codebase/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../design/audio-tracker/">
       
       
         <link rel="next" href="systems/">
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#codebase" class="md-skip">
+        <a href="#codebase-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -1618,6 +1618,8 @@
       
         
       
+        
+      
     
     
     
@@ -1681,6 +1683,169 @@
                 
   
   
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../design/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design/game-design-doc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game Design Document
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design/art-document/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Art Document
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design/audio-tracker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audio Tracker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1690,6 +1855,12 @@
       
         
           
+        
+      
+        
+      
+        
+      
         
       
         
@@ -1707,7 +1878,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -1729,14 +1900,14 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+              <label class="md-nav__link md-nav__link--active" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2_2">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1754,15 +1925,551 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="systems/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="systems/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
     
   
     Systems
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_3_2" id="__nav_3_2_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Systems
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="systems/player/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Player
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="systems/damage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Damage and Health
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="systems/weapons/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weapons and Projectiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="systems/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="systems/loadout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loadout and Passives
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="systems/boss/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Boss
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="systems/asteroids/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Asteroids
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="systems/audio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="systems/infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared Infrastructure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="how-to/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How-To
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_3_3" id="__nav_3_2_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    How-To
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="how-to/add-a-gun/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Add a Gun
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="how-to/add-a-boss-attack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Add a Boss Attack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="how-to/add-a-tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Add a Tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="how-to/add-a-sound/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Add a Sound Effect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tuning-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tuning Guide
   
 
     
@@ -1790,7 +2497,35 @@
   <span class="md-ellipsis">
     
   
-    Scripts
+    Script Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="milestones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Milestones
   
 
     
@@ -1840,7 +2575,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1862,14 +2597,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_2_4" id="__nav_3_2_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_3">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2300,6 +3035,8 @@
       
         
       
+        
+      
     
     
     
@@ -2484,6 +3221,34 @@
     
   
     Script Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/templates/how-to-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How-To Template
   
 
     
@@ -2690,6 +3455,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the Project
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-1-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 1 at a Glance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#physics-layers-and-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Physics Layers and Tags
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#folder-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Folder Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packages-youll-see-in-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Packages You'll See in Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Conventions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glossary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2793,6 +3654,13 @@
       
       
       
+        <a href="../../../tags/#tag:programming" class="md-tag">programming</a>
+      
+    
+      
+      
+      
+      
         <a href="../../../tags/#tag:project" class="md-tag">project</a>
       
     
@@ -2823,8 +3691,336 @@
   
 
 
-<h1 id="codebase">Codebase<a class="headerlink" href="#codebase" title="Anchor link to this section">&para;</a></h1>
-<p>[TODO: Add architecture overview, repo structure, and entry points here.]</p>
+<h1 id="codebase-overview">Codebase Overview<a class="headerlink" href="#codebase-overview" title="Anchor link to this section">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Accurate as of Milestone 1 (v0.1.0)</p>
+<p>This page describes the game at release <a href="https://github.com/PurdueSIGGD/SIGGD-Game-2026/releases/tag/v0.1.0">v0.1.0</a> (commit <code>e3d0779</code>, 2026-11-08). Source links point at that release, so they keep matching this page even after <code>main</code> moves on.</p>
+</div>
+<p>This section is the map of the <a href="https://github.com/PurdueSIGGD/SIGGD-Game-2026"><abbr title="Special Interest Group in Game Development">SIGGD</abbr>-Game-2026</a> Unity project.</p>
+<ul>
+<li><a href="systems/">Systems</a>: reference for each system.</li>
+<li><a href="how-to/">How-To</a>: recipes for common changes.</li>
+<li><a href="tuning-guide/">Tuning Guide</a>: every value designers can change.</li>
+<li><a href="scripts/">Script Index</a>: every script and the page that covers it.</li>
+<li><a href="#glossary">Glossary</a>: project-specific terms.</li>
+</ul>
+<hr />
+<h2 id="running-the-project">Running the Project<a class="headerlink" href="#running-the-project" title="Anchor link to this section">&para;</a></h2>
+<ol>
+<li>Set up Unity Hub, Git, and the repo by following <a href="../../../tutorials/general/getting-set-up/">Getting Set Up</a>.</li>
+<li>Open the project with Unity <strong>6000.3.21f1</strong>.</li>
+<li>Open <code>Assets/Scenes/MasterScene.unity</code>. It's the only scene in the build.</li>
+<li>Press <strong>Play</strong>. Use the <a href="../#controls">controls on the Overview page</a>.</li>
+</ol>
+<p>You should see the player, the Factory Planet spinning, and seven test asteroids drifting. The planet starts attacking as soon as the scene loads.</p>
+<p><code>PlayerHealthTestScene</code> and <code>testplayermovement</code> in <code>Assets/Scenes/</code>, and <code>Test.unity</code> in <code>Assets/Equipment/LoadoutMenu/</code>, are test scenes. They aren't in the build and may be out of date.</p>
+<hr />
+<h2 id="milestone-1-at-a-glance">Milestone 1 at a Glance<a class="headerlink" href="#milestone-1-at-a-glance" title="Anchor link to this section">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>State at v0.1.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="systems/player/#known-issues">Player</a></td>
+<td><strong>Working.</strong> Movement, brake and relaunch, aiming, health with a short invincibility window after each hit. Co-op ghosts and revives work in code, but MasterScene only has one player.</td>
+</tr>
+<tr>
+<td><a href="systems/damage/#known-issues">Damage and Health</a></td>
+<td><strong>Working.</strong> One interface shared by the player, boss, robots, and asteroids.</td>
+</tr>
+<tr>
+<td><a href="systems/weapons/#known-issues">Weapons and Projectiles</a></td>
+<td><strong>Working.</strong> One gun (the Pistol) with pooled bullets. Fire rate isn't limited yet, and spline bullets are a work in progress.</td>
+</tr>
+<tr>
+<td><a href="systems/tools/#known-issues">Tools</a></td>
+<td><strong>Working.</strong> The Bomb Thrower is the one tool.</td>
+</tr>
+<tr>
+<td><a href="systems/loadout/#known-issues">Loadout and Passives</a></td>
+<td><strong>Partial.</strong> The loadout menu swaps guns. Tool swapping is stubbed out, and passives are stored but never applied.</td>
+</tr>
+<tr>
+<td><a href="systems/boss/#known-issues">Boss</a></td>
+<td><strong>Working.</strong> The Factory Planet picks weighted random attacks (scrap fan, lasers, robots). It has one phase and no death sequence.</td>
+</tr>
+<tr>
+<td><a href="systems/asteroids/#known-issues">Asteroids</a></td>
+<td><strong>Built but not placed.</strong> The full spawner, fragmenting, and pooling code exists, but no scene uses it yet. MasterScene uses seven simple test asteroids instead.</td>
+</tr>
+<tr>
+<td><a href="systems/audio/#known-issues">Audio</a></td>
+<td><strong>Working.</strong> FMOD one-shots and boss music, through a generated <code>AudioEvents</code> class.</td>
+</tr>
+<tr>
+<td><a href="systems/infrastructure/#known-issues">Shared Infrastructure</a></td>
+<td><strong>Working.</strong> Singletons, an event bus, and an object pool. Only the singleton runs in the game. <code>PrefabPool</code> waits on the asteroid system, and the event bus isn't used yet.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Anchor link to this section">&para;</a></h2>
+<p>Space Jam follows Unity's component model: each behavior is a small <code>MonoBehaviour</code>, and the numbers that tune it live in ScriptableObject assets. There's no central game manager yet. Systems find each other through prefab wiring, a few static entry points (<code>ProjectileManager.Instance</code>, <code>PlayerRegistry</code>, <code>AudioManager</code>), and the shared <code>IDamageable</code> interface.</p>
+<pre class="mermaid"><code>flowchart TB
+    INPUT["PlayerInputHandler&lt;br/&gt;(reads PlayerInput)"]
+    INPUT --&gt; MOVE["PlayerController&lt;br/&gt;movement and brake"]
+    INPUT --&gt; GUN["PrimaryGun"]
+    INPUT --&gt; TOOL["ToolUser + BombThrower"]
+
+    BOSS["GenericBoss"] --&gt; ATK["BossAttack assets"]
+
+    GUN --&gt; PM["ProjectileManager&lt;br/&gt;bullet pool"]
+    TOOL --&gt; PM
+    ATK --&gt; PM
+    ATK --&gt; LASER["Laser"]
+    ATK --&gt; ROBOT["Robot"]
+
+    PM --&gt; SHOTS["Bullet, Bomb"]
+    MOVE --&gt; RAM["Collisions faster than&lt;br/&gt;a speed threshold"]
+
+    SHOTS -- "TakeDamage" --&gt; DMG{{"IDamageable&lt;br/&gt;player, boss, robots, asteroids"}}
+    LASER -- "TakeDamage" --&gt; DMG
+    RAM -- "boss and asteroids&lt;br/&gt;damage themselves" --&gt; DMG
+
+    REG[("PlayerRegistry")] -.-&gt; ROBOT</code></pre>
+<p><em>Arrows show who calls or creates what. Robots read <code>PlayerRegistry</code> to chase the nearest player, but don't deal damage yet. <code>AudioManager</code> isn't shown. The gun, the boss and its attacks, and the player all call it to play sounds.</em></p>
+<p>A few codebase rules:</p>
+<ul>
+<li><strong>Only <code>PlayerInputHandler</code> reads input.</strong> Everything else reads its properties (<code>Move</code>, <code>IsBrakeHeld</code>) or subscribes to its events (<code>FirePressed</code>, <code>UseToolPressed</code>). See <a href="systems/player/#input">Player</a>.</li>
+<li><strong>Anything that can be hurt implements <code>IDamageable</code>.</strong> Attackers don't check what they hit. They build a <code>DamageContext</code> and call <code>TakeDamage</code>. The one exception is the MasterScene test asteroids, which check for the <code>Player</code> tag. See <a href="systems/damage/">Damage and Health</a>.</li>
+<li><strong>Collision damage is computed by the thing being hit.</strong> The boss and the asteroid system's asteroids each turn impact speed into damage to themselves. That's how "speed = damage" works in code.</li>
+<li><strong>Tuning numbers live in assets.</strong> Guns, bullets, boss attacks, player stats, and asteroids all read from ScriptableObjects. See the <a href="tuning-guide/">Tuning Guide</a>.</li>
+<li><strong>Sounds go through <code>AudioManager</code> and <code>AudioEvents</code>.</strong> Do not type an FMOD path by hand. See <a href="systems/audio/">Audio</a>.</li>
+</ul>
+<hr />
+<h2 id="physics-layers-and-tags">Physics Layers and Tags<a class="headerlink" href="#physics-layers-and-tags" title="Anchor link to this section">&para;</a></h2>
+<p>The 2D collision matrix (<strong>Project Settings &gt; Physics 2D</strong>) lets every layer hit every other layer. Bullets, robots, and ghosts then exclude specific layers on their own colliders, and anything on an excluded layer passes through them.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Index</th>
+<th>On it at v0.1.0</th>
+<th>Skipped by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Asteroid</code></td>
+<td>8</td>
+<td>The test asteroids</td>
+<td>Ghost players</td>
+</tr>
+<tr>
+<td><code>Player</code></td>
+<td>9</td>
+<td>The player prefab</td>
+<td>The player's own bullets</td>
+</tr>
+<tr>
+<td><code>Enemy</code></td>
+<td>10</td>
+<td>Nothing yet. Robots are still on <code>Default</code>.</td>
+<td>Boss bullets, robots</td>
+</tr>
+<tr>
+<td><code>Boss</code></td>
+<td>11</td>
+<td>The <code>Factory Boss</code> object</td>
+<td>Boss bullets, robots</td>
+</tr>
+</tbody>
+</table>
+<p>Everything else, including robots, lasers, bullets, and bombs, is on <code>Default</code>.</p>
+<p>Tags are listed as constants in <code>PlayerSystem.Tags</code>. <code>Player</code> is on the player prefab, and <code>Finish</code> marks whatever removes a ghost on contact (see <a href="systems/player/#known-issues">Player</a>).</p>
+<hr />
+<h2 id="folder-map">Folder Map<a class="headerlink" href="#folder-map" title="Anchor link to this section">&para;</a></h2>
+<p>Everything game-specific is under <code>Assets/</code>. Folders are grouped by feature, not by file type, so a feature's scripts, prefabs, and data assets sit together.</p>
+<table>
+<thead>
+<tr>
+<th>Folder</th>
+<th>What's in it</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Assets/Player/</code></td>
+<td>Player components, <code>PlayerStats</code> asset, player prefabs and art. <code>PlayerHealthTesting/</code> holds the test asteroid and spawner.</td>
+<td><a href="systems/player/">Player</a></td>
+</tr>
+<tr>
+<td><code>Assets/Damage/</code></td>
+<td><code>IDamageable</code> and <code>DamageContext</code>.</td>
+<td><a href="systems/damage/">Damage and Health</a></td>
+</tr>
+<tr>
+<td><code>Assets/Projectiles/</code></td>
+<td><code>ProjectileManager</code>, <code>Bullet</code>, <code>PrimaryGun</code>, and the projectile assets in <code>Bullets/</code>.</td>
+<td><a href="systems/weapons/">Weapons and Projectiles</a></td>
+</tr>
+<tr>
+<td><code>Assets/Equipment/</code></td>
+<td>Gun assets and prefabs, <code>Tools/</code> (tool scripts and assets), <code>LoadoutMenu/</code>, and an outdated <code>EquipmentManager/README.md</code>.</td>
+<td><a href="systems/weapons/">Weapons and Projectiles</a>, <a href="systems/tools/">Tools</a>, <a href="systems/loadout/">Loadout and Passives</a></td>
+</tr>
+<tr>
+<td><code>Assets/PassiveFiles/</code></td>
+<td>The <code>Passive</code> asset type, <code>PassiveHolder</code>, and five passive assets.</td>
+<td><a href="systems/loadout/">Loadout and Passives</a></td>
+</tr>
+<tr>
+<td><code>Assets/GenericBoss/</code></td>
+<td>Boss logic, the attack classes, and the Factory Planet's attack and weight assets.</td>
+<td><a href="systems/boss/">Boss</a></td>
+</tr>
+<tr>
+<td><code>Assets/Boss/Factory Planet/</code></td>
+<td>The <code>Factory Boss</code> prefab and its art.</td>
+<td><a href="systems/boss/">Boss</a></td>
+</tr>
+<tr>
+<td><code>Assets/PlanetRotation.cs</code></td>
+<td>The script that spins the boss, loose at the top of <code>Assets/</code>.</td>
+<td><a href="systems/boss/#planetrotation">Boss</a></td>
+</tr>
+<tr>
+<td><code>Assets/Asteroids/</code></td>
+<td>The full asteroid system (not placed in a scene yet).</td>
+<td><a href="systems/asteroids/">Asteroids</a></td>
+</tr>
+<tr>
+<td><code>Assets/Audio/</code></td>
+<td><code>AudioManager</code>, the generated <code>AudioEvents.cs</code>, and its generator.</td>
+<td><a href="systems/audio/">Audio</a></td>
+</tr>
+<tr>
+<td><code>Assets/Extensions/</code></td>
+<td>Reusable code with no game knowledge: <code>EventBus/</code> and <code>Singleton/</code>.</td>
+<td><a href="systems/infrastructure/">Shared Infrastructure</a></td>
+</tr>
+<tr>
+<td><code>Assets/Input/</code></td>
+<td><code>InputActions.inputactions</code>, the input map.</td>
+<td><a href="systems/player/#input">Player</a></td>
+</tr>
+<tr>
+<td><code>Assets/UI/HUD/</code></td>
+<td>HUD prefab and sprites.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Assets/Scenes/</code></td>
+<td><code>MasterScene</code> plus two old test scenes.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Assets/Plugins/</code></td>
+<td>Third-party code: FMOD, Odin Inspector, PrimeTween.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>FMODProject/</code> (repo root)</td>
+<td>The FMOD Studio project the audio team edits.</td>
+<td><a href="systems/audio/">Audio</a></td>
+</tr>
+<tr>
+<td><code>FMOD/</code> (repo root)</td>
+<td>Built FMOD banks that Unity loads.</td>
+<td><a href="systems/audio/">Audio</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="packages-youll-see-in-code">Packages You'll See in Code<a class="headerlink" href="#packages-youll-see-in-code" title="Anchor link to this section">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Used for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://docs.unity3d.com/Packages/com.unity.inputsystem@1.20/manual/index.html">Input System</a></td>
+<td>All player input, through <code>PlayerInput</code></td>
+<td><code>PlayerInputHandler</code></td>
+</tr>
+<tr>
+<td><a href="https://www.fmod.com/docs/2.03/unity/welcome.html">FMOD for Unity</a></td>
+<td>All audio</td>
+<td><code>AudioManager</code>, <code>AudioEvents</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Cysharp/UniTask">UniTask</a></td>
+<td><code>async</code> boss attacks and the attack loop</td>
+<td><code>GenericBoss</code>, <code>BossAttack*</code></td>
+</tr>
+<tr>
+<td><a href="https://odininspector.com/">Odin Inspector</a></td>
+<td>Showing read-only runtime values in the Inspector (<code>[ShowInInspector, ReadOnly]</code>)</td>
+<td><code>Player</code>, <code>GenericBoss</code></td>
+</tr>
+<tr>
+<td><a href="https://docs.unity3d.com/Packages/com.unity.splines@2.9/manual/index.html">Splines</a></td>
+<td>Work-in-progress curved bullet paths</td>
+<td><code>Bullet</code>, <code>ProjectileScriptableObject</code></td>
+</tr>
+<tr>
+<td>PrimeTween</td>
+<td>Installed for tweening. No game script uses it yet.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="code-conventions">Code Conventions<a class="headerlink" href="#code-conventions" title="Anchor link to this section">&para;</a></h2>
+<p>The <a href="../../../tutorials/programming/csharp-style-guide/">C# Style Guide</a> covers naming and formatting, and the repo's <code>.editorconfig</code> mirrors it. Two project-specific notes:</p>
+<ul>
+<li><strong>Namespaces.</strong> Most player code is in <code>PlayerSystem</code>, and the shared extensions are in <code>Extensions.EventBus</code> and <code>Extensions.Singleton</code>. Everything else is in the global namespace for now.</li>
+<li><strong>Unity 6 physics names.</strong> The code uses <code>Rigidbody2D.linearVelocity</code> and <code>linearDamping</code>, the Unity 6 names for what used to be called <code>velocity</code> and <code>drag</code>.</li>
+</ul>
+<hr />
+<h2 id="glossary">Glossary<a class="headerlink" href="#glossary" title="Anchor link to this section">&para;</a></h2>
+<p>Terms these pages use that are specific to Space Jam or to this codebase.</p>
+<dl>
+<dt>AOE bomb</dt>
+<dd>The boss's area-of-effect bomb attack (<code>BossAttackBomb</code>). Built, but not in the Factory Planet's attack pool.</dd>
+<dt>Brake and relaunch</dt>
+<dd>The player's brake: hold to stop dead, release while holding a direction to fly off at the saved speed. See <a href="systems/player/#braking-and-relaunch">Player</a>.</dd>
+<dt><abbr title="Game Design Document">GDD</abbr></dt>
+<dd>The <a href="../design/game-design-doc/">Game Design Document</a>, the design team's source of truth for how the game should play.</dd>
+<dt>Ghost</dt>
+<dd>What a player becomes in co-op at 0 HP while a teammate is still alive. A ghost drifts toward the planet, and a living teammate can touch it to revive it. See <a href="systems/player/#health-death-and-ghosts">Player</a>.</dd>
+<dt>Invincibility window (i-frames)</dt>
+<dd>The short time after a hit when the player can't be hurt again. Set by <code>IframeDuration</code>.</dd>
+<dt>Kinematic</dt>
+<dd>A <code>Rigidbody2D</code> that physics doesn't move. The boss is kinematic, so rams don't push it.</dd>
+<dt>MasterScene</dt>
+<dd><code>Assets/Scenes/MasterScene.unity</code>, the one scene in the build.</dd>
+<dt>Misc</dt>
+<dd>The old name for the tool slot. It still appears in the <abbr title="Game Design Document">GDD</abbr> and some code comments.</dd>
+<dt>Passive</dt>
+<dd>The third loadout slot: a stat change with no button. See <a href="systems/loadout/#passives">Loadout and Passives</a>.</dd>
+<dt>Phase</dt>
+<dd>A stage of a boss fight, set by the boss's health. Each phase can use different attack weights. See <a href="systems/boss/#phases">Boss</a>.</dd>
+<dt>Pool</dt>
+<dd>A set of reusable objects that are switched off instead of destroyed. Bullets and asteroids are pooled. See <a href="systems/infrastructure/#prefabpool">Shared Infrastructure</a>.</dd>
+<dt>Scrap fan</dt>
+<dd>The Factory Planet's basic bullet attack (<code>BossAttackLinearFan</code>).</dd>
+<dt>Telegraph</dt>
+<dd>A warning shown before an attack lands. The <abbr title="Game Design Document">GDD</abbr> asks for them, but none exist yet.</dd>
+<dt>Weight</dt>
+<dd>A number that sets how likely the boss is to pick an attack in a phase, stored in an <code>AttackPercents</code> asset. See <a href="systems/boss/#picking-an-attack">Boss</a>.</dd>
+<dt>World coordinates</dt>
+<dd>Positions in the scene itself, not relative to any object. Boss attack origins use them.</dd>
+</dl>
 
 
 
@@ -2847,7 +4043,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 27, 2026 20:05:58 UTC"><span class="timeago" datetime="2026-08-27T20:05:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 27, 2026 20:05:58 UTC">2026-08-27</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="November 13, 2026 23:50:26 UTC"><span class="timeago" datetime="2026-11-13T23:50:26+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="November 13, 2026 23:50:26 UTC">2026-11-13</span>
   </span>
 
     
@@ -2872,8 +4068,8 @@
     </span>
     <nav>
       
-        <a href="mailto:pranavsukesh@gmail.com">Pranav Sukesh</a>, 
-        <a href="mailto:psukesh@purdue.edu">Pranav Sukesh</a>
+        <a href="mailto:psukesh@purdue.edu">Pranav Sukesh</a>, 
+        <a href="mailto:pranavsukesh@gmail.com">Pranav Sukesh</a>
     </nav>
   </span>
 
@@ -2910,7 +4106,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview">
+          <a href="../design/audio-tracker/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Audio Tracker">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2920,20 +4116,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Overview
+                Audio Tracker
               </div>
             </div>
           </a>
         
         
           
-          <a href="systems/" class="md-footer__link md-footer__link--next" aria-label="Next: Systems">
+          <a href="systems/" class="md-footer__link md-footer__link--next" aria-label="Next: 26-27 Game - Systems">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Systems
+                26-27 Game - Systems
               </div>
             </div>
             <div class="md-footer__button md-icon">
