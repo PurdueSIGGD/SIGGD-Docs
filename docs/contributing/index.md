@@ -57,8 +57,13 @@ Before submitting a PR, run `mkdocs build --strict` to catch broken links and na
 | Codebase docs | [Codebase Template](templates/codebase-template.md) | `docs/projects/<project-name>/codebase/` |
 | System doc | [System Template](templates/system-template.md) | `docs/projects/<project-name>/codebase/systems/` |
 | Script reference | [Script Template](templates/script-template.md) | `docs/projects/<project-name>/codebase/scripts/` |
+| How-To recipe | [How-To Template](templates/how-to-template.md) | `docs/projects/<project-name>/codebase/how-to/` |
 | Resource page | [Resource Template](templates/resource-template.md) | `docs/resources/` |
 | Google Doc page | [Google Doc Template](templates/google-doc-template.md) | anywhere |
+
+---
+
+**Documenting a project's code?** Codebase pages describe one release of the game and are updated every milestone. Their extra rules, such as pinned source links and a milestone banner, are under "Codebase docs" in the [Style Guide](style-guide.md). The [26-27 Game Milestones page](../projects/2627-game/codebase/milestones.md) has the checklist for moving the docs to a new milestone.
 
 ---
 

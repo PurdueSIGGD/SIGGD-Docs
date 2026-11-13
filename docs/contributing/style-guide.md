@@ -48,6 +48,26 @@ google_doc: https://docs.google.com/document/d/FILE_ID/edit?usp=sharing
 
 ---
 
+**Codebase docs:** Pages under a project's `codebase/` folder describe one release of the game, and the [Codebase Template](templates/codebase-template.md) has their full layout. They also follow these rules:
+
+- **Pin source links to a release tag**, never to `main`: `https://github.com/PurdueSIGGD/<repo>/blob/v0.1.0/Assets/...`. Add `#L42` to link one line. A link to `main` drifts as soon as someone pushes.
+- **Include the milestone banner** under every codebase page's title. It lives in one snippet file per project, so bumping it for a new milestone means editing one file:
+
+    ```markdown
+    ;--8<-- "includes/2627-game/milestone.md"
+    ```
+
+    Snippet paths resolve from `docs/`, and files in `docs/includes/` aren't built as pages.
+
+- **End system pages with Known Issues**, then **Differs from the GDD** (the project's Game Design Document) where the project has one. Start each item with a short bold summary that ends in a period, and link to the line in the source when one line is at fault.
+- **Plain ASCII only in codebase pages.** Write `->` rather than an arrow character, and `x` rather than a times sign. Use TeX (`$...$` inline, `$$...$$` for a block) for any math or special symbol, and keep Mermaid labels ASCII.
+
+---
+
+**Diagrams:** Use Mermaid in a fenced block with the `mermaid` language. Use a class diagram for how classes connect, a state diagram for anything that changes state, and a flowchart for a pipeline. Prefer top-to-bottom layouts (`direction TB`, `flowchart TB`), because wide left-to-right diagrams shrink until their text is unreadable. The build doesn't check Mermaid, so preview the page with `mkdocs serve` and make sure the diagram draws.
+
+---
+
 **Code blocks:** Always specify the language identifier.
 
 ````markdown
@@ -109,7 +129,7 @@ Don't overuse them, as if every paragraph has one, none stand out.
 
 **Tags:** Lowercase, hyphen-separated. Reuse existing tags before adding new ones.
 
-`programming` · `art` · `game-design` · `audio` · `general` · `unity` · `godot` · `unreal` · `pixel-art` · `3d` · `animation` · `ui` · `tools` · `assets` · `project` · `game-jam` · `tutorial` · `reference` · `setup` · `beginner` · `intermediate` · `advanced`
+`programming`, `art`, `game-design`, `audio`, `general`, `unity`, `godot`, `unreal`, `pixel-art`, `3d`, `animation`, `ui`, `tools`, `assets`, `project`, `game-jam`, `tutorial`, `reference`, `setup`, `beginner`, `intermediate`, `advanced`
 
 ---
 

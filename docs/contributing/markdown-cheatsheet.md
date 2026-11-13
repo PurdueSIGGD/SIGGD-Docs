@@ -154,7 +154,7 @@ graph LR
 ++ctrl+s++  ++enter++  ++alt+f4++
 ```
 
-++ctrl+s++ · ++enter++
+++ctrl+s++  ++enter++  ++alt+f4++
 
 ---
 

@@ -24,7 +24,8 @@ status: published   # draft | review | published
     - Create and merge branches to work without disrupting your teammates
     - Set up Git LFS to handle large art and audio assets
 
-**Difficulty:** Beginner · **Time:** 45 minutes
+- **Difficulty:** Beginner
+- **Time:** 45 minutes
 
 ---
 

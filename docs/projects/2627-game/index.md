@@ -1,16 +1,93 @@
 ---
 title: 26-27 Game
-description: SIGGD's 2026-2027 semester project.
+description: "Space Jam, SIGGD's 2026-2027 project."
 tags:
   - project
+  - unity
 status: in-development
 year: 2027
+engine: Unity
+genre: 2D physics boss rush
+repo_url: https://github.com/PurdueSIGGD/SIGGD-Game-2026
 ---
 
-# 26-27 Game
+# Space Jam (26-27 Game)
 
-*Coming soon.*
+Space Jam is a 2D boss rush where you, solo or with a friend, destroy evil planets. You float in zero gravity, build up speed with your jetpack and equipment, and damage each planet boss by ramming yourself or an asteroid into it. **Speed = Damage = Good**.
 
-[TODO: Add project name, description, genre, and team size once decided.]
+| | |
+|---|---|
+| **Engine** | Unity 6 (6000.3.21f1), 2D, Universal Render Pipeline |
+| **Genre** | 2D side-view boss rush, physics-based, co-op |
+| **Players** | 1 or 2, local |
+| **Status** | In development. Milestone 1 shipped as [v0.1.0](https://github.com/PurdueSIGGD/SIGGD-Game-2026/releases/tag/v0.1.0). |
+| **Source** | [PurdueSIGGD/SIGGD-Game-2026](https://github.com/PurdueSIGGD/SIGGD-Game-2026) |
 
-[TODO: Add screenshots/GIFs when available.]
+---
+
+## The Game Loop
+
+Each level is one boss fight against a planet. See the [Game Design Document](design/game-design-doc.md) for more.
+
+1. Pick a loadout: a gun, a tool, and a passive.
+2. Fight the boss. Learn its attack patterns, dodge, and land hits by building speed.
+3. Win, earn a rank and a reward, and buy new equipment for the next fight.
+
+!!! info "What you can play at v0.1.0"
+    One player fights the Factory Planet in a single phase, with the Pistol and the Bomb Thrower. Several things don't match the design yet: bullets do hurt the boss, the test asteroids hurt you instead of being pushable, robots are harmless, and nothing happens when either side dies. See the [codebase overview](codebase/index.md#milestone-1-at-a-glance).
+
+---
+
+## Controls
+
+These are the bindings as of Milestone 1.
+
+| Action | Keyboard and mouse | Gamepad |
+|---|---|---|
+| Move | ++w++ ++a++ ++s++ ++d++ or arrow keys | Left stick |
+| Aim | Mouse | Right stick |
+| Fire gun | Left click | Right trigger |
+| Use tool | Right click | Left trigger |
+| Tool alternate (hold) | ++e++ | North button (Y on Xbox) |
+| Brake | ++space++ | Left bumper |
+| Previous / next (not used yet) | ++1++ / ++2++ | D-pad left / right |
+
+---
+
+## Where to Go Next
+
+<div class="grid cards" markdown>
+
+-   :material-file-document-outline:{ .lg .middle } **Design**
+
+    ---
+
+    The Game Design Document, the Art Document, and the Audio Tracker.
+
+    [:octicons-arrow-right-24: Design docs](design/index.md)
+
+-   :material-tune-variant:{ .lg .middle } **Tuning Guide**
+
+    ---
+
+    For designers: every number you can change.
+
+    [:octicons-arrow-right-24: Tuning Guide](codebase/tuning-guide.md)
+
+-   :material-code-braces:{ .lg .middle } **Codebase**
+
+    ---
+
+    Details on the Unity project and codebase.
+
+    [:octicons-arrow-right-24: Codebase docs](codebase/index.md)
+
+-   :material-book-open-variant:{ .lg .middle } **Story**
+
+    ---
+
+    The story team's design document and task list.
+
+    [:octicons-arrow-right-24: Story](story/index.md)
+
+</div>

@@ -25,7 +25,8 @@ status: published   # draft | review | published
     - Compare two designs and pick one for a reason
     - Draw a class diagram other people can actually read
 
-**Difficulty:** Beginner · **Time:** ~60 minutes
+- **Difficulty:** Beginner
+- **Time:** ~60 minutes
 
 ---
 

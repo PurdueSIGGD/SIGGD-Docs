@@ -11,6 +11,11 @@ edit_uri: edit/main/docs/
 
 copyright: Copyright &copy; 2026 Purdue SIGGD
 
+# Snippet files are pulled into other pages with `--8<--` and are not pages of
+# their own. They still exist on disk, so snippets can read them.
+exclude_docs: |
+  includes/
+
 hooks:
   # google_docs runs before author_attribution so the attribution block stays
   # at the very bottom of a page that ends with an embed.
@@ -112,10 +117,33 @@ nav:
       - projects/index.md
       - 26-27 Game:
           - Overview: projects/2627-game/index.md
+          - Design:
+              - projects/2627-game/design/index.md
+              - Game Design Document: projects/2627-game/design/game-design-doc.md
+              - Art Document: projects/2627-game/design/art-document.md
+              - Audio Tracker: projects/2627-game/design/audio-tracker.md
           - Codebase:
               - projects/2627-game/codebase/index.md
-              - Systems: projects/2627-game/codebase/systems/index.md
-              - Scripts: projects/2627-game/codebase/scripts/index.md
+              - Systems:
+                  - projects/2627-game/codebase/systems/index.md
+                  - Player: projects/2627-game/codebase/systems/player.md
+                  - Damage and Health: projects/2627-game/codebase/systems/damage.md
+                  - Weapons and Projectiles: projects/2627-game/codebase/systems/weapons.md
+                  - Tools: projects/2627-game/codebase/systems/tools.md
+                  - Loadout and Passives: projects/2627-game/codebase/systems/loadout.md
+                  - Boss: projects/2627-game/codebase/systems/boss.md
+                  - Asteroids: projects/2627-game/codebase/systems/asteroids.md
+                  - Audio: projects/2627-game/codebase/systems/audio.md
+                  - Shared Infrastructure: projects/2627-game/codebase/systems/infrastructure.md
+              - How-To:
+                  - projects/2627-game/codebase/how-to/index.md
+                  - Add a Gun: projects/2627-game/codebase/how-to/add-a-gun.md
+                  - Add a Boss Attack: projects/2627-game/codebase/how-to/add-a-boss-attack.md
+                  - Add a Tool: projects/2627-game/codebase/how-to/add-a-tool.md
+                  - Add a Sound Effect: projects/2627-game/codebase/how-to/add-a-sound.md
+              - Tuning Guide: projects/2627-game/codebase/tuning-guide.md
+              - Script Index: projects/2627-game/codebase/scripts/index.md
+              - Milestones: projects/2627-game/codebase/milestones.md
           - Story:
               - projects/2627-game/story/index.md
               - Story Design Document: projects/2627-game/story/story-design-doc.md
@@ -136,6 +164,7 @@ nav:
           - Codebase Template: contributing/templates/codebase-template.md
           - System Template: contributing/templates/system-template.md
           - Script Template: contributing/templates/script-template.md
+          - How-To Template: contributing/templates/how-to-template.md
           - Resource Template: contributing/templates/resource-template.md
           - Google Doc Template: contributing/templates/google-doc-template.md
   - About:
@@ -172,7 +201,13 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.smartsymbols
+  # Snippet paths resolve from docs/, so `includes/...` means docs/includes/.
+  # Without base_path they resolved from the repo root, and the abbreviations
+  # file below was silently never appended.
   - pymdownx.snippets:
+      base_path:
+        - docs
+      check_paths: true
       auto_append:
         - includes/abbreviations.md
   - pymdownx.superfences:

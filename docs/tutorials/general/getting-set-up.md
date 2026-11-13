@@ -23,7 +23,8 @@ status: published   # draft | review | published
     - Have the game project downloaded to your computer
     - Have the game running in the Unity editor
 
-**Difficulty:** Beginner · **Time:** 30 minutes
+- **Difficulty:** Beginner
+- **Time:** 30 minutes
 
 ---
 

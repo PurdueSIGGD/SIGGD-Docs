@@ -25,7 +25,8 @@ status: published   # draft | review | published
     - Spot the habits that make code harder to change (type checks, singletons, fat MonoBehaviours)
     - Decide when a problem doesn't need any of this at all
 
-**Difficulty:** Intermediate · **Time:** ~45 minutes
+- **Difficulty:** Intermediate
+- **Time:** ~45 minutes
 
 ---
 
